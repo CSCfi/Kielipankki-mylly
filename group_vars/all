@@ -1,0 +1,3 @@
+chipster_key: Martin_VM
+chipster_security_groups: default,chipster-sg
+chipster_network: clarin

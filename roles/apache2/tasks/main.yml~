@@ -1,0 +1,9 @@
+  tasks:
+   - name: Install a webserver
+     apt: name=apache2 state=present update_cache=yes
+
+   - name: Deploy demo web page
+     template: src=templates/demo.html.j2 dest=/var/www/index.html owner=www-data group=www-data mode=0644
+
+   - name: Copy a picture of Kajaani
+     copy: src=resources/kajaani.jpg dest=/var/www/kajaani.jpg owner=www-data group=www-data mode=0644

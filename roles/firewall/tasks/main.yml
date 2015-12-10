@@ -1,0 +1,8 @@
+- name: Firewall
+  ufw: state=enabled policy=deny
+   
+- name: Configure firewalld for http
+  ufw: rule=allow port=80 proto=tcp
+
+- name: Configure firewalld for ssh
+  ufw: rule=allow port=22 proto=tcp
