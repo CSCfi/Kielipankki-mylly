@@ -1,2 +1,3 @@
- demo_photo: kajaani.jpg
- demo_greeting: "Hello from Kajaani!"
+hosts: cielipankki
+demo_photo: kajaani.jpg
+demo_greeting: "Hello from Kajaani!"

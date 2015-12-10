@@ -2,11 +2,12 @@
 # Basic demo of using Ansible to create a virtual machine on Pouta.csc.fi
 #
 
-  - hosts: localhost
-  - roles:
-    - provision_vm
-    - volumes
-    - cielipankki
+- hosts: localhost
+- roles:
+  - provision_vm
+#  - volumes
+#  - apache2
+#  - firewall
 
 
 
