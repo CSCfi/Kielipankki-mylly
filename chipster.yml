@@ -38,8 +38,8 @@
       register: result
       os_server:
         name: cielipankki
-        image: CentOS-7.0
-        flavor: tiny
+        image: Chipster_3.6.3_Root
+        flavor: small
         key_name: "{{ chipster_key }}"
         security_groups: "{{ chipster_security_groups }}"
         nics:
@@ -60,9 +60,19 @@
     - name: Wait for instance to be ready
       wait_for: host={{ floating_ip }} port=22 search_regex=OpenSSH delay=60
 
+- name: create a volume
+  hosts: localhost
+  tasks:
+  - name: create 40g test volume
+    os_volume:
+      state: present
+      size: 40
+      display_name: chipster_volume
+
+
 - name: Configure demo host
   hosts: new
-  remote_user: cloud-user
+  remote_user: ubuntu
   become: yes
   vars:
     demo_photo: kajaani.jpg
@@ -70,37 +80,25 @@
 
   tasks:
    - name: Install a webserver
-     yum: name=httpd state=present
+     apt: name=apache2 state=present update_cache=yes
 
    - name: Deploy demo web page
-     template: src=templates/demo.html.j2 dest=/var/www/html/index.html owner=apache group=apache mode=0644
+     template: src=templates/demo.html.j2 dest=/var/www/index.html owner=www-data group=www-data mode=0644
 
    - name: Copy a picture of Kajaani
-     copy: src=resources/kajaani.jpg dest=/var/www/html/kajaani.jpg owner=apache group=apache mode=0644
+     copy: src=resources/kajaani.jpg dest=/var/www/kajaani.jpg owner=www-data group=www-data mode=0644
 
-   - name: Install firewalld
-     yum: name=firewalld state=present
+   - name: Firewall
+     ufw: state=enabled policy=deny
 
-   - name: Start firewalld
-     service: name=firewalld state=started enabled=yes sleep=10
-
-   - name: Wait for firewalld
-     pause: seconds=30
+   
+   - name: Configure firewalld for http
+     ufw: rule=allow port=80 proto=tcp
 
    - name: Configure firewalld for ssh
-     firewalld: service=ssh permanent=true state=enabled
-     notify:
-       - restart firewalld
-
-   - name: Configure firewalld for http
-     firewalld: service=http permanent=true state=enabled
-     notify:
-       - restart firewalld
+     ufw: rule=allow port=22 proto=tcp
 
    - name: Start apache
      service: name=httpd state=started enabled=yes
 
-  handlers:
-    - name: restart firewalld
-      service: name=firewalld state=restarted sleep=5
      
