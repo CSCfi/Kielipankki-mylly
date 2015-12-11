@@ -1,3 +1,0 @@
-hosts: new
-remote_user: ubuntu
-become: yes

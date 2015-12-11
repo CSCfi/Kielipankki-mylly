@@ -3,11 +3,17 @@
 #
 
 - hosts: localhost
-- roles:
-  - provision_vm
-#  - volumes
-#  - apache2
-#  - firewall
+  roles:
+   - provision_vm
+   - volumes
+
+- hosts: new
+  remote_user: ubuntu
+  become: yes
+  roles:
+   - fstab
+   - apache2
+   - firewall
 
 
 

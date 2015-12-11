@@ -1,0 +1,21 @@
+- name: Check for /dev/vdc
+  stat: path=/dev/vdc
+  register: vdc_status
+
+# Mount devices
+- name: Partition assign label
+  command: bash -c "/usr/bin/yes No | /sbin/parted  /dev/vdc mklabel msdos"
+  when: not vdc_status.stat.exists
+
+- name: Partition create
+  command: bash -c "/usr/bin/yes No | /sbin/parted -a optimal /dev/vdc mkpart primary 0% 100%"
+  when: not vdc_status.stat.exists
+
+- name: create filesystem(s)
+  filesystem: fstype=ext4 dev=/dev/vdc1
+
+- name: unmount /mnt
+  mount: name=/mnt src='/dev/vdb' fstype=ext3 state=unmounted
+
+#- name: mount data
+#  mount: name=/mnt/data src='/dev/vdc1' fstype=ext4 state=present

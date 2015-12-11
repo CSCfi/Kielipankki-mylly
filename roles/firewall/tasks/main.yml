@@ -1,8 +1,13 @@
 - name: Firewall
-  ufw: state=enabled policy=deny
+  ufw: policy=deny
    
-- name: Configure firewalld for http
-  ufw: rule=allow port=80 proto=tcp
+- name: Set firewall rules for web traffic and SSH
+  ufw: rule=allow port={{ item }} proto=tcp
+  with_items:
+  - http
+  - https
+  - ssh
 
-- name: Configure firewalld for ssh
-  ufw: rule=allow port=22 proto=tcp
+- name: Enable UFW
+  ufw: state=enabled
+

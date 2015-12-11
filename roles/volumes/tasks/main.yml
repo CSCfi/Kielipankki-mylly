@@ -3,3 +3,16 @@
     state: present
     size: 40
     display_name: chipster_volume
+  tags:
+   - create_vm
+   - data_volume
+
+- name: attach volume to host
+  os_server_volume:
+    state: present
+    server: cielipankki
+    volume: chipster_volume
+    device: /dev/vdc
+  tags:
+   - create_vm
+   - data_volume
