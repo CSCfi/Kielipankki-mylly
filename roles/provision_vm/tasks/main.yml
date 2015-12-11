@@ -2,7 +2,6 @@
 #  https://research.csc.fi/pouta-credentials
 #
 
-
 - name: Create security group
   os_security_group: name=chipster-sg
 
