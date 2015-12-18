@@ -1,8 +1,0 @@
-- name: create a volume
-  hosts: localhost
-  tasks:
-  - name: create 40g test volume
-    os_volume:
-      state: present
-      size: 40
-      display_name: chipster_volume
