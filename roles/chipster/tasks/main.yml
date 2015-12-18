@@ -1,0 +1,14 @@
+
+- name: Configure public call back IP
+  become: yes
+  become_user: chipster
+  command: ./configure.sh simple-configure 86.50.170.9 {{ ansible_default_ipv4.address }}
+  args:
+    chdir: /opt/chipster/
+  tags:
+    chipster_cfg
+
+- name: Restart Chipster
+  service: name=chipster state=restarted
+  tags:
+    chipster_cfg
