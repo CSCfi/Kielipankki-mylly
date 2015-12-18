@@ -7,6 +7,10 @@
   - http
   - https
   - ssh
+  - 8080
+  - 8081
+  - 61616
+
 
 - name: Enable UFW
   ufw: state=enabled

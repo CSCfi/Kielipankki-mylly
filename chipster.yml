@@ -12,9 +12,8 @@
   become: yes
   roles:
    - fstab
-   - apache2
    - firewall
-
+   - chipster
 
 
 

@@ -21,6 +21,36 @@
   os_security_group_rule:
     security_group: chipster-sg
     protocol: tcp
+    port_range_min: 8080
+    port_range_max: 8080
+    remote_ip_prefix: 0.0.0.0/0
+  tags:
+   - create_vm
+
+- name: Add rule to security group
+  os_security_group_rule:
+    security_group: chipster-sg
+    protocol: tcp
+    port_range_min: 8081
+    port_range_max: 8081
+    remote_ip_prefix: 0.0.0.0/0
+  tags:
+   - create_vm
+- name: Add rule to security group
+  os_security_group_rule:
+    security_group: chipster-sg
+    protocol: tcp
+    port_range_min: 61616
+    port_range_max: 61616
+    remote_ip_prefix: 0.0.0.0/0
+  tags:
+   - create_vm
+
+
+- name: Add rule to security group
+  os_security_group_rule:
+    security_group: chipster-sg
+    protocol: tcp
     port_range_min: 22
     port_range_max: 22
     remote_ip_prefix: 0.0.0.0/0
@@ -44,6 +74,8 @@
  
 - name: Add new host to inventory
   add_host: name={{ floating_ip }} groups=new
+  tags:
+  - chipster_cfg
   
 - name: clear ssh known_hosts
   known_hosts: name={{ floating_ip }} state=absent
