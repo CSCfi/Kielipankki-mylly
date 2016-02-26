@@ -9,23 +9,6 @@
   tags:
     chipster_cfg
 
-- name: Enable admin web
-  become: yes
-  become_user: chipster
-  command: ./configure.sh edit manager set manager/start-admin true
-  args:
-    chdir: /opt/chipster/
-  tags:
-    chipster_cfg
-
-- name: Set admin web password
-  become: yes
-  become_user: chipster
-  command: ./configure.sh edit manager set manager/admin-password "{{ lookup('password', 'admin_web_password') }}"
-  args:
-    chdir: /opt/chipster/
-  tags:
-    chipster_cfg
 
 - name: Restart Chipster
   service: name=chipster state=restarted

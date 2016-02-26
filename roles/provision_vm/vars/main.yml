@@ -1,2 +1,0 @@
-hosts: localhost # The OpenStack modules run on your local machine.
-connection: local
