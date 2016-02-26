@@ -2,17 +2,10 @@
 # Basic demo of using Ansible to create a virtual machine on Pouta.csc.fi
 #
 
-- hosts: localhost
-  roles:
-   - provision_vm
-   - volumes
-
-- hosts: new
+- hosts: chipster
   remote_user: ubuntu
   become: yes
   roles:
-   - fstab
-   - firewall
    - chipster
 
 

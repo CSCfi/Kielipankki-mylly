@@ -1,9 +1,12 @@
 
+- name: fix permissions
+  file: path=/opt/chipster/webstart/web-root/chipster.jnlp owner=chipster group=chipster mode=0644
+
 - name: Configure public call back IP
   become: yes
   become_user: chipster
   # configure only external IP
-  command: ./configure.sh simple-configure 86.50.170.9 {{ ansible_default_ipv4.address }}
+  command: ./configure.sh simple-configure 86.50.168.171 {{ ansible_default_ipv4.address }}
   args:
     chdir: /opt/chipster/
   tags:
