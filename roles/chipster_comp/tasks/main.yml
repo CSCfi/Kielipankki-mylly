@@ -2,5 +2,5 @@
   local_action: command /usr/bin/rsync -r --include 'comp' --include 'comp/modules' --include 'comp/modules/kielipankki**' --include 'comp/bin**' --include 'comp/conf**' --include 'comp/security**' --include 'shared/' --include 'shared/bin**' --include 'shared/lib**' --exclude '*' chipster@vm0171.kaj.pouta.csc.fi:/opt/chipster/ /tmp/chipster_comp/
 
 - name: Synchronize comp 2
-  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ matthies@taito.csc.fi:~/c_test/
+  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/chipster/
 
