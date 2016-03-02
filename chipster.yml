@@ -8,6 +8,11 @@
   roles:
    - chipster
 
+- hosts: taito
+  roles:
+   - chipster_comp
+
+   
 
 
      

@@ -5,15 +5,37 @@
 - name: Configure public call back IP
   become: yes
   become_user: chipster
-  # configure only external IP
-  command: ./configure.sh simple-configure 86.50.168.171 {{ ansible_default_ipv4.address }}
+  # configure IP
+  command: ./configure.sh simple-configure {{ chipster_ip }} {{ ansible_default_ipv4.address }}
   args:
     chdir: /opt/chipster/
   tags:
     chipster_cfg
 
+- name: set broker host for comp
+  command: bash configure.sh edit comp set messaging/broker-host {{ chipster_ip }}
+  args:
+    chdir: /opt/chipster/
+
+- name: set local user data path for comp
+  command: bash configure.sh edit comp set comp/overriding-filebroker-ip {{ chipster_ip }} 
+  args:
+    chdir: /opt/chipster/
+
+- name: Outcomment chipster RUN_AS_USER
+  lineinfile: 
+    dest=/opt/chipster/comp/bin/linux-x86-64/chipster-comp
+    regexp='^(RUN_AS_USER=.*)$' line="#\\1"
+    backrefs=true 
+    state=present
+
+- name: Generate Passwords
+  command: bash -c "/usr/bin/yes yes | ./genpasswd.sh"
+  args:
+    chdir: /opt/chipster/
 
 - name: Restart Chipster
   service: name=chipster state=restarted
   tags:
     chipster_cfg
+

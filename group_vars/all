@@ -1,4 +1,1 @@
-chipster_key: Martin_VM
-chipster_security_groups: default,chipster-sg
-chipster_network: clarin
-floating_ip: 86.50.170.9
+chipster_ip: 86.50.168.171
