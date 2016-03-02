@@ -2,13 +2,20 @@
 
 <module name="kielipankki">
 		
-	<category name="Text search" color="#d5c796">
-		<tool runtime="python"><resource>test-data-in-out.py</resource></tool>
-		<tool runtime="python"><resource>finnish-analyze.py</resource></tool>
+	<category name="Text" color="#d5c796">
+	  <tool runtime="python"><resource>finnish-analyze.py</resource></tool>
 	</category>
 	
-	<category name="Speech analysis" color="#e7df70">
-		<tool runtime="R"><resource>test-data-in-out.R</resource></tool>
+	<category name="Speech" color="#e7df70">
+
+	</category>
+
+	<category name="Demo/Test" color="#ff33cc">
+	  <tool runtime="R"><resource>test-data-in-out.R</resource></tool>
+	  <tool runtime="python"><resource>test-data-in-out.py</resource></tool>
+	  <tool runtime="python"><resource>test-parameters.py</resource></tool>
+	  <tool runtime="python3"><resource>test-data-in-out-3.py</resource></tool>
+	  <tool runtime="python3"><resource>simple-frequencies.py</resource></tool>
 	</category>
 
 
@@ -45,4 +52,3 @@
 -->
 
 </module>
-
