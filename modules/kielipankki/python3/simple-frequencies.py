@@ -1,7 +1,9 @@
-#! /usr/bin/env python3
+# TOOL simple-frequencies.py: "Small Frequency Demo" 
+# INPUT input TYPE GENERIC
+# OUTPUT output
 
-# Reads ./input.txt (running UTF-8 text, reads maxlines + 1 lines)
-# Writes ./output.txt (frequencies of maximal "word-character" sequences)
+# Reads ./input (running UTF-8 text, reads maxlines + 1 lines)
+# Writes ./output (frequencies of maximal "word-character" sequences)
 
 # This script is a toy, useful for learning Chipster. This script
 # could be parameterized for the number of tokens (including tied
@@ -27,11 +29,11 @@ def tokens(source, maxlines = 1000):
             yield t
 
 def readlines():
-    with open('input.txt', encoding = 'utf-8') as o:
+    with open('input', encoding = 'utf-8') as o:
         return collections.Counter(tokens(o, 1000))
 
 def writefrequencies(counts):
-    with open('output.txt', mode = 'w', encoding = 'utf-8') as o:
+    with open('output', mode = 'w', encoding = 'utf-8') as o:
         for t, f in counts.most_common():
             print('{:>6}\t{}'.format(f, t), file = o)
 
