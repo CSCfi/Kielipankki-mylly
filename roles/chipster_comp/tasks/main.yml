@@ -4,3 +4,5 @@
 - name: Synchronize comp 2
   local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/chipster/
 
+- name: Ensures comp/logs dir exists
+  file: path=~/chipster/comp/logs state=directory

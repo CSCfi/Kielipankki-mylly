@@ -1,7 +1,7 @@
 # TOOL test-parameters.py: "Parameterization Test" (Receives parameters)
 # INPUT OPTIONAL hukairs.txt TYPE GENERIC (Whatever file, if any)
-# OUTPUT info.txt TYPE GENERIC (File attempts tell parameters)
-# OUTPUT OPTIONAL error.txt TYPE GENERIC (Diagnostics if any)
+# OUTPUT info.txt  (File attempts tell parameters)
+# OUTPUT OPTIONAL error.txt  (Diagnostics if any)
 # PARAMETER code TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
 # PARAMETER size TYPE INTEGER FROM 0 TO 1000
 # PARAMETER OPTIONAL pass TYPE STRING (Mother's maiden name)

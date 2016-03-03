@@ -29,6 +29,13 @@
     backrefs=true 
     state=present
 
+- name: Outcomment chipster-comp on VM
+  lineinfile: 
+    dest=/etc/init.d/chipster
+    regexp='^(\s*run comp start)$' line="#\\1"
+    backrefs=true 
+    state=present
+
 - name: Generate Passwords
   command: bash -c "/usr/bin/yes yes | ./genpasswd.sh"
   args:
