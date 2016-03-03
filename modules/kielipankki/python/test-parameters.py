@@ -4,7 +4,7 @@
 # OUTPUT OPTIONAL error.txt  (Diagnostics if any)
 # PARAMETER code TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
 # PARAMETER size TYPE INTEGER FROM 0 TO 1000
-# PARAMETER OPTIONAL pass TYPE STRING (Mother's maiden name)
+# PARAMETER OPTIONAL my_param TYPE STRING (Mother's maiden name)
 
 # Want to run this in Chipster and see
 # - how one gets to set parameters in the user interface
