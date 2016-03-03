@@ -13,7 +13,7 @@
 	<category name="Demo/Test" color="#ff33cc">
 	  <tool runtime="R"><resource>test-data-in-out.R</resource></tool>
 	  <tool runtime="python"><resource>test-data-in-out.py</resource></tool>
-	  <tool runtime="python"><resource>test-parameters.py</resource></tool>
+	  <tool runtime="python3"><resource>test-parameters.py</resource></tool>
 	  <tool runtime="python3"><resource>simple-frequencies.py</resource></tool>
 	</category>
 

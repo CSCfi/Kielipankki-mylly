@@ -10,7 +10,6 @@
 # - how one gets to set parameters in the user interface
 # - how the script gets too see the parameters
 
-from __future__ import print_function
 import sys
 
 with open('info.txt', 'wt') as f:
