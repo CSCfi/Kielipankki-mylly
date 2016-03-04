@@ -1,4 +1,4 @@
-# TOOL finnish-analyze.py: "finnish-analyze.sh on Taito" 
+# TOOL finnish-analyze.py: "Restart comp on Taito" 
 
 import subprocess
 import os
