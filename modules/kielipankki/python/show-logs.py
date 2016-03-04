@@ -7,9 +7,9 @@
 
 import shutil
 
-shutil.copyfile('~/chipster/comp/logs/chipster.log', 'chipster.log')
-shutil.copyfile('~/chipster/comp/logs/jobs.log', 'jobs.log')
-shutil.copyfile('~/chipster/comp/logs/error.log', 'error.log')
-shutil.copyfile('~/chipster/comp/logs/messages.log', 'messages.log')
-shutil.copyfile('~/chipster/comp/logs/status.log', 'status.log')
+shutil.copyfile('/homeappl/home/kp-ruser/chipster/comp/logs/chipster.log', 'chipster.log')
+shutil.copyfile('/homeappl/home/kp-ruser/chipster/comp/logs/jobs.log', 'jobs.log')
+shutil.copyfile('/homeappl/home/kp-ruser/chipster/comp/logs/error.log', 'error.log')
+shutil.copyfile('/homeappl/home/kp-ruser/chipster/comp/logs/messages.log', 'messages.log')
+shutil.copyfile('/homeappl/home/kp-ruser/chipster/comp/logs/status.log', 'status.log')
 
