@@ -15,9 +15,13 @@ import sys
 with open('info.txt', 'wt') as f:
     print('sys.version:', sys.version, file = f)
 
+    print('----------------------')
+
     print('sys.argv:', file = f)
     for k, o in enumerate(sys.argv):
         print(k, o, sep = '\t', file = f)
+
+    print('----------------------')
 
     print('var code: %s' % code)
     print('var size: %d' % size)
