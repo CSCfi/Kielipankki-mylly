@@ -1,6 +1,6 @@
-# TOOL demotokens.py: "Simply Tokenize Plain Text" (Token per line, with line and token number)
+# TOOL demotokens.py: "Simply Tokenize Plain Text" (Writes one token per line, with line and token number)
 # INPUT text.txt TYPE GENERIC
-# OUTPUT tokens.txt (Token per line, with line and token number)
+# OUTPUT tokens.tsv (Token per line, with line and token number)
 # OUTPUT OPTIONAL error.txt
 # PARAMETER encoding TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
 
