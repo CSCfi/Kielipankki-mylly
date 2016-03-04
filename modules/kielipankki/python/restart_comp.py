@@ -2,7 +2,7 @@
 
 import subprocess
 import os
-import sleep from time
+from time import sleep
 
 my_cmd='cd ~/git/Kielipankki-Chipster/ && git pull'
 
