@@ -18,3 +18,7 @@ with open('info.txt', 'wt') as f:
     print('sys.argv:', file = f)
     for k, o in enumerate(sys.argv):
         print(k, o, sep = '\t', file = f)
+
+    print('var code: %s' % code)
+    print('var size: %d' % size)
+    print('var my_param: %s' % my_param)
