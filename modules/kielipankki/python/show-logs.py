@@ -1,4 +1,4 @@
-# TOOL show-logs.py: "Show logs (PREPRODUCTION ONLY)) 
+# TOOL show-logs.py: "Show logs (PREPRODUCTION ONLY)" 
 # OUTPUT chipster.log  
 # OUTPUT jobs.log
 # OUTPUT error.log
