@@ -23,6 +23,6 @@ with open('info.txt', 'wt') as f:
         print(file = f)
 
     print('parameters:', file = f)
-    print('code: %s', repr(code), file = f)
-    print('size: %d', repr(size), file = f)
-    print('secret: %s', repr(secret), file = f)
+    print('code:', repr(code), sep = 't', file = f)
+    print('size:', repr(size), sep = 't', file = f)
+    print('secret:', repr(secret), sep = 't', file = f)
