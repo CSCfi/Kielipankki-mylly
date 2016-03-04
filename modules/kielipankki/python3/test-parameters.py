@@ -25,4 +25,4 @@ with open('info.txt', 'wt') as f:
     print('parameters:', file = f)
     print('code: %s', repr(code), file = f)
     print('size: %d', repr(size), file = f)
-    print('my_param: %s', repr(my_param), file = f)
+    print('secret: %s', repr(secret), file = f)
