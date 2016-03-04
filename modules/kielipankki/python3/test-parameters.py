@@ -1,10 +1,10 @@
 # TOOL test-parameters.py: "Parameterization Test" (Receives parameters)
 # INPUT OPTIONAL hukairs.txt TYPE GENERIC (Whatever file, if any)
-# OUTPUT info.txt  (File attempts tell parameters)
+# OUTPUT info.txt  (File attempts to reveal parameters)
 # OUTPUT OPTIONAL error.txt  (Diagnostics if any)
 # PARAMETER code TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
-# PARAMETER size TYPE INTEGER FROM 0 TO 1000
-# PARAMETER OPTIONAL my_param TYPE STRING (Mother's maiden name)
+# PARAMETER size TYPE INTEGER FROM 0 TO 1000 (Some number, nothing more.)
+# PARAMETER OPTIONAL secret TYPE STRING (Something only you know!)
 
 # Want to run this in Chipster and see
 # - how one gets to set parameters in the user interface
@@ -14,11 +14,15 @@ import sys
 
 with open('info.txt', 'wt') as f:
     print('sys.version:', sys.version, file = f)
+    print(file = f)
 
     print('sys.argv:', file = f)
     for k, o in enumerate(sys.argv):
         print(k, o, sep = '\t', file = f)
+    else:
+        print(file = f)
 
-    print('var code: %s' % code)
-    print('var size: %d' % size)
-    print('var my_param: %s' % my_param)
+    print('parameters:', file = f)
+    print('code: %s', repr(code), file = f)
+    print('size: %d', repr(size), file = f)
+    print('my_param: %s', repr(my_param), file = f)
