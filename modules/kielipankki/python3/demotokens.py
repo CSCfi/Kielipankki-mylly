@@ -2,7 +2,7 @@
 # INPUT text.txt TYPE GENERIC
 # OUTPUT tokens.txt (Token per line, with line and token number)
 # OUTPUT OPTIONAL error.txt
-# PARAMETER encoding [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
+# PARAMETER encoding TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
 
 # Simple tokenizer to demonstrate the possibilities.
 # Extracts maximal strings of "word characters" as tokens.
