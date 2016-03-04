@@ -4,6 +4,7 @@
 		
 	<category name="Text" color="#d5c796">
 	  <tool runtime="python"><resource>finnish-analyze.py</resource></tool>
+	  <tool runtime="python"><resource>english-analyze.py</resource></tool>
 	</category>
 	
 	<category name="Speech" color="#e7df70">
