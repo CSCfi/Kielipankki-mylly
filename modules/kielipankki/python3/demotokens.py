@@ -20,7 +20,7 @@ try:
     tokenpattern = re.compile(r'\w+')
 
     with open('text.txt', mode = 'rt', encoding = encoding) as lines, \
-         open('tokens.txt', mode = 'wt', encoding = encoding) as tokens:
+         open('tokens.tsv', mode = 'wt', encoding = encoding) as tokens:
         number = count(start = 1)
         for k, line in enumerate(lines, start = 1):
             for token in tokenpattern.findall(line):
