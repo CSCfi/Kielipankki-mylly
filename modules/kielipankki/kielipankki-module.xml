@@ -15,6 +15,7 @@
 	  <tool runtime="R"><resource>test-data-in-out.R</resource></tool>
 	  <tool runtime="python"><resource>test-data-in-out.py</resource></tool>
 	  <tool runtime="python"><resource>restart_comp.py</resource></tool>
+	  <tool runtime="python3"><resource>demotokens.py</resource></tool>
 	  <tool runtime="python3"><resource>test-parameters.py</resource></tool>
 	  <tool runtime="python3"><resource>simple-frequencies.py</resource></tool>
 	</category>
