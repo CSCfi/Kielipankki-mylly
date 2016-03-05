@@ -1,8 +1,8 @@
-# TOOL powerplot.R: "Power Law Plot of Token Counts" (Plots numbers of words with observed frequencies. Input should have each word in UTF-8 and its frequency on a line, separated by a tab.)
+# TOOL rankplot.R: "Decreasing Plot of Token Counts" (Plots observed word frequencies in decreasing order. Input should have each word in UTF-8 and its frequency on a line, separated by a tab.)
 # INPUT counts.tsv TYPE GENERIC
-# OUTPUT power.pdf
-# OUTPUT power.png
-# OUTPUT power.svg
+# OUTPUT rank.pdf
+# OUTPUT rank.png
+# OUTPUT rank.svg
 # OUTPUT OPTIONAL error.log
 
 # Desired plot types could be parameters.
@@ -11,26 +11,26 @@
 
 makeplot <- function (data) {
    plot(data,
-        xlab = "Occurrences", 
-        ylab = "Words",
+        xlab = "Rank", 
+        ylab = "Occurrences",
         log = "xy",
         type = "p")
 }
 
 makepdf <- function (data) {
-   pdf(file = "power.pdf")
+   pdf(file = "rank.pdf")
    makeplot(data)
    dev.off()
 }
 
 makepng <- function (data) {
-   png(file = "power.png")
+   png(file = "rank.png")
    makeplot(data)
    dev.off()
 }
 
 makesvg <- function (data) {
-   svg(file = "power.svg")
+   svg(file = "rank.svg")
    makeplot(data)
    dev.off()
 }
@@ -53,9 +53,9 @@ data <- tryCatch(read.table(file = "counts.tsv",
                             encoding = "UTF-8"),
                  error = function (e) fail("reading counts.tsv"))
 
-# The actual computation happens here in table(table(data)).
-data <- tryCatch(table(table(data)),
-                 error = function (e) fail("tabulating data"))
+# The actual computation happens here in sort(data[,1], decreasing = TRUE).
+data <- tryCatch(sort(data[,1], decreasing = TRUE),
+                 error = function (e) fail("ordering data"))
 
 tryCatch(makepdf(data),
          error = function (e) fail("making pdf"))
