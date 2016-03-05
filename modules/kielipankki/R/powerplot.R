@@ -53,8 +53,8 @@ data <- tryCatch(read.table(file = "counts.tsv",
                             encoding = "UTF-8"),
                  error = function (e) fail("reading counts.tsv"))
 
-# The actual computation happens here in table(table(data)).
-data <- tryCatch(table(table(data)),
+# The actual computation happens here in tabulate(tabulate(data)).
+data <- tryCatch(tabulate(tabulate(data)),
                  error = function (e) fail("tabulating data"))
 
 tryCatch(makepdf(data),
