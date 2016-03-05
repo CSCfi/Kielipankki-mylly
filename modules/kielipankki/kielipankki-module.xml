@@ -13,6 +13,7 @@
 
 	<category name="Demo/Test" color="#ff33cc">
 	  <tool runtime="R"><resource>test-data-in-out.R</resource></tool>
+	  <tool runtime="R"><resource>powerplot.R</resource></tool>
 	  <tool runtime="python"><resource>test-data-in-out.py</resource></tool>
 	  <tool runtime="python"><resource>restart_comp.py</resource></tool>
 	  <tool runtime="python"><resource>show-logs.py</resource></tool>
