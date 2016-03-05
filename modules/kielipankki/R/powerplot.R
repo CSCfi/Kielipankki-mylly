@@ -10,6 +10,9 @@
 # Need to learn what works best.
 
 makeplot <- function (data) {
+   # Plotting command warns about omitting zeroes.
+   # Warning is lost.
+   # Omitting zeroes is the desired behaviour.
    plot(data,
         xlab = "Occurrences", 
         ylab = "Words",
@@ -49,12 +52,15 @@ data <- tryCatch(read.table(file = "counts.tsv",
                             sep = "\t",
                             quote = "",
                             comment.char = "#",
+                            # NULL colClass means to omit column
                             colClasses = c("NULL", "integer"),
                             encoding = "UTF-8"),
                  error = function (e) fail("reading counts.tsv"))
 
-# The actual computation happens here in table(table(data)).
-data <- tryCatch(table(table(data)),
+# The actual computation happens here in tabulate(data[,1]).
+# It produces a dense vector of counts of frequencies.
+
+data <- tryCatch(tabulate(data[,1]),
                  error = function (e) fail("tabulating data"))
 
 tryCatch(makepdf(data),
