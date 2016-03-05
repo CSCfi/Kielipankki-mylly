@@ -14,7 +14,7 @@ makeplot <- function (data) {
    plot(data,
         xlab = "Occurrences", 
         ylab = "Words",
-       	type = "p")
+        type = "p")
 }
 
 makepdf <- function (data) {
