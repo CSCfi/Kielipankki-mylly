@@ -1,4 +1,4 @@
-# TOOL demotraces.py: "Count Tokens" (Writes token per line, with positions over the word and over all tokens. Finds token in first field.)
+# TOOL demotraces.py: "Trace Tokens" (Writes token per line, with positions over the word and over all tokens. Finds token in first field.)
 # INPUT tokens.tsv TYPE GENERIC
 # OUTPUT traces.txt (Token per line, with position within word)
 # OUTPUT traces.tsv (Token per line, with position within word)

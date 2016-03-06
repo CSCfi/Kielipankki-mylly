@@ -1,4 +1,4 @@
-# TOOL whereplot.R: "Cumulative Plot of First Occurrences" (Plots the growth of vocabulary along tokens. Input should have each word in UTF-8 and its token trace and another number on a line, separated by tabs.)
+# TOOL whereplot.R: "Location Plot for Selected Words" (Plots the locations in text of a few selected words. Input should have each word in UTF-8, a number and running position on a line, separated by tabs.)
 # INPUT traces.tsv TYPE GENERIC
 # OUTPUT where.pdf
 # OUTPUT where.png
@@ -29,7 +29,7 @@ makeplot <- function (data) {
    plot(c(),
         xlim = limits,
         ylim = c(1, length(words) + .5),
-        xlab = "Position",
+        xlab = "Location",
         ylab = "",
 	yaxt = "n") # no such axis
 
