@@ -11,6 +11,18 @@
 
 	</category>
 
+	<!-- May it be safe to create a new Demo category? -->
+	<!-- But not good if restart tool gets lost at all. -->
+	<category name="Demo" color="#ff33cc">
+	  <tool runtime="R"><resource>powerplot.R</resource></tool>
+	  <tool runtime="R"><resource>rankplot.R</resource></tool>
+	  <tool runtime="R"><resource>growthplot.R</resource></tool>
+	  <tool runtime="R"><resource>whereplot.R</resource></tool>
+	  <tool runtime="python3"><resource>demotokens.py</resource></tool>
+	  <tool runtime="python3"><resource>demofrequencies.py</resource></tool>
+	  <tool runtime="python3"><resource>demotraces.py</resource></tool>
+	</category>
+
 	<category name="Demo/Test" color="#ff33cc">
 	  <tool runtime="R"><resource>test-data-in-out.R</resource></tool>
 	  <tool runtime="R"><resource>powerplot.R</resource></tool>
