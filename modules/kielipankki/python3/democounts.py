@@ -1,4 +1,4 @@
-# TOOL demofrequencies.py: "Count Tokens" (Writes word per line, with decreasing token count. Finds token in first field.)
+# TOOL democounts.py: "Count Tokens" (Writes word per line, with decreasing token count. Finds token in first field.)
 # INPUT tokens.tsv TYPE GENERIC
 # OUTPUT counts.txt (Word per line, with decreasing token count)
 # OUTPUT counts.tsv (Word per line, with decreasing token count)
