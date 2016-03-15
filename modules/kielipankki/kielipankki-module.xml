@@ -11,6 +11,10 @@
 
 	</category>
 
+	<category name="Parsing" color="#d5c796">
+	  <tool runtime="python3"><resource>hfst-lookup-finnish.py</resource></tool>
+	</category>
+
 	<category name="Demo" color="#00ff00">
 	  <tool runtime="R"><resource>powerplot.R</resource></tool>
 	  <tool runtime="R"><resource>rankplot.R</resource></tool>
