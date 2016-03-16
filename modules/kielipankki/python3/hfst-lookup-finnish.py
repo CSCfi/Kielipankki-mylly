@@ -2,11 +2,8 @@
 # INPUT tokens.tsv TYPE GENERIC
 # OUTPUT readings.txt
 # OUTPUT OPTIONAL error.log
-# PARAMETER encoding TYPE [utf8: "UTF-8"] DEFAULT utf8
-
-# Make HFST _version_ a parameter as soon as the tool is working. Add
-# version 3.9.0 at that time. Only then expand to other languages and
-# other forms of processing.
+# PARAMETER Encoding TYPE [utf8: "UTF-8"] DEFAULT utf8 (Character encoding, UTF-8)
+# PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
 
 # Own library in .../common/python3 should be found on sys.path.
 
@@ -21,6 +18,13 @@ def lookup_3_8_3():
 
     hfst_lookup(processor, transducer)
 
-lookup_3_8_3()
+def lookup_3_9_0():
+    home = "/homeappl/appl_taito/ling/hfst/3.9.0"
+    processor  = os.path.join(home, "bin", "hfst-optimized-lookup")
+    transducer = os.path.join(home, "share/hfst/fi", "fi-analysis.hfst.ol")
+
+    hfst_lookup(processor, transducer)
+
+dict(v383 = lookup_3_8_3, v390 = lookup_3_9_0)[Version]()
 
 consolidate()
