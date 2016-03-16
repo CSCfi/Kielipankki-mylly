@@ -7,6 +7,13 @@
 # version 3.9.0 at that time. Only then expand to other languages and
 # other forms of processing.
 
+import sys
+
+# Interim solution (attempt) - system seems to provide
+# modules/common/python3, maybe library material should be there? But
+# first try to see that something works, hence this.
+sys.path.append('/homeappl/home/kp-ruser/chipster/comp/modules/kielipankki/python3')
+
 import os
 from library.pipeline import hfst_lookup
 from library.errorlog import consolidate
