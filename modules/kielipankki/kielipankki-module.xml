@@ -11,7 +11,7 @@
 
 	</category>
 
-	<category name="Parsing" color="#e6e6fa">
+	<category name="Parsing" color="#00ffef">
 	  <tool runtime="python3"><resource>hfst-lookup-finnish.py</resource></tool>
 	</category>
 

@@ -22,6 +22,12 @@ with open('info.txt', 'wt') as f:
     else:
         print(file = f)
 
+    print('sys.path:', file = f)
+    for k, o in enumerate(sys.path):
+        print(k, o, ep = '\t', file = f)
+    else:
+        print(file = f)
+
     print('parameters:', file = f)
     print('code:', repr(code), sep = '\t', file = f)
     print('size:', repr(size), sep = '\t', file = f)
