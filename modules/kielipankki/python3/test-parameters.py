@@ -10,7 +10,7 @@
 # - how one gets to set parameters in the user interface
 # - how the script gets too see the parameters
 
-import sys
+import os, sys
 
 with open('info.txt', 'wt') as f:
     print('sys.version:', sys.version, file = f)
@@ -32,3 +32,39 @@ with open('info.txt', 'wt') as f:
     print('code:', repr(code), sep = '\t', file = f)
     print('size:', repr(size), sep = '\t', file = f)
     print('secret:', repr(secret), sep = '\t', file = f)
+    print(file = f)
+
+    # Working out that the Python library location exists on the
+    # server (in so far as it does - that is the question).
+
+    print('/homeappl/home/kp-ruser/chipster/comp/modules:', file = f)
+    for k, o in enumerate(sorted(os.listdir('/homeappl/home/kp-ruser/chipster/comp/modules'))):
+        print(k, o, sep = '\t', file = f)
+    else:
+        print(file = f)
+        
+    common = '/homeappl/home/kp-ruser/chipster/comp/modules/common'
+    if os.path.exists(common):
+        if os.path.isdir(common):
+            print(common, ':', sep = '\t', file = f)
+            for k, o in enumerate(sorted(os.listdir(common))):
+                print(k, o, sep = '\t', file = f)
+            else:
+                print(file = f)
+        else:
+            print(common, 'exists but is not a directory', file = f)
+    else:
+        print(common, 'does not exist', file = f)
+
+    python3 = '/homeappl/home/kp-ruser/chipster/comp/modules/common/python3'
+    if os.path.exists(python3):
+        if os.path.isdir(python3):
+            print(python3, ':', sep = '\t', file = f)
+            for k, o in enumerate(sorted(os.listdir(python3))):
+                print(k, o, sep = '\t', file = f)
+            else:
+                print(file = f)
+        else:
+            print(python3, 'exists but is not a directory', file = f)
+    else:
+        print(python3, 'does not exist', file = f)
