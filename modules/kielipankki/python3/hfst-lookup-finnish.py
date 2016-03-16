@@ -1,18 +1,14 @@
-# TOOL hfst-lookup-finnish.py: "HFST Lookup Finnish" 
+# TOOL hfst-lookup-finnish.py: "HFST Lookup Finnish" (Looks up Finnish morphological analyses of tokens, each in the first field of a line. Output format depends on the underlying combination of lookup tool, its options, and lexical transducer.)
 # INPUT tokens.tsv TYPE GENERIC
 # OUTPUT readings.txt
 # OUTPUT OPTIONAL error.log
+# PARAMETER encoding TYPE [utf8: "UTF-8"] DEFAULT utf8
 
 # Make HFST _version_ a parameter as soon as the tool is working. Add
 # version 3.9.0 at that time. Only then expand to other languages and
 # other forms of processing.
 
-import sys
-
-# Interim solution (attempt) - system seems to provide
-# modules/common/python3, maybe library material should be there? But
-# first try to see that something works, hence this.
-sys.path.append('/homeappl/home/kp-ruser/chipster/comp/modules/kielipankki/python3')
+# Own library in .../common/python3 should be found on sys.path.
 
 import os
 from library.pipeline import hfst_lookup
