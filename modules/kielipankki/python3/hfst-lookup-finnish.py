@@ -1,6 +1,6 @@
 # TOOL hfst-lookup-finnish.py: "HFST Lookup Finnish" 
 # INPUT tokens.tsv TYPE GENERIC
-# OUTPUT readings.tsv
+# OUTPUT readings.txt
 # OUTPUT OPTIONAL error.log
 
 # Make HFST _version_ a parameter as soon as the tool is working. Add
