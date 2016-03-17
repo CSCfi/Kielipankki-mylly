@@ -1,0 +1,33 @@
+These are manual pages for Mylly tools in HTML, to be copied manually
+to an HTML editing box in the Kielipankki WordPress site. The template
+(aptly named template.html) may be edited as experience accumulates.
+
+Log in with HAKA at https://www.kielipankki.fi/wp-admin when in a VPN
+or something, select to edit pages, set parent page to support/manual,
+copy the new page to the clipboard, see that the box is in text mode
+(HTML is considered text), and paste. More or less. Details missing.
+
+$ hy-vpn start
+
+[authentication dialog here]
+
+[talk to the web site]
+
+$ xclip -selection clipboard -in demotokens.html
+
+[paste it in the box]
+
+$ echo -n | xclip -selection clipboard
+
+[or copy something harmless by way of a mouse]
+
+[arrange for it to appear as support/manual/demotokens/]
+
+...
+
+$ hy-vpn stop
+
+It's possible to write the page in that box, but it's a tremendous
+waste of time. Use a comfortable editor off-line, then copy and paste.
+
+(The above notes assume a UHEL person on a Cubbli keyboard. Adapt.)

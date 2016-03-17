@@ -1,0 +1,89 @@
+<article>
+  <section>
+    <h2>Name</h2>
+
+    <p>demotokens.py &mdash; a simple tokenizer of plain text</p>
+  </section>
+
+  <section>
+    <h2>Synopsis</h2>
+	
+    <dl>
+      <dt>Mylly: Demo &rarr; Simply Tokenize Plain Text</dt>
+
+      <dt>Input file</dt>
+      <dd>one plain text file</dd>
+
+      <dt>Parameters</dt>
+      <dd>Character encoding (default UTF-8)</dd>
+
+      <dt>Output files</dt>
+      <dd>tokens.tsv</dd>
+      <dd>tokens.txt (duplicate)</dd>
+    </dl>
+  </section>
+  
+  <section>
+    <h2>Description</h2>
+    
+    <p><dfn>demotokens</dfn> writes the leftmost-longest sequences of
+    word characters (<dfn>tokens</dfn>) in the input file to the
+    output files.</p>
+
+    <p><dfn>Word characters</dfn> consist of letters, digits, and the
+    underscore. Each token is written on its own line together with
+    its line number and a running token counter, with a single tab as
+    a field separator.</p>
+
+    <p>This simple tool is meant for initial testing and demonstration
+    of the platform. The output format is usable by other tools in the
+    Demo category.</p>
+  </section>
+  
+  <section>
+    <h2>Input</h2>
+    
+    <p>Input consists of one <dfn>plain text</dfn> file and its
+    character encoding.</p>
+	
+    <dl>
+      <dt>Input file (text.txt)</dt>
+      <dd>assumed to be plain text</dd>
+    </dl>
+	
+    <dl>
+      <dt>Character encoding</dt>
+      <dd>UTF-8 (default)</dd>
+      <dd>Latin-1</dd>
+    </dl>
+  </section>
+      
+  <section>
+    <h2>Output</h2>
+	
+    <p>Output consists of one file: a tokenized version of the input
+    file. Actually two files, but with identical content.</p>
+    
+    <dl>
+      <dt>tokens.tsv</dt>
+      <dt>tokens.txt</dt>
+      <dd>Each line consists of a token, followed by line number and
+      token number, with single tab as field separator.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>See also</h2>
+
+    <p>Eventually a better simple tokenizer in Text category, and
+    linguistic analysis tools in the Parsing category.</p>
+  </section>
+
+  <section>
+    <h2>Bugs</h2>
+
+    <p>Should not allow non-UTF-8 character encodings. Just keep the
+    parameter so it appears as documentation in the workflow
+    history.</p>
+  </section>
+</article>
