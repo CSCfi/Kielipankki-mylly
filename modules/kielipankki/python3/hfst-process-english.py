@@ -1,0 +1,35 @@
+# TOOL hfst-process-english.py: "HFST Process English" (Tokenizes text and looks up English morphological analyses of tokens. Output format depends on the underlying combination of lookup tool, its options, and lexical transducer.)
+# INPUT text.txt TYPE GENERIC
+# OUTPUT readings.txt
+# OUTPUT OPTIONAL error.log
+# PARAMETER Encoding TYPE [utf8: "UTF-8"] DEFAULT utf8 (Character encoding, UTF-8)
+# PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
+# PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", apertium: "Apertium format"] DEFAULT xerox (Output format)
+
+# Own library in .../common/python3 should be found on sys.path.
+
+import os
+from library.pipeline import hfst_process
+from library.errorlog import consolidate
+
+def process_3_8_3(of):
+    home = "/homeappl/appl_taito/ling/hfst/3.8.3"
+    processor  = os.path.join(home, "bin", "hfst-proc")
+    transducer = os.path.join(home, "share/hfst/en", "en-analysis.hfst.ol")
+
+    of = dict(xerox = '--xerox', cg = '--cg', apertium = '--apertium')[of]
+
+    hfst_process(processor, of, transducer)
+
+def process_3_9_0(of):
+    home = "/homeappl/appl_taito/ling/hfst/3.9.0"
+    processor  = os.path.join(home, "bin", "hfst-proc")
+    transducer = os.path.join(home, "share/hfst/en", "en-analysis.hfst.ol")
+
+    of = dict(xerox = '--xerox', cg = '--cg', apertium = '--apertium')[of]
+
+    hfst_process(processor, of, transducer)
+
+dict(v383 = process_3_8_3, v390 = process_3_9_0)[Version](OutputFormat)
+
+consolidate()

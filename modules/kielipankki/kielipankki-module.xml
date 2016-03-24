@@ -16,6 +16,8 @@
 	  <tool runtime="python3"><resource>hfst-lookup-swedish.py</resource></tool>
 	  <tool runtime="python3"><resource>hfst-lookup-english.py</resource></tool>
 	  <tool runtime="python3"><resource>hfst-process-finnish.py</resource></tool>
+	  <tool runtime="python3"><resource>hfst-process-swedish.py</resource></tool
+	  <tool runtime="python3"><resource>hfst-process-english.py</resource></tool>
 	</category>
 
 	<category name="Demo" color="#00ff00">
