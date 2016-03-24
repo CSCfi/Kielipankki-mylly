@@ -23,3 +23,13 @@ def hfst_lookup(*command):
                    stderr = open("error2.log", mode = "wb")) as process:
             cut.stdout.close()    # Allows cut to receive SIGPIPE?
             process.communicate() # stdout and stderr are in files now.
+
+# "Processing" means tokenizing, looking up, then formatting.
+# Something like that anyway.
+
+def hfst_process(*command):
+    with Popen(command,
+               stdin  = open("text.txt", mode = "rb"),
+               stdout = open("readings.txt", mode = "wb"),
+               stderr = open("error.log", mode = "wb")) as process:
+        pass
