@@ -4,9 +4,9 @@
 # OUTPUT OPTIONAL error.log
 # PARAMETER Encoding TYPE [utf8: "UTF-8"] DEFAULT utf8 (Character encoding, UTF-8)
 # PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
-# PARAMETER LineInput TYPE boolean DEFAULT False (Whether each line is an input unit. Default separator is an empty line.)
-# PARAMETER PrintAll TYPE boolean DEFAULT False (Whether to print nonmatching text, whatever that is. Default not.)
-# PARAMETER PrintWeights TYPE boolean DEFAULT False (Whether to print weights. Default not.)
+# PARAMETER LineInput TYPE [yes: "yes", no: "no"] DEFAULT no (Whether each line is an input unit. Default separator is an empty line.)
+# PARAMETER PrintAll TYPE [yes: "yes", no: "no"] DEFAULT no (Whether to print nonmatching text, whatever that is. Default not.)
+# PARAMETER PrintWeight TYPE [yes: "yes", no: "no"] DEFAULT no (Whether to print weights. Default not.)
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", segment: "Segment (tokenize)", finnpos: "FinnPos output"] DEFAULT segment (Output format)
 
 # Own library in .../common/python3 should be found on sys.path.
@@ -28,6 +28,7 @@ def process_3_8_3():
     command = [processor, of]
     if LineInput: command.append('--newline')
     if PrintAll: command.append('--print-all')
+    if PrintWeight: command.append('--print-weight')
     command.append(transducer)
 
     hfst_process(*command)
@@ -45,6 +46,7 @@ def process_3_9_0(of):
     command = [processor, of]
     if LineInput: command.append('--newline')
     if PrintAll: command.append('--print-all')
+    if PrintWeight: command.append('--print-weight')
     command.append(transducer)
 
     hfst_process(*command)
