@@ -4,6 +4,7 @@
 # OUTPUT OPTIONAL error.log
 # PARAMETER Encoding TYPE [utf8: "UTF-8"] DEFAULT utf8 (Character encoding, UTF-8)
 # PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
+# PARAMETER InputFormat TYPE [raw: "raw"] DEFAULT raw (Input format)
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", apertium: "Apertium format"] DEFAULT xerox (Output format)
 
 # Own library in .../common/python3 should be found on sys.path.
@@ -19,7 +20,7 @@ def process_3_8_3(of):
 
     of = dict(xerox = '--xerox', cg = '--cg', apertium = '--apertium')[of]
 
-    hfst_process(processor, of, transducer)
+    hfst_process(processor, of, '--raw', transducer)
 
 def process_3_9_0(of):
     home = "/homeappl/appl_taito/ling/hfst/3.9.0"
@@ -28,7 +29,7 @@ def process_3_9_0(of):
 
     of = dict(xerox = '--xerox', cg = '--cg', apertium = '--apertium')[of]
 
-    hfst_process(processor, of, transducer)
+    hfst_process(processor, of, '--raw', transducer)
 
 dict(v383 = process_3_8_3, v390 = process_3_9_0)[Version](OutputFormat)
 
