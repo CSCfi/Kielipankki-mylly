@@ -26,9 +26,9 @@ def process_3_8_3():
               finnpos = '--finnpos')[OutputFormat]
 
     command = [processor, of]
-    if LineInput: command.append('--newline')
-    if PrintAll: command.append('--print-all')
-    if PrintWeight: command.append('--print-weight')
+    if LineInput == "yes": command.append('--newline')
+    if PrintAll == "yes": command.append('--print-all')
+    if PrintWeight == "yes": command.append('--print-weight')
     command.append(transducer)
 
     hfst_process(*command)
@@ -44,9 +44,9 @@ def process_3_9_0(of):
               finnpos = '--finnpos')[OutputFormat]
 
     command = [processor, of]
-    if LineInput: command.append('--newline')
-    if PrintAll: command.append('--print-all')
-    if PrintWeight: command.append('--print-weight')
+    if LineInput == "yes": command.append('--newline')
+    if PrintAll == "yes": command.append('--print-all')
+    if PrintWeight == "yes": command.append('--print-weight')
     command.append(transducer)
 
     hfst_process(*command)
