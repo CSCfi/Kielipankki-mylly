@@ -31,7 +31,7 @@ def process_3_8_3():
     if PrintWeight == "yes": command.append('--print-weight')
     command.append(transducer)
 
-    hfst_process(*command)
+    hfst_process2(*command)
 
 def process_3_9_0(of):
     home = "/homeappl/appl_taito/ling/hfst/3.9.0"
@@ -49,7 +49,7 @@ def process_3_9_0(of):
     if PrintWeight == "yes": command.append('--print-weight')
     command.append(transducer)
 
-    hfst_process(*command)
+    hfst_process2(*command)
 
 dict(v383 = process_3_8_3, v390 = process_3_9_0)[Version]()
 

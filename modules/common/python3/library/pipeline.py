@@ -33,3 +33,10 @@ def hfst_process(*command):
                stdout = open("readings.txt", mode = "wb"),
                stderr = open("error.log", mode = "wb")) as process:
         pass
+
+def hfst_process2(*command):
+    with Popen(command,
+               stdin  = open("text.txt", mode = "rb"),
+               stdout = open("segments.txt", mode = "wb"),
+               stderr = open("error.log", mode = "wb")) as process:
+        pass
