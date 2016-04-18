@@ -13,15 +13,15 @@ import os
 from library.pipeline import aaltoasr_align
 from library.errorlog import consolidate
 
-def recognize():
+def align():
     command = [ 'python3',
                 '/homeappl/appl_taito/ling/aaltoasr/1.0/scripts/aaltoasr-align',
                 '--output', 'alignment.txt',
                 '--tg', 'alignment.textgrid',
                 '--trans', 'transcript.txt',
                 'audio.data' ]
-    aaltoasr_recognize(command)
+    aaltoasr_align(command)
 
-recognize()
+align()
 
 consolidate()
