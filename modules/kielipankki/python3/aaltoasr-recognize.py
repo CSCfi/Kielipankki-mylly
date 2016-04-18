@@ -12,9 +12,12 @@ from library.pipeline import aaltoasr_recognize
 from library.errorlog import consolidate
 
 def recognize():
-    command = [ 'aaltoasr-rec',
+    command = [ 'python3',
+                '/homeappl/appl_taito/ling/aaltoasr/1.0/scripts/aaltoasr-rec',
                 # '--output', 'transcript.txt',
                 'audio' ]
     aaltoasr_recognize(command)
+
+recognize()
 
 consolidate()
