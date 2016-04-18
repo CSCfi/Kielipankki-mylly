@@ -40,3 +40,10 @@ def hfst_process2(*command):
                stdout = open("segments.txt", mode = "wb"),
                stderr = open("error.log", mode = "wb")) as process:
         pass
+
+def aaltoasr_recognize(command):
+    with Popen(command,
+               # stdin  = open("audio", mode = "rb"),
+               stdout = open("transcript.txt", mode = "wb"),
+               stderr = open("error.log", mode = "wb")) as process:
+        pass

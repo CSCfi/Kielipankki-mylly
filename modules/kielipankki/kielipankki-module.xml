@@ -8,7 +8,7 @@
 	</category>
 	
 	<category name="Speech" color="#e7df70">
-
+	  <tool runtime="python3"><resource>aaltoasr-recognize.py</resource></tool>
 	</category>
 
 	<category name="Parsing" color="#007fff">
