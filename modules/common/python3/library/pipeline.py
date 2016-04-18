@@ -42,8 +42,18 @@ def hfst_process2(*command):
         pass
 
 def aaltoasr_recognize(command):
+    # consider using --output transcript.txt for this
+    # and directing eventual stdout to another error log;
+    # testing this with aligner below - could combine these.
     with Popen(command,
                # stdin  = open("audio", mode = "rb"),
                stdout = open("transcript.txt", mode = "wb"),
+               stderr = open("error.log", mode = "wb")) as process:
+        pass
+
+def aaltoasr_align(command):
+    with Popen(command,
+               # stdin  = open("audio", mode = "rb"),
+               stdout = open("error-out.txt", mode = "wb"),
                stderr = open("error.log", mode = "wb")) as process:
         pass
