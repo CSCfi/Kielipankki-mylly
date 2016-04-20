@@ -24,7 +24,7 @@ def align_1_0():
                 '--mode', mode,
                 'audio.data'
     ]
-    aaltoasr_align(command)
+    aaltoasr(command)
 
 align_1_0()
 
