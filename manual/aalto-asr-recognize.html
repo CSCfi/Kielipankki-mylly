@@ -1,0 +1,107 @@
+<article>
+  <section>
+    <h2>Name</h2>
+
+    <p>aaltoasr-recognize.py &mdash; transcribe speech</p>
+  </section>
+
+  <section>
+    <h2>Synopsis</h2>
+	
+    <dl>
+      <dt>Mylly: Speech &rarr; Aalto ASR Recognize</dt>
+
+      <dt>Input file</dt>
+      <dd>an audio file containing speech</dd>
+
+      <dt>Parameters</dt>
+      <dd>Character encoding (default UTF-8, TODO)</dd>
+      <dd>RawTranscript - produce transcript in raw format</dd>
+      <dd>SegMorph - also produce morph level segmentation</dd>
+      <dd>SegPhone - also produce phone level segmentation</dd>
+
+      <dt>Output files</dt>
+      <dd>script.txt (plain text file with requested content)</dd>
+      <dd>script.textgrid (Praat TextGrid transcript)</dd>
+      <dd>error.log</dd>
+    </dl>
+  </section>
+  
+  <section>
+    <h2>Description</h2>
+    
+    <p><dfn>Aalto ASR Recognize</dfn> applies automatic methods to
+    transcribe a spoken audio file.</p>
+
+    <p>This is a heavy computation that can take many minutes even for
+    a short input file. It is recommended to experiment with just a
+    few words at first.</p>
+  </section>
+  
+  <section>
+    <h2>Input</h2>
+    
+    <p>Input consists of one <dfn>audio</dfn> file and parameters that
+    indicate optional forms of output.</p>
+	
+    <dl>
+      <dt>Input file</dt>
+      <dd>some recognized audio format, e.g. WAV</dd>
+    </dl>
+
+    <dl>
+      <dt>SegPhone</dt>
+      <dd>Produce a phone level section (letter by letter) in the
+	plain text transcript file.</dd>
+    </dl>
+
+    <dl>
+      <dt>Character encoding</dt>
+      <dd>UTF-8 (not sure yet what this does in this tool)</dd>
+    </dl>
+  </section>
+      
+  <section>
+    <h2>Output</h2>
+	
+    <p>Output consists of a plain text transcript file together with a
+    Praat TextGrid version of the same result. There may also be an
+    error log that contains diagnostic output (even on a succesful
+    execution).</p>
+    
+    <dl>
+      <dt>script.txt</dt>
+      <dd></dd>
+    </dl>
+
+    <dl>
+      <dt>script.textgrid</dt>
+      <dd></dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Examples</h2>
+
+    <p></p>
+  </section>
+
+  <section>
+    <h2>See also</h2>
+
+    <p>This recognizer is available in Taito as aaltoasr-rec, in
+      module aaltoas.<p>
+
+    <p>An aligner is also available.</p>
+
+    <p>The Aalto ASR command line tools have a --help option and
+      a <a href="http://research.spa.aalto.fi/speech/aaltoasr-guide/">user
+      guide</a>.</p>
+  </section>
+
+  <section>
+    <h2>Bugs</h2>
+
+    <p></p>
+  </section>
+</article>
