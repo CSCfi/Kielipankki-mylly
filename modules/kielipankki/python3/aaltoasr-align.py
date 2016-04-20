@@ -10,7 +10,7 @@
 # PARAMETER SegPhone TYPE [yes: "yes", no: "no"] DEFAULT no (Optionally output phone level segmentation)
 
 import os
-from library.pipeline import aaltoasr_align
+from library.pipeline import aaltoasr
 from library.errorlog import consolidate
 
 def align_1_0():
