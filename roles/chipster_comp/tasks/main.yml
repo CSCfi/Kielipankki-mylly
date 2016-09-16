@@ -1,8 +1,12 @@
-- name: Synchronise comp 1 
-  local_action: command /usr/bin/rsync -r --include 'comp' --include 'comp/modules' --include 'comp/modules/kielipankki**' --include 'comp/bin**' --include 'comp/conf**' --include 'comp/security**' --include 'shared/' --include 'shared/bin**' --include 'shared/lib**' --exclude '*' chipster@vm0171.kaj.pouta.csc.fi:/opt/chipster/ /tmp/chipster_comp/
-
-- name: Synchronize comp 2
-  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/chipster/
+- name:   Synchronise comp 1 
+  local_action: command /usr/bin/rsync -r --include 'comp' --include 'comp/bin/' --include 'comp/bin/chipster-comp' --include 'comp/bin/linux-x86-64**' --include 'comp/conf**' --include 'comp/security**' --include 'shared/'	--include 'shared/bin**' --include 'shared/lib/' --include 'shared/lib/*' --exclude '*' chipster@vm0171.kaj.pouta.csc.fi:/opt/chipster/ /tmp/chipster_comp/
 
 - name: Ensures comp/logs dir exists
-  file: path=~/chipster/comp/logs state=directory
+  local_action: command mkdir -p /tmp/chipster_comp/comp/logs
+
+- name: Ensures comp/jobs-data dir exists
+  local_action: command mkdir -p /tmp/chipster_comp/jobs-data
+
+- name: Synchronize comp 2
+  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/mylly/taito
+

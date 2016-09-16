@@ -1,6 +1,6 @@
 
-- name: fix permissions
-  file: path=/opt/chipster/webstart/web-root/chipster.jnlp owner=chipster group=chipster mode=0644
+#- name: fix permissions
+#  file: path=/opt/chipster/webstart/web-root/chipster.jnlp owner=chipster group=chipster mode=0644
 
 - name: Configure public call back IP
   become: yes
