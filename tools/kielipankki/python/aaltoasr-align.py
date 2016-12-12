@@ -8,6 +8,7 @@
 # PARAMETER Version TYPE [v1: "1.0"] DEFAULT v1 (Aalto ASR version)
 # PARAMETER SegWord TYPE [yes: "yes"] DEFAULT yes (Always output word level segmentation)
 # PARAMETER SegPhone TYPE [yes: "yes", no: "no"] DEFAULT no (Optionally output phone level segmentation)
+# RUNTIME python3
 
 import os
 from library.pipeline import aaltoasr

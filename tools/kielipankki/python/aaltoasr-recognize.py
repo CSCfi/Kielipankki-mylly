@@ -10,6 +10,7 @@
 # PARAMETER SegWord TYPE [yes: "yes"] DEFAULT yes (Always output word level segmentation)
 # PARAMETER SegMorph TYPE [yes: "yes", no: "no"] DEFAULT no (Optionally output morph level segmentation)
 # PARAMETER SegPhone TYPE [yes: "yes", no: "no"] DEFAULT no (Optionally output phone level segmentation)
+# RUNTIME python3
 
 import os
 from library.pipeline import aaltoasr

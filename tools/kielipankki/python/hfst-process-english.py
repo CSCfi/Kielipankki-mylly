@@ -6,6 +6,7 @@
 # PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
 # PARAMETER InputFormat TYPE [raw: "raw"] DEFAULT raw (Input format)
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", apertium: "Apertium format"] DEFAULT xerox (Output format)
+# RUNTIME python3
 
 # Own library in .../common/python3 should be found on sys.path.
 
