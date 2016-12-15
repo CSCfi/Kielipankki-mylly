@@ -8,5 +8,5 @@
   local_action: command mkdir -p /tmp/chipster_comp/jobs-data
 
 - name: Synchronize comp 2
-  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/mylly/taito
+  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/mylly-dev/taito-login3.csc.fi/
 
