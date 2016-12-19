@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <module name="kielipankki">
-		
+
 	<category name="Text" color="#d5c796">
-	  <tool runtime="python"><resource>finnish-analyze.py</resource></tool>
-	  <tool runtime="python"><resource>english-analyze.py</resource></tool>
+		<tool>finnish-analyze.py</tool>
+		<tool>english-analyze.py</tool>
 	</category>
-	
+
 	<category name="Speech" color="#e7df70">
-	  <tool runtime="python3"><resource>aaltoasr-recognize.py</resource></tool>
-	  <tool runtime="python3"><resource>aaltoasr-align.py</resource></tool>
+		<tool>aaltoasr-recognize.py</tool>
+		<tool>aaltoasr-align.py</tool>
 	</category>
 
 	<category name="Parsing" color="#007fff">
-	  <tool runtime="python3"><resource>hfst-lookup-finnish.py</resource></tool>
-	  <tool runtime="python3"><resource>hfst-lookup-swedish.py</resource></tool>
-	  <tool runtime="python3"><resource>hfst-lookup-english.py</resource></tool>
-	  <tool runtime="python3"><resource>hfst-process-finnish.py</resource></tool>
-	  <tool runtime="python3"><resource>hfst-process-swedish.py</resource></tool>
-	  <tool runtime="python3"><resource>hfst-process-english.py</resource></tool>
-	  <tool runtime="python3"><resource>hfst-process2-english.py</resource></tool>
+		<tool>hfst-lookup-finnish.py</tool>
+		<tool>hfst-lookup-swedish.py</tool>
+		<tool>hfst-lookup-english.py</tool>
+		<tool>hfst-process-finnish.py</tool>
+		<tool>hfst-process-swedish.py</tool>
+		<tool>hfst-process-english.py</tool>
+		<tool>hfst-process2-english.py</tool>
 	</category>
 
 	<category name="Demo" color="#00ff00">
-	  <tool runtime="R"><resource>powerplot.R</resource></tool>
-	  <tool runtime="R"><resource>rankplot.R</resource></tool>
-	  <tool runtime="R"><resource>growthplot.R</resource></tool>
-	  <tool runtime="R"><resource>whereplot.R</resource></tool>
-	  <tool runtime="python3"><resource>demotokens.py</resource></tool>
-	  <tool runtime="python3"><resource>democounts.py</resource></tool>
-	  <tool runtime="python3"><resource>demotraces.py</resource></tool>
+		<tool>powerplot.R</tool>
+		<tool>rankplot.R</tool>
+		<tool>growthplot.R</tool>
+		<tool>whereplot.R</tool>
+		<tool>demotokens.py</tool>
+		<tool>democounts.py</tool>
+		<tool>demotraces.py</tool>
 	</category>
 
 	<category name="Testing" color="#ff33cc">
-	  <tool runtime="R"><resource>test-data-in-out.R</resource></tool>
-	  <tool runtime="python"><resource>test-data-in-out.py</resource></tool>
-	  <tool runtime="python"><resource>restart_comp.py</resource></tool>
-	  <tool runtime="python"><resource>show-logs.py</resource></tool>
-	  <tool runtime="python3"><resource>test-parameters.py</resource></tool>
-	  <tool runtime="python3"><resource>test-multifile.py</resource></tool>
-	  <!-- tool runtime="python3"><resource>simple-frequencies.py</resource></tool -->
+		<tool>kp-test-data-in-out.R</tool>
+		<tool>kp-test-data-in-out.py</tool>
+		<tool>test-parameters.py</tool>
+		<tool>test-multifile.py</tool>
+		<!-- tool>simple-frequencies.py</tool -->
 	</category>
 
-
-<!-- 	
+<!--
 	<category name="Preprocessing" color="#d59f45">
 	</category>
-	
+
 	<category name="Statistics" color="#e7881c">
 	</category>
-	
+
 	<category name="Clustering" color="#d53833">
 	</category>
-	
+
 	<category name="Annotation" color="#80a3b7">
 	</category>
-	
+
 	<category name="Pathways" color="#0177b7">
 	</category>
 
@@ -70,9 +67,8 @@
 
 	<category name="Utilities" color="#83010b">
 	</category>
-	
+
 	<category name="Hidden" hidden="true" color="#0">
 	</category>
 -->
 </module>
-

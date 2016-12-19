@@ -4,6 +4,7 @@
 # OUTPUT OPTIONAL error.log
 # PARAMETER Encoding TYPE [utf8: "UTF-8"] DEFAULT utf8 (Character encoding, UTF-8)
 # PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
+# RUNTIME python3
 
 # Own library in .../common/python3 should be found on sys.path.
 

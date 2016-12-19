@@ -7,11 +7,12 @@
   become: yes
   roles:
    - chipster
+  tags: chipster
 
 - hosts: taito
   roles:
    - chipster_comp
-
+  tags: comp
    
 
 

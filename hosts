@@ -5,4 +5,4 @@
 vm0171.kaj.pouta.csc.fi ansible_ssh_user=ubuntu 
 
 [taito]
-taito.csc.fi ansible_ssh_user=kp-ruser
+taito-login3.csc.fi ansible_ssh_user=kp-ruser

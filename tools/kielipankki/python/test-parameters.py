@@ -5,6 +5,7 @@
 # PARAMETER code TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
 # PARAMETER size TYPE INTEGER FROM 0 TO 1000 (Some number, nothing more.)
 # PARAMETER OPTIONAL secret TYPE STRING (Something only you know!)
+# RUNTIME python3
 
 # Want to run this in Chipster and see
 # - how one gets to set parameters in the user interface
