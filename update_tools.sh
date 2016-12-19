@@ -3,7 +3,7 @@
 # Update self and restart chipster toolbox (if present)
 
 # cd to dir where script is
-cd `basename $0`
+cd `dirname $0`
 
 # sync remote changes
 git fetch
