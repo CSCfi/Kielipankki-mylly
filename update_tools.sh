@@ -19,6 +19,9 @@ if [ $LOCAL = $REMOTE ]; then
     : #echo "Up-to-date"
 elif [ $LOCAL = $BASE ]; then
     git pull
+    if [ -x $CHIPSTER_TOOL_RELOAD ]; then
+        $CHIPSTER_TOOL_RELOAD
+    fi;
 elif [ $REMOTE = $BASE ]; then
     echo "Need to push."
     echo "This should not happen."
@@ -27,6 +30,3 @@ else
     echo "This should not happen."
 fi
 
-if [ -x $CHIPSTER_TOOL_RELOAD ]; then
-  $CHIPSTER_TOOL_RELOAD
-fi;
