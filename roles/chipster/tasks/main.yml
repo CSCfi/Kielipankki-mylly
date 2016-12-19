@@ -23,4 +23,9 @@
     src: /home/chipster/Kielipankki-mylly/tools/
     dest: /opt/chipster/toolbox/tools
     state: link
-    
+
+- name: "Setup git pull in cron"
+  cron:
+    name: "Update Mylly tools"
+    minute: "*/5"
+    job: "/home/chipster/Kielipankki-mylly/update_tools.sh > /dev/null"
