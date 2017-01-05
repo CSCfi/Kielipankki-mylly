@@ -9,8 +9,8 @@
 # Own library in .../common/python3 should be found on sys.path.
 
 import os
-from library.pipeline import hfst_lookup
-from library.errorlog import consolidate
+from pipeline import hfst_lookup
+from errorlog import consolidate
 
 def lookup_3_8_3():
     home = "/homeappl/appl_taito/ling/hfst/3.8.3"

@@ -11,8 +11,8 @@
 # RUNTIME python3
 
 import os
-from library.pipeline import aaltoasr
-from library.errorlog import consolidate
+from pipeline import aaltoasr
+from errorlog import consolidate
 
 def align_1_0():
     home = '/homeappl/appl_taito/ling/aaltoasr/1.0'
