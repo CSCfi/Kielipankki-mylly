@@ -1,0 +1,19 @@
+#!/bin/bash
+# Load Java 8 and start comp in hostspecific directory
+module load java/openjdk/1.8
+module load r-env
+
+# We can't use load module python-env or hfst, since it would break r-env.
+# Woraround thanks to Jarmo P.:
+export PATH=\
+/appl/opt/python/3.4.0-gcc-shared/bin:\
+/usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin:\
+/homeappl/appl_taito/ling/hfst/3.11.0/bin:$PATH
+export LD_LIBRARY_PATH=\
+/appl/opt/python/3.4.0-gcc-shared/lib:\
+/appl/opt/OpenBLAS/gcc-openblas-0.2.8/lib:\
+/homeappl/appl_taito/ling/hfst/3.11.0/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=/homeappl/home/kp-ruser/Kielipankki-mylly/tools/kielipankki/python
+
+# invoke chipster-comp
+/homeappl/home/kp-ruser/mylly-dev/`hostname`/comp/bin/linux-x86-64/chipster-comp $1
