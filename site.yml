@@ -3,8 +3,6 @@
 #
 
 - hosts: chipster
-  remote_user: ubuntu
-  become: yes
   roles:
    - chipster
   tags: chipster

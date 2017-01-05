@@ -1,2 +1,31 @@
 # put very Kielipankki-specific tasks here.
 
+- name: update Kielipankki-mylly repo
+  git:
+    repo: https://github.com/CSC-IT-Center-for-Science/Kielipankki-mylly.git
+    update: yes
+    dest: /home/chipster/Kielipankki-mylly
+    version: dev-tools
+
+- name: check the current symlink
+  stat:
+    path: /opt/chipster/toolbox/tools 
+  register: tools
+
+- name: Remove tools dir if necessary
+  file:
+    path: /opt/chipster/toolbox/tools
+    state: absent
+  when: tools.stat.isdir is defined and tools.stat.isdir
+
+- name: Link to local tool repo
+  file:
+    src: /home/chipster/Kielipankki-mylly/tools/
+    dest: /opt/chipster/toolbox/tools
+    state: link
+
+- name: "Setup git pull in cron"
+  cron:
+    name: "Update Mylly tools"
+    minute: "*/5"
+    job: "/home/chipster/Kielipankki-mylly/update_tools.sh > /dev/null"
