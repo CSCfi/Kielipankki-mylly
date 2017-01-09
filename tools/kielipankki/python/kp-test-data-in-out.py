@@ -4,7 +4,9 @@
 
 import shutil
 
-print "p "+chipster_module_path
+f = open('output', 'w')
+f.write("p "+chipster_module_path)
+f.close()  
 
 #shutil.copyfile('input', 'output')
 
