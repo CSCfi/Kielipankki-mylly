@@ -13,7 +13,7 @@
 import os
 import sys
 
-sys.path.append(chipster_module_path + "/python/")
+sys.path.append(chipster_module_path)
 
 from pipeline import hfst_process
 from errorlog import consolidate
