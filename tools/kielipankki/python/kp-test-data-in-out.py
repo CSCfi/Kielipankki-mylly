@@ -3,9 +3,10 @@
 # OUTPUT output
 
 import shutil
+import os
 
 f = open('output', 'w')
-f.write("p "+chipster_module_path)
+f.write("p "+os.getcwd())
 f.close()  
 
 #shutil.copyfile('input', 'output')
