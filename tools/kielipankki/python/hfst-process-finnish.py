@@ -11,6 +11,10 @@
 # Own library in .../common/python3 should be found on sys.path.
 
 import os
+import sys
+
+sys.path.append(chipster_module_path + "/python/")
+
 from pipeline import hfst_process
 from errorlog import consolidate
 
