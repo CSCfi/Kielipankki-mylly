@@ -7,6 +7,7 @@ import os
 
 f = open('output', 'w')
 f.write("p "+os.getcwd())
+f.write("p "+chipster_module_path)
 f.close()  
 
 #shutil.copyfile('input', 'output')
