@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # Update self and restart chipster toolbox (if present)
 
 # cd to dir where script is
