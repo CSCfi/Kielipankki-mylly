@@ -46,3 +46,10 @@ def aaltoasr(command):
                stdout = open("error-out.txt", mode = "wb"),
                stderr = open("error.log", mode = "wb")) as process:
         pass
+
+def iconv(*command):
+    # command specifies input and output files, so there should not be
+    # reading from stdin or writing to stdout, right?
+    with Popen(command,
+               stderr = open("error.log", mode = "wb")) as process:
+        pass
