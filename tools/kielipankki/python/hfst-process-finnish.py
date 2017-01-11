@@ -8,12 +8,12 @@
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", apertium: "Apertium format"] DEFAULT xerox (Output format)
 # RUNTIME python3
 
-# Own library in .../common/python3 should be found on sys.path.
 
 import os
 import sys
 
-sys.path.append(chipster_module_path+"/python/")
+# Own library modules must be found on sys.path.
+sys.path.append(''.join(chipster_module_path, "python"))
 
 from pipeline import hfst_process
 from errorlog import consolidate
