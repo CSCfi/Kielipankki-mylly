@@ -13,7 +13,7 @@ import os
 import sys
 
 # Own library modules must be found on sys.path.
-sys.path.append(''.join(chipster_module_path, "python"))
+sys.path.append(os.path.join(chipster_module_path, "python"))
 
 from pipeline import hfst_process
 from errorlog import consolidate
