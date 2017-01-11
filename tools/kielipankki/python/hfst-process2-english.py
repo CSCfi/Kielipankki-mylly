@@ -35,7 +35,7 @@ def process_3_8_3():
 
     hfst_process2(*command)
 
-def process_3_9_0(of):
+def process_3_9_0():
     home = "/homeappl/appl_taito/ling/hfst/3.9.0"
     processor  = os.path.join(home, "bin", "hfst-proc2")
     transducer = os.path.join(home, "share/hfst/en", "en-analysis.hfst.ol")
@@ -53,7 +53,7 @@ def process_3_9_0(of):
 
     hfst_process2(*command)
 
-def process_3_11_0(of):
+def process_3_11_0():
     home = "/homeappl/appl_taito/ling/hfst/3.11.0"
     processor  = os.path.join(home, "bin", "hfst-proc2")
     transducer = os.path.join(home, "share/hfst/en", "en-analysis.hfst.ol")
