@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_pipeline import hfst_process
+from lib_pipeline import hfst_process2
 from lib_errorlog import consolidate
 
 def process_3_8_3():
