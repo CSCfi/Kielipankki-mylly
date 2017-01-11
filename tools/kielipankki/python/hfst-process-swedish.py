@@ -8,11 +8,12 @@
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", apertium: "Apertium format"] DEFAULT xerox (Output format)
 # RUNTIME python3
 
-# Own library in .../common/python3 should be found on sys.path.
-
 import os
-from pipeline import hfst_process
-from errorlog import consolidate
+import sys
+
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_pipeline import hfst_process
+from lib_errorlog import consolidate
 
 def process_3_8_3(of):
     home = "/homeappl/appl_taito/ling/hfst/3.8.3"

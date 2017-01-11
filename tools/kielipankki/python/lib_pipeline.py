@@ -1,7 +1,7 @@
 # Canned pipelines for any number of command types. Initially, one.
 
 # These produce numbered error logs that the caller can then
-# consolidate with errorlog.consolidate(), q.v. Other input and output
+# consolidate with lib_errorlog.consolidate(), q.v. Other input and output
 # file names depend on the command type. Caller is expected to know.
 
 # Attempting the following with input from a file, diagnostics to
