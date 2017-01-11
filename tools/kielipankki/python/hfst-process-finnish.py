@@ -12,11 +12,9 @@
 import os
 import sys
 
-# Own library modules must be found on sys.path.
 sys.path.append(os.path.join(chipster_module_path, "python"))
-
-from pipeline import hfst_process
-from errorlog import consolidate
+from lib_pipeline import hfst_process
+from lib_errorlog import consolidate
 
 def process_3_8_3(of):
     home = "/homeappl/appl_taito/ling/hfst/3.8.3"

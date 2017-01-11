@@ -11,8 +11,11 @@
 # RUNTIME python3
 
 import os
-from pipeline import aaltoasr
-from errorlog import consolidate
+import sys
+
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_pipeline import aaltoasr
+from lib_errorlog import consolidate
 
 def align_1_0():
     home = '/homeappl/appl_taito/ling/aaltoasr/1.0'
