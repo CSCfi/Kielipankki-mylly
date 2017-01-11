@@ -9,9 +9,9 @@ cd `dirname $0`
 git fetch
 
 UPSTREAM=${1:-'@{u}'}
-LOCAL=$(git rev-parse @)
+LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse "$UPSTREAM")
-BASE=$(git merge-base @ "$UPSTREAM")
+BASE=$(git merge-base HEAD "$UPSTREAM")
 TOOLDIR=/opt/chipster/toolbox/tools
 
 CHIPSTER_TOOL_RELOAD=/opt/chipster/toolbox/reload-tools.sh
