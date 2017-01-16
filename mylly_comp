@@ -13,7 +13,6 @@ export LD_LIBRARY_PATH=\
 /appl/opt/python/3.4.0-gcc-shared/lib:\
 /appl/opt/OpenBLAS/gcc-openblas-0.2.8/lib:\
 /homeappl/appl_taito/ling/hfst/3.11.0/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=/homeappl/home/kp-ruser/Kielipankki-mylly/tools/kielipankki/python
 
 # invoke chipster-comp
-/homeappl/home/kp-ruser/mylly-dev/`hostname`/comp/bin/linux-x86-64/chipster-comp $1
+`dirname $0`/`hostname`/comp/bin/linux-x86-64/chipster-comp $1
