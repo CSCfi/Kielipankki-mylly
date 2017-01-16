@@ -12,6 +12,10 @@
 		<tool>aaltoasr-align.py</tool>
 	</category>
 
+	<category name="Preprocessing" color="#d59f45">
+		<tool>to-utf8.py</tool>
+	</category>
+
 	<category name="Parsing" color="#007fff">
 		<tool>hfst-lookup-finnish.py</tool>
 		<tool>hfst-lookup-swedish.py</tool>
@@ -41,9 +45,6 @@
 	</category>
 
 <!--
-	<category name="Preprocessing" color="#d59f45">
-	</category>
-
 	<category name="Statistics" color="#e7881c">
 	</category>
 
