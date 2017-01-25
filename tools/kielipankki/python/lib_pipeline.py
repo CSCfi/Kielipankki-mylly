@@ -10,6 +10,7 @@
 # closing that stdout looks funny but maybe it really is that way.
 # https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline
 
+import os
 from subprocess import Popen, PIPE
 
 def hfst_lookup(*command):
@@ -53,3 +54,18 @@ def iconv(*command):
     with Popen(command,
                stderr = open("error.log", mode = "wb")) as process:
         pass
+
+def turku_parser_wrapper(wrapper):
+    # It's a shell script, it expects to find its component things in
+    # its current working directory, and it leaves things in TMPDIR.
+    with Popen([wrapper],
+               cwd = os.path.dirname(wrapper),
+               env = dict(os.environ, TMPDIR = os.getcwd()),
+               stdin  = open("text.txt", mode = "rb"),
+               stdout = PIPE,
+               stderr = open("error1.log", mode = "wb")) as parser:
+        with Popen(["cut", "-f", "1,2,4,6,8,10,12"],
+                   stdin = parser.stdout,
+                   stdout = open("analyses.txt", mode = "wb"),
+                   stderr = open("error2.log", mode = "wb")) as cut:
+            pass

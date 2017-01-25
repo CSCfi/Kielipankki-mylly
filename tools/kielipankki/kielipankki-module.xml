@@ -24,6 +24,7 @@
 		<tool>hfst-process-swedish.py</tool>
 		<tool>hfst-process-english.py</tool>
 		<tool>hfst-process2-english.py</tool>
+		<tool>td-parse-finnish.py</tool>
 	</category>
 
 	<category name="Demo" color="#00ff00">
