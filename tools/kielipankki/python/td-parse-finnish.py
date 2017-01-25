@@ -1,4 +1,4 @@
-# TOOL td-parse-finnish.py: "Turku Dependency Parser" (Segments Finnish text into sentences and tokens. Annotates each sentence with a morpho-syntactic structure.)
+# TOOL td-parse-finnish.py: "Turku Dependency Parser for Finnish" (Segments Finnish text into sentences and tokens. Annotates each sentence with a morpho-syntactic structure.)
 # INPUT text.txt TYPE GENERIC
 # OUTPUT analyses.txt
 # OUTPUT OPTIONAL error.log
@@ -11,10 +11,10 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_pipeline import turku_parser_wrapper
 from lib_errorlog import consolidate
 
-def tdparse():
+def parse_text():
     home="/appl/ling/finnish-process/share/hfst/fi/Finnish-dep-parser-alpha"
     turku_parser_wrapper(os.path.join(home, "parser_wrapper.sh"))
 
-tdparse()
+parse_text()
 
 consolidate()
