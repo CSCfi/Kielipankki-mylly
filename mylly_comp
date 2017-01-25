@@ -4,7 +4,7 @@ module load java/openjdk/1.8
 module load r-env
 
 # We can't use load module python-env or hfst, since it would break r-env.
-# Woraround thanks to Jarmo P.:
+# Workaround thanks to Jarmo P.:
 export PATH=\
 /appl/opt/python/3.4.0-gcc-shared/bin:\
 /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin:\
