@@ -1,7 +1,7 @@
 # TOOL wrap-adm.py: "Wrap Admin Tool" (Look at extant wrap work dirs, if appropriately informed and so inclined.)
-# PARAMETER Secret: "This is nothing" TYPE STRING (Must know something)
 # OUTPUT info.log
 # OUTPUT OPTIONAL error.log
+# PARAMETER Secret: "" TYPE STRING DEFAULT "This is nothing" (Must know something)
 # RUNTIME python3
 
 import hashlib
