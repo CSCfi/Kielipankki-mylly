@@ -38,6 +38,7 @@
 	</category>
 
 	<category name="Testing" color="#ff33cc">
+	  <tool>td-wrap.py</tool>
 		<tool>kp-test-data-in-out.R</tool>
 		<tool>kp-test-data-in-out.py</tool>
 		<tool>test-parameters.py</tool>
