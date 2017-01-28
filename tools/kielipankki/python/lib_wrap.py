@@ -57,8 +57,9 @@ def setup_wrap(tag, *datadata):
         # that does not seem to compress data - should one compress?
 
 # There are so many ways to fail
-class WrapError(Exception): pass
-class WorkError(Exception): pass
+class BadWrapFile(Exception): pass
+class DifferentWrapFile(Exception): pass
+class NoWorkDirectory(Exception): pass
 
 def setup_job(tag, template):
     '''Make <path>/wrap.job for ./data.wrap, to be submitted to the
@@ -148,18 +149,22 @@ def process_wrap(tag, *results):
         # finished, produce ./analyses.txt (the actual result).
         check_job(work, results)
 
-    except (BadZipFile, WrapError):
-        print("Input is not a valid wrap of the present kind",
+    except (BadZipFile, BadWrapFile):
+        print("Input file is not a wrap file",
               file = sys.stderr)
         exit(29)
 
-    except WorkError:
+    except DifferentWrapFile:
         with open("status.log", "a") as log:
-            print("Job is gone.",
+            print("Input wrap file cannot be processed with this tool",
+                  file = log)
+
+    except NoWorkDirectory:
+        with open("status.log", "a") as log:
+            print("Job directory for this wrap file is not found",
                   "",
-                  "An internal directory for this wrap was not found.",
                   "This is normal after a final status is reported,",
-                  "at which time any results should also have appeared.",
+                  "at which time any results should have appeared.",
                   "",
                   "If an unfinished wrap is old, rewrap the data.",
                   sep = '\n',
@@ -175,13 +180,13 @@ def get_work_directory(wrap, tag):
     if os.path.isdir(work):
         return work
     else:
-        raise WorkError()
+        raise NoWorkDirectory()
 
 def get_ticket_name(wrap, tag):
     """Get ticket name "wrap*" from the wrap (a ZipFile). There should
     be exactly one member ticket/wrap*, and that member should also
     contain the tag that indicates the use of this script. Raise
-    WrapError() if this is not the case."""
+    BadWrapFile() if this is not the case."""
 
     ticketnames = [ member
                     for member in wrap.namelist()
@@ -191,13 +196,13 @@ def get_ticket_name(wrap, tag):
     if len(ticketnames) == 1:
         [ticketname] = ticketnames
     else:
-        raise WrapError()
+        raise BadWrapFile()
 
     with wrap.open(ticketname) as ticket:
         if tag.encode('UTF-8') in next(ticket, b''):
             return os.path.basename(ticketname)
         else:
-            raise WrapError()
+            raise DifferentWrapFile()
 
 def submit_job(work, results):
     '''
@@ -264,6 +269,7 @@ def finish_job(work, results):
     if os.path.basename(work).startswith("wrap"):
         shutil.rmtree(work)
     else:
+        # this cannot happen (or, is an error in this script)
         raise ResourceWarning("not removing {}".format(work))
 
 def get_number(work):
