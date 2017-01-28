@@ -39,6 +39,7 @@
 
 	<category name="Testing" color="#ff33cc">
 	  <tool>td-wrap.py</tool>
+	  <tool>td-job.py</tool>
 	  <tool>wrap-adm.py</tool>
 		<tool>kp-test-data-in-out.R</tool>
 		<tool>kp-test-data-in-out.py</tool>
