@@ -1,6 +1,7 @@
 # TOOL td-job.py: "Turku Dependency Job" (Run a wrapped parsing job in the batch system. Use Turku Dependency Wrap to wrap a text.)
 # INPUT data.wrap TYPE GENERIC
-# OUTPUT analyses.txt
+# OUTPUT status.log
+# OUTPUT OPTIONAL analyses.txt
 # OUTPUT OPTIONAL error.log
 # RUNTIME python3
 
