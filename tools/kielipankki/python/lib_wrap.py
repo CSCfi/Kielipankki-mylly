@@ -163,7 +163,7 @@ def process_wrap(tag, *results):
                   "",
                   "If an unfinished wrap is old, rewrap the data.",
                   sep = '\n',
-                  file = sys.stderr)
+                  file = log)
 
     # any other exceptions are unexpected and may fly
 
