@@ -56,6 +56,10 @@ def setup_wrap(tag, *datadata):
             wrap.write(data, arcname = arcname)
         # that does not seem to compress data - should one compress?
 
+# There are so many ways to fail
+class WrapError(Exception): pass
+class WorkError(Exception): pass
+
 def setup_job(tag, template):
     '''Make <path>/wrap.job for ./data.wrap, to be submitted to the
     batch system. The job template lacks only <path>, and <path> is
@@ -119,9 +123,6 @@ def process_wrap(tag, *results):
 
     When job has left the system, also clean up the work directory.
     '''
-
-    class WrapError(Exception): pass
-    class WorkError(Exception): pass
 
     try:
         with ZipFile("data.wrap", "r") as wrap:
