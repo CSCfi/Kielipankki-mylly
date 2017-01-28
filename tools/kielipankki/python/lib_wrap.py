@@ -154,9 +154,16 @@ def process_wrap(tag, *results):
         exit(29)
 
     except WorkError:
-        print("Job directory for this wrap is not found",
-              file = sys.stderr)
-        exit(31)
+        with open("status.log", "a") as log:
+            print("Job is gone.",
+                  "",
+                  "An internal directory for this wrap was not found.",
+                  "This is normal after a final status is reported,",
+                  "at which time any results should also have appeared.",
+                  "",
+                  "If an unfinished wrap is old, rewrap the data.",
+                  sep = '\n',
+                  file = sys.stderr)
 
     # any other exceptions are unexpected and may fly
 
