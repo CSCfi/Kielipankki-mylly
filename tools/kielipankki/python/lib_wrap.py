@@ -316,7 +316,7 @@ def get_status(work, number):
             poll.kill()
             out, err = poll.communicate()
             ret = 'Poll timed out'
-s
+
     out = out.decode('UTF-8')
     err = err.decode('UTF-8')
 
