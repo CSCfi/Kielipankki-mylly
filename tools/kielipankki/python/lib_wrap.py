@@ -290,13 +290,22 @@ def get_number(work):
 def get_status(work, number):
     '''
     WAIT if job is still in queue (PENDING, RUNNING, COMPLETING, whatever)
-    DONE if job is (not in queue and) is finished
+    DONE if job (is not in queue and) is finished
     FAIL if job is not in queue but is not finished either
 
     What if <work> is not ok? Can one get here then?
     '''
 
-    with Popen(["squeue", "--jobs", number],
+    with Popen(["squeue", "--jobs", number,
+                "--noheader",
+                "--format",
+                "\n".join(("%T in %P (reasons %r %R)",
+                           "account %a, submitted %V",
+                           "time limit %l, memory %m MB",
+                           "nodes %D, processors/node %C",
+                           "start %S",
+                           "end   %E",
+                           "left  %L"))],
                stdout = PIPE,
                stderr = PIPE) as poll:
         # encoding = "UTF-8" added in Python 3.6

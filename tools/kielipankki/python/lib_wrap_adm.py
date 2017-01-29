@@ -24,8 +24,9 @@ def print_info(out):
         print(o.decode('UTF-8'),
               file = out)
     for wrap in sorted(glob.glob(os.path.join(os.environ.get('WRKDIR'), 'wrap*'))):
-        print(file = out)
-        print(wrap, end = ':\n', file = out)
+        # These turned out to be redundant:
+        # print(file = out)
+        # print(wrap, end = ':\n', file = out)
         with Popen(['/bin/ls', '-R', '-lF', wrap],
                    stdout = PIPE,
                    stderr = PIPE) as p:
