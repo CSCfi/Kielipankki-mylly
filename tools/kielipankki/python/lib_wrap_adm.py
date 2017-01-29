@@ -7,6 +7,7 @@
 # The immediate intent is to gather information that is relevant to
 # the development of the use of the batch system through mylly.
 
+import glob
 import os
 from subprocess import Popen, PIPE
 
