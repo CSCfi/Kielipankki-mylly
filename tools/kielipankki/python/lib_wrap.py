@@ -299,7 +299,7 @@ def get_status(work, number):
     with Popen(["squeue", "--jobs", number,
                 "--noheader",
                 "--format",
-                "\n".join(("%T in %P (reasons %r %R)",
+                "\n".join(("Job %i %T in %P (reasons %r %R)",
                            "account %a, submitted %V",
                            "time limit %l, memory %m MB",
                            "nodes %D, processors/node %C",
@@ -316,11 +316,14 @@ def get_status(work, number):
             poll.kill()
             out, err = poll.communicate()
             ret = 'Poll timed out'
-
+s
     out = out.decode('UTF-8')
     err = err.decode('UTF-8')
 
-    if number in out:
+    if out: # number in out: not sure what can be relied to indicate
+        # that the job is still there - COMPLETED jobs seem to not be,
+        # yet that is a valid state, but assume for now that really
+        # finished jobs produce an empty report
         return "WAIT", '\n'.join(("Job is still in the batch system", "",
                                   "Poll stdout:", out,
                                   "Poll stderr:", err, ret))
