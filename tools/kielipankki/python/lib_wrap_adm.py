@@ -22,3 +22,12 @@ def print_info(out):
         o, e = p.communicate(timeout = 5)
         print(o.decode('UTF-8'),
               file = out)
+    for wrap in sorted(glob.glob(os.path.join(os.environ.get('WRKDIR'), 'wrap*'))):
+        print(file = out)
+        print(wrap, end = ':\n', file = out)
+        with Popen(['/bin/ls', '-R', '-lF', wrap],
+                   stdout = PIPE,
+                   stderr = PIPE) as p:
+            o, e = p.communicate(timeout = 5)
+            print(o.decode('UTF-8'),
+                  file = out)
