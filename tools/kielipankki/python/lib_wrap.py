@@ -1,4 +1,5 @@
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -6,27 +7,19 @@ import tempfile
 from subprocess import Popen, PIPE, TimeoutExpired
 from zipfile import ZipFile, BadZipFile
 
-# To test: run td-wrap.py in a directory that contains a text.txt but
-# no data.wrap; then run td-job.py (this script) in a directory that
-# contains the resulting data.wrap; unzip -l data.wrap to see where in
-# $WRKDIR the batch job is working.
+# To test outside Mylly: In Taito, where the underlying tools live,
+# make test scripts that are like td-wrap.py and td-job.py but point
+# their sys.path to the local clone of the repository; run your
+# test-wrap.py in a directory that contains a ./text.txt; then run
+# your test-job.py in a directory that contains the resulting
+# ./data.wrap (the same directory will do just fine); unzip -l
+# data.wrap to see where in your $WRKDIR the batch job is working.
 #
-# Make test scripts, like so:
+# Adapt when the scripts acquire parameters and such.
 #
-#    # testwrap.py
-#    sys.path.append("/dir/where/lib/is")
-#    import lib_wrap as lib
-#    lib.setup_wrap(b"Turku Dependency Wrap", "./text.txt")
-#    lib.setup_job(b"Turku Dependency Wrap", "... {path} ...")
-#
-#    # testjob.py
-#    sys.path.append("/dir/where/lib/is")
-#    import lib_wrap is lib
-#    lib.process_wrap(b"Turku Dependency Wrap")
-#
-# "wrap" and "job" need to be paired because they must specify input
-# and output file names in their chipster header - other than that,
-# "job" is quite generic.
+# The "wrap" and "job" tools need to be paired because their chipster
+# headers must specify input and output file names. Otherwise, "job"
+# in particular is quite generic.
 
 def setup_wrap(tag, *datadata):
     '''
@@ -51,7 +44,8 @@ def setup_wrap(tag, *datadata):
         # since Python 3.6 one could open an archive member with mode "w"
         wrap.writestr("ticket/{}".format(name), "{}\n".format(tag))
         for data in datadata:
-            # *should* check: text.txt or ./text.txt, like, in cwd
+            # *should* check: text.txt or ./text.txt, like, in cwd;
+            # but these names *do* come from a trusted Mylly tool.
             arcname = os.path.join("data", os.path.basename(data))
             wrap.write(data, arcname = arcname)
         # that does not seem to compress data - should one compress?
@@ -188,19 +182,33 @@ def get_ticket_name(wrap, tag):
     contain the tag that indicates the use of this script. Raise
     BadWrapFile() if this is not the case."""
 
-    ticketnames = [ member
-                    for member in wrap.namelist()
-                    if os.path.dirname(member) == "ticket"
-                    if os.path.basename(member).startswith("wrap") ]
+    names = [ os.path.basename(member)
+              for member in wrap.namelist()
+              if os.path.dirname(member) == "ticket" ]
 
-    if len(ticketnames) == 1:
-        [ticketname] = ticketnames
+    if len(names) == 1:
+        [name] = names
     else:
         raise BadWrapFile()
 
-    with wrap.open(ticketname) as ticket:
+    # Supposing a malicious user has managed to graft a wrap-like zip
+    # file with suprising characters in the ticket file name, do not
+    # recognize the file as a wrap file in Mylly; str.almum is too
+    # strict because tempfile.mkdtemp produces underscores; \w+ allows
+    # underscores and re.ASCII restricts it to allow only ASCII.
+    if not re.fullmatch('wrap\w+', name, re.ASCII):
+        raise BadWrapFile()
+
+    # It remains _possible_ to process an existing TMPDIR/wrap*
+    # directory through a carefully grafted wrap-like file in Mylly.
+    # The attacker needs to guess the random part of the name, and
+    # still cannot _create_ a new directory or inject any data to the
+    # existing (usually short-lived) directory except through the
+    # intended processing mechanism, so the risk should be low.
+
+    with wrap.open(os.path.join("ticket", name)) as ticket:
         if tag.encode('UTF-8') in next(ticket, b''):
-            return os.path.basename(ticketname)
+            return name
         else:
             raise DifferentWrapFile()
 
