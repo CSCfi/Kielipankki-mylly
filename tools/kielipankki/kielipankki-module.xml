@@ -39,6 +39,7 @@
 
 	<category name="Testing" color="#ff33cc">
 	  <tool>aasr-recognize-wrap.py</tool>
+	  <tool>aasr-recognize-job.py</tool>
 	  <tool>td-wrap.py</tool>
 	  <tool>td-job.py</tool>
 	  <tool>wrap-adm.py</tool>
