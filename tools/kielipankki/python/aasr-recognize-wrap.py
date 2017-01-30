@@ -1,5 +1,5 @@
 # TOOL aasr-recognize-wrap.py: "Aalto ASR Recognize Wrap" (Wraps an audio file for speech recognition in the batch system. Use Aalto ASR Recognize Job on the resulting wrap.)
-# INPUT audio.data TYPE GENERIC
+# INPUT audio.wav TYPE GENERIC
 # OUTPUT data.wrap
 # OUTPUT OPTIONAL error.log
 # PARAMETER Script TYPE [yes: "yes"] DEFAULT yes (Always output transcript in script.txt)
@@ -20,8 +20,7 @@ mode = ','.join(mode)
 
 raw = "--raw" if RawTranscript == "yes" else ""
 
-temp = '''\
-#! /bin/bash -e
+temp = R'''#! /bin/bash -e
 #SBATCH -J mylly-aasr-rec
 #SBATCH -o {{path}}/stdout.log
 #SBATCH -e {{path}}/stderr.log
@@ -40,14 +39,14 @@ aaltoasr-rec \
     --elan {{path}}/script.eaf \
     --mode {mode} \
     {raw} \
-    {{path}}/data/audio.data
+    {{path}}/data/audio.wav
 
 touch {{path}}/state/finished
 '''
 
 tag = "Aalto ASR Recognize Wrap"
 
-lib.setup_wrap(tag, "./audio.data")
+lib.setup_wrap(tag, "./audio.wav")
 
 # "./script.txt", "./script.textgrid", "./script.eaf"
 
