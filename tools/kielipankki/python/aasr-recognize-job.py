@@ -13,5 +13,5 @@ import lib_wrap as lib
 
 lib.process_wrap("Aalto ASR Recognize Wrap",
                  "./script.txt",
-                 "./script.textgrid"
+                 "./script.textgrid",
                  "./script.eaf")
