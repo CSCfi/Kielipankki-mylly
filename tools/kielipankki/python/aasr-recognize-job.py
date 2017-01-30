@@ -5,7 +5,12 @@
 # OUTPUT OPTIONAL script.textgrid
 # OUTPUT OPTIONAL script.eaf
 # OUTPUT OPTIONAL error.log
+# OUTPUT OPTIONAL stdout.log
+# OUTPUT OPTIONAL stderr.log
 # RUNTIME python3
+
+# Made batch stdout and stderr available in Mylly at least for the
+# time being. Need to work out the details.
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
@@ -14,4 +19,9 @@ import lib_wrap as lib
 lib.process_wrap("Aalto ASR Recognize Wrap",
                  "./script.txt",
                  "./script.textgrid",
-                 "./script.eaf")
+                 "./script.eaf",
+                 "./stdout.log",
+                 "./stderr.log")
+
+# What's with the ./ in the result file names? Those are the be
+# brought over to ./ from the work directory in the end.

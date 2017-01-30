@@ -23,8 +23,8 @@ raw = "--raw" if RawTranscript == "yes" else ""
 temp = '''\
 #! /bin/bash -e
 #SBATCH -J mylly-aasr-rec
-#SBATCH -o {{path}}/log-%J.out
-#SBATCH -e {{path}}/log-%J.err
+#SBATCH -o {{path}}/stdout.log
+#SBATCH -e {{path}}/stderr.log
 #SBATCH -p serial
 #SBATCH -n 1
 #SBATCH -t {time}
