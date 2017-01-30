@@ -1,4 +1,4 @@
-# TOOL aasr-wrap-recognize.py: "Aalto ASR Recognize Wrap" (Wraps an audio file for speech recognition in the batch system. Use Aalto ASR Recognize Job on the resulting wrap.)
+# TOOL aasr-recognize-wrap.py: "Aalto ASR Recognize Wrap" (Wraps an audio file for speech recognition in the batch system. Use Aalto ASR Recognize Job on the resulting wrap.)
 # INPUT audio.data TYPE GENERIC
 # OUTPUT data.wrap
 # OUTPUT OPTIONAL error.log
