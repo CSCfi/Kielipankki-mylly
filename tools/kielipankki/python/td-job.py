@@ -1,4 +1,4 @@
-# TOOL td-job.py: "Turku Dependency Job" (Run a wrapped parsing job in the batch system. Use Turku Dependency Wrap to wrap a text.)
+# TOOL td-job.py: "Turku Dependency Parser for Finnish - Run Job" (Run a wrapped parsing job in the batch system. Use the Prepare Job tool to wrap a text.)
 # INPUT data.wrap TYPE GENERIC
 # OUTPUT status.log
 # OUTPUT OPTIONAL analyses.txt

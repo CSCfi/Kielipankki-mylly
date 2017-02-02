@@ -8,8 +8,10 @@
 	</category>
 
 	<category name="Speech" color="#e7df70">
-		<tool>aaltoasr-recognize.py</tool>
-		<tool>aaltoasr-align.py</tool>
+	  <tool>aasr-recognize-wrap.py</tool>
+	  <tool>aasr-recognize-job.py</tool>
+		<!-- tool>aaltoasr-recognize.py</tool -->
+		<!-- tool>aaltoasr-align.py</tool -->
 	</category>
 
 	<category name="Preprocessing" color="#d59f45">
@@ -17,6 +19,9 @@
 	</category>
 
 	<category name="Parsing" color="#007fff">
+	  <tool>td-wrap.py</tool>
+	  <tool>td-job.py</tool>
+		<tool>td-parse-finnish.py</tool>
 		<tool>hfst-lookup-finnish.py</tool>
 		<tool>hfst-lookup-swedish.py</tool>
 		<tool>hfst-lookup-english.py</tool>
@@ -24,7 +29,6 @@
 		<tool>hfst-process-swedish.py</tool>
 		<tool>hfst-process-english.py</tool>
 		<tool>hfst-process2-english.py</tool>
-		<tool>td-parse-finnish.py</tool>
 	</category>
 
 	<category name="Demo" color="#00ff00">
@@ -38,10 +42,6 @@
 	</category>
 
 	<category name="Testing" color="#ff33cc">
-	  <tool>aasr-recognize-wrap.py</tool>
-	  <tool>aasr-recognize-job.py</tool>
-	  <tool>td-wrap.py</tool>
-	  <tool>td-job.py</tool>
 	  <tool>wrap-adm.py</tool>
 		<tool>kp-test-data-in-out.R</tool>
 		<tool>kp-test-data-in-out.py</tool>
