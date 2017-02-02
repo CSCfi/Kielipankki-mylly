@@ -43,6 +43,7 @@
 
 	<category name="Testing" color="#ff33cc">
 	  <tool>wrap-adm.py</tool>
+	  <tool>co.py</tool>
 		<tool>kp-test-data-in-out.R</tool>
 		<tool>kp-test-data-in-out.py</tool>
 		<tool>test-parameters.py</tool>
