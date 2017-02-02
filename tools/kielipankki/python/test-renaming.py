@@ -1,8 +1,6 @@
 # TOOL test-renaming.py: "Output File Rename Test" (Expose original names and eventually new names)
 # INPUT first.txt TYPE GENERIC (First file)
 # INPUT second.txt TYPE GENERIC (Second file)
-# OUTPUT first.txt
-# OUTPUT second.txt
 # OUTPUT OPTIONAL chipster-inputs.tsv
 # OUTPUT OPTIONAL chipster-outputs.tsv
 # OUTPUT OPTIONAL error.txt (Diagnostics if any)
