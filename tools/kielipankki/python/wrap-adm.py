@@ -11,10 +11,10 @@ h.update(Secret.encode('UTF-8'))
 
 with open('info.log', 'w') as info:
 
-    if h.hexdigest() == ( 'feccf7af59e54dbd'
-                          '5e1092c5e6c0ff4b'
-                          '38237c82554466ee'
-                          '4619239545d29067' ):
+    if h.hexdigest() == ( 'f0630e2bac6e41a4'
+                          'b6daae1b394a8eaa'
+                          '4e62679703cc6522'
+                          '9d78fb57c1ed2e31' ):
 
         sys.path.append(os.path.join(chipster_module_path, "python"))
         import lib_wrap_adm
