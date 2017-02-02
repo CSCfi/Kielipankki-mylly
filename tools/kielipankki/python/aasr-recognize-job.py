@@ -1,4 +1,4 @@
-# TOOL aasr-recognize-job.py: "Aalto ASR Recognize - RUn Job" (Run a wrapped speech recognition job in the batch system. Use the corresponding Prepare Job tool to wrap an audio file.)
+# TOOL aasr-recognize-job.py: "Aalto ASR Recognize - Run Job" (Run a wrapped speech recognition job in the batch system. Use the corresponding Prepare Job tool to wrap an audio file.)
 # INPUT data.wrap TYPE GENERIC
 # OUTPUT status.log
 # OUTPUT OPTIONAL script.txt
