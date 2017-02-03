@@ -20,7 +20,7 @@ def dataset_name(input_name, *, cash = None):
                         for rec in ins
                         if not rec.startswith('#'))
 
-    return cash
+    return cash[input_name]
 
 sensible_extensions = set('''
 
