@@ -23,10 +23,9 @@ from zipfile import ZipFile, BadZipFile
 
 def setup_wrap(tag, *datadata):
     '''
-    Wraps ./text.txt in ./data.wrap
+    Wraps ./text.txt in ./data.wrap as ./data/text.txt
 
     Creates $WRKDIR/wrap<tmp>
-    Creates $WRKDIR/wrap<tmp>/wrap.job
 
     ./data.wrap" is a zip archive file containing the following two items:
 
@@ -59,7 +58,11 @@ def setup_job(tag, template):
     '''Make <path>/wrap.job for ./data.wrap, to be submitted to the
     batch system. The job template lacks only <path>, and <path> is
     already made in a standard location, its basename recorderd as
-    ticket/<path> in ./data.wrap.'''
+    ticket/<path> in ./data.wrap.
+
+    Also store ./chipster-inputs.tsv to <path>. This way the display
+    names never come directly from the user but are those that were
+    already in use in the chipster interface.'''
 
     # should really check that data.wrap is there and is a zip file
     # and contains the ticket and ... well, actually
@@ -71,6 +74,8 @@ def setup_job(tag, template):
 
     with open(os.path.join(path, "wrap.job"), "w") as job:
         print(template.format(path = path), file = job)
+
+    shutil.copy("./chipster-inputs.tsv", path)
 
 '''
     First time td-job (another "tool") on ./data.wrap

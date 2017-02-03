@@ -9,4 +9,7 @@ import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_wrap as lib
 
+# TODO: get the wrapped chipster_inputs.tsv from work directory, base
+# chipster_outputs.tsv on that; need to adapt lib to support this.
+
 lib.process_wrap("Turku Dependency Wrap", "./analyses.txt")
