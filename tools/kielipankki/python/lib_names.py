@@ -15,7 +15,7 @@ def dataset_name(input_name, *, cash = None):
     # https://github.com/chipster/chipster/wiki/TechnicalManual#output-file-names
 
     if cash is None:
-        with open("chipster-inputs.tsv", "r", encoding = "UTF-8") in ins:
+        with open("chipster-inputs.tsv", "r", encoding = "UTF-8") as ins:
             cash = dict(rec.strip('\r\n').split('\t')[:2]
                         for rec in ins
                         if not rec.startswith('#'))
