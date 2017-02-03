@@ -41,7 +41,7 @@ def extend(input_name, new):
     name = dataset_name(input_name)
     base, ext = os.path.splitext(name)
 
-    if ext.lower in sensible_extensions:
+    if ext.lower() in sensible_extensions:
         return base + new
     else:
         return name + new
@@ -55,7 +55,7 @@ def insert(input_name, new):
     name = dataset_name(input_name)
     base, ext = os.path.splitext(name)
 
-    if ext.lower in sensible_extensions:
+    if ext.lower() in sensible_extensions:
         return base + new + ext
     else:
         return name + new
