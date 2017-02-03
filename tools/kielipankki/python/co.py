@@ -5,6 +5,14 @@
 # OUTPUT OPTIONAL second.out
 # RUNTIME python3
 
+# Optional input is no good? Needs investigation.
+
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names import output, insert
+
+output("first.out", insert("first.in", "-copy"))
+output("second.out", insert("second.in", "-copy"))
+
 import os, shutil
 shutil.copy("first.in", "first.out")
 if os.path.exists("second.in"):
