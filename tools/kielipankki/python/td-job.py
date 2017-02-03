@@ -13,7 +13,8 @@ import lib_wrap as lib
 # TODO: get the wrapped chipster_inputs.tsv from work directory, base
 # chipster_outputs.tsv on that; need to adapt lib to support this.
 
-lib.restore_inputs("./data.wrap")
+tag = "Turku Dependency Wrap"
+lib.restore_inputs("./data.wrap", tag)
 output("analyses.txt", extend("text.txt", ".tsv"))
 
-lib.process_wrap("Turku Dependency Wrap", "./analyses.txt")
+lib.process_wrap(tag, "./analyses.txt")
