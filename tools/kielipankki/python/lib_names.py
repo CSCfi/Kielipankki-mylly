@@ -3,7 +3,7 @@ import os
 def output(output_name, dataset_name):
     '''Use this in the tool script together with some method to map
     input_names to a dataset_name. See extend, insert, below.'''
-    with open("chipster_outputs.tsv", "a", encoding = "UTF-8") as out:
+    with open("chipster-outputs.tsv", "a", encoding = "UTF-8") as out:
         print(output_name, dataset_name, sep = '\t', file = out)
 
 def dataset_name(input_name, *, cash = None):
@@ -15,7 +15,7 @@ def dataset_name(input_name, *, cash = None):
     # https://github.com/chipster/chipster/wiki/TechnicalManual#output-file-names
 
     if cash is None:
-        with open("chipster_inputs.tsv", "r", encoding = "UTF-8"):
+        with open("chipster-inputs.tsv", "r", encoding = "UTF-8"):
             cash = dict(rec.strip('\r\n').split('\t')[:2]
                         for rec in ins
                         if not rec.startswith('#'))
