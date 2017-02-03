@@ -7,6 +7,9 @@ import tempfile
 from subprocess import Popen, PIPE, TimeoutExpired
 from zipfile import ZipFile, BadZipFile
 
+# TODO: These functions need to receive the file name ./data.wrap from
+# the tool. Like the new restore_inputs(wrapname, tag) already does.
+
 # To test outside Mylly: In Taito, where the underlying tools live,
 # make test scripts that are like td-wrap.py and td-job.py but point
 # their sys.path to the local clone of the repository; run your
@@ -76,6 +79,20 @@ def setup_job(tag, template):
         print(template.format(path = path), file = job)
 
     shutil.copy("./chipster-inputs.tsv", path)
+
+def restore_inputs(wrapname, tag):
+    '''To be called by the tools that run wrapped jobs, right in the
+    start where they specify the display names of their outputs, this
+    overrides their ./chipster-inputs.tsv with the one that specifies
+    the wrapped files names.'''
+    with ZipFile(wrapname, "r") as wrap:
+        path = get_work_directory(wrap, tag)
+
+    # should be there from the time the wrap was made, given that the
+    # path could be resolved; always overrides the file in "."
+    shutil.copy(os.path.join(work, "chipster-inputs.tsv"), ".")
+
+# TODO: what is the following comment doing here?
 
 '''
     First time td-job (another "tool") on ./data.wrap
