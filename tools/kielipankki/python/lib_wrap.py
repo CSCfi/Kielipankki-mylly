@@ -86,7 +86,7 @@ def restore_inputs(wrapname, tag):
     overrides their ./chipster-inputs.tsv with the one that specifies
     the wrapped files names.'''
     with ZipFile(wrapname, "r") as wrap:
-        path = get_work_directory(wrap, tag)
+        work = get_work_directory(wrap, tag)
 
     # should be there from the time the wrap was made, given that the
     # path could be resolved; always overrides the file in "."
