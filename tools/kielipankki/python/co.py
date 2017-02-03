@@ -17,11 +17,3 @@ import os, shutil
 shutil.copy("first.in", "first.out")
 if os.path.exists("second.in"):
     shutil.copy("second.in", "second.out")
-
-with open("chipster-inputs.tsv", "r") as ins:
-    with open("chipster-outputs.tsv", "w") as outs:
-        inputs = dict(rec.strip('\r\n').split('\t')[:2]
-                      for rec in ins
-                      if not rec.startswith('#'))
-        print("first.out", inputs["first.in"], sep = '\t', file = outs)
-        print("second.out", inputs["second.in"], sep = '\t', file = outs)
