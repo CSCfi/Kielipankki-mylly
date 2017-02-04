@@ -8,10 +8,10 @@
 # Optional input is no good? Needs investigation.
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names import output, insert
+import lib_names as names
 
-output("first.out", insert("first.in", "-copy"))
-output("second.out", insert("second.in", "-copy"))
+names.output("first.out", names.insert("first.in", "-copy"))
+names.output("second.out", names.insert("second.in", "-copy"))
 
 import os, shutil
 shutil.copy("first.in", "first.out")

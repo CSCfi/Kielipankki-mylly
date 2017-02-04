@@ -14,14 +14,18 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_wrap as lib
+import lib_wrap as wraps
+import lib_names as names
 
-lib.process_wrap("Aalto ASR Recognize Wrap",
-                 "./script.txt",
-                 "./script.textgrid",
-                 "./script.eaf",
-                 "./stdout.log",
-                 "./stderr.log")
+tag = "Aalto ASR Recognize Wrap"
+wraps.restore_inputs("./data.wrap", tag)
+names.output("script.txt", names.replace("audio.wav", ".txt"))
+names.output("script.textgrid", names.replace("audio.wav", ".textgrid"))
+names.output("script.eaf", names.replace("audio.wav", ".eaf"))
 
-# What's with the ./ in the result file names? Those are the be
-# brought over to ./ from the work directory in the end.
+wraps.process_wrap(tag,
+                   "script.txt",
+                   "script.textgrid",
+                   "script.eaf",
+                   "stdout.log",
+                   "stderr.log")

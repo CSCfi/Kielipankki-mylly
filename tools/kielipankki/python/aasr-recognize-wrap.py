@@ -11,7 +11,12 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_wrap as lib
+import lib_wrap as wraps
+import lib_names as names
+
+# make ./data.wrap appear as $audio.wrap ISWIM
+tag = "Aalto ASR Recognize Wrap"
+names.output("./data.wrap", names.replace("audio.wav", ".wrap"))
 
 mode = [ 'trans', 'segword' ]
 if SegMorph == 'yes': mode.append('segmorph')
@@ -44,15 +49,13 @@ aaltoasr-rec \
 touch {{path}}/state/finished
 '''
 
-tag = "Aalto ASR Recognize Wrap"
-
-lib.setup_wrap(tag, "./audio.wav")
+wraps.setup_wrap(tag, "./audio.wav")
 
 # "./script.txt", "./script.textgrid", "./script.eaf"
 
-lib.setup_job(tag, temp.format(time = '2:00:00',
-                               mem = '16000',
-                               mode = mode,
-                               raw = raw))
+wraps.setup_job(tag, temp.format(time = '2:00:00',
+                                 mem = '16000',
+                                 mode = mode,
+                                 raw = raw))
 
 # TODO: compute those parameters based on ./audio.data, some-how.

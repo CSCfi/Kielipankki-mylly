@@ -2,7 +2,7 @@ import os
 
 def output(output_name, dataset_name):
     '''Use this in the tool script together with some method to map
-    input_names to a dataset_name. See extend, insert, below.'''
+    input_names to a dataset_name. See replace, insert, below.'''
     with open("chipster-outputs.tsv", "a", encoding = "UTF-8") as out:
         print(output_name, dataset_name, sep = '\t', file = out)
 
@@ -32,11 +32,10 @@ sensible_extensions = set('''
 
 '''.split())
 
-def extend(input_name, new):
+def replace(input_name, new):
     '''Replace the filename extension of dataset_name with new. If the
-    old extension is not sensible, which is decided by the sole
-    discretion of this script, append the new extension to the old
-    name.'''
+    old extension is not sensible, as defined by the sole discretion
+    of this script, append the new extension to the old name.'''
 
     name = dataset_name(input_name)
     base, ext = os.path.splitext(name)
