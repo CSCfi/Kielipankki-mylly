@@ -6,7 +6,10 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_wrap as lib
+import lib_wrap as wraps
+import lib_names as names
+
+names.output("data.wrap", names.extend("text.txt", ".wrap"))
 
 temp = '''\
 #! /bin/bash -e
@@ -37,9 +40,9 @@ touch {{path}}/state/finished
 
 tag = "Turku Dependency Wrap"
 
-lib.setup_wrap(tag, "./text.txt")
+wraps.setup_wrap(tag, "./text.txt")
 
-lib.setup_job(tag, temp.format(time = '2:00:00',
-                               mem = '16000'))
+wraps.setup_job(tag, temp.format(time = '2:00:00',
+                                 mem = '16000'))
 
 # TODO: compute those parameters based on ./text.txt, some-how.
