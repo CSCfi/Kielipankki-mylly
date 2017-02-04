@@ -16,7 +16,7 @@ import lib_names as names
 
 # make ./data.wrap appear as $audio.wrap ISWIM
 tag = "Aalto ASR Recognize Wrap"
-names.output("./data.wrap", names.replace("audio.wav", ".wrap"))
+names.output("data.wrap", names.replace("audio.wav", ".wrap"))
 
 mode = [ 'trans', 'segword' ]
 if SegMorph == 'yes': mode.append('segmorph')

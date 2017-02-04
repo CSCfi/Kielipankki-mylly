@@ -9,7 +9,7 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_wrap as wraps
 import lib_names as names
 
-names.output("data.wrap", names.extend("text.txt", ".wrap"))
+names.output("data.wrap", names.replace("text.txt", ".wrap"))
 
 temp = '''\
 #! /bin/bash -e
