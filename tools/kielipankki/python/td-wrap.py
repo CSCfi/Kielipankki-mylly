@@ -1,4 +1,4 @@
-# TOOL td-wrap.py: "Turku Dependency Parser for Finnish - Prepare Job" (Wraps a text for parsing in the batch system. Use the corresponding Run Job on the resulting wrap.)
+# TOOL td-wrap.py: "Turku Dependency Parser for Finnish - Prepare Job" (Prepares a text for parsing in the batch system. Use the corresponding Run Job on the resulting job.)
 # INPUT text.txt TYPE GENERIC
 # OUTPUT data.wrap
 # OUTPUT OPTIONAL error.log
@@ -6,10 +6,10 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_wrap as wraps
+import lib_wraps as wraps
 import lib_names as names
 
-names.output("data.wrap", names.replace("text.txt", ".wrap"))
+names.output("data.job", names.replace("text.txt", ".job"))
 
 temp = '''\
 #! /bin/bash -e
@@ -40,9 +40,10 @@ touch {{path}}/state/finished
 
 tag = "Turku Dependency Wrap"
 
-wraps.setup_wrap(tag, "./text.txt")
+wraps.setup_wrap(wrapname, tag, "./text.txt")
 
-wraps.setup_job(tag, temp.format(time = '2:00:00',
-                                 mem = '16000'))
+wraps.setup_job(wrapname, tag,
+                temp.format(time = '2:00:00',
+                            mem = '16000'))
 
 # TODO: compute those parameters based on ./text.txt, some-how.

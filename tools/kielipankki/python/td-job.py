@@ -1,5 +1,5 @@
-# TOOL td-job.py: "Turku Dependency Parser for Finnish - Run Job" (Run a wrapped parsing job in the batch system. Use the Prepare Job tool to wrap a text.)
-# INPUT data.wrap TYPE GENERIC
+# TOOL td-job.py: "Turku Dependency Parser for Finnish - Run Job" (Run a prepared parsing job in the batch system. Use the Prepare Job tool to prepare a text.)
+# INPUT data.job TYPE GENERIC
 # OUTPUT status.log
 # OUTPUT OPTIONAL analyses.txt
 # OUTPUT OPTIONAL error.log
@@ -8,13 +8,12 @@
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
-import lib_wrap as wraps
+import lib_wraps as wraps
 
-# TODO: get the wrapped chipster_inputs.tsv from work directory, base
-# chipster_outputs.tsv on that; need to adapt lib to support this.
-
+wrapname = "data.job"
 tag = "Turku Dependency Wrap"
-wraps.restore_inputs("./data.wrap", tag)
+
+wraps.restore_inputs(wrapname, tag)
 names.output("analyses.txt", names.replace("text.txt", ".tsv"))
 
-wraps.process_wrap(tag, "./analyses.txt")
+wraps.process_wrap(wrapname, tag, "./analyses.txt")
