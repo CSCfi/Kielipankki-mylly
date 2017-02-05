@@ -19,8 +19,8 @@ def dispatch(out, action, ticket):
     else:
         print('Unrecognized action? This cannot happen!',
               '',
-              'action == {r}'.format(action),
-              'ticket == {r}'.format(ticket),
+              'action == {!r}'.format(action),
+              'ticket == {!r}'.format(ticket),
               sep = '\n',
               file = out)
 
