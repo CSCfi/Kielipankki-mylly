@@ -1,6 +1,6 @@
 # TOOL td-wrap.py: "Turku Dependency Parser for Finnish - Prepare Job" (Prepares a text for parsing in the batch system. Use the corresponding Run Job on the resulting job.)
 # INPUT text.txt TYPE GENERIC
-# OUTPUT data.wrap
+# OUTPUT data.job
 # OUTPUT OPTIONAL error.log
 # RUNTIME python3
 
@@ -39,6 +39,7 @@ touch {{path}}/state/finished
 '''
 
 tag = "Turku Dependency Wrap"
+wrapname = "data.job"
 
 wraps.setup_wrap(wrapname, tag, "./text.txt")
 
