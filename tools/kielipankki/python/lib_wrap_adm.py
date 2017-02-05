@@ -12,16 +12,18 @@ import os
 from subprocess import Popen, PIPE
 
 def dispatch(out, action, ticket):
+    print('action == {!r}'.format(action),
+          'ticket == {!r}'.format(ticket),
+          '',
+          sep = '\n',
+          file = out)
+
     if action == 'info':
         print_info(out)
     elif action == 'delete':
-        delete_directory(out, ticket)
+        delete_wrap_directory(out, ticket)
     else:
         print('Unrecognized action? This cannot happen!',
-              '',
-              'action == {!r}'.format(action),
-              'ticket == {!r}'.format(ticket),
-              sep = '\n',
               file = out)
 
 def print_info(out):
@@ -46,3 +48,8 @@ def print_info(out):
             o, e = p.communicate(timeout = 5)
             print(o.decode('UTF-8'),
                   file = out)
+
+def delete_wrap_directory(out, ticket):
+    print('TODO: delete directory {!r}'
+          .format(os.path.join(os.joinos.environ.get('WRKDIR'), ticket)),
+          file = out)

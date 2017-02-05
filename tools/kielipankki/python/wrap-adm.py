@@ -2,7 +2,7 @@
 # OUTPUT info.log
 # OUTPUT OPTIONAL error.log
 # PARAMETER Secret TYPE STRING DEFAULT "" (Must know something)
-# PARAMETER Ticket TYPE STRING DEFAULT "" (Aka directory name, where needed)
+# PARAMETER Ticket TYPE STRING DEFAULT "ignored" (Aka directory name)
 # PARAMETER Action TYPE [info: "info", delete: "delete ticket"] DEFAULT info ()
 # RUNTIME python3
 
@@ -20,7 +20,9 @@ with open('info.log', 'w') as info:
 
         sys.path.append(os.path.join(chipster_module_path, "python"))
         from lib_wrap_adm import dispatch
-        dispatch(info, "testing", "31415926")
+        print('-- test output --', file = info)
+        dispatch(info, "testing", "ignored")
+        print('-- --', file = info)
         dispatch(info, Action, Ticket)
 
     else:
