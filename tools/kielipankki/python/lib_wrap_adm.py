@@ -50,6 +50,17 @@ def print_info(out):
                   file = out)
 
 def delete_wrap_directory(out, ticket):
+    wrapwork = os.path.join(os.join(os.environ.get('WRKDIR'), ticket))
     print('TODO: delete directory {!r}'
-          .format(os.path.join(os.joinos.environ.get('WRKDIR'), ticket)),
+          .format(work),
           file = out)
+
+    if os.path.isdir(wrapwork):
+        print('which is there all right', file = out)
+    else:
+        print('which is not there! (or is not a directory)', file = out)
+
+    if ticket.startswith('wrap'):
+        print('ticket starts with "wrap" ok', file = out)
+    else:
+        print('ticket does not start with "wrap"', file = out)
