@@ -50,7 +50,7 @@ def print_info(out):
                   file = out)
 
 def delete_wrap_directory(out, ticket):
-    wrapwork = os.path.join(os.join(os.environ.get('WRKDIR'), ticket))
+    wrapwork = os.path.join(os.environ.get('WRKDIR'), ticket)
     print('TODO: delete directory {!r}'
           .format(work),
           file = out)
