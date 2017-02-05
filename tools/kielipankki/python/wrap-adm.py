@@ -1,7 +1,9 @@
-# TOOL wrap-adm.py: "Wrap Admin Tool" (Look at extant wrap work dirs, if appropriately informed and so inclined.)
+# TOOL wrap-adm.py: "Wrap Admin" (Attend to extant wrap work directories, if appropriately informed and so inclined.)
 # OUTPUT info.log
 # OUTPUT OPTIONAL error.log
-# PARAMETER Secret: "" TYPE STRING DEFAULT "" (Must know something)
+# PARAMETER Secret TYPE STRING DEFAULT "" (Must know something)
+# PARAMETER Ticket TYPE STRING DEFAULT "" (Aka directory name, where needed)
+# PARAMETER Action TYPE [info: "info", delete: "delete ticket"] DEFAULT info ()
 # RUNTIME python3
 
 import hashlib
@@ -17,8 +19,9 @@ with open('info.log', 'w') as info:
                           '9d78fb57c1ed2e31' ):
 
         sys.path.append(os.path.join(chipster_module_path, "python"))
-        import lib_wrap_adm
-        lib_wrap_adm.print_info(info)
+        from lib_wrap_adm import dispatch
+        dispatch(info, "testing", "31415926")
+        dispatch(info, Action, Ticket)
 
     else:
 

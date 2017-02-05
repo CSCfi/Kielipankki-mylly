@@ -11,6 +11,19 @@ import glob
 import os
 from subprocess import Popen, PIPE
 
+def dispatch(out, action, ticket):
+    if action == 'info':
+        print_info(out)
+    elif action == 'delete':
+        delete_directory(out, ticket)
+    else:
+        print('Unrecognized action? This cannot happen!',
+              '',
+              'action == {r}'.format(action),
+              'ticket == {r}'.format(ticket),
+              sep = '\n',
+              file = out)
+
 def print_info(out):
     print('USER={}'.format(os.environ.get('USER')),
           'WRKDIR={}'.format(os.environ.get('WRKDIR')),
