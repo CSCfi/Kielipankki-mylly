@@ -9,7 +9,9 @@
 
 import glob
 import os
+import shutil
 from subprocess import Popen, PIPE
+from zipfile import ZipFile
 
 def dispatch(out, action, ticket):
     print('action == {!r}'.format(action),
@@ -20,8 +22,8 @@ def dispatch(out, action, ticket):
 
     if action == 'info':
         print_info(out)
-    elif action == 'delete':
-        delete_wrap_directory(out, ticket)
+    elif action == 'remove':
+        remove_wrap_directory(out, ticket)
     else:
         print('Unrecognized action? This cannot happen!',
               file = out)
@@ -49,18 +51,33 @@ def print_info(out):
             print(o.decode('UTF-8'),
                   file = out)
 
-def delete_wrap_directory(out, ticket):
+def remove_wrap_directory(out, ticket):
+    '''Remove $WRKDIR/ticket, if there and so on. An ordinary user of
+    Mylly must never get access to this operation except through their
+    own job file, and they must never get access to a job file of
+    someone else. This is delicate.
+    '''
     wrapwork = os.path.join(os.environ.get('WRKDIR'), ticket)
-    print('TODO: delete directory {!r}'
-          .format(wrapwork),
+    print('Removing {!r}'.format(wrapwork),
           file = out)
 
     if os.path.isdir(wrapwork):
-        print('which is there all right', file = out)
+        print('There is such directory', file = out)
     else:
-        print('which is not there! (or is not a directory)', file = out)
+        print('Failing: there is no such directory', file = out)
+        return
 
     if ticket.startswith('wrap'):
-        print('ticket starts with "wrap" ok', file = out)
+        print('Ticket starts with "wrap"', file = out)
     else:
-        print('ticket should start with "wrap"', file = out)
+        print('Failing: ticket does not start with "wrap"', file = out)
+        return
+
+    # TODO: if the wrap directory records the job as started and the
+    # job is still in the batch system, warn without removing.
+
+    # TODO: if the wrap directory records the job as started but the
+    # job is not in the batch system - what then?
+
+    print("Actually removing the directory", file = out)
+    shutil.rmtree(wrapwork)
