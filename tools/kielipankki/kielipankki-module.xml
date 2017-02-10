@@ -4,8 +4,8 @@
 
 	<category name="Syntactic analysis" color="#c0d2de">
 	  <tool>td-parse-finnish.py</tool>
-	  <tool>td-wrap.py</tool>
-	  <tool>td-job.py</tool>
+	  <tool>td-submit.py</tool>
+	  <tool>td-wait.py</tool>
 	</category>
 
 	<category name="Morphological analysis" color="#80a3b7">
@@ -38,6 +38,7 @@
 	</category>
 
 	<category name="Testing" color="#ff33cc">
+	  <tool>job-status.py</tool><!-- needs another section but what -->
 	  <tool>wrap-adm.py</tool>
 	  <tool>co.py</tool>
 	  <tool>kp-test-data-in-out.R</tool>
