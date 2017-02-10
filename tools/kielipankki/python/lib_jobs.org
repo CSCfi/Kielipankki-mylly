@@ -71,4 +71,10 @@ unless something goes wrong.
 - Double line in chipster-outputs.tsv after test/td-submit.py
   (ah, because the tools append to it!)
 
-- Write and test check-job.py
+- In Mylly, check-job.py output file missing because mismatch (status, state)
+
+- Waiting on a harvested job shows stack trace, could be nicer
+
+- What happens if wait again before harvesting? A race?
+
+

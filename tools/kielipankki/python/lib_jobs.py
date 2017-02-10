@@ -90,7 +90,7 @@ def check(jobname):
     work, number = get_job(jobname)
     status, message = get_status(work, get_number(work))
 
-    with open("status.log", "w") as log:
+    with open("state.log", "w") as log:
         print(message, file = log)
 
 # should pay attention to error logs that the user wants to see, if
