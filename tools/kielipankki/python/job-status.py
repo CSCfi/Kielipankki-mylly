@@ -1,4 +1,4 @@
-# TOOL job-status.py: "Get State of Batch Job" (Get a report on the current state of a Mylly batch job that is still in the batch system.)
+# TOOL job-status.py: "Current State" (Get a report on the current state of a Mylly batch job that is still in the batch system.)
 # INPUT generic.job TYPE GENERIC
 # OUTPUT state.log
 # OUTPUT OPTIONAL error.log

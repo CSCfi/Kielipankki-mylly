@@ -1,6 +1,5 @@
-# TOOL wrap-adm.py: "Wrap Admin" (Attend to extant wrap work directories, if appropriately informed and so inclined.)
+# TOOL wrap-adm.py: "Admin tool" (Attend to extant work directories of batch jobs, if appropriately informed and so inclined.)
 # OUTPUT info.log
-# OUTPUT OPTIONAL undead.job
 # OUTPUT OPTIONAL error.log
 # PARAMETER Secret TYPE STRING DEFAULT "" (Must know something)
 # PARAMETER Ticket TYPE STRING DEFAULT "ignored" (Aka directory name)
@@ -21,9 +20,6 @@ with open('info.log', 'w') as info:
 
         sys.path.append(os.path.join(chipster_module_path, "python"))
         from lib_wrap_adm import dispatch
-        print('-- test output --', file = info)
-        dispatch(info, "testing", "ignored")
-        print('-- --', file = info)
         dispatch(info, Action, Ticket)
 
     else:
