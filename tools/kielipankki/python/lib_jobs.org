@@ -20,7 +20,11 @@ A generic tool
 - takes a job file
 - produces a status report.
 
-There should be another generic tool to cancel the job.
+There should be another generic tool to cancel the job. Another to
+remove the job without waiting.
+
+Another wait on a job fails to start, so there is no race for the
+results in the end. Only the initial wait goes on in Mylly.
 
 * Writing Mylly batch tools
 
@@ -75,6 +79,9 @@ unless something goes wrong.
 
 - Waiting on a harvested job shows stack trace, could be nicer
 
-- What happens if wait again before harvesting? A race?
+- What if the user removes the job file and a wait goes on? Can
+  Chipster handle that? (Except so.)
 
-
+- Canceling a waited job would produce partial results, right? What if
+  a job directory is removed early - how does the wait crash then? It
+  should fail but in a friendly way.

@@ -121,6 +121,17 @@ def wait(jobname, tag, *results):
 
     work, number = get_job(jobname, tag)
 
+    try:
+        os.mkdir(os.path.join(work, "state", "waited"))
+    except FileExistsError:
+        print('This job is already waited',
+              file = sys.stderr)
+        sys.exit(1)
+    except FileNotFoundError:
+        print('This job is not available any more',
+              file = sys.stderr)
+        sys.exit(1)
+
     while True:
         status, message = get_status(work, number)
         if status == "WAIT":
@@ -156,19 +167,19 @@ def get_job(jobname, tag = None):
     except (BadZipFile, BadWrapFile):
         print("This is not a job file.",
               file = sys.stderr)
-        exit(29) # pointless numbers - make them all just 1
+        sys.exit(1)
 
     except DifferentWrapFile:
         print("This job file needs another tool.",
               file = sys.stderr)
-        exit(31)
+        sys.exit(1)
 
     except NoWorkDirectory:
         print("The job directory was not found.",
               "The job may have finished already.",
               sep = '\n',
               file = sys.stderr)
-        exit(37)
+        sys.exit(1)
 
 def get_work_directory(wrap, tag = None):
     name = get_ticket_name(wrap, tag)
