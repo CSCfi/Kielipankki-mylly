@@ -1,4 +1,4 @@
-# TOOL td-wait.py: "Turku Dependency Parser for Finnish - Wait for Results" (Wait for the results of a parsing job in the batch system. The input file is the job file from the corresponding submit tool.)
+# TOOL td-wait.py: "Turku Dependency Parser for Finnish - Wait for Results" (Waits for the results of a parsing job in the batch system. The input file is the job file from the corresponding submit tool.)
 # INPUT generic.job TYPE GENERIC
 # OUTPUT analyses.txt
 # OUTPUT OPTIONAL error.log

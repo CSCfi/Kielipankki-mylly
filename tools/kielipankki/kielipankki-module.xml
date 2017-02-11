@@ -3,7 +3,7 @@
 <module name="kielipankki">
 
 	<category name="Syntactic analysis" color="#c0d2de">
-	  <tool>td-parse-finnish.py</tool>
+	  <tool>td-parse.py</tool>
 	  <tool>td-submit.py</tool>
 	  <tool>td-wait.py</tool>
 	</category>
@@ -19,8 +19,8 @@
 	</category>
 
 	<category name="Speech recognition" color="#e7df70">
-	  <tool>aasr-recognize-wrap.py</tool>
-	  <tool>aasr-recognize-job.py</tool>
+	  <tool>aasr-recognize-submit.py</tool>
+	  <tool>aasr-recognize-wait.py</tool>
 	</category>
 
 	<category name="Preprocessing" color="#d59f45">

@@ -1,6 +1,6 @@
-# TOOL aasr-recognize-wrap.py: "Aalto ASR Recognize - Prepare Job" (Prepares an audio file for speech recognition in the batch system. Use the corresponding Run Job tool on the prepared job file.)
+# TOOL aasr-recognize-submit.py: "Aalto Speech Recognizer - Submit Job" (Submits an audio file for speech recognition in the batch system. "Wait" for the results using the corresponding wait tool on the job file.)
 # INPUT audio.wav TYPE GENERIC
-# OUTPUT data.job
+# OUTPUT generic.job
 # OUTPUT OPTIONAL error.log
 # PARAMETER Script TYPE [yes: "yes"] DEFAULT yes (Always output transcript in script.txt)
 # PARAMETER SegWord TYPE [yes: "yes"] DEFAULT yes (Always output word level segmentation)
@@ -11,13 +11,10 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_wraps as wraps
 import lib_names as names
+import lib_jobs as jobs
 
-# make ./data.job appear as $audio.job ISWIM
-tag = "Aalto ASR Recognize Wrap"
-wrapname = "data.job"
-names.output(wrapname, names.replace("audio.wav", ".job"))
+names.output('generic.job', names.replace('audio.wav', '.job'))
 
 mode = [ 'trans', 'segword' ]
 if SegMorph == 'yes': mode.append('segmorph')
@@ -50,12 +47,11 @@ aaltoasr-rec \
 touch {{path}}/state/finished
 '''
 
-wraps.setup_wrap(wrapname, tag, "./audio.wav")
-
-wraps.setup_job(wrapname, tag,
-                temp.format(time = '2:00:00',
-                            mem = '16000',
-                            mode = mode,
-                            raw = raw))
+jobs.submit('generic.job', 'Aalto Recognition Job',
+            temp.format(time = '2:00:00',
+                        mem = '16000',
+                        mode = mode,
+                        raw = raw),
+            'audio.wav')
 
 # TODO: compute those parameters based on ./audio.wav, some-how.
