@@ -29,7 +29,8 @@ def dispatch(out, action, ticket):
               file = out)
 
 def print_info(out):
-    print('USER={}'.format(os.environ.get('USER')),
+    print('Node: {}'.format(os.uname().nodename),
+          'USER={}'.format(os.environ.get('USER')),
           'WRKDIR={}'.format(os.environ.get('WRKDIR')),
           '',
           sep = '\n',
