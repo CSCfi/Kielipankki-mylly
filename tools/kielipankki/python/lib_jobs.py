@@ -106,11 +106,11 @@ def restore_inputs(jobname, tag):
     in the start where they specify the display names of their own
     outputs, this overrides their ./chipster-inputs.tsv with the one
     that specifies the original display names.'''
-    with ZipFile(jobname, "r") as wrap:
-        work = get_work_directory(wrap, tag)
 
-    # should be there from the time the job file was made, given that
-    # the path could be resolved; always overrides the file in "."
+    # chipster-inputs.tsv should be there from the time the job file
+    # was made, given that the path could be resolved; always
+    # overrides the file in "."
+    work, number = get_job(jobname, tag)
     shutil.copy(os.path.join(work, "chipster-inputs.tsv"), ".")
 
 def wait(jobname, tag, *results):
@@ -128,7 +128,7 @@ def wait(jobname, tag, *results):
               file = sys.stderr)
         sys.exit(1)
     except FileNotFoundError:
-        print('This job is not available any more',
+        print('This job is not available',
               file = sys.stderr)
         sys.exit(1)
 
@@ -165,19 +165,17 @@ def get_job(jobname, tag = None):
             return work, get_number(work)
 
     except (BadZipFile, BadWrapFile):
-        print("This is not a job file.",
+        print("This is not a job file",
               file = sys.stderr)
         sys.exit(1)
 
     except DifferentWrapFile:
-        print("This job file needs another tool.",
+        print("This job needs another tool",
               file = sys.stderr)
         sys.exit(1)
 
     except NoWorkDirectory:
-        print("The job directory was not found.",
-              "The job may have finished already.",
-              sep = '\n',
+        print("This job is not available",
               file = sys.stderr)
         sys.exit(1)
 
