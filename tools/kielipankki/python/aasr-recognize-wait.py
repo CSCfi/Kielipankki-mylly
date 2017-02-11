@@ -24,9 +24,9 @@ names.output("script.txt", names.replace("audio.wav", ".txt"))
 names.output("script.textgrid", names.replace("audio.wav", ".textgrid"))
 names.output("script.eaf", names.replace("audio.wav", ".eaf"))
 
-jobs.process_wrap(job, tag,
-                  "script.txt",
-                  "script.textgrid",
-                  "script.eaf",
-                  "stdout.log",
-                  "stderr.log")
+jobs.wait(job, tag,
+          "script.txt",
+          "script.textgrid",
+          "script.eaf",
+          "stdout.log",
+          "stderr.log")
