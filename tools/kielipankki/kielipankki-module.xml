@@ -27,6 +27,11 @@
 	  <tool>to-utf8.py</tool>
 	</category>
 
+	<category name="Finite-State Technology" color="#629a9b">
+	  <tool>hfst-summarize.py</tool>
+	  <tool>fiat-omorfi.py</tool>
+	</category>
+
 	<category name="Job management" color="#ffff99">
 	  <tool>job-status.py</tool>
 	  <tool>wrap-adm.py</tool>
