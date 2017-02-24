@@ -13,14 +13,19 @@ them = dict(v3083 = '/homeappl/appl_taito/ling/hfst/3.8.3/bin/hfst-summarize',
             v3110 = '/homeappl/appl_taito/ling/hfst/3.11.0/bin/hfst-summarize',
             v3121 = '/homeappl/appl_taito/ling/hfst/3.12.1/bin/hfst-summarize')
 
-import os
+import os, shutil
 from subprocess import Popen
 # Like, --help says -o names a transducer but it seems to name the
 # report; hfst-summarize does not output a transducer. (Should be
 # reported. TODO.)
 with Popen([them[Version], '-o', 'summary.txt', 'ducer.hfst'],
            stdout = open('stdout.log', mode = 'wb'),
-           stderr = open('stderr.log', mode = 'wb')):
+           stderr = open('stderr.log', mode = 'wb')) as it:
     pass
+
+# to see the optional results when the required result fails to be
+if not os.exists('summary.txt'):
+    with open('summary.txt', 'a'):
+        pass
 
 # (TODO) remove empty stdout or stderr log
