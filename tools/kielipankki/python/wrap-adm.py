@@ -3,7 +3,7 @@
 # OUTPUT OPTIONAL error.log
 # PARAMETER Secret TYPE STRING DEFAULT "" (Must know something)
 # PARAMETER Ticket TYPE STRING DEFAULT "ignored" (Aka directory name)
-# PARAMETER Action TYPE [info: "info", remove: "Remove ticket work directory"] DEFAULT info ()
+# PARAMETER Action TYPE [info: "info", env: "Show some environment variables", remove: "Remove ticket work directory"] DEFAULT info ()
 # RUNTIME python3
 
 import hashlib

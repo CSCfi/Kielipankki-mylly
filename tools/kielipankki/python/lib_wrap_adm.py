@@ -22,6 +22,8 @@ def dispatch(out, action, ticket):
 
     if action == 'info':
         print_info(out)
+    elif action == 'env':
+        print_env(out)
     elif action == 'remove':
         remove_wrap_directory(out, ticket)
     else:
@@ -51,6 +53,14 @@ def print_info(out):
             o, e = p.communicate(timeout = 5)
             print(o.decode('UTF-8'),
                   file = out)
+
+def print_env(out):
+    '''Not really batch job thing but need to know so riding on batch
+    job things for convenience -- perhaps the admin tool should simply
+    be more general?'''
+    print('LD_LIBRARY_PATH:', *os.environ['LD_LIBRARY_PATH'].split(':'),
+          sep = '\n', end = '\n--\n',
+          file = out)
 
 def remove_wrap_directory(out, ticket):
     '''Remove $WRKDIR/ticket, if there and so on. An ordinary user of
