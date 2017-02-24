@@ -1,5 +1,5 @@
 # TOOL hfst-summarize.py: "Report on a transducer" (Provides a summary report of the properties of a HFST transducer)
-# INPUT ducer.hfst
+# INPUT ducer.hfst TYPE GENERIC
 # OUTPUT summary.txt
 # OUTPUT OPTIONAL stdout.log
 # OUTPUT OPTIONAL stderr.log
