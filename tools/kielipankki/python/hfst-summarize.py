@@ -24,7 +24,7 @@ with Popen([them[Version], '-o', 'summary.txt', 'ducer.hfst'],
     pass
 
 # to see the optional results when the required result fails to be
-if not os.exists('summary.txt'):
+if not os.path.exists('summary.txt'):
     with open('summary.txt', 'a'):
         pass
 
