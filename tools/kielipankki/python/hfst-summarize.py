@@ -1,9 +1,11 @@
-# TOOL hfst-summarize.py: "Report on a transducer" (Provides a summary report of the properties of a HFST transducer)
+# TOOL hfst-summarize.py: "Summary report" (Produces a summary property report on a given HFST transducer file)
 # INPUT ducer.hfst TYPE GENERIC
 # OUTPUT summary.txt
+# OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
 # OUTPUT OPTIONAL stderr.log
 # PARAMETER Version TYPE [v_3_12_1: "3.12.1", v_3_11_0: "3.11.0", v_3_9_0: "3.9.0", v_3_8_3: "3.8.3"] DEFAULT v_3_12_1 (HFST version)
+# PARAMETER VersionLog TYPE [omit: "omit version.log", produce: "produce version.log"] DEFAULT omit (Whether to produce --version log)
 # RUNTIME python3
 
 import sys
@@ -29,10 +31,10 @@ if not os.path.exists('summary.txt'):
     with open('summary.txt', 'a'):
         pass
 
-# sigh -
-with Popen(['hfst-summarize', '--version'],
-           stdout = open('stdout.log', 'ab'),
-           stderr = open('stderr.log', 'ab')) as it:
-    pass
+if VersionLog == 'produce':
+    with Popen(['hfst-summarize', '--version'],
+               stdout = open('version.log', 'ab'),
+               stderr = open('stderr.log', 'ab')) as it:
+        pass
 
 # (TODO) remove empty stdout or stderr log
