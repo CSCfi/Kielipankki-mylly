@@ -3,33 +3,23 @@
 # OUTPUT summary.txt
 # OUTPUT OPTIONAL stdout.log
 # OUTPUT OPTIONAL stderr.log
-# PARAMETER Version TYPE [v3121: "3.12.1", v3110: "3.11.0", v3090: "3.9.0", v3083: "3.8.3"] DEFAULT v3121 (HFST Version)
+# PARAMETER Version TYPE [v_3_12_1: "3.12.1", v_3_11_0: "3.11.0", v_3_9_0: "3.9.0", v_3_8_3: "3.8.3"] DEFAULT v_3_12_1 (HFST version)
 # RUNTIME python3
+
+import sys
+sys.path.append(os.path.join(chipster_module_path, "python"))
+import lib_names as names # (TODO) rename summary file according to the input file
+import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-# (TODO) rename summary file according to the input file
-
-them = dict(v3083 = '/homeappl/appl_taito/ling/hfst/3.8.3/bin/hfst-summarize',
-            v3090 = '/homeappl/appl_taito/ling/hfst/3.9.0/bin/hfst-summarize',
-            v3110 = '/homeappl/appl_taito/ling/hfst/3.11.0/bin/hfst-summarize',
-            v3121 = '/homeappl/appl_taito/ling/hfst/3.12.1/bin/hfst-summarize')
-
-def prepend(path, *entries):
-    os.environ[path] = ':'.join((':'.join(entries), os.environ[path]))
-
-if Version == 'v3121':
-    prepend('LD_LIBRARY_PATH', '/homeappl/appl_taito/ling/hfst/3.12.1/lib')
-else:
-    # find out what is needed for v3121, then work on other versions;
-    # also, this is needed for *all* HFST programs, so make it a lib
-    pass
+hfst.setenv(Version)
 
 # Like, --help says -o names a transducer but it seems to name the
 # report; hfst-summarize does not output a transducer. (Should be
 # reported. TODO.)
-with Popen([them[Version], '-o', 'summary.txt', 'ducer.hfst'],
+with Popen(['hfst-summarize', '-o', 'summary.txt', 'ducer.hfst'],
            stdout = open('stdout.log', mode = 'wb'),
            stderr = open('stderr.log', mode = 'wb')) as it:
     pass
@@ -38,5 +28,11 @@ with Popen([them[Version], '-o', 'summary.txt', 'ducer.hfst'],
 if not os.path.exists('summary.txt'):
     with open('summary.txt', 'a'):
         pass
+
+# sigh -
+with Popen(['hfst-summarize', '--version'],
+           stdout = open('stdout.log', 'ab'),
+           stderr = open('stderr.log', 'ab')) as it:
+    pass
 
 # (TODO) remove empty stdout or stderr log
