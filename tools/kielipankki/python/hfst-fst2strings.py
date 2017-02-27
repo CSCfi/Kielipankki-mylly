@@ -49,6 +49,11 @@
 #           out_10: "10"]
 #     DEFAULT out_200
 #     (Maximum output length)
+# PARAMETER Epsilon
+#     TYPE [nothing: "as nothing",
+#           underscore: "as _"]
+#     DEFAULT nothing
+#     (Whether to make empty labels of arcs visible)
 # PARAMETER Version TYPE [v_3_12_1: "3.12.1", v_3_11_0: "3.11.0", v_3_9_0: "3.9.0", v_3_8_3: "3.8.3"] DEFAULT v_3_12_1 (HFST version)
 # PARAMETER VersionLog TYPE [omit: "omit version.log", produce: "produce version.log"] DEFAULT omit (Whether to produce --version log)
 # RUNTIME python3
@@ -71,15 +76,19 @@ sampletype = dict(path = '--max-strings',
 
 _, samplesize = SampleSize.split('_')
 
-_, maxcycles = MacCycles.split('_')
+_, maxcycles = MaxCycles.split('_')
 _, inlength = MaxInLength.split('_')
 _, outlength = MaxOutLength.split('_')
+
+epsilon = dict(nothing = '',
+               underscore = '_')[Epsilon]
 
 with Popen(['hfst-fst2strings', '-o', 'sample.txt',
             sampletype, samplesize,
             '--cycles', maxcycles,
             '--max-in-length', inlength,
             '--max-out-length', outlength,
+            '--epsilon-format', epsilon,
             'ducer.hfst'],
            stdout = open('stdout.log', mode = 'wb'),
            stderr = open('stderr.log', mode = 'wb')) as it:
