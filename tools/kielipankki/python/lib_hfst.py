@@ -1,4 +1,5 @@
 import os
+from subprocess import Popen
 
 def prepend_to_path(path, *entries):
     os.environ[path] = ( ':'.join((':'.join(entries),
