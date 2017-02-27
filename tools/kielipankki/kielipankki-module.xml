@@ -29,6 +29,7 @@
 
 	<category name="Finite-State Technology" color="#629a9b">
 	  <tool>hfst-summarize.py</tool>
+	  <tool>hfst-fst2fst.py</tool>
 	  <tool>fiat-omorfi.py</tool>
 	</category>
 
