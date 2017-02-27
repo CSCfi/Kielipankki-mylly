@@ -23,21 +23,31 @@
 #           size_50: "50",
 #           size_20: "20",
 #           size_10: "10"]
-#     DEFAULT size_20
+#     DEFAULT size_50
 #     (Maximum size of the sample)
+# PARAMETER MaxCycles
+#     TYPE [in_50: "50",
+#           in_20: "20",
+#           in_10: "10",
+#           in_5: "5",
+#           in_2: "2"]
+#     DEFAULT in_10
+#     (Maximum times to follow cycles)
 # PARAMETER MaxInLength
-#     TYPE [in_100: "100",
+#     TYPE [in_200: "200",
+#           in_100: "100",
 #           in_50: "50",
 #           in_20: "20",
 #           in_10: "10"]
-#     DEFAULT in_20
+#     DEFAULT in_200
 #     (Maximum input length)
 # PARAMETER MaxOutLength
-#     TYPE [out_100: "100",
+#     TYPE [out_200: "200",
+#           out_100: "100",
 #           out_50: "50",
 #           out_20: "20",
 #           out_10: "10"]
-#     DEFAULT out_20
+#     DEFAULT out_200
 #     (Maximum output length)
 # PARAMETER Version TYPE [v_3_12_1: "3.12.1", v_3_11_0: "3.11.0", v_3_9_0: "3.9.0", v_3_8_3: "3.8.3"] DEFAULT v_3_12_1 (HFST version)
 # PARAMETER VersionLog TYPE [omit: "omit version.log", produce: "produce version.log"] DEFAULT omit (Whether to produce --version log)
@@ -61,11 +71,13 @@ sampletype = dict(path = '--max-strings',
 
 _, samplesize = SampleSize.split('_')
 
+_, maxcycles = MacCycles.split('_')
 _, inlength = MaxInLength.split('_')
 _, outlength = MaxOutLength.split('_')
 
 with Popen(['hfst-fst2strings', '-o', 'sample.txt',
             sampletype, samplesize,
+            '--cycles', maxcycles,
             '--max-in-length', inlength,
             '--max-out-length', outlength,
             'ducer.hfst'],
