@@ -25,6 +25,7 @@ def dataset_name(input_name, *, cash = None):
 sensible_extensions = set('''
 
    .conll09 .csv .doc .docx .htm .html
+   .hfst
    .job
    .log
    .odf .ods .org .pdf

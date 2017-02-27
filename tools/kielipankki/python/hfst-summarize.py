@@ -10,31 +10,23 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names # (TODO) rename summary file according to the input file
+import lib_names as names
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
+names.output('summary.job', names.replace('ducer.hfst', '-summary.txt'))
 hfst.setenv(Version)
 
-# Like, --help says -o names a transducer but it seems to name the
-# report; hfst-summarize does not output a transducer. (Should be
-# reported. TODO.)
+# hfst-summarize --help says -o names a transducer but it seems to
+# name the summary report, and hfst-summarize does not output a
+# transducer. (Should be reported. TODO.)
+
 with Popen(['hfst-summarize', '-o', 'summary.txt', 'ducer.hfst'],
            stdout = open('stdout.log', mode = 'wb'),
            stderr = open('stderr.log', mode = 'wb')) as it:
     pass
 
-# to see the optional results when the required result fails to be
-if not os.path.exists('summary.txt'):
-    with open('summary.txt', 'a'):
-        pass
-
-if VersionLog == 'produce':
-    with Popen(['hfst-summarize', '--version'],
-               stdout = open('version.log', 'ab'),
-               stderr = open('stderr.log', 'ab')) as it:
-        pass
-
-# (TODO) remove empty stdout or stderr log
+hfst.finish(require = 'summary.txt',
+            version = 'hfst-summarize' if VersionLog == 'produce' else None)
