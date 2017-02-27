@@ -16,7 +16,7 @@ import lib_hfst as hfst
 import os, shutil
 from subprocess import Popen
 
-names.output('summary.job', names.replace('ducer.hfst', '-summary.txt'))
+names.output('summary.txt', names.replace('ducer.hfst', '-summary.txt'))
 hfst.setenv(Version)
 
 # hfst-summarize --help says -o names a transducer but it seems to
