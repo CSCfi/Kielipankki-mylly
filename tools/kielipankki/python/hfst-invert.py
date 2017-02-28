@@ -1,7 +1,6 @@
-# TOOL hfst-compose.py: "Composition"
-# (Compose HFST transducers. The second input archive can contain as many transducers as the first, or one transducer.)
-# INPUT input1.hfst TYPE GENERIC
-# INPUT input2.hfst TYPE GENERIC
+# TOOL hfst-invert.py: "Inversion"
+# (Invert the transducer.)
+# INPUT input.hfst TYPE GENERIC
 # OUTPUT output.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -18,16 +17,15 @@ import lib_hfst as hfst
 import os, shutil
 from subprocess import Popen
 
-names.output('output.hfst', names.replace('input1.hfst', '-o.hfst'))
+names.output('output.hfst', names.replace('input.hfst', '-i.hfst'))
 
 hfst.setenv(Version)
 
-with Popen(['hfst-compose', '-o', 'output.hfst',
-            'input1.hfst',
-            'input2.hfst'],
+with Popen(['hfst-invert', '-o', 'output.hfst',
+            'input.hfst'],
            stdout = open('stdout.log', mode = 'wb'),
            stderr = open('stderr.log', mode = 'wb')) as it:
     pass
 
 hfst.finish(require = 'output.hfst',
-            version = 'hfst-compose' if VersionLog == 'produce' else None)
+            version = 'hfst-invert' if VersionLog == 'produce' else None)
