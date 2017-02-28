@@ -31,6 +31,7 @@
 	  <tool>hfst-summarize.py</tool>
 	  <tool>hfst-fst2strings.py</tool>
 	  <tool>hfst-regexp2fst.py</tool>
+	  <tool>hfst-compose.py</tool>
 	  <tool>hfst-fst2fst.py</tool>
 	  <tool>fiat-omorfi.py</tool>
 	</category>
