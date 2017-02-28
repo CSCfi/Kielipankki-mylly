@@ -1,4 +1,4 @@
-# TOOL hfst-compose.py: "Intersection"
+# TOOL hfst-intersect.py: "Intersection"
 # (Intersect HFST transducers. Match archives pairwise, or broadcast the second archive.)
 # INPUT input1.hfst TYPE GENERIC
 # INPUT input2.hfst TYPE GENERIC
