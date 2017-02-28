@@ -33,6 +33,9 @@
 	  <tool>hfst-regexp2fst.py</tool>
 	  <tool>hfst-compose.py</tool>
 	  <tool>hfst-invert.py</tool>
+	  <tool>hfst-concatenate.py</tool>
+	  <tool>hfst-union.py</tool>
+	  <tool>hfst-intersect.py</tool>
 	  <tool>hfst-upper.py</tool>
 	  <tool>hfst-lower.py</tool>
 	  <tool>hfst-fst2fst.py</tool>

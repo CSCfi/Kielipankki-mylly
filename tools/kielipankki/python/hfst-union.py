@@ -1,5 +1,5 @@
-# TOOL hfst-compose.py: "Composition"
-# (Compose HFST transducers. Match archives pairwise, or broadcast the second archive.)
+# TOOL hfst-union.py: "Union"
+# (Compute the union of two HFST transducers. Match archives pairwise, or broadcast the second archive.)
 # INPUT input1.hfst TYPE GENERIC
 # INPUT input2.hfst TYPE GENERIC
 # OUTPUT output.hfst
@@ -28,14 +28,14 @@ import lib_hfst as hfst
 import os, shutil
 from subprocess import Popen
 
-names.output('output.hfst', names.replace('input1.hfst', '-o.hfst'))
+names.output('output.hfst', names.replace('input1.hfst', '-u.hfst'))
 
 hfst.setenv(Version)
 
 symbolharm = dict(yes = [], no = ['--do-not-harmonize'])[SymbolHarm]
 flagharm = dict(yes = ['--harmonize-flags'], no = [])[FlagHarm]
 
-with Popen(['hfst-compose', '-o', 'output.hfst']
+with Popen(['hfst-union', '-o', 'output.hfst']
            + symbolharm
            + flagharm
            + ['input1.hfst', 'input2.hfst'],
@@ -44,4 +44,4 @@ with Popen(['hfst-compose', '-o', 'output.hfst']
     pass
 
 hfst.finish(require = 'output.hfst',
-            version = 'hfst-compose' if VersionLog == 'produce' else None)
+            version = 'hfst-union' if VersionLog == 'produce' else None)
