@@ -30,6 +30,7 @@
 	<category name="Finite-State Technology" color="#629a9b">
 	  <tool>hfst-summarize.py</tool>
 	  <tool>hfst-fst2strings.py</tool>
+	  <tool>hfst-strings2fst.py</tool>
 	  <tool>hfst-regexp2fst.py</tool>
 	  <tool>hfst-compose.py</tool>
 	  <tool>hfst-invert.py</tool>
