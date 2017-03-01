@@ -39,6 +39,7 @@
 	  <tool>hfst-upper.py</tool>
 	  <tool>hfst-lower.py</tool>
 	  <tool>hfst-fst2fst.py</tool>
+	  <tool>hfst-split.py</tool>
 	  <tool>fiat-omorfi.py</tool>
 	</category>
 
