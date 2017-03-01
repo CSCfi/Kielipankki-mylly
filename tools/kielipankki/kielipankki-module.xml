@@ -32,6 +32,7 @@
 	  <tool>hfst-fst2strings.py</tool>
 	  <tool>hfst-strings2fst.py</tool>
 	  <tool>hfst-regexp2fst.py</tool>
+	  <tool>hfst-lexc.py</tool>
 	  <tool>hfst-compose.py</tool>
 	  <tool>hfst-invert.py</tool>
 	  <tool>hfst-concatenate.py</tool>
