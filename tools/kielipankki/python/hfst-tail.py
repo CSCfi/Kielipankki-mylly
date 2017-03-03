@@ -1,4 +1,4 @@
-# TOOL hfst-tail.py: "Take tail transducers"
+# TOOL hfst-tail.py: "Tail of an archive"
 # (Take a number of transducers from the tail of an archive, or take the rest.)
 # INPUT input.hfst TYPE GENERIC
 # OUTPUT output.hfst

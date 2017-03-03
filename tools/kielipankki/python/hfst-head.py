@@ -1,4 +1,4 @@
-# TOOL hfst-head.py: "Take head transducers"
+# TOOL hfst-head.py: "Head of an archive"
 # (Take a number of transducers from the head of an archive, or take the rest.)
 # INPUT input.hfst TYPE GENERIC
 # OUTPUT output.hfst
