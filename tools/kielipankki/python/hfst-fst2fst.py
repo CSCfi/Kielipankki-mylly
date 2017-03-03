@@ -1,4 +1,4 @@
-# TOOL hfst-fst2fst.py: "Convert to another format"
+# TOOL hfst-fst2fst.py: "Convert archive format"
 # (Converts a HFST transducer archive to another format. Default is OpenFST format with tropical weights.)
 # INPUT input.hfst TYPE GENERIC
 # OUTPUT output.hfst

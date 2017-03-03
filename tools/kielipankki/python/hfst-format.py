@@ -1,6 +1,7 @@
-# TOOL hfst-summarize.py: "Describe an archive" (Produces a summary description about a HFST transducer archive)
+# TOOL hfst-format.py: "Determine archive format"
+#     (Produces a brief report on which particular format the transducers in the archive are in.)
 # INPUT ducer.hfst TYPE GENERIC
-# OUTPUT summary.txt
+# OUTPUT format.txt
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
 # OUTPUT OPTIONAL stderr.log
@@ -16,14 +17,10 @@ import lib_hfst as hfst
 import os, shutil
 from subprocess import Popen
 
-names.output('summary.txt', names.replace('ducer.hfst', '-summary.txt'))
+names.output('format.txt', names.replace('ducer.hfst', '-format.txt'))
 hfst.setenv(Version)
 
-# hfst-summarize --help says -o names a transducer but it seems to
-# name the summary report, and hfst-summarize does not output a
-# transducer. (Should be reported. TODO.)
-
-with Popen(['hfst-summarize', '-o', 'summary.txt', 'ducer.hfst'],
+with Popen(['hfst-format', '-o', 'format.txt', 'ducer.hfst'],
            stdout = open('stdout.log', mode = 'wb'),
            stderr = open('stderr.log', mode = 'wb')) as it:
     pass

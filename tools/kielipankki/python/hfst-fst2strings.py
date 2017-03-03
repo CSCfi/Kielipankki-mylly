@@ -1,5 +1,5 @@
-# TOOL hfst-fst2strings.py: "Sample a transducer"
-#     (Produces a convenient sample of path labels in the transducer.
+# TOOL hfst-fst2strings.py: "Sample an archive"
+#     (Produces a convenient sample of path labels in the transducers.
 # These paths can be just some paths, best paths by weight, or random paths.
 # This tool may not work correctly with optimized-lookup formats, according to its --help.)
 # INPUT ducer.hfst TYPE GENERIC
