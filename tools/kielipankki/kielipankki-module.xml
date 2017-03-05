@@ -41,6 +41,7 @@
 	  <tool>hfst-concatenate.py</tool>
 	  <tool>hfst-union.py</tool>
 	  <tool>hfst-intersect.py</tool>
+	  <tool>hfst-subtract.py</tool>
 	  <tool>hfst-upper.py</tool>
 	  <tool>hfst-lower.py</tool>
 	  <tool>hfst-split.py</tool>
