@@ -1,0 +1,87 @@
+
+* Mylly batch job workflow
+
+Mylly batch tools come in pairs: one tool to submit a job, a
+corresponding tool to wait for a job. The simplest workflow is to
+submit a job, then wait for it. The results appear when they become
+available.
+
+One tool to submit a job
+- takes input files and parameters
+- sets up a persistent job directory
+- produces a job file.
+
+Another tool to wait for a job
+- takes a job file
+- produces the results
+- clears the persistent job directory.
+
+A generic tool
+- takes a job file
+- produces a status report.
+
+There should be another generic tool to cancel the job. Another to
+remove the job without waiting.
+
+Another wait on a job fails to start, so there is no race for the
+results in the end. Only the initial wait goes on in Mylly.
+
+* Writing Mylly batch tools
+
+Mylly batch tools are supported by a library script lib_jobs.py, which
+they can make available to themselves by this kind of command:
+
+sys.path.append(os.path.join(chipster_module_path, "python"))
+import lib_jobs as jobs
+
+jobs.submit("foo.job", "Foo Job", template, inputfile, ...)
+
+jobs.restore_inputs("foo.job", "Foo Job") # chipster_inputs.tsv
+jobs.wait("foo.job", "Foo Job", outputfile, ...)
+
+jobs.check("foo.job")
+
+TODO: jobs.cancel("foo.job")
+
+* Test plan
+
+Have a scratch directory in Taito. Put there an input file, copies of
+paired submit-wait tool scripts, and a copy of the check tool script.
+Edit the scripts to point their chipster_module_path to where the
+Mylly scripts happen to be in a clone of the Mylly repository.
+
+Say, the input file is a text file and tool scripts are td-submit.py,
+td-wait.py, job-status.py (adjust if necessary). Also have in the
+scratch directory a chipster-inputs.tsv that maps the input name in
+the submit-tool header to a display name, and the input name in the
+state-tool header to a display name. This should work for both wait
+and status, though in actual use these are not in the same file.
+
+| text.txt    | pg52108.txt |
+| generic.job | pg52108.job |
+
+python3 submit.py ==> some.job, chipster-outputs.tsv
+python3 wait.py & ==> text.tsv, chipster-outputs.tsv
+python3 check.py ==> status.log
+
+Use unzip -l some.job to see the base name of the work directory. Its
+dirname is $WRKDIR.
+
+But it needs to be an awful long text to have time to check status,
+unless something goes wrong.
+
+* TODO Observed things while testing
+
+- Double line in chipster-outputs.tsv after test/td-submit.py
+  (ah, because the tools append to it!)
+
+- In Mylly, check-job.py output file missing because mismatch (status, state)
+
+- Waiting on a harvested job shows stack trace, could be nicer
+
+- What if the user removes the job file and a wait goes on? Can
+  Chipster handle that? (Except so.)
+
+- Canceling a waited job would produce partial results, right? What if
+  a job directory is removed early - how does the wait crash then? It
+  should fail but in a friendly way.

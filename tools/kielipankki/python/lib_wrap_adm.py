@@ -9,10 +9,30 @@
 
 import glob
 import os
+import shutil
 from subprocess import Popen, PIPE
+from zipfile import ZipFile
+
+def dispatch(out, action, ticket):
+    print('action == {!r}'.format(action),
+          'ticket == {!r}'.format(ticket),
+          '',
+          sep = '\n',
+          file = out)
+
+    if action == 'info':
+        print_info(out)
+    elif action == 'env':
+        print_env(out)
+    elif action == 'remove':
+        remove_wrap_directory(out, ticket)
+    else:
+        print('Unrecognized action? This cannot happen!',
+              file = out)
 
 def print_info(out):
-    print('USER={}'.format(os.environ.get('USER')),
+    print('Node: {}'.format(os.uname().nodename),
+          'USER={}'.format(os.environ.get('USER')),
           'WRKDIR={}'.format(os.environ.get('WRKDIR')),
           '',
           sep = '\n',
@@ -33,3 +53,42 @@ def print_info(out):
             o, e = p.communicate(timeout = 5)
             print(o.decode('UTF-8'),
                   file = out)
+
+def print_env(out):
+    '''Not really batch job thing but need to know so riding on batch
+    job things for convenience -- perhaps the admin tool should simply
+    be more general?'''
+    print('LD_LIBRARY_PATH:', *os.environ['LD_LIBRARY_PATH'].split(':'),
+          sep = '\n', end = '\n--\n',
+          file = out)
+
+def remove_wrap_directory(out, ticket):
+    '''Remove $WRKDIR/ticket, if there and so on. An ordinary user of
+    Mylly must never get access to this operation except through their
+    own job file, and they must never get access to a job file of
+    someone else. This is delicate.
+    '''
+    wrapwork = os.path.join(os.environ.get('WRKDIR'), ticket)
+    print('Removing {!r}'.format(wrapwork),
+          file = out)
+
+    if os.path.isdir(wrapwork):
+        print('There is such directory', file = out)
+    else:
+        print('Failing: there is no such directory', file = out)
+        return
+
+    if ticket.startswith('wrap'):
+        print('Ticket starts with "wrap"', file = out)
+    else:
+        print('Failing: ticket does not start with "wrap"', file = out)
+        return
+
+    # TODO: if the wrap directory records the job as started and the
+    # job is still in the batch system, warn without removing.
+
+    # TODO: if the wrap directory records the job as started but the
+    # job is not in the batch system - what then?
+
+    print("Actually removing the directory", file = out)
+    shutil.rmtree(wrapwork)

@@ -1,12 +1,16 @@
-# TOOL td-wrap.py: "Turku Dependency Parser for Finnish - Prepare Job" (Wraps a text for parsing in the batch system. Use the corresponding Run Job on the resulting wrap.)
+# TOOL td-submit.py: "Turku Dependency Parser for Finnish - Submit Job" (Submits a text for parsing in the batch system. "Wait" for the results using the corresponding wait tool on the job file.)
 # INPUT text.txt TYPE GENERIC
-# OUTPUT data.wrap
+# OUTPUT generic.job
 # OUTPUT OPTIONAL error.log
 # RUNTIME python3
 
+import os
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_wrap as lib
+import lib_jobs as jobs
+import lib_names as names
+
+names.output('generic.job', names.replace('text.txt', '.job'))
 
 temp = '''\
 #! /bin/bash -e
@@ -35,11 +39,9 @@ set -o pipefail
 touch {{path}}/state/finished
 '''
 
-tag = "Turku Dependency Wrap"
-
-lib.setup_wrap(tag, "./text.txt")
-
-lib.setup_job(tag, temp.format(time = '2:00:00',
-                               mem = '16000'))
+jobs.submit('generic.job', 'Turku Dependency Job',
+            temp.format(time = '2:00:00',
+                        mem = '16000'),
+            'text.txt')
 
 # TODO: compute those parameters based on ./text.txt, some-how.

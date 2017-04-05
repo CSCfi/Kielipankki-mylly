@@ -1,7 +1,9 @@
-# TOOL wrap-adm.py: "Wrap Admin Tool" (Look at extant wrap work dirs, if appropriately informed and so inclined.)
+# TOOL wrap-adm.py: "Admin tool" (Attend to extant work directories of batch jobs, if appropriately informed and so inclined.)
 # OUTPUT info.log
 # OUTPUT OPTIONAL error.log
-# PARAMETER Secret: "" TYPE STRING DEFAULT "This is nothing" (Must know something)
+# PARAMETER Secret TYPE STRING DEFAULT "" (Must know something)
+# PARAMETER Ticket TYPE STRING DEFAULT "ignored" (Aka directory name)
+# PARAMETER Action TYPE [info: "info", env: "Show some environment variables", remove: "Remove ticket work directory"] DEFAULT info ()
 # RUNTIME python3
 
 import hashlib
@@ -17,10 +19,10 @@ with open('info.log', 'w') as info:
                           '9d78fb57c1ed2e31' ):
 
         sys.path.append(os.path.join(chipster_module_path, "python"))
-        import lib_wrap_adm
-        lib_wrap_adm.print_info(info)
+        from lib_wrap_adm import dispatch
+        dispatch(info, Action, Ticket)
 
     else:
 
-        print('Sorry',
+        print('Sorry must know a secret',
               file = info)

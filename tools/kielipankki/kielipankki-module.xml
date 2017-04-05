@@ -2,52 +2,97 @@
 
 <module name="kielipankki">
 
-	<category name="Text" color="#d5c796">
-		<tool>finnish-analyze.py</tool>
-		<tool>english-analyze.py</tool>
+	<category name="Syntactic analysis" color="#c0d2de">
+	  <tool>td-parse.py</tool>
+	  <tool>td-submit.py</tool>
+	  <tool>td-wait.py</tool>
 	</category>
 
-	<category name="Speech" color="#e7df70">
-	  <tool>aasr-recognize-wrap.py</tool>
-	  <tool>aasr-recognize-job.py</tool>
-		<!-- tool>aaltoasr-recognize.py</tool -->
-		<!-- tool>aaltoasr-align.py</tool -->
+	<category name="Morphological analysis" color="#80a3b7">
+	  <tool>hfst-lookup-finnish.py</tool>
+	  <tool>hfst-lookup-swedish.py</tool>
+	  <tool>hfst-lookup-english.py</tool>
+	  <tool>hfst-process-finnish.py</tool>
+	  <tool>hfst-process-swedish.py</tool>
+	  <tool>hfst-process-english.py</tool>
+	  <tool>hfst-process2-english.py</tool>
+	</category>
+
+	<category name="Speech recognition" color="#e7df70">
+	  <tool>aasr-recognize-submit.py</tool>
+	  <tool>aasr-recognize-wait.py</tool>
 	</category>
 
 	<category name="Preprocessing" color="#d59f45">
-		<tool>to-utf8.py</tool>
+	  <tool>to-utf8.py</tool>
 	</category>
 
-	<category name="Parsing" color="#007fff">
-	  <tool>td-wrap.py</tool>
-	  <tool>td-job.py</tool>
-		<tool>td-parse-finnish.py</tool>
-		<tool>hfst-lookup-finnish.py</tool>
-		<tool>hfst-lookup-swedish.py</tool>
-		<tool>hfst-lookup-english.py</tool>
-		<tool>hfst-process-finnish.py</tool>
-		<tool>hfst-process-swedish.py</tool>
-		<tool>hfst-process-english.py</tool>
-		<tool>hfst-process2-english.py</tool>
+	<category name="Finite-State Technology" color="#629a9b">
+	  <tool>hfst-format.py</tool>
+	  <tool>hfst-summarize.py</tool>
+	  <tool>hfst-fst2strings.py</tool>
+	  <tool>hfst-fst2fst.py</tool>
+	  <tool>hfst-strings2fst.py</tool>
+	  <tool>hfst-regexp2fst.py</tool>
+	  <tool>hfst-lexc.py</tool>
+	  <tool>hfst-twolc.py</tool>
+	  <tool>hfst-compose.py</tool>
+	  <tool>hfst-invert.py</tool>
+	  <tool>hfst-concatenate.py</tool>
+	  <tool>hfst-union.py</tool>
+	  <tool>hfst-intersect.py</tool>
+	  <tool>hfst-subtract.py</tool>
+	  <tool>hfst-upper.py</tool>
+	  <tool>hfst-lower.py</tool>
+	  <tool>hfst-split.py</tool>
+	  <tool>hfst-head.py</tool>
+	  <tool>hfst-tail.py</tool>
+	</category>
+
+	<category name="Finite-State Transducers" color="#e7881c">
+	  <tool>fiat-omorfi-a.py</tool>
+	  <tool>fiat-omorfi-g.py</tool>
+	  <tool>fiat-english-a.py</tool>
+	  <tool>fiat-english-g.py</tool>
+	  <tool>fiat-finnish-a.py</tool>
+	  <tool>fiat-finnish-g.py</tool>
+	  <tool>fiat-french-a.py</tool>
+	  <tool>fiat-french-g.py</tool>
+	  <tool>fiat-german-a.py</tool>
+	  <tool>fiat-german-g.py</tool>
+	  <tool>fiat-italian-a.py</tool>
+	  <tool>fiat-italian-g.py</tool>
+	  <tool>fiat-swedish-a.py</tool>
+	  <tool>fiat-swedish-g.py</tool>
+	  <tool>fiat-turkish-a.py</tool>
+	  <tool>fiat-turkish-g.py</tool>
+	</category>
+
+	<category name="Job management" color="#ffff99">
+	  <tool>job-status.py</tool>
+	  <tool>wrap-adm.py</tool>
 	</category>
 
 	<category name="Demo" color="#00ff00">
-		<tool>powerplot.R</tool>
-		<tool>rankplot.R</tool>
-		<tool>growthplot.R</tool>
-		<tool>whereplot.R</tool>
-		<tool>demotokens.py</tool>
-		<tool>democounts.py</tool>
-		<tool>demotraces.py</tool>
+	  <tool>powerplot.R</tool>
+	  <tool>rankplot.R</tool>
+	  <tool>growthplot.R</tool>
+	  <tool>whereplot.R</tool>
+	  <tool>demotokens.py</tool>
+	  <tool>democounts.py</tool>
+	  <tool>demotraces.py</tool>
 	</category>
 
 	<category name="Testing" color="#ff33cc">
-	  <tool>wrap-adm.py</tool>
-		<tool>kp-test-data-in-out.R</tool>
-		<tool>kp-test-data-in-out.py</tool>
-		<tool>test-parameters.py</tool>
-		<tool>test-multifile.py</tool>
-		<!-- tool>simple-frequencies.py</tool -->
+	  <tool>co.py</tool>
+	  <tool>kp-test-data-in-out.R</tool>
+	  <tool>kp-test-data-in-out.py</tool>
+	  <tool>test-parameters.py</tool>
+	  <tool>test-renaming.py</tool>
+	  <tool>test-multifile.py</tool>
+	  <!-- tool>simple-frequencies.py</tool -->
+	  <tool>finnish-analyze.py</tool>
+	  <tool>english-analyze.py</tool>
 	</category>
 
 <!--
