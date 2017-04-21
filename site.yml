@@ -8,6 +8,7 @@
   tags: chipster
 
 - hosts: taito
+  remote_user: kp_ruser
   roles:
    - chipster_comp
   tags: comp

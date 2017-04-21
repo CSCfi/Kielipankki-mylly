@@ -1,1 +1,8 @@
 chipster_ip: 86.50.168.171
+nodes:
+ - c306
+ - c307
+shared_comp_dirs:
+ - 'comp/conf'
+ - 'comp/security'
+ - 'shared'

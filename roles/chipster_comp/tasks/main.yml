@@ -1,12 +1,38 @@
 - name:   Synchronise comp 1 
   local_action: command /usr/bin/rsync -r --include 'comp' --include 'comp/bin/' --include 'comp/bin/chipster-comp' --include 'comp/bin/linux-x86-64**' --include 'comp/conf**' --include 'comp/security**' --include 'shared/'	--include 'shared/bin**' --include 'shared/lib/' --include 'shared/lib/*' --exclude '*' chipster@vm0171.kaj.pouta.csc.fi:/opt/chipster/ /tmp/chipster_comp/
 
-- name: Ensures comp/logs dir exists
-  local_action: command mkdir -p /tmp/chipster_comp/comp/logs
-
-- name: Ensures comp/jobs-data dir exists
-  local_action: command mkdir -p /tmp/chipster_comp/comp/jobs-data
-
 - name: Synchronize comp 2
-  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/mylly-dev/taito-login3.csc.fi/
+  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/mylly-dev/generic_node/
+
+- name: setup node dirs
+  file:
+    path: "mylly-dev/{{ item }}/comp/logs"
+    state: directory
+    mode: 0700
+  with_items:
+   - "{{ nodes }}"
+
+- name: setup jobs-data
+  file:
+    src: /wrk/kp-ruser/
+    dest: "/homeappl/home/kp-ruser/mylly-dev/{{ item }}/comp/jobs-data"
+    state: link
+  with_items:
+   - "{{ nodes }}"
+
+- name: copy comp/bin
+  command: cp -rf "/homeappl/home/kp-ruser/mylly-dev/generic_node/comp/bin/"  "/homeappl/home/kp-ruser/mylly-dev/{{ item }}/comp/"
+  with_items:
+   - "{{ nodes }}"
+
+
+- name: setup node symlinks
+  file:
+    src: "/homeappl/home/kp-ruser/mylly-dev/generic_node/{{ item[1] }}"
+    dest: "/homeappl/home/kp-ruser/mylly-dev/{{ item[0] }}/{{ item[1] }}"
+    state: link
+  with_nested:
+   - "{{ nodes }}"
+   - "{{ shared_comp_dirs }}"
+  
 
