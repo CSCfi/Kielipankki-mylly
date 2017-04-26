@@ -1,0 +1,8 @@
+[localhost]
+127.0.0.1  ansible_connection=local
+
+[chipster]
+vm0171.kaj.pouta.csc.fi ansible_ssh_user=chipster
+
+[taito]
+taito-login3.csc.fi comp_home=mylly-dev ansible_ssh_user=kp-ruser 

@@ -1,4 +1,6 @@
 chipster_ip: 86.50.168.171
+chipster_production_tarball: http://vm0151.kaj.pouta.csc.fi/artefacts/jenkins-jobs/build_chipster_project/builds/155-chipster-3.11.5_02/archive/dist/chipster-3.11.5.tar.gz
+
 nodes:
  - c305
  - c306
@@ -8,3 +10,4 @@ shared_comp_dirs:
  - 'comp/conf'
  - 'comp/security'
  - 'shared'
+ 

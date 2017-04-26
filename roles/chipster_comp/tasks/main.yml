@@ -1,8 +1,31 @@
-- name:   Synchronise comp 1 
-  local_action: command /usr/bin/rsync -r --include 'comp' --include 'comp/bin/' --include 'comp/bin/chipster-comp' --include 'comp/bin/linux-x86-64**' --include 'comp/conf**' --include 'comp/security**' --include 'shared/'	--include 'shared/bin**' --include 'shared/lib/' --include 'shared/lib/*' --exclude '*' chipster@vm0171.kaj.pouta.csc.fi:/opt/chipster/ /tmp/chipster_comp/
+- name: Create local temp dir
+  file:
+    path: "/tmp/{{ comp_home }}"
+    state: directory
+    mode: 0700
+  delegate_to: localhost
+
+- name: Fetch production comp
+  get_url:
+    url: "{{ chipster_production_tarball }}"
+    dest: "/tmp/{{ comp_home }}/chipster_production.tgz"
+  delegate_to: localhost
+  when: comp_home == "mylly"
+
+- name: extract production comp
+  command: /bin/tar xfzv chipster_production.tgz chipster/comp chipster/shared/bin chipster/shared/lib
+  args:
+    chdir: "/tmp/{{ comp_home }}/"
+  delegate_to: localhost
+  when: comp_home == "mylly"
+
+
+- name:   Synchronise mylly-dev 1 
+  local_action: command /usr/bin/rsync -r --include 'comp' --include 'comp/bin/' --include 'comp/bin/chipster-comp' --include 'comp/bin/linux-x86-64**' --include 'comp/conf**' --include 'comp/security**' --include 'shared/' --include 'shared/bin**' --include 'shared/lib/' --include 'shared/lib/*' --exclude '*' chipster@vm0171.kaj.pouta.csc.fi:/opt/chipster/ /tmp/{{ comp_home}}/chipster/
+  when: comp_home == "mylly-dev"
 
 - name: Synchronize comp 2
-  local_action: command /usr/bin/rsync -r /tmp/chipster_comp/ kp-ruser@taito.csc.fi:~/{{ comp_home }}/generic_node/
+  local_action: command /usr/bin/rsync -r /tmp/{{ comp_home }}/chipster/ kp-ruser@taito.csc.fi:~/{{ comp_home }}/generic_node/
 
 - name: setup node dirs
   file:
