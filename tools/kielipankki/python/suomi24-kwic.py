@@ -11,7 +11,9 @@ from itertools import count, groupby
 import json
 import requests
 
+sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
+
 names.output('conc.json', names.replace('cqps.txt', '.json'))
 
 KORP = 'https://korp.csc.fi/cgi-bin/korp.cgi'
