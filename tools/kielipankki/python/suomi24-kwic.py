@@ -11,6 +11,9 @@ from itertools import count, groupby
 import json
 import requests
 
+import lib_names as names
+names.output('conc.json', names.replace('cqps.txt', '.json'))
+
 KORP = 'https://korp.csc.fi/cgi-bin/korp.cgi'
 
 # Make this be for Suomi24, and another tool for another set of
@@ -38,7 +41,7 @@ it = dict(command='query',
           defaultcontext='1 sentence',
           defaultwithin='sentence',
           start='0',
-          end='1', # 999'
+          end='999'
           show = ANNO,
           show_struct = META)
 
