@@ -2,6 +2,10 @@
 
 <module name="kielipankki">
 
+  <category name="Korp API" color = "#a49900">
+    <tool>suomi24-kwic.py</tool>
+  </category>
+  
 	<category name="Syntactic analysis" color="#c0d2de">
 	  <tool>td-parse.py</tool>
 	  <tool>td-submit.py</tool>
