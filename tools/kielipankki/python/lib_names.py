@@ -26,11 +26,11 @@ sensible_extensions = set('''
 
    .conll09 .csv .doc .docx .htm .html
    .hfst
-   .job
+   .job .json
    .log
    .odf .ods .org .pdf
    .textgrid .tsv .txt
-   .wav .xhtml .xml .zip
+   .wav .xhtml .xlsx .xml .zip
 
 '''.split())
 

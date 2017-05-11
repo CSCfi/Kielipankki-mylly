@@ -1,11 +1,11 @@
-# TOOL korp-kwic-tsv-frame.py: "Korp KWIC to Tab-Separated-Values Frame"
-# (Flatten a JSON concordance in TSV form, with header.)
+# TOOL korp-kwic-csv-frame.py: "Korp KWIC to Comma-Separated-Values Frame"
+# (Flatten a JSON concordance in CSV form, with header.)
 # INPUT kwic.json TYPE GENERIC
-# OUTPUT kwic.tsv
+# OUTPUT kwic.csv
 # RUNTIME python3
 
 '''Turn JSON format KWIC concordance from Korp API to a flat, headed
-   tab-separated table that is easier to read in and then use in R.
+   comma-separated table that is easier to read in and then use in R.
    Use the attribute names from the input KWIC for the output columns.
    Repeat structural attributes of a hit for each token.
 
@@ -17,7 +17,7 @@ from itertools import chain
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
-names.output('kwic.tsv', names.replace('kwic.json', '.tsv'))
+names.output('kwic.tsv', names.replace('kwic.json', '.csv'))
 
 with open('kwic.json', encoding = 'utf-8') as f:
     data = json.load(f)
@@ -46,7 +46,7 @@ meta = sorted(kwic[0]['structs'])
 # also, should there also be a hit counter?
 
 out = open('kwic.tmp', mode = 'w', encoding = 'utf-8')
-writer = csv.writer(out, delimiter = '\t')
+writer = csv.writer(out)
 writer.writerow(list(chain(head, what, rest, meta)))
 for hit in kwic:
     for token in hit['tokens']:
@@ -57,4 +57,4 @@ for hit in kwic:
                                    (token[key] for key in rest),
                                    (hit['structs'][key] for key in meta))))
 out.close()
-os.rename('kwic.tmp', 'kwic.tsv')
+os.rename('kwic.tmp', 'kwic.csv')

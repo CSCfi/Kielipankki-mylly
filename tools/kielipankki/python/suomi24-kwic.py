@@ -1,4 +1,4 @@
-# TOOL suomi24-kwic.py: "Korp KWIC Suomi24"
+# TOOL suomi24-kwic.py: "Concordance from Korp, Suomi24"
 # (Query Korp for a concordance from Suomi24 corpus.
 # Input file contains CQP expressions, separated by an empty line,
 # that must all match, and the last expression defines the final
@@ -31,7 +31,7 @@ with open('cqps.txt') as cqps:
     QUERYZ = dict(zip(ooKEY, ooCQP))
 
 CORPUS = 'S24'
-ANNO = 'lemma,pos,msd,dephead,reprel,ref,lex,nertag'
+ANNO = 'lemma,pos,msd,dephead,deprel,ref,lex,nertag'
 META = 'sentence_id,text_title,text_date,text_time,text_sect,text_sub,text_user,sentence_id,text_urlmsg,text_urlboard'
 
 # https://www.kielipankki.fi/support/korpapi/

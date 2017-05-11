@@ -5,6 +5,7 @@
   <category name="Korp API" color = "#a49900">
     <tool>suomi24-kwic.py</tool>
     <tool>korp-kwic-tsv-frame.py</tool>
+    <tool>korp-kwic-csv-frame.py</tool>
   </category>
   
 	<category name="Syntactic analysis" color="#c0d2de">
