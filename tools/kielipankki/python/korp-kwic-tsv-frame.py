@@ -48,7 +48,7 @@ meta = sorted(kwic[0]['structs'])
 out = open('kwic.tmp', mode = 'w', encoding = 'utf-8')
 writer = csv.writer(out, delimiter = '\t')
 writer.writerow(list(chain(head, what, rest, meta)))
-for hit in kwic[:10]:
+for hit in kwic:
     for token in hit['tokens']:
         writer.writerow(list(chain((token[key] for key in head),
                                    (hit['match']['start'],
