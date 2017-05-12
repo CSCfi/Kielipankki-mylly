@@ -12,6 +12,7 @@
 
   <category name="Table manipulation" color = "#c0d2de">
     <tool>tsv-summary.R</tool>
+    <tool>csv-summary.R</tool>
   </category>
   
 	<category name="Syntactic analysis" color="#c0d2de">
