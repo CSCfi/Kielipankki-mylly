@@ -6,6 +6,8 @@
     <tool>suomi24-kwic.py</tool>
     <tool>korp-kwic-tsv-frame.py</tool>
     <tool>korp-kwic-csv-frame.py</tool>
+    <tool>korp-kwic-ods-frame.py</tool>
+    <tool>korp-kwic-xlsx-frame.py</tool>
   </category>
   
 	<category name="Syntactic analysis" color="#c0d2de">

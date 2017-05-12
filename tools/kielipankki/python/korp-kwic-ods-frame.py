@@ -18,10 +18,10 @@
 import json, odf, os, sys
 from itertools import chain
 
-# sys.path.append(os.path.join(chipster_module_path, "python"))
-# import lib_names as names
+sys.path.append(os.path.join(chipster_module_path, "python"))
+import lib_names as names
 
-# names.output('kwic.tsv', names.replace('kwic.json', '.ods'))
+names.output('kwic.ods', names.replace('kwic.json', '.ods'))
 
 # extract the writing from
 # https://github.com/eea/odfpy/blob/master/csv2ods/csv2ods which

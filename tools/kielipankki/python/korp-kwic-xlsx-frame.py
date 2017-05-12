@@ -7,23 +7,18 @@
 '''Turn JSON format KWIC concordance from Korp API to a flat, headed
    Excel spreadsheet. Use the attribute names from the input KWIC for
    the output columns. Repeat structural attributes of a hit for each
-   token.
+   token. -- Depends on openpyxl.
 
 '''
-
-# installed openpyxl for self so
-# pip3 install --user openpyxl
-# (probably did so way long ago)
-# waiting for Martin to hopefully install libraries for Mylly user
 
 import json, os, sys
 from itertools import chain, count
 from openpyxl import Workbook
 
-# sys.path.append(os.path.join(chipster_module_path, "python"))
-# import lib_names as names
+sys.path.append(os.path.join(chipster_module_path, "python"))
+import lib_names as names
 
-# names.output('kwic.xlsx', names.replace('kwic.json', '.xlsx'))
+names.output('kwic.xlsx', names.replace('kwic.json', '.xlsx'))
 
 with open('kwic.json', encoding = 'utf-8') as f:
     data = json.load(f)
