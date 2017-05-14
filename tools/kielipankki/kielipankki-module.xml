@@ -3,6 +3,7 @@
 <module name="kielipankki">
 
   <category name="Korp API" color = "#a49900">
+    <tool>korp-kwic-to-tsv.py</tool>
     <tool>suomi24-kwic.py</tool>
     <tool>korp-kwic-tsv-frame.py</tool>
     <tool>korp-kwic-csv-frame.py</tool>
