@@ -5,6 +5,6 @@
 
 # Mylly renaming machinery for R scripts needs developed.
 
-v <- read.delim('table.tsv')
+v <- read.delim('table.tsv', quote = '')
 s <- summary(v)
 capture.output(s, file = 'table-summary.txt')
