@@ -52,8 +52,8 @@ meta = list(kwic[0]['structs'])
 with open('meta.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('_hit', '_start', '_end', '_corpus', *meta, sep = '\t', file = out)
     for j, hit in enumerate(kwic):
-        m, c = hit['match'], hit['corpus']
-        print(j, m['start'], m['end'], c, *(token[key] for key in meta),
+        m, c, data = hit['match'], hit['corpus'], hit['structs']
+        print(j, m['start'], m['end'], c, *(data[key] for key in meta),
               sep = '\t', file = out)
 
 os.rename('meta.tmp', 'meta.tsv')
