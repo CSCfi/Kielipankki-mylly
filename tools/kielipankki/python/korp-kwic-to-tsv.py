@@ -37,7 +37,7 @@ head = list(kwic[0]['tokens'][0]) # lead token
 with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('_match', '_sen', '_tok', *head, sep = '\t', file = out)
     for j, hit in enumerate(kwic):
-        for k, token in hit['tokens']:
+        for k, token in enumerate(hit['tokens']):
             m = hit['match']
             print(int(m['start'] <= k <= m['end']),
                   j, k,
