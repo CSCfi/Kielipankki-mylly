@@ -39,7 +39,7 @@ with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
     for j, hit in enumerate(kwic):
         for k, token in enumerate(hit['tokens']):
             m = hit['match']
-            print(int(m['start'] <= k <= m['end']),
+            print(int(m['start'] <= k < m['end']),
                   j, k,
                   *(token[key] for key in head),
                   sep = '\t', file = out)
@@ -50,7 +50,7 @@ meta = list(kwic[0]['structs'])
 # also: _hit (counter, also in head), _start, _end, _corpus
 
 with open('meta.tmp', mode = 'w', encoding = 'utf-8') as out:
-    print('_hit', '_start', '_end', '_corpus', *meta, sep = '\t', file = out)
+    print('_sen', '_start', '_end', '_corpus', *meta, sep = '\t', file = out)
     for j, hit in enumerate(kwic):
         m, c, data = hit['match'], hit['corpus'], hit['structs']
         print(j, m['start'], m['end'], c, *(data[key] for key in meta),
