@@ -11,6 +11,7 @@
   </category>
 
   <category name="Table manipulation" color = "#c0d2de">
+    <tool>join-tsv.py</tool>
     <tool>tsv-summary.R</tool>
     <tool>csv-summary.R</tool>
   </category>
