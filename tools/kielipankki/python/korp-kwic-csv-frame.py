@@ -1,5 +1,5 @@
-# TOOL korp-kwic-csv-frame.py: "Korp KWIC to Comma-Separated-Values Frame"
-# (Flatten a JSON concordance in CSV form, with header.)
+# TOOL korp-kwic-csv-frame.py: "DEPRECATED Korp KWIC to Comma-Separated-Values Frame"
+# (DEPRECATED Flatten a JSON concordance in CSV form, with header.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT kwic.csv
 # RUNTIME python3
