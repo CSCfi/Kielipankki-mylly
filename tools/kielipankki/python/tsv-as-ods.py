@@ -1,5 +1,5 @@
-# TOOL tsv-as-ods.py: "Headed TSV as ODS"
-# (TSV in ODS form, with header.)
+# TOOL tsv-as-ods.py: "TSV as ODS"
+# (TSV as ODS aka Open Document Spreadsheet)
 # INPUT table.tsv TYPE GENERIC
 # OUTPUT table.ods
 # RUNTIME python3
