@@ -1,5 +1,5 @@
 # TOOL tsv-as-ods.py: "TSV as ODS"
-# (TSV as ODS aka Open Document Spreadsheet)
+# (TSV as Open Document Spreadsheet)
 # INPUT table.tsv TYPE GENERIC
 # OUTPUT table.ods
 # RUNTIME python3

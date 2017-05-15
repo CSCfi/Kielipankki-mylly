@@ -1,10 +1,10 @@
-# TOOL tsv-summary.R: "Summary of a headed TSV frame)"
-# (Uses R to summarize the TSV-form data frame) 
+# TOOL tsv-summary.R: "Summarize TSV using R"
+# (Uses R for a rough summary of a TSV file) 
 # INPUT table.tsv TYPE GENERIC
-# OUTPUT table-summary.txt
+# OUTPUT summary.txt
 
 # Mylly renaming machinery for R scripts needs developed.
 
 v <- read.delim('table.tsv', quote = '')
 s <- summary(v)
-capture.output(s, file = 'table-summary.txt')
+capture.output(s, file = 'summary.txt')

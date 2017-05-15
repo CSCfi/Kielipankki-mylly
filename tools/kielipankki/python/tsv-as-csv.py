@@ -1,5 +1,5 @@
 # TOOL tsv-as-csv.py: "TSV as CSV"
-# (Reformat TSV as CSV.)
+# (TSV as Comma-Separated Values)
 # INPUT table.tsv TYPE GENERIC
 # OUTPUT table.csv
 # RUNTIME python3

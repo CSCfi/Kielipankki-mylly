@@ -1,5 +1,5 @@
 # TOOL tsv-as-xlsx.py: "TSV as XLSX"
-# (TSV in XLSX.)
+# (TSV as Microsoft Excel spreadsheet)
 # INPUT table.tsv TYPE GENERIC
 # OUTPUT table.xlsx
 # RUNTIME python3
