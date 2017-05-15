@@ -1,4 +1,4 @@
-# TOOL suomi24-kwic.py: "KWIC concordance from Korp, Suomi24"
+# TOOL kwic-from-suomi24.py: "Concordance from Suomi24 corpus in Korp"
 # (Queries Korp for a concordance from Suomi24 corpus. Input file contains CQP expressions, separated by empty lines, that must all match, and the last expression defines the final match region. Output file is the concordance in a JSON form.)
 # INPUT cqps.txt TYPE GENERIC
 # OUTPUT conc.json

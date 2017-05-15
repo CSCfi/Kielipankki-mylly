@@ -4,24 +4,18 @@
 
   <category name="Korp API" color = "#a49900">
     <!-- insert simple query maker here -->
-    <tool>korp-kwic-to-tsv.py</tool>
-    <tool>suomi24-kwic.py</tool>
-    <!-- tool>korp-kwic-tsv-frame.py</tool -->
+    <tool>kwic-as-tsv.py</tool>
+    <tool>kwic-from-suomi24.py</tool>
   </category>
 
-  <category name="Table manipulation" color = "#c0d2de">
-    <!-- these need decoupled from Korp - TSV to etc instead -->
-    <!-- tool>korp-kwic-csv-frame.py</tool -->
-    <!-- tool>korp-kwic-ods-frame.py</tool -->
-    <!-- tool>korp-kwic-xlsx-frame.py</tool -->
+  <category name="TSV manipulation" color = "#c0d2de">
     <tool>tsv-as-csv.py</tool>
     <tool>tsv-as-ods.py</tool>
     <tool>tsv-as-xlsx.py</tool>
     <!-- much relation algebra here -->
-    <tool>join-tsv.py</tool>
+    <tool>tsv-join.py</tool>
     <!-- various "visualisations" here -->
     <tool>tsv-summary.R</tool>
-    <!-- tool>csv-summary.R</tool -->
   </category>
   
 	<category name="Syntactic analysis" color="#c0d2de">

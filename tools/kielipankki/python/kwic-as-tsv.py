@@ -1,17 +1,9 @@
-# TOOL korp-kwic-to-tsv.py: "Korp KWIC from JSON to IANA TSV"
-# (Flatten a JSON concordance in IANA TSV form, with a header of unique field names. Tokens with positional annotations are saved in one file, structural annotations in another, both sharing a sentence identifier so that the files can be joined.)
+# TOOL kwic-as-tsv.py: "KWIC as TSV"
+# (Korp JSON-form concordance as two TSV files, tokens with their annotations in one and structural annotations in the other. Both files contain a sentence counter attribute so that they can be easily joined into one.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT tokens.tsv
 # OUTPUT meta.tsv
 # RUNTIME python3
-
-'''[Fix this comment - there are two files now.]
-   Turn JSON format KWIC concordance from Korp API to a flat, headed
-   tab-separated table that is easier to read in and then use in R.
-   Use the attribute names from the input KWIC for the output columns.
-   Repeat structural attributes of a hit for each token.
-
-'''
 
 import json, os, sys
 from itertools import chain
@@ -30,9 +22,7 @@ kwic = data['kwic']
 # lead sentence/token determines which attributes,
 
 head = list(kwic[0]['tokens'][0]) # lead token
-# also: _match (0/1), _hit (counter, also in meta)
-
-# is there something wrong about match start and end?
+# also: _match (0/1), _sen (counter, also in meta), _tok (counter within _sen)
 
 with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('_match', '_sen', '_tok', *head, sep = '\t', file = out)
@@ -47,7 +37,7 @@ with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
 os.rename('tokens.tmp', 'tokens.tsv')
 
 meta = list(kwic[0]['structs'])
-# also: _hit (counter, also in head), _start, _end, _corpus
+# also: _sen (counter, also in head), _start, _end, _corpus
 
 with open('meta.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('_sen', '_start', '_end', '_corpus', *meta, sep = '\t', file = out)
