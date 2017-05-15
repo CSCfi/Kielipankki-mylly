@@ -1,5 +1,5 @@
-# TOOL korp-kwic-ods-frame.py: "Korp KWIC to ODS Frame"
-# (Flatten a JSON concordance in ODS form, with header.)
+# TOOL korp-kwic-ods-frame.py: "DEPRECATED Korp KWIC to ODS Frame"
+# (DEPRECATED Flatten a JSON concordance in ODS form, with header.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT kwic.ods
 # RUNTIME python3
