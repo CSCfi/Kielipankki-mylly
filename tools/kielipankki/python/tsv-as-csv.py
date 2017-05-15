@@ -1,4 +1,4 @@
-# TOOL tsv-as-csv-frame.py: "TSV to CSV"
+# TOOL tsv-as-csv.py: "TSV to CSV"
 # (Reformat TSV as CSV.)
 # INPUT table.tsv TYPE GENERIC
 # OUTPUT table.csv
