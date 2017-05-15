@@ -1,5 +1,5 @@
-# TOOL korp-kwic-xlsx-frame.py: "Korp KWIC to XLSX Frame"
-# (Flatten a JSON concordance in Excel form, with header.)
+# TOOL korp-kwic-xlsx-frame.py: "DEPRECATED Korp KWIC to XLSX Frame"
+# (DEPRECATED Flatten a JSON concordance in Excel form, with header.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT kwic.xlsx
 # RUNTIME python3

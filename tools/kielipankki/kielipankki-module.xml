@@ -13,9 +13,10 @@
     <!-- these need decoupled from Korp - TSV to etc instead -->
     <!-- tool>korp-kwic-csv-frame.py</tool -->
     <!-- tool>korp-kwic-ods-frame.py</tool -->
-    <tool>korp-kwic-xlsx-frame.py</tool>
+    <!-- tool>korp-kwic-xlsx-frame.py</tool -->
     <tool>tsv-as-csv.py</tool>
     <tool>tsv-as-ods.py</tool>
+    <tool>tsv-as-xlsx.py</tool>
     <!-- much relation algebra here -->
     <tool>join-tsv.py</tool>
     <!-- various "visualisations" here -->
