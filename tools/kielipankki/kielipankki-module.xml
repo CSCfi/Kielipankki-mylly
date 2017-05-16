@@ -16,6 +16,7 @@
     <tool>tsv-join.py</tool>
     <tool>tsv-keep.py</tool>
     <tool>tsv-drop.py</tool>
+    <tool>tsv-expand-old-map.py</tool>
     <!-- various "visualisations" here -->
     <tool>tsv-summary.R</tool>
   </category>
