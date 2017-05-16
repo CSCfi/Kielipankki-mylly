@@ -48,7 +48,7 @@ if not keys:
                    for line in narrow
                    for it in [line.rstrip('\n').split('\t')[k]]
                    if it not in ('_', '')
-                   for key, val in ( kv.split('_') for kv in it.split('|') ))
+                   for key, val in ( kv.split('_', 1) for kv in it.split('|') ))
                    
 # should check that keys not intersect with head (that be an error)
 
@@ -64,7 +64,7 @@ with open('wide.tmp', mode = 'w', encoding = 'utf-8') as out:
             new = dict(pair
                        for it in [record[k]]
                        if it not in ('_', '')
-                       for pair in ( kv.split('_') for kv in it.split('|') ))
+                       for pair in ( kv.split('_', 1) for kv in it.split('|') ))
             print(*chain((new.get(key, '_') for key in ext),
                          record),
                   sep = '\t', file = out)
