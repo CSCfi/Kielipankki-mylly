@@ -32,14 +32,14 @@ names.output('narrow.tsv', names.replace('wide.tsv', '-keep.tsv'))
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
-kept = tuple(filter(None, (keep0, keep1, keep2, keep3,
-                           keep4, keep5, keep6, keep7,
-                           keep8, keep9, keepA, keepB,
-                           keepC, keepD, keepE, keepF)))
+keep = set(filter(None, (keep0, keep1, keep2, keep3,
+                         keep4, keep5, keep6, keep7,
+                         keep8, keep9, keepA, keepB,
+                         keepC, keepD, keepE, keepF)))
 
 with open('wide.tsv') as wide:
     head = next(wide).rstrip('\n').split('\t')
-    take = index(head, kept)
+    take = index(head, keep)
     them = Counter(value(line.rstrip('\n').split('\t'), take)
                    for line in wide)
 
@@ -47,11 +47,11 @@ with open('wide.tsv') as wide:
 
 with open('narrow.tmp', mode = 'w', encoding = 'utf-8') as out:
     if count:
-        print(count, *kept, sep = '\t', file = out)
+        print(count, *value(head, take), sep = '\t', file = out)
         for it in them:
             print(them[it], *it, sep = '\t', file = out)
     else:
-        print(*kept, sep = '\t', file = out)
+        print(*value(head, take), sep = '\t', file = out)
         for it in them:
             print(*it, sep = '\t', file = out)
 
