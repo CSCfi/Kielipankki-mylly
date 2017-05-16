@@ -47,12 +47,12 @@ with open('wide.tsv') as wide:
 
 with open('narrow.tmp', mode = 'w', encoding = 'utf-8') as out:
     if count:
-        print(count, *kept, sep = '\t')
+        print(count, *kept, sep = '\t', file = out)
         for it in them:
-            print(them[it], *it, sep = '\t')
+            print(them[it], *it, sep = '\t', file = out)
     else:
-        print(*ketp, sep = '\t')
+        print(*kept, sep = '\t', file = out)
         for it in them:
-            print(*it, sep = '\t')
+            print(*it, sep = '\t', file = out)
 
 os.rename('narrow.tmp', 'narrow.tsv')
