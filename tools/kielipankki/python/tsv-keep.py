@@ -32,10 +32,10 @@ names.output('narrow.tsv', names.replace('wide.tsv', '-keep.tsv'))
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
-kept = tuple(filter((keep0, keep1, keep2, keep3,
-                     keep4, keep5, keep6, keep7,
-                     keep8, keep9, keepA, keepB,
-                     keepC, keepD, keepE, keepF)))
+kept = tuple(filter(None, (keep0, keep1, keep2, keep3,
+                           keep4, keep5, keep6, keep7,
+                           keep8, keep9, keepA, keepB,
+                           keepC, keepD, keepE, keepF)))
 
 with open('wide.tsv') as wide:
     head = next(wide).rstrip('\n').split('\t')
