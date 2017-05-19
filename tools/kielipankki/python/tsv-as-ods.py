@@ -17,11 +17,12 @@ names.output('table.ods', names.replace('table.tsv', '.ods'))
 # extract the writing from
 # https://github.com/eea/odfpy/blob/master/csv2ods/csv2ods which
 # mainly deals with Python2 compatibility, option parsing, reading
-# CSV, and guessing character encodings and cell styles :/
+# CSV, and guessing character encodings and cell styles :/ - now
+# adding header row on one's own
 from odf.opendocument import OpenDocumentSpreadsheet
 from odf.style import Style, TextProperties, ParagraphProperties, TableColumnProperties
 from odf.text import P
-from odf.table import Table, TableColumn, TableRow, TableCell
+from odf.table import Table, TableColumn, TableHeaderRows, TableRow, TableCell
 
 textdoc = OpenDocumentSpreadsheet()
 
@@ -38,8 +39,10 @@ table = Table(name = 'table')
 with open('table.tsv', encoding = 'utf-8') as tsv:
     # header
     head = next(tsv).rstrip('\n').split('\t')
+    hrs = TableHeaderRows()
+    table.addElement(hrs) # do these _need_ to be added before they are done?
     hr = TableRow()
-    table.addElement(hr)
+    hrs.addElement(hr)
     for name in head:
         hc = TableCell(valuetype = "string")
         hr.addElement(hc)
