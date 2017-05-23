@@ -6,6 +6,7 @@
     <!-- insert simple query maker here -->
     <tool>kwic-as-tsv.py</tool>
     <tool>kwic-2gram.py</tool>
+    <tool>kwic-3gram.py</tool>
     <tool>kwic-from-suomi24.py</tool>
   </category>
 
