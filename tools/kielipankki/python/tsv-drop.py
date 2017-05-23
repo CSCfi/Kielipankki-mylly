@@ -1,8 +1,8 @@
 # TOOL tsv-drop.py: "Drop given TSV attributes"
-# (Drop the columns with the given names and keep others. Add counts of kept records if given a name for the new count column.)
+# (Drop the given attributes. Produce counts if given a name for count attribute. Prefix cM of the default cMcount indicates numeric type for some tools.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
-# PARAMETER OPTIONAL count TYPE STRING
+# PARAMETER OPTIONAL count TYPE STRING DEFAULT "cMcount"
 # PARAMETER          drop0 TYPE STRING
 # PARAMETER OPTIONAL drop1 TYPE STRING
 # PARAMETER OPTIONAL drop2 TYPE STRING

@@ -1,8 +1,8 @@
 # TOOL tsv-keep.py: "Keep given TSV attributes"
-# (Keep the columns with the given names and no others. Add counts of kept records if given a name for the new count column.)
+# (Keep the given attributes. Produce counts if given a name for count attribute. Prefix cM of the default cMcount indicates numeric type for some tools.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
-# PARAMETER OPTIONAL count TYPE STRING
+# PARAMETER OPTIONAL count TYPE STRING DEFAULT "cMcount"
 # PARAMETER          keep0 TYPE STRING
 # PARAMETER OPTIONAL keep1 TYPE STRING
 # PARAMETER OPTIONAL keep2 TYPE STRING
