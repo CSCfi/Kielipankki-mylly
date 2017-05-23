@@ -1,5 +1,5 @@
-# TOOL tsv-22-margins.py: "Contingency margins of two TSV combinations"
-# (Contingency table of two combinations of TSV attributes as joint count cM12 and three sums aka marginal counts cM1s, cMs2, cMss. The component attribute names are suffixed with of1 and of2.)
+# TOOL tsv-22-corner.py: "Contingency corner of two TSV combinations"
+# (Contingency table of two combinations of TSV attributes as joint count cM12, other counts cM1o, cMo2, and total margin aka sum cMss. The component attribute names are suffixed with of1 and of2.)
 # INPUT datum.tsv TYPE GENERIC
 # OUTPUT table.tsv
 # PARAMETER          one0 TYPE STRING
@@ -19,7 +19,7 @@ import os
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
-names.output('table.tsv', names.replace('datum.tsv', '-22m.tsv'))
+names.output('table.tsv', names.replace('datum.tsv', '-22c.tsv'))
 
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
@@ -41,13 +41,14 @@ twos = Counter(k for r, k in them.elements())
 total = sum(them.values())
 
 with open('table.tmp', mode = 'w', encoding = 'utf-8') as out:
-    print(*chain(('cM12', 'cM1s', 'cMs2', 'cMss'),
+    print(*chain(('cM12', 'cM1o', 'cMo2', 'cMss'),
                  map('{}of1'.format, value(head, take1)),
                  map('{}of2'.format, value(head, take2))),
           sep = '\t', file = out)
     for rk, c in them.items():
         r, k = rk
-        print(c, ones[r], twos[k], total, *chain(r, k),
+        print(c, ones[r] - c, twos[k] - c, total,
+              *chain(r, k),
               sep = '\t', file = out)
 
 os.rename('table.tmp', 'table.tsv')

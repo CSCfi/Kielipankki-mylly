@@ -1,5 +1,5 @@
 # TOOL tsv-22-cells.py: "Contingency cells of two TSV combinations"
-# (Contingency table of two combinations of TSV attributes represented as joint count cM12 and other counts cM1o, cMo2, cMoo. The component attribute names are suffixed with of1 and of2.)
+# (Contingency table of two combinations of TSV attributes as joint count cM12 and other counts cM1o, cMo2, cMoo. The component attribute names are suffixed with of1 and of2.)
 # INPUT datum.tsv TYPE GENERIC
 # OUTPUT table.tsv
 # PARAMETER          one0 TYPE STRING
