@@ -19,7 +19,7 @@ import os
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
-names.output('table.tsv', names.replace('datum.tsv', '-22c.tsv'))
+names.output('table.tsv', names.replace('datum.tsv', '-22row.tsv'))
 
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
