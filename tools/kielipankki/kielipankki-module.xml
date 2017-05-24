@@ -2,6 +2,36 @@
 
 <module name="kielipankki">
 
+  <category name="Korp API" color = "#a49900">
+    <!-- insert simple query maker here -->
+    <tool>kwic-as-tsv.py</tool>
+    <tool>kwic-2gram.py</tool>
+    <tool>kwic-3gram.py</tool>
+    <tool>kwic-dep.py</tool>
+    <tool>simple-cqp.py</tool>
+    <tool>kwic-from-suomi24.py</tool>
+  </category>
+
+  <category name="TSV manipulation" color = "#c0d2de">
+    <tool>tsv-as-csv.py</tool>
+    <tool>tsv-as-ods.py</tool>
+    <tool>tsv-as-xlsx.py</tool>
+    <!-- much relation algebra here -->
+    <tool>tsv-rename.py</tool>
+    <tool>tsv-join.py</tool>
+    <tool>tsv-keep.py</tool>
+    <tool>tsv-drop.py</tool>
+    <tool>tsv-expand-old-map.py</tool>
+    <!-- various "visualisations" here -->
+    <tool>tsv-22-cells.py</tool>
+    <tool>tsv-22-corner.py</tool>
+    <tool>tsv-22-margins.py</tool>
+    <tool>tsv-22-columns.py</tool>
+    <tool>tsv-22-rows.py</tool>
+    <tool>tsv-summary.R</tool>
+    <tool>peek-in-tsv.py</tool>
+  </category>
+  
 	<category name="Syntactic analysis" color="#c0d2de">
 	  <tool>td-parse.py</tool>
 	  <tool>td-submit.py</tool>
