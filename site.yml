@@ -11,7 +11,7 @@
   remote_user: kp_ruser
   roles:
    - chipster_comp
-  tags: comp
+  tags: chipster_comp
    
 
 

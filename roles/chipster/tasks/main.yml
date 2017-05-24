@@ -6,24 +6,26 @@
     update: yes
     dest: /home/chipster/Kielipankki-mylly
     version: dev-tools
-
-- name: check the current symlink
-  stat:
-    path: /opt/chipster/toolbox/tools 
-  register: tools
-
-- name: Remove tools dir if necessary
+    
+- name: Remove tools dir
   file:
     path: /opt/chipster/toolbox/tools
     state: absent
-  when: tools.stat.isdir is defined and tools.stat.isdir
 
-- name: Link to local tool repo
+- name: Set up tools dir
   file:
     src: /home/chipster/Kielipankki-mylly/tools/
     dest: /opt/chipster/toolbox/tools
-    state: link
+    state: directory
+    owner: chipster
+    group: chipster
+    mode: 0755
 
+- name: Sync from Git
+  command: /home/chipster/Kielipankki-mylly/update_tools.sh
+  args:
+    creates: /opt/chipster/toolbox/tools/kielipankki
+  
 - name: "Setup git pull in cron"
   cron:
     name: "Update Mylly tools"
