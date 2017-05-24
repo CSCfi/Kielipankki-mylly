@@ -27,7 +27,7 @@ with open('query.tmp', mode = 'w', encoding = 'utf-8') as out:
           ' &\n  '.join('{} = "{}"'.format(key, val)
                         for key, val in ((key1a, val1a),
                                          (key1b, val1b))
-                        if val)),
+                        if val),
           ']',
           file = out)
     
@@ -36,7 +36,7 @@ with open('query.tmp', mode = 'w', encoding = 'utf-8') as out:
           ' &\n  '.join('{} = "{}"'.format(key, val)
                         for key, val in ((key2a, val2a),
                                          (key2b, val2b))
-                        if val)),
+                        if val),
           ']',
           file = out)
 
