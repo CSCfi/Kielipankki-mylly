@@ -3,7 +3,7 @@
 # INPUT query.txt TYPE GENERIC
 # OUTPUT result.json
 # PARAMETER OPTIONAL seed: "Random seed" TYPE INTEGER FROM 1000 TO 9999 (Use the same seed to repeat the same ordering of the results.)
-# PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0 (Extract the specified page of 1000 results from the concordance.)
+# PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0 (Extract the specified page 0-9, of 1000 results each, from the concordance.)
 # RUNTIME python3
 
 from itertools import count, groupby
@@ -14,7 +14,7 @@ import requests
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
-seed = random.randrange(10 ** 4, 10 ** 5) if isnan(seed) else seed
+seed = random.randrange(1000, 10000) if isnan(seed) else seed
 names.output('result.json', names.replace('query.txt', '-s{}-p{}.json'.format(seed, page)))
 
 KORP = 'https://korp.csc.fi/cgi-bin/korp.cgi'
