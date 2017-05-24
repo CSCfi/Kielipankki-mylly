@@ -9,6 +9,7 @@
 # PARAMETER OPTIONAL val2a: "Value of the attribute" TYPE STRING (Value of the attribute for the token)
 # PARAMETER key2b: "Attribute of the token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (Another attribute of the token)
 # PARAMETER OPTIONAL val2b: "Value of the attribute" TYPE STRING (Value of the attribute)
+# RUNTIME python3
 
 from itertools import chain
 import os, sys
