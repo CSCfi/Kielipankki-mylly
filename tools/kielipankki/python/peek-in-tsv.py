@@ -6,7 +6,7 @@
 # that the user gets to see it. Spy for now.
 
 import sys
-print('chipster_module_path:', repr(chipster_module_path),
+print('TODO: report on TSV field names here',
       file = sys.stderr)
 
 exit(42)
