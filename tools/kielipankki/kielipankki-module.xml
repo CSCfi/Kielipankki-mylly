@@ -29,6 +29,7 @@
     <tool>tsv-22-columns.py</tool>
     <tool>tsv-22-rows.py</tool>
     <tool>tsv-summary.R</tool>
+    <tool>peek-in-tsv.py</tool>
   </category>
   
 	<category name="Syntactic analysis" color="#c0d2de">
