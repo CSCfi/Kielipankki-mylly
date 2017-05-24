@@ -22,10 +22,22 @@ if not all((c.isalpha() or c.isdigit() or c in '-,.')
     exit(1)
 
 with open('query.tmp', mode = 'w', encoding = 'utf-8') as out:
-    print('[ {} = "{}" ]'.format(key1a, val1a), file = out)
-    if val1b: print('[ {} = "{}" ]'.format(key1b, val1b), file = out)
+    # who writes code like this
+    print('[',
+          ' &\n  '.join('{} = "{}"'.format(key, val)
+                        for key, val in ((key1a, val1a),
+                                         (key1b, val1b))
+                        if val)),
+          ']',
+          file = out)
+    
     if val2a or val2b: print(file = out)
-    if val2a: print('[ {} = "{}" ]'.format(key2a, val2a), file = out)
-    if val2b: print('[ {} = "{}" ]'.format(key2b, val2b), file = out)
+    print('[',
+          ' &\n  '.join('{} = "{}"'.format(key, val)
+                        for key, val in ((key2a, val2a),
+                                         (key2b, val2b))
+                        if val)),
+          ']',
+          file = out)
 
 os.rename('query.tmp', 'query.txt')
