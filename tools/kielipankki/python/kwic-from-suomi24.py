@@ -7,13 +7,14 @@
 # RUNTIME python3
 
 from itertools import count, groupby
+from math import isnan
 import json, random
 import requests
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
-seed = seed or random.randrange(10 ** 4, 10 ** 5)
+seed = random.randrange(10 ** 4, 10 ** 5) if isnan(seed) else seed
 names.output('result.json', names.replace('query.txt', '-s{}-p{}.json'.format(seed, page)))
 
 KORP = 'https://korp.csc.fi/cgi-bin/korp.cgi'
