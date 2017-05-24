@@ -31,13 +31,14 @@ with open('query.tmp', mode = 'w', encoding = 'utf-8') as out:
           ']',
           file = out)
     
-    if val2a or val2b: print(file = out)
-    print('[',
-          ' &\n  '.join('{} = "{}"'.format(key, val)
-                        for key, val in ((key2a, val2a),
-                                         (key2b, val2b))
-                        if val),
-          ']',
-          file = out)
+    if val2a or val2b:
+        print(file = out)
+        print('[',
+              ' &\n  '.join('{} = "{}"'.format(key, val)
+                            for key, val in ((key2a, val2a),
+                                             (key2b, val2b))
+                            if val),
+              ']',
+              file = out)
 
 os.rename('query.tmp', 'query.txt')
