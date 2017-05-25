@@ -17,6 +17,7 @@
     <tool>tsv-as-ods.py</tool>
     <tool>tsv-as-xlsx.py</tool>
     <!-- much relation algebra here -->
+    <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <tool>tsv-join.py</tool>
     <tool>tsv-keep.py</tool>
