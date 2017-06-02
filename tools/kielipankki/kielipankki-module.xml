@@ -16,6 +16,7 @@
     <tool>tsv-as-csv.py</tool>
     <tool>tsv-as-ods.py</tool>
     <tool>tsv-as-xlsx.py</tool>
+    <tool>qplot-tsv.R</tool> <!-- where should? this be -->
     <!-- much relation algebra here -->
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
