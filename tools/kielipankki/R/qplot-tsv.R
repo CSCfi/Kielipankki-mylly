@@ -76,17 +76,17 @@ plot <- eval(substitute(qplot(x, y, data = vi.data),
                        list(x = as.name(vi.x),
                             y = as.name(vi.y))))
 
-if (!is.null(vi.colour)) {
+if (sum(nchar(vi.colour)) > 0) {
     plot <- plot + eval(substitute(aes(colour = variable),
                                    list(variable = as.name(vi.colour))))
 }
 
-if (!is.null(vi.shape)) {
+if (sum(nchar(vi.shape)) > 0) {
     plot <- plot + eval(substitute(aes(shape = variable),
                                    list(variable = as.name(vi.shape))))
 }
 
-if (!is.null(vi.size)) {
+if (sum(nchar(vi.size)) > 0) {
     plot <- plot + eval(substitute(aes(size = variable),
                                    list(variable = as.name(vi.size))))
 }
