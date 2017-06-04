@@ -46,7 +46,7 @@ open(vi.from)
 
 vi.head <- unlist(strsplit(readLines(vi.from, n = 1), split = "\t"))
 
-# assign class names to the relevant column data (or NULL if not used)
+# assign "colClass" names to the relevant column names
 
 vi.core <- c(setNames(as.list(vi.xt), vi.x),
              setNames(as.list(vi.yt), vi.y),
@@ -54,9 +54,16 @@ vi.core <- c(setNames(as.list(vi.xt), vi.x),
              if (is.null(vi.shape)) list() else setNames(as.list("factor"), vi.shape),
              if (is.null(vi.size)) list() else setNames(as.list("numeric"), vi.size))
 
-# assign class names or "NULL" (the string) to all column names in
-# order, then drop the names so the result is usable as colClasses in
-# read.delim
+if (!all(names(vi.core) %in% vi.head) {
+    stop("\nAttributes expected to be graphed but not observed in data.",
+         "\nExpecting: ", paste(names(vi.core), collapse = " "),
+	 "\nObserving: ", paste(vi.head, collapse = " "),
+	 "\n")
+}
+
+# assign "colClass" names or "NULL" (the string) to all column names
+# in their order in the file, then drop the names so that the result
+# is usable as colClasses in read.delim
 
 vi.type <- unname(sapply(vi.head, function (name) {
                              core <- vi.core[[name]]
