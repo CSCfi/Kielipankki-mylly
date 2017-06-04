@@ -55,6 +55,9 @@ vi.core <- c(setNames(as.list(vi.xt), vi.x),
              if (is.null(vi.size)) list() else setNames(as.list("numeric"), vi.size))
 
 if (!all(names(vi.core) %in% vi.head)) {
+    print(vi.core)
+    print(names(vi.core))
+    print(length(names(vi.core)))
     stop("\nAttributes expected to be graphed but not observed in data.",
          "\nExpecting: ", paste(names(vi.core), collapse = " "),
 	 "\nObserving: ", paste(vi.head, collapse = " "),
