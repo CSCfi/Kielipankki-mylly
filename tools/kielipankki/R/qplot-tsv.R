@@ -7,9 +7,9 @@
 # PARAMETER vi.x: "x variable" TYPE STRING
 # PARAMETER vi.xt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER vi.y: "y variable" TYPE STRING
+# PARAMETER vi.yt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER OPTIONAL vi.ax: "log scale" TYPE [x: "x", y: "y", xy: "xy"]
 # PARAMETER OPTIONAL vi.ia: "transparency" TYPE [o1: "1/1", o5: "1/5", o10: "1/10", o50: "1/50", o100: "1/100", o200: "1/200"]
-# PARAMETER vi.yt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER OPTIONAL vi.colour: "colour grouping variable (factor)" TYPE STRING
 # PARAMETER OPTIONAL vi.shape: "shape grouping variable (factor)" TYPE STRING
 # PARAMETER OPTIONAL vi.size: "size variable (numeric)" TYPE STRING
@@ -109,6 +109,8 @@ if (sum(nchar(vi.ax)) > 0) {
     plot <- plot + switch(vi.ax,
                           x = scale_x_log10(),
 			  y = scale_y_log10(),
+			  # cannot do the following addition (non-numeric
+			  # argument), so find out what can do
 			  xy = scale_x_log10() + scale_y_log10())
 }
 
