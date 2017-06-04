@@ -58,6 +58,8 @@ if (!all(names(vi.core) %in% vi.head)) {
     stop("\nAttributes expected to be graphed but not observed in data.",
          "\nExpecting: ", paste(names(vi.core), collapse = " "),
 	 "\nObserving: ", paste(vi.head, collapse = " "),
+	 "\n", "FALSE in the following should indicate which is missing",
+	 "\n", paste(as.character(names(vi.core) %in% vi.head), collapse = " "),
 	 "\n")
 }
 
