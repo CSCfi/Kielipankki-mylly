@@ -3,10 +3,12 @@
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT graph.any
 # PARAMETER vi.file: "file type" TYPE [pdf: "pdf", png: "png", svg: "svg"] DEFAULT png
-# PARAMETER vi.plot: "plot type" TYPE [points: "points", jitter: "jitter", boxplot: "boxplot"] DEFAULT points
+# PARAMETER vi.plot: "plot type" TYPE [points: "points", pointswsmoother: "points with smoother", jitter: "jitter", boxplot: "boxplot"] DEFAULT points
 # PARAMETER vi.x: "x variable" TYPE STRING
 # PARAMETER vi.xt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER vi.y: "y variable" TYPE STRING
+# PARAMETER OPTIONAL vi.ax: "log scale" TYPE [x: "x", y: "y", xy: "xy"]
+# PARAMETER OPTIONAL vi.ia: "transparency" TYPE [o1: "1/1", o5: "1/5", o10: "1/10", o50: "1/50", o100: "1/100", o200: "1/200"]
 # PARAMETER vi.yt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER OPTIONAL vi.colour: "colour grouping variable (factor)" TYPE STRING
 # PARAMETER OPTIONAL vi.shape: "shape grouping variable (factor)" TYPE STRING
@@ -86,9 +88,29 @@ close(vi.from)
 vi.dev <- switch(vi.file, pdf = pdf, png = png, svg = svg)
 
 vi.dev(file = "graph.any")
-plot <- eval(substitute(qplot(x, y, data = vi.data),
-                       list(x = as.name(vi.x),
-                            y = as.name(vi.y))))
+if (sum(nchar(vi.ia)) == 0) {
+    plot <- eval(substitute(qplot(x, y, data = vi.data),
+                            list(x = as.name(vi.x),
+                                 y = as.name(vi.y))))
+} else {
+    plot <- eval(substitute(qplot(x, y, data = vi.data, alpha = I(1/d)),
+                            list(x = as.name(vi.x),
+			         y = as.name(vi.y),
+				 d = switch(vi.ia,
+				            o1 = 1,
+					    o5 = 5,
+					    o10 = 10,
+					    o50 = 50,
+					    o100 = 100,
+					    o200 = 200))))
+}
+
+if (sum(nchar(vi.ax)) > 0) {
+    plot <- plot + switch(vi.ax,
+                          x = scale_x_log10(),
+			  y = scale_y_log10(),
+			  xy = scale_x_log10() + scale_y_log10())
+}
 
 if (sum(nchar(vi.colour)) > 0) {
     plot <- plot + eval(substitute(aes(colour = variable),
