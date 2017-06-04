@@ -29,6 +29,8 @@
 
 source(paste(chipster.module.path, "R", "lib_names.R",  sep = "/"))
 
+check_extension("data.tsv", c(".tsv")) # enforces *.tsv for input file
+
 vi.ext <- switch(vi.file, pdf = ".pdf", png = ".png", svg = ".svg")
 out.map("graph.any", suf.fix("data.tsv", vi.ext))
 
