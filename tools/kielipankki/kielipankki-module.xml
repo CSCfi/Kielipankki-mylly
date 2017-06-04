@@ -3,7 +3,6 @@
 <module name="kielipankki">
 
   <category name="Korp API" color = "#a49900">
-    <!-- insert simple query maker here -->
     <tool>kwic-as-tsv.py</tool>
     <tool>kwic-2gram.py</tool>
     <tool>kwic-3gram.py</tool>
@@ -13,16 +12,14 @@
   </category>
 
   <category name="TSV manipulation" color = "#c0d2de">
-    <tool>tsv-as-csv.py</tool>
-    <tool>tsv-as-ods.py</tool>
-    <tool>tsv-as-xlsx.py</tool>
-    <tool>qplot-tsv.R</tool> <!-- where should? this be -->
     <!-- much relation algebra here -->
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <tool>tsv-join.py</tool>
     <tool>tsv-keep.py</tool>
+    <tool>tsv-keepc.py</tool>
     <tool>tsv-drop.py</tool>
+    <tool>tsv-dropc.py</tool>
     <tool>tsv-expand-old-map.py</tool>
     <!-- various "visualisations" here -->
     <tool>tsv-22-cells.py</tool>
@@ -30,8 +27,15 @@
     <tool>tsv-22-margins.py</tool>
     <tool>tsv-22-columns.py</tool>
     <tool>tsv-22-rows.py</tool>
-    <tool>tsv-summary.R</tool>
     <tool>peek-in-tsv.py</tool>
+  </category>
+
+  <category name="TSV utilization" color = "#83010b">
+    <tool>tsv-as-csv.py</tool>
+    <tool>tsv-as-ods.py</tool>
+    <tool>tsv-as-xlsx.py</tool>
+    <tool>qplot-tsv.R</tool> <!-- where should? this be -->
+    <tool>tsv-summary.R</tool>
   </category>
   
 	<category name="Syntactic analysis" color="#c0d2de">
@@ -105,7 +109,7 @@
 	  <tool>wrap-adm.py</tool>
 	</category>
 
-	<category name="Demo" color="#00ff00">
+	<category name="Obsolescent Demo" color="#00ff00">
 	  <tool>powerplot.R</tool>
 	  <tool>rankplot.R</tool>
 	  <tool>growthplot.R</tool>
