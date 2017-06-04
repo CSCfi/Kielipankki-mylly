@@ -1,9 +1,9 @@
-# TOOL qplot-tsv.R: "Visualize relationship of two TSV variables"
-# (Graph the relationship between two variables, using the R ggplot2 library - first attempt! caveat emptor)
+# TOOL qplot-tsv.R: "Visualize two-variable relationship"
+# (Graph the relationship of two variables, using qplot of ggplot2 library in R)
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT graph.any
 # PARAMETER vi.file: "file type" TYPE [pdf: "pdf", png: "png", svg: "svg"] DEFAULT png
-# PARAMETER vi.plot: "plot type" TYPE [points: "points"] DEFAULT points
+# PARAMETER vi.plot: "plot type" TYPE [points: "points", jitter: "jitter", boxplot: "boxplot"] DEFAULT points
 # PARAMETER vi.x: "x variable" TYPE STRING
 # PARAMETER vi.xt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER vi.y: "y variable" TYPE STRING
