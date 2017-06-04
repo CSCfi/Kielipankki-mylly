@@ -106,12 +106,10 @@ if (sum(nchar(vi.ia)) == 0) {
 }
 
 if (sum(nchar(vi.ax)) > 0) {
-    plot <- plot + switch(vi.ax,
-                          x = scale_x_log10(),
-			  y = scale_y_log10(),
-			  # cannot do the following addition (non-numeric
-			  # argument), so find out what can do
-			  xy = scale_x_log10() + scale_y_log10())
+    plot <- switch(vi.ax,
+                   x = plot + scale_x_log10(),
+	           y = plot + scale_y_log10(),
+		   xy = plot + scale_x_log10() + scale_y_log10())
 }
 
 if (sum(nchar(vi.colour)) > 0) {
