@@ -33,7 +33,7 @@ check_extension <- function (name, extensions) {
     if (any(endsWith(name, extensions))) {
     } else {
         stop("\nname ", name, " does not end with ",
-	     paste(extensions, collapse = " or ")
+	     paste(extensions, collapse = " or "))
     }
 }
 
