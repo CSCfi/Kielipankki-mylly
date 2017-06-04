@@ -25,14 +25,15 @@ external_name <- function (internal) {
     }
 }
 
-check_extension <- function (name, extensions) {
+check_extension <- function (internal, extensions) {
 
     # use this to inform the user that they are (probably) applying
     # the tool to a wrong file (usually by mistake)
-    
-    if (any(endsWith(name, extensions))) {
+
+    external <- external_name(internal)
+    if (any(endsWith(external, extensions))) {
     } else {
-        stop("\nname ", name, " does not end with ",
+        stop("\nname ", external, " does not end with ",
 	     paste(extensions, collapse = " or "))
     }
 }
