@@ -50,9 +50,9 @@ vi.head <- unlist(strsplit(readLines(vi.from, n = 1), split = "\t"))
 
 vi.core <- c(setNames(as.list(vi.xt), vi.x),
              setNames(as.list(vi.yt), vi.y),
-             if (is.null(vi.colour)) list() else setNames(as.list("factor"), vi.colour),
-             if (is.null(vi.shape)) list() else setNames(as.list("factor"), vi.shape),
-             if (is.null(vi.size)) list() else setNames(as.list("numeric"), vi.size))
+             if (sum(nchar(vi.colour)) == 0) list() else setNames(as.list("factor"), vi.colour),
+             if (sum(nchar(vi.shape)) == 0) list() else setNames(as.list("factor"), vi.shape),
+             if (sum(nchar(vi.size)) == 0) list() else setNames(as.list("numeric"), vi.size))
 
 if (!all(names(vi.core) %in% vi.head)) {
     print(vi.core)
