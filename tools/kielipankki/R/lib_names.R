@@ -1,7 +1,7 @@
 # Source this in a Mylly tool script and then rename outputs
 # based on inputs like in this example:
 #
-# out.map("graph.any", suf.fix("data.tsv", ".pdf"))
+# out.map("graph.any", replace.suffix("data.tsv", ".pdf"))
 # - user sees input file "data.tsv" as "foo.tsv", say
 # - script sees input file as "data.tsv"
 # - script creates output file "graph.any"
@@ -50,7 +50,7 @@ sensible.extensions <- c("csv", "html",
                          "jpg", "json", "png", "pdf", "svg",
                          "tsv", "txt", "xhtml", "xml")
 
-suf.fix <- function(paraname, suffix) {
+replace.suffix <- function(paraname, suffix) {
     # read original dataname at facename in chipster-inputs.tsv
     # replace its suffix
     username <- external_name(paraname)    
@@ -64,5 +64,5 @@ suf.fix <- function(paraname, suffix) {
 }
 
 # testing, requires image{1,2}.jpg in chipster_inputs.tsv
-# out.map("graph.any", suf.fix("image1.jpg", ".pdf"))
-# out.map("graph.ics", suf.fix("image2.jpg", ".pdf"))
+# out.map("graph.any", replace.suffix("image1.jpg", ".pdf"))
+# out.map("graph.ics", replace.suffix("image2.jpg", ".pdf"))
