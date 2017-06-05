@@ -114,7 +114,7 @@ if (sum(nchar(vi.ia)) == 0) {
 					    o200 = 200))))
 }
 
-if (xx.geom == "pointswsmooth") {
+if (vi.geom == "pointswsmooth") {
     plot <- plot + geom_smooth() 
 }
 
