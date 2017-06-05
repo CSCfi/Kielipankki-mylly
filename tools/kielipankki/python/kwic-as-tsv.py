@@ -11,6 +11,7 @@ from itertools import chain
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('kwic.json', '.json')
 names.output('tokens.tsv', names.replace('kwic.json', '-tokens.tsv'))
 names.output('meta.tsv', names.replace('kwic.json', '-meta.tsv'))
 

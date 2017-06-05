@@ -11,6 +11,8 @@ from itertools import chain
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('one.tsv', '.tsv')
+names.enforce('two.tsv', '.tsv')
 names.output('join.tsv', names.replace('one.tsv', '-j.tsv'))
 
 def index(head, names): return tuple(map(head.index, names))

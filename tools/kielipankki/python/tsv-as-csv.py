@@ -10,6 +10,7 @@ from itertools import chain
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('table.tsv', '.tsv')
 names.output('table.csv', names.replace('table.tsv', '.csv'))
 
 # Python's default CSV dialect aka excel

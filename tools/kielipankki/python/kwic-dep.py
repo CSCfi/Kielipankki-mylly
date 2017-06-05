@@ -18,6 +18,7 @@ from itertools import chain, count
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('kwic.json', '.json')
 names.output('triplaux.tsv', names.replace('kwic.json', '-dep.tsv'))
 
 with open('kwic.json', encoding = 'utf-8') as f:

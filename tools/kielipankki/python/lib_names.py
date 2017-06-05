@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 def output(output_name, dataset_name):
     '''Use this in the tool script together with some method to map
@@ -60,3 +60,16 @@ def insert(input_name, new):
         return base + new + ext
     else:
         return name + new
+
+def enforce(internal, extension):
+    '''Like enforce('data.tsv', '.tsv .tab') - so the split generates a
+       tuple whether it be one extension or possible alternatives
+
+    '''
+    
+    external = dataset_name(external)
+    extensions = extension.split()
+    if not external.endswith(extension):
+        print('name', external, 'does not end with:', *extensions,
+              file = sys.stderr)
+        exit(1)

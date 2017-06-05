@@ -26,6 +26,7 @@ import os
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('wide.tsv', '.tsv')
 names.output('narrow.tsv', names.replace('wide.tsv', '-keep.tsv'))
 
 def index(head, names): return tuple(map(head.index, names))
