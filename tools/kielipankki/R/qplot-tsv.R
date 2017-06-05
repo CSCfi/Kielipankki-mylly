@@ -1,9 +1,9 @@
-# TOOL qplot-tsv.R: "Visualize two-variable relationship"
+# TOOL qplot-tsv.R: "Graph a two-variable relationship"
 # (Graph the relationship of two variables, using qplot of ggplot2 library in R)
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT graph.any
 # PARAMETER vi.file: "file type" TYPE [pdf: "pdf", png: "png", svg: "svg"] DEFAULT png
-# PARAMETER vi.plot: "plot type" TYPE [points: "points", pointswsmoother: "points with smoother", jitter: "jitter", boxplot: "boxplot"] DEFAULT points
+# PARAMETER vi.geom: "graph type" TYPE [points: "points", pointswsmooth: "points with a smoother", jitter: "jitter", boxplot: "boxplot"] DEFAULT points
 # PARAMETER vi.x: "x variable" TYPE STRING
 # PARAMETER vi.xt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
 # PARAMETER vi.y: "y variable" TYPE STRING
@@ -19,7 +19,7 @@
 # chipster.module.path <- ".."
 # 
 # vi.file <- "pdf"
-# vi.plot <- "points"
+# vi.geom <- "points"
 # vi.x <- "ref"
 # vi.xt <- "integer"
 # vi.y <- "dephead"
@@ -87,13 +87,21 @@ close(vi.from)
 
 vi.dev <- switch(vi.file, pdf = pdf, png = png, svg = svg)
 
-vi.dev(file = "graph.any")
+# would be cleaner to _add_ that alpha, conditionally - investigate?
+
+vi.geom <- switch(vi.geom,
+                  points = "points",
+		  pointswsmooth = "points",
+		  jitter = "jitter",
+		  boxplot = "boxplot")
+
 if (sum(nchar(vi.ia)) == 0) {
-    plot <- eval(substitute(qplot(x, y, data = vi.data),
+    plot <- eval(substitute(qplot(x, y, data = vi.data, geom = vi.geom),
                             list(x = as.name(vi.x),
                                  y = as.name(vi.y))))
 } else {
-    plot <- eval(substitute(qplot(x, y, data = vi.data, alpha = I(1/d)),
+    plot <- eval(substitute(qplot(x, y, data = vi.data, geom = vi.geom,
+                                  alpha = I(1/d)),
                             list(x = as.name(vi.x),
 			         y = as.name(vi.y),
 				 d = switch(vi.ia,
@@ -103,6 +111,10 @@ if (sum(nchar(vi.ia)) == 0) {
 					    o50 = 50,
 					    o100 = 100,
 					    o200 = 200))))
+}
+
+if (vi.geom == "pointswsmoother") {
+    plot <- plot + geom_smooth() 
 }
 
 if (sum(nchar(vi.ax)) > 0) {
@@ -127,5 +139,6 @@ if (sum(nchar(vi.size)) > 0) {
                                    list(variable = as.name(vi.size))))
 }
 
+vi.dev(file = "graph.any")
 plot
 dev.off()
