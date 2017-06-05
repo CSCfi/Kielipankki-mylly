@@ -90,8 +90,8 @@ vi.dev <- switch(vi.file, pdf = pdf, png = png, svg = svg)
 # would be cleaner to _add_ that alpha, conditionally - investigate?
 
 xx.geom <- switch(vi.geom,
-                  points = "points",
-                  pointswsmooth = "points",
+                  points = "point",
+                  pointswsmooth = "point",
                   jitter = "jitter",
   	          boxplot = "boxplot",
 		  "nosuchgeom")
