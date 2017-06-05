@@ -89,18 +89,19 @@ vi.dev <- switch(vi.file, pdf = pdf, png = png, svg = svg)
 
 # would be cleaner to _add_ that alpha, conditionally - investigate?
 
-vi.geom <- switch(vi.geom,
+xx.geom <- switch(vi.geom,
                   points = "points",
-		  pointswsmooth = "points",
-		  jitter = "jitter",
-		  boxplot = "boxplot")
+                  pointswsmooth = "points",
+                  jitter = "jitter",
+  	          boxplot = "boxplot",
+		  "nosuchgeom")
 
 if (sum(nchar(vi.ia)) == 0) {
-    plot <- eval(substitute(qplot(x, y, data = vi.data, geom = vi.geom),
+    plot <- eval(substitute(qplot(x, y, data = vi.data, geom = xx.geom),
                             list(x = as.name(vi.x),
                                  y = as.name(vi.y))))
 } else {
-    plot <- eval(substitute(qplot(x, y, data = vi.data, geom = vi.geom,
+    plot <- eval(substitute(qplot(x, y, data = vi.data, geom= xx.geom,
                                   alpha = I(1/d)),
                             list(x = as.name(vi.x),
 			         y = as.name(vi.y),
@@ -113,7 +114,7 @@ if (sum(nchar(vi.ia)) == 0) {
 					    o200 = 200))))
 }
 
-if (vi.geom == "pointswsmoother") {
+if (xx.geom == "pointswsmooth") {
     plot <- plot + geom_smooth() 
 }
 
