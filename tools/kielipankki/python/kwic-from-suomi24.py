@@ -37,7 +37,7 @@ META = 'sentence_id,text_title,text_date,text_time,text_sect,text_sub,text_user,
 
 # https://www.kielipankki.fi/support/korpapi/
 
-it = dict(command = 'BORK!query',
+it = dict(command = 'query',
           corpus = CORPUS,
           sort = 'random',
           random_seed = seed,
