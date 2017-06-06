@@ -37,7 +37,7 @@ META = 'sentence_id,text_title,text_date,text_time,text_sect,text_sub,text_user,
 
 # https://www.kielipankki.fi/support/korpapi/
 
-it = dict(command = 'query',
+it = dict(command = 'BORK!query',
           corpus = CORPUS,
           sort = 'random',
           random_seed = seed,
@@ -61,8 +61,12 @@ it.update(QUERYZ)
 r = requests.get(KORP, params = it, timeout = 30.0)
 r.raise_for_status()
 
-# response can be an error message in JSON, or a concordance; shoul
-# detect error message here, so only a concordance goes to file
+if 'ERROR' in r:
+    print('Korp reported an error:',
+          *('{}: {}'.format(k, v) for k, v in r['ERROR'].items()),
+          sep = '\n',
+          file = sys.stderr)
+    exit(1)
 
 with open('result.json', mode = 'w', encoding = 'utf-8') as result:
     json.dump(r.json(), result,
