@@ -64,10 +64,11 @@ r.raise_for_status()
 it = r.json()
 
 if 'ERROR' in it:
-    print('Korp reported an error:',
-          *('{}: {}'.format(k, v) for k, v in it['ERROR'].items()),
-          sep = '\n',
-          file = sys.stderr)
+    print(it['ERROR']['type'], it['ERROR']['message'], file = sys.stderr)
+    exit(1)
+
+if it['hits'] == 0:
+    print('empty concordance (no positional names)', file = sys.stderr)
     exit(1)
 
 with open('result.json', mode = 'w', encoding = 'utf-8') as result:
