@@ -61,21 +61,16 @@ it.update(QUERYZ)
 r = requests.get(KORP, params = it, timeout = 30.0)
 r.raise_for_status()
 
-if 'ERROR' in r:
+it = r.json()
+
+if 'ERROR' in it:
     print('Korp reported an error:',
-          *('{}: {}'.format(k, v) for k, v in r['ERROR'].items()),
+          *('{}: {}'.format(k, v) for k, v in it['ERROR'].items()),
           sep = '\n',
           file = sys.stderr)
     exit(1)
 
-print('ERROR not in r',
-      'r.keys():'
-      *r.keys(),
-      sep = '\n',
-      file = sys.stderr)
-exit(1)
-
 with open('result.json', mode = 'w', encoding = 'utf-8') as result:
-    json.dump(r.json(), result,
+    json.dump(it, result,
               ensure_ascii = False,
               check_circular = False)
