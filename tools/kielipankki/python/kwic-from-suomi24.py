@@ -11,7 +11,7 @@
 import json, math, random
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_korp import parse_query, request_kwic
+from lib_korp import parse_queries, request_kwic
 import lib_names as names
 
 seed = random.randrange(1000, 10000) if math.isnan(seed) else seed
