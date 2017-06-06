@@ -68,6 +68,13 @@ if 'ERROR' in r:
           file = sys.stderr)
     exit(1)
 
+print('ERROR not in r',
+      'r.keys():'
+      *r.keys(),
+      sep = '\n',
+      file = sys.stderr)
+exit(1)
+
 with open('result.json', mode = 'w', encoding = 'utf-8') as result:
     json.dump(r.json(), result,
               ensure_ascii = False,
