@@ -68,7 +68,7 @@ def enforce(internal, extensions):
     '''
     
     external = dataset_name(internal)
-    extensions = extension.split()
+    extensions = extensions.split()
     if not external.endswith(extensions):
         print('name', external, 'does not end with:', *extensions,
               file = sys.stderr)
