@@ -1,5 +1,5 @@
 from itertools import count, groupby
-import json
+import json, sys
 import requests
 
 KORP = 'https://korp.csc.fi/cgi-bin/korp.cgi'
