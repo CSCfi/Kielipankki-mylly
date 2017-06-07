@@ -1,4 +1,4 @@
-# TOOL simple-cqp.py: "Prepare simple query"
+# TOOL simple-cqp.py: "Simple Korp KWIC query"
 # (Prepare simple CQP query to match sentences that satisfy one or two conditions, each condition describing a single token in a limited way.)
 # OUTPUT query.txt
 # PARAMETER key1a: "Attribute of  a token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (An attribute of a token)
