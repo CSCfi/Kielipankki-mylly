@@ -60,13 +60,14 @@ def request_kwic(*,
               file = sys.stderr)
         exit(1)
 
-    if result['hits'] == 0:
+    if len(result['kwic']) == 0:
         print('empty concordance (no positional names)',
               file = sys.stderr)
         exit(1)
 
     if 'M' in result:
-        print('cannot extend result, it already has "M" - please report',
+        # untested code
+        print('cannot extend result, result already has "M" - please report',
               file = sys.stderr)
         exit(1)
 
