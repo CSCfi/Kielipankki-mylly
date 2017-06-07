@@ -65,4 +65,13 @@ def request_kwic(*,
               file = sys.stderr)
         exit(1)
 
+    if 'M' in result:
+        print('cannot extend result, it already has "M" - please report',
+              file = sys.stderr)
+        exit(1)
+
+    # record starting point so that the TSV algebra can safely combine
+    # different pages from the same source - could record other things
+    result['M'] = dict(origin = size * page)
+
     return result

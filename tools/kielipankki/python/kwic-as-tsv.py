@@ -22,14 +22,22 @@ kwic = data['kwic']
 
 # lead sentence/token determines which attributes,
 
-head = list(kwic[0]['tokens'][0]) # lead token
-# also: kMmatch (0/1), kMsen (counter, also in meta), kMtok (counter within kMsen)
-# though kMmatch may want to be bMmatch or some such some day (Boolean?)
-# the new naming scheme with these prefixen indicates types to ODS-maker and such
+head = list(kwic[0]['tokens'][0])
+
+# also: kMmatch (0/1), kMsen (counter, also in meta), kMtok (counter
+# within kMsen) though kMmatch may want to be bMmatch or some such
+# some day (Boolean?)  the new naming scheme with these prefixen
+# indicates types to ODS-maker and such
+
+# if the JSON concordance originates in Mylly, it also records the
+# page origin relative to the whole concordance as data['M']['origin']
+# ; otherwise assume kMsen is to start at 0.
+
+origin = data.get('M', {}).get('origin', 0)
 
 with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('kMmatch', 'kMsen', 'kMtok', *head, sep = '\t', file = out)
-    for j, hit in enumerate(kwic):
+    for j, hit in enumerate(kwic, start = origin):
         for k, token in enumerate(hit['tokens']):
             m = hit['match']
             print(int(m['start'] <= k < m['end']),
@@ -46,7 +54,7 @@ meta = list(kwic[0]['structs'])
 
 with open('meta.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('kMsen', 'Start', 'End', 'Corpus', *meta, sep = '\t', file = out)
-    for j, hit in enumerate(kwic):
+    for j, hit in enumerate(kwic, start = origin):
         m, c, data = hit['match'], hit['corpus'], hit['structs']
         print(j, m['start'], m['end'], c, *(data[key] for key in meta),
               sep = '\t', file = out)

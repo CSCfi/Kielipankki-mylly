@@ -57,6 +57,8 @@ kwic = request_kwic(corpus = CORPUS,
                     meta = META,
                     queries = QUERIES)
 
+# note: it *adds* dict(M = dict(origin = size * page)) to the kwic
+
 with open('result.json', mode = 'w', encoding = 'utf-8') as result:
     json.dump(kwic, result,
               ensure_ascii = False,
