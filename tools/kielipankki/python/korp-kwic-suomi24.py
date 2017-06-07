@@ -1,7 +1,22 @@
-# TOOL kwic-from-suomi24.py: "Concordance from Suomi24 corpus in Korp"
+# TOOL kwic-from-suomi24.py: "Korp KWIC for Suomi24"
 # (Queries Korp for a KWIC concordance from Suomi24 corpus. Input file contains CQP expressions, separated by empty lines, that must all match, and the last expression defines the final match region. Output file is the concordance in a JSON form.)
 # INPUT query.txt TYPE GENERIC
 # OUTPUT result.json
+# PARAMETER corpus TYPE [
+#     S24: "S24",
+#     S24_001: "S24_001",
+#     S24_001: "S24_002",
+#     S24_001: "S24_003",
+#     S24_001: "S24_004",
+#     S24_001: "S24_005",
+#     S24_001: "S24_006",
+#     S24_001: "S24_007",
+#     S24_001: "S24_008",
+#     S24_001: "S24_009",
+#     S24_001: "S24_009TEST",
+#     S24_001: "S24_010",
+#     S24_001: "S24_011"
+# ] DEFAULT S24
 # PARAMETER OPTIONAL seed: "Random seed" TYPE INTEGER FROM 1000 TO 9999 (Use the same seed to repeat the same ordering of the results.)
 # PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0 (Extract the specified page, 0-9, of up to 1000 results each, from the concordance.)
 # RUNTIME python3
@@ -19,7 +34,7 @@ names.output('result.json', names.replace('query.txt', '-s{}p{}.json'.format(see
 
 comma = ','
 
-CORPUS = 'S24'
+CORPUS = corpus # 'S24'
 
 ANNO = comma.join('lemma pos msd dephead deprel ref lex nertag'.split())
 
