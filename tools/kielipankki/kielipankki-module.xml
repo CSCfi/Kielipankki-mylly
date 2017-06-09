@@ -20,6 +20,7 @@
     <tool>tsv-keepc.py</tool>
     <tool>tsv-drop.py</tool>
     <tool>tsv-dropc.py</tool>
+    <tool>tsv-union.py</tool>
     <tool>tsv-expand-old-map.py</tool>
     <tool>tsv-smooth-zipf.py</tool>
     <!-- various "visualisations" here -->
