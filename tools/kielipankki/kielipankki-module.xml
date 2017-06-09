@@ -21,6 +21,7 @@
     <tool>tsv-drop.py</tool>
     <tool>tsv-dropc.py</tool>
     <tool>tsv-expand-old-map.py</tool>
+    <tool>tsv-smooth-zipf.py</tool>
     <!-- various "visualisations" here -->
     <tool>tsv-22-cells.py</tool>
     <tool>tsv-22-corner.py</tool>
