@@ -29,6 +29,11 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_korp import parse_queries, request_kwic
 import lib_names as names
 
+# enforce *something* sensible because it seems all too easy to use a
+# multimegabyte concordance file (*.json) as a "query" in Mylly GUI;
+# query parser in lib_korp also tries to guard against nonsense by now
+names.enforce('query.txt', ('.cqp', '.txt'))
+
 seed = random.randrange(1000, 10000) if math.isnan(seed) else seed
 names.output('result.json', names.replace('query.txt', '-s{}p{}.json'.format(seed, page)))
 

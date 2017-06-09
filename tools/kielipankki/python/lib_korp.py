@@ -1,14 +1,35 @@
 from itertools import count, groupby
-import json, sys
+import json, os, sys
 import requests
 
 KORP = 'https://korp.csc.fi/cgi-bin/korp.cgi'
 
+def look_like_query(line):
+    '''Identity if line looks even minimally like a CQP expression, else
+    go down in flames (though with a friendly message, of course).
+
+    This is to protect a Mylly user when they accidentally use a
+    completely wrong file as their query. Used in parse_queries below.
+
+    '''
+
+    if line.startswith('[') and line.endswith(']'):
+        return line
+
+    print('Query looks suspiciously unexpected', file = sys.stderr)
+    exit(1)
+
 def parse_queries(filename):
+
     '''Dict of line-separated queries from the file, keyed with cqp, cqp1, ...'''
+
+    if os.path.getsize(filename) > 1999: # bytes
+        print('Query file looks suspiciously long', file = sys.stderr)
+        exit(1)
+
     with open(filename) as query:
         ooKEY = ( ('cqp{}'.format(k) if k else 'cqp') for k in count() )
-        ooCQP = ( ' '.join(lines).strip()
+        ooCQP = ( look_like_query(' '.join(lines).strip())
                   for between, lines in groupby(query, str.isspace)
                   if not between )
         return dict(zip(ooKEY, ooCQP))
