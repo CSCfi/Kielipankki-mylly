@@ -11,6 +11,7 @@ from openpyxl import Workbook
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('table.tsv', '.tsv')
 names.output('table.xlsx', names.replace('table.tsv', '.xlsx'))
 
 # Begins!

@@ -1,7 +1,8 @@
-# TOOL tsv-keep.py: "Keep given TSV attributes"
-# (Keep the given attributes.)
+# TOOL tsv-keepc.py: "Keep given TSV attributes, counting"
+# (Keep the given attributes. Add counts. Prefix cM of the default cMcount indicates numeric type for some tools.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
+# PARAMETER count TYPE STRING DEFAULT "cMcount"
 # PARAMETER OPTIONAL keep0 TYPE STRING
 # PARAMETER OPTIONAL keep1 TYPE STRING
 # PARAMETER OPTIONAL keep2 TYPE STRING
@@ -43,9 +44,11 @@ with open('wide.tsv') as wide:
     them = Counter(value(line.rstrip('\n').split('\t'), take)
                    for line in wide)
 
+# should check that count not in kept (that be an error)
+
 with open('narrow.tmp', mode = 'w', encoding = 'utf-8') as out:
-    print(*value(head, take), sep = '\t', file = out)
+    print(count, *value(head, take), sep = '\t', file = out)
     for it in them:
-        print(*it, sep = '\t', file = out)
+        print(them[it], *it, sep = '\t', file = out)
 
 os.rename('narrow.tmp', 'narrow.tsv')

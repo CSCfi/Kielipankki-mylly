@@ -9,6 +9,7 @@ import odf, os, sys # depends on odf (package odfpy from PyPI)
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('table.tsv', '.tsv')
 names.output('table.ods', names.replace('table.tsv', '.ods'))
 
 from odf.opendocument import OpenDocumentSpreadsheet

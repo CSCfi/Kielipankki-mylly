@@ -17,6 +17,7 @@ import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('old.tsv', '.tsv')
 names.output('new.tsv', names.replace('old.tsv', '-ren.tsv'))
 
 olds = (old0, old1, old2, old3)

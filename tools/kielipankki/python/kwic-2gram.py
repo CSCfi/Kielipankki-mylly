@@ -14,6 +14,7 @@ from itertools import chain, count
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('kwic.json', '.json')
 names.output('grammata.tsv', names.replace('kwic.json', '-2g.tsv'))
 
 with open('kwic.json', encoding = 'utf-8') as f:

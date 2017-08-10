@@ -2,43 +2,51 @@
 
 <module name="kielipankki">
 
-  <category name="Korp API" color = "#a49900">
-    <!-- insert simple query maker here -->
+  <category name="Korp API" color = "#d8bf8c">
     <tool>kwic-as-tsv.py</tool>
     <tool>kwic-2gram.py</tool>
     <tool>kwic-3gram.py</tool>
     <tool>kwic-dep.py</tool>
     <tool>simple-cqp.py</tool>
-    <tool>kwic-from-suomi24.py</tool>
+    <tool>korp-kwic-suomi24.py</tool>
   </category>
 
-  <category name="TSV manipulation" color = "#c0d2de">
-    <tool>tsv-as-csv.py</tool>
-    <tool>tsv-as-ods.py</tool>
-    <tool>tsv-as-xlsx.py</tool>
+  <category name="TSV manipulation" color = "#cbd88c">
     <!-- much relation algebra here -->
+    <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <tool>tsv-join.py</tool>
     <tool>tsv-keep.py</tool>
+    <tool>tsv-keepc.py</tool>
     <tool>tsv-drop.py</tool>
+    <tool>tsv-dropc.py</tool>
+    <tool>tsv-union.py</tool>
     <tool>tsv-expand-old-map.py</tool>
+    <tool>tsv-smooth-zipf.py</tool>
     <!-- various "visualisations" here -->
     <tool>tsv-22-cells.py</tool>
     <tool>tsv-22-corner.py</tool>
     <tool>tsv-22-margins.py</tool>
     <tool>tsv-22-columns.py</tool>
     <tool>tsv-22-rows.py</tool>
-    <tool>tsv-summary.R</tool>
     <tool>peek-in-tsv.py</tool>
   </category>
+
+  <category name="TSV utilization" color = "#a5d88c">
+    <tool>tsv-as-csv.py</tool>
+    <tool>tsv-as-ods.py</tool>
+    <tool>tsv-as-xlsx.py</tool>
+    <tool>qplot-tsv.R</tool> <!-- where should? this be -->
+    <tool>tsv-summary.R</tool>
+  </category>
   
-	<category name="Syntactic analysis" color="#c0d2de">
+	<category name="Syntactic analysis" color="#8cd898">
 	  <tool>td-parse.py</tool>
 	  <tool>td-submit.py</tool>
 	  <tool>td-wait.py</tool>
 	</category>
 
-	<category name="Morphological analysis" color="#80a3b7">
+	<category name="Morphological analysis" color="#8cd8bf">
 	  <tool>hfst-lookup-finnish.py</tool>
 	  <tool>hfst-lookup-swedish.py</tool>
 	  <tool>hfst-lookup-english.py</tool>
@@ -48,16 +56,16 @@
 	  <tool>hfst-process2-english.py</tool>
 	</category>
 
-	<category name="Speech recognition" color="#e7df70">
+	<category name="Speech recognition" color="#8cccd8">
 	  <tool>aasr-recognize-submit.py</tool>
 	  <tool>aasr-recognize-wait.py</tool>
 	</category>
 
-	<category name="Preprocessing" color="#d59f45">
+	<category name="Preprocessing" color="#8ca5d8">
 	  <tool>to-utf8.py</tool>
 	</category>
 
-	<category name="Finite-State Technology" color="#629a9b">
+	<category name="Finite-State Technology" color="#998cd8">
 	  <tool>hfst-format.py</tool>
 	  <tool>hfst-summarize.py</tool>
 	  <tool>hfst-fst2strings.py</tool>
@@ -79,7 +87,7 @@
 	  <tool>hfst-tail.py</tool>
 	</category>
 
-	<category name="Finite-State Transducers" color="#e7881c">
+	<category name="Finite-State Transducers" color="#bf8cd8">
 	  <tool>fiat-omorfi-a.py</tool>
 	  <tool>fiat-omorfi-g.py</tool>
 	  <tool>fiat-english-a.py</tool>
@@ -98,12 +106,12 @@
 	  <tool>fiat-turkish-g.py</tool>
 	</category>
 
-	<category name="Job management" color="#ffff99">
+	<category name="Job management" color="#d88ccb">
 	  <tool>job-status.py</tool>
 	  <tool>wrap-adm.py</tool>
 	</category>
 
-	<category name="Demo" color="#00ff00">
+	<category name="Obsolescent Demo" color="#d88ca5">
 	  <tool>powerplot.R</tool>
 	  <tool>rankplot.R</tool>
 	  <tool>growthplot.R</tool>
@@ -113,7 +121,7 @@
 	  <tool>demotraces.py</tool>
 	</category>
 
-	<category name="Testing" color="#ff33cc">
+	<category name="Testing" color="#d8998c">
 	  <tool>co.py</tool>
 	  <tool>kp-test-data-in-out.R</tool>
 	  <tool>kp-test-data-in-out.py</tool>

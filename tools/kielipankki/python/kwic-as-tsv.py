@@ -11,6 +11,7 @@ from itertools import chain
 sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
+names.enforce('kwic.json', '.json')
 names.output('tokens.tsv', names.replace('kwic.json', '-tokens.tsv'))
 names.output('meta.tsv', names.replace('kwic.json', '-meta.tsv'))
 
@@ -19,16 +20,24 @@ with open('kwic.json', encoding = 'utf-8') as f:
 
 kwic = data['kwic']
 
-# lead sentence/token determines which attributes,
+# lead sentence/token determines which positional attributes
 
-head = list(kwic[0]['tokens'][0]) # lead token
-# also: kMmatch (0/1), kMsen (counter, also in meta), kMtok (counter within kMsen)
-# though kMmatch may want to be bMmatch or some such some day (Boolean?)
-# the new naming scheme with these prefixen indicates types to ODS-maker and such
+head = list(kwic[0]['tokens'][0])
+
+# also: kMmatch (0/1), kMsen (counter, also in meta), kMtok (counter
+# within kMsen) though kMmatch may want to be bMmatch or some such
+# some day (Boolean?)  the new naming scheme with these prefixen
+# indicates types to ODS-maker and such
+
+# if the JSON concordance originates in Mylly, it also records the
+# page origin relative to the whole concordance as data['M']['origin']
+# otherwise assume kMsen is to start at 0
+
+origin = data.get('M', {}).get('origin', 0)
 
 with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
     print('kMmatch', 'kMsen', 'kMtok', *head, sep = '\t', file = out)
-    for j, hit in enumerate(kwic):
+    for j, hit in enumerate(kwic, start = origin):
         for k, token in enumerate(hit['tokens']):
             m = hit['match']
             print(int(m['start'] <= k < m['end']),
@@ -39,13 +48,12 @@ with open('tokens.tmp', mode = 'w', encoding = 'utf-8') as out:
 os.rename('tokens.tmp', 'tokens.tsv')
 
 meta = list(kwic[0]['structs'])
-# also: kMsen (counter, also in tokens), Start, End, Corpus
-# though not sure whether Start, End, Corpus are safe or might also occur
-# as positional in some corpus or other - are they safe? with the Cap?
+# also: kMsen (counter, also in tokens), kMstart, kMend, sMcorpus
+# now naming also "start", "end", and "corpus" with Mylly prefixes.
 
 with open('meta.tmp', mode = 'w', encoding = 'utf-8') as out:
-    print('kMsen', 'Start', 'End', 'Corpus', *meta, sep = '\t', file = out)
-    for j, hit in enumerate(kwic):
+    print('kMsen', 'kMstart', 'kMend', 'sMcorpus', *meta, sep = '\t', file = out)
+    for j, hit in enumerate(kwic, start = origin):
         m, c, data = hit['match'], hit['corpus'], hit['structs']
         print(j, m['start'], m['end'], c, *(data[key] for key in meta),
               sep = '\t', file = out)
