@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Enable the module command and other csc default settings.
+# The script will otherwise fail if started by root at startup.
+. /etc/profile.d/zz-csc-env.sh
+
 # Load Java 8 and start comp in hostspecific directory
 module load java/openjdk/1.8
 module load r-env
