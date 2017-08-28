@@ -4,6 +4,10 @@
 # The script will otherwise fail if started by root at startup.
 . /etc/profile.d/zz-csc-env.sh
 
+# SLURM_CONF is not set correctly in zz-csc-env.sh if this script
+# is invoked via root at startup. Therefore:
+export SLURM_CONF=/etc/slurm/slurm-taito.conf
+
 # Load Java 8 and start comp in hostspecific directory
 module load java/openjdk/1.8
 module load r-env
