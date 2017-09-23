@@ -1,7 +1,7 @@
-# TOOL korp-kwic-suomi24.py: "Korp KWIC for Suomi24"
-# (Queries Korp for a KWIC concordance from Suomi24 corpus. Input file contains CQP expressions, separated by empty lines, that must all match, and the last expression defines the final match region. Output file is the concordance in a JSON form.)
-# INPUT query.txt TYPE GENERIC
-# OUTPUT result.json
+# TOOL korp-kwic-suomi24.py: "Get Korp KWIC concordance from Suomi24 corpus"
+# (Queries korp.csc.fi for a KWIC concordance from Suomi24 corpus. Input file contains CQP expressions separated by empty lines. They must all match. The last of them defines the final match. Output file is the concordance in the Korp JSON form.)
+# INPUT query.cqp.txt TYPE GENERIC
+# OUTPUT result.korp.json
 # PARAMETER corpus TYPE [
 #     S24: "S24",
 #     S24_001: "S24_001",
@@ -13,7 +13,6 @@
 #     S24_001: "S24_007",
 #     S24_001: "S24_008",
 #     S24_001: "S24_009",
-#     S24_001: "S24_009TEST",
 #     S24_001: "S24_010",
 #     S24_001: "S24_011"
 # ] DEFAULT S24
@@ -31,11 +30,14 @@ import lib_names as names
 
 # enforce *something* sensible because it seems all too easy to use a
 # multimegabyte concordance file (*.json) as a "query" in Mylly GUI;
-# query parser in lib_korp also tries to guard against nonsense by now
-names.enforce('query.txt', '.cqp .txt')
+# query parser in lib_korp also tries to guard against nonsense in
+# content by now
+names.enforce('query.cqp.txt', '.cqp.txt')
 
 seed = random.randrange(1000, 10000) if math.isnan(seed) else seed
-names.output('result.json', names.replace('query.txt', '-s{}p{}.json'.format(seed, page)))
+names.output('result.korp.json',
+             names.replace('query.cqp.txt',
+                           '-s{}p{}.korp.json'.format(seed, page)))
 
 comma = ','
 
@@ -52,7 +54,7 @@ META = comma.join('''
 
     '''.split())
 
-QUERIES = parse_queries('query.txt')
+QUERIES = parse_queries('query.cqp.txt')
 
 kwic = request_kwic(corpus = CORPUS,
                     seed = seed,
@@ -64,7 +66,7 @@ kwic = request_kwic(corpus = CORPUS,
 
 # note: it *adds* dict(M = dict(origin = size * page)) to the kwic
 
-with open('result.json', mode = 'w', encoding = 'utf-8') as result:
+with open('result.korp.json', mode = 'w', encoding = 'utf-8') as result:
     json.dump(kwic, result,
               ensure_ascii = False,
               check_circular = False)
