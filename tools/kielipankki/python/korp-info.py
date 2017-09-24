@@ -5,9 +5,14 @@
 # PARAMETER corpus TYPE [
 #     COCA: "COCA",
 #     COHA: "COHA",
-#     S24: "S24"
+#     EDUSKUNTA: "EDUSKUNTA",
+#     S24: "S24",
+#     S24samp: "S24samp",
+#     YLILAUTA: "YLILAUTA"
 # ] DEFAULT S24
 # RUNTIME python3
+
+# Turns out COCA and COHA require authentication so no go. Remove?
 
 import json, os, sys
 # os, sys are imported for testing - else chipster has them imported
@@ -72,10 +77,12 @@ CORPORA = comma.join(dict(COCA = ("COCA_ACAD", "COCA_FIC", "COCA_MAG",
                            "COHA_1990S_NF", "COHA_2000S_FIC",
                            "COHA_2000S_MAG", "COHA_2000S_NEWS",
                            "COHA_2000S_NF"),
-                          
+
+                          EDUSKUNTA =
+                          ("EDUSKUNTA",),
+
                           S24 =
-                          ("S24",
-                           "S24_001",
+                          ("S24_001",
                            "S24_002",
                            "S24_003",
                            "S24_004",
@@ -85,7 +92,13 @@ CORPORA = comma.join(dict(COCA = ("COCA_ACAD", "COCA_FIC", "COCA_MAG",
                            "S24_008",
                            "S24_009",
                            "S24_010",
-                           "S24_011"))
+                           "S24_011"),
+
+                          S24samp =
+                          ("S24",), # right? näyte, eri kuin muut?
+
+                          YLILAUTA =
+                          ("YLILAUTA",))
                      
                      [corpus])
 
