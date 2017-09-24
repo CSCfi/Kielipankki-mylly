@@ -97,3 +97,30 @@ def request_kwic(*,
     result['M'] = dict(origin = size * page)
 
     return result
+
+def request_info(*, corpora):
+
+    '''Query KORP for INFO on corpora, see
+    https://www.kielipankki.fi/support/korpapi/.
+
+    Return the INFO as a dict.
+
+    Halt execution on error response.
+
+    '''
+
+    it = dict(command = 'info',
+              corpus = corpora)
+ 
+    response = requests.get(KORP, params = it, timeout = 30.0)
+    response.raise_for_status()
+
+    result = response.json()
+
+    if 'ERROR' in result:
+        print(result['ERROR']['type'],
+              result['ERROR']['message'],
+              file = sys.stderr)
+        exit(1)
+
+    return result
