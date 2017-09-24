@@ -8,9 +8,10 @@
     <tool>kwic-2gram.py</tool>
     <tool>kwic-3gram.py</tool>
     <tool>kwic-dep.py</tool>
+    <tool>korp-info.py</tool>
     <tool>korp-kwic-coca.py</tool>
     <tool>korp-kwic-coha.py</tool>
-    <tool>korp-kwic-suomi24.py</tool>
+    <tool>korp-kwic-s24.py</tool>
   </category>
 
   <category name="TSV manipulation" color = "#cbd88c">

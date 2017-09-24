@@ -106,16 +106,16 @@ comma = ','
 
 CORPUS = corpus # 'S24'
 
-ANNO = comma.join('lemma pos msd dephead deprel ref lex nertag'.split())
+ANNO = comma.join('lemma lex pos posorig word'.split())
 
 META = comma.join('''
 
-    sentence_id
-    text_title  text_date  text_time
-    text_sect  text_sub  text_user
-    text_urlmsg  text_urlboard
+      paragraph_id paragraph_type sentence_gaps sentence_id
+      text_author text_datefrom text_dateto text_filename text_fixed
+      text_genre text_id text_lcc text_publ_info text_timefrom
+      text_timeto text_title text_wordcount text_year
 
-    '''.split())
+'''.split())
 
 QUERIES = parse_queries('query.cqp.txt')
 
