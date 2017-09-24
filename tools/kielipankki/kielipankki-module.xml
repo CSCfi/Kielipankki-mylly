@@ -11,7 +11,9 @@
     <tool>korp-info.py</tool>
     <tool>korp-kwic-coca.py</tool>
     <tool>korp-kwic-coha.py</tool>
+    <tool>korp-kwic-eduskunta.py</tool>
     <tool>korp-kwic-s24.py</tool>
+    <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
   <category name="TSV manipulation" color = "#cbd88c">
