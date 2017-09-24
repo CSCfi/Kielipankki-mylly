@@ -77,7 +77,7 @@ def request_kwic(*,
 
     if 'ERROR' in result:
         print(result['ERROR']['type'],
-              result['ERROR']['message'],
+              result['ERROR']['value'],
               file = sys.stderr)
         exit(1)
 
