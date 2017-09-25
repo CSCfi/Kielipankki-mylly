@@ -23,8 +23,8 @@ import json, os, sys
 # os, sys are imported for testing - else chipster has them imported
 
 # for testing! when outside chipster
-chipster_module_path = "home/jpiitula/proj/CSCfi/mylly/tools/kielipankki"
-corpus = "VNSK"
+# chipster_module_path = "home/jpiitula/proj/CSCfi/mylly/tools/kielipankki"
+# corpus = "VNSK"
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_korp import request_info
