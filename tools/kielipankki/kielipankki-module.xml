@@ -16,6 +16,9 @@
     <tool>korp-kwic-klk_fi.py</tool>
     <tool>korp-kwic-klk_sv.py</tool>
     <tool>korp-kwic-s24.py</tool>
+    <tool>korp-kwic-vks.py</tool>
+    <tool>korp-kwic-vns.py</tool>
+    <tool>korp-kwic-vnsk.py</tool>
     <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
