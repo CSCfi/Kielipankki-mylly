@@ -8,6 +8,7 @@
     <tool>kwic-2gram.py</tool>
     <tool>kwic-3gram.py</tool>
     <tool>kwic-dep.py</tool>
+    <tool>korp-list.py</tool>
     <tool>korp-info.py</tool>
     <tool>korp-kwic-coca.py</tool>
     <tool>korp-kwic-coha.py</tool>
