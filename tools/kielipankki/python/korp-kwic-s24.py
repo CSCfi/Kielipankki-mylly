@@ -13,8 +13,7 @@
 #     S24_007: "S24_007",
 #     S24_008: "S24_008",
 #     S24_009: "S24_009",
-#     S24_010: "S24_010",
-#     S24_011: "S24_011"
+#     S24_010: "S24_010"
 # ] DEFAULT S24_001
 # PARAMETER OPTIONAL seed: "Random seed" TYPE INTEGER FROM 1000 TO 9999 (Use the same seed to repeat the same ordering of the results.)
 # PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0 (Extract the specified page, 0-9, of up to 1000 results each, from the concordance.)
@@ -27,6 +26,7 @@
 # NB. Including only attributes as are in at least 11 subcorpora.
 # NB. This still means that some of them are missing in one!
 # NB. Does the one then crash? Or does it produce incompatible output?
+# NB. Removed S24_011: "S24_011" - is a piece that failed to parse?
 
 import json, math, random
 
