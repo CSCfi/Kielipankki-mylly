@@ -44,7 +44,7 @@ with open('one.tsv', encoding = 'utf-8') as fin1:
         with open(two, encoding = 'utf-8') as fin2:
             twohead = next(fin2).rstrip('\n').split('\t')
             checktype(onehead, twohead)
-            twindex = index(onehead, twohead)
+            twindex = index(twohead, onehead)
             union.update(value(line.rstrip('\n').split('\t'), twindex)
                          for line in fin2)
 
