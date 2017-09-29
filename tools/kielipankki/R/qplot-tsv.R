@@ -165,7 +165,7 @@ if (sum(nchar(vi.size)) > 0) {
                                    list(variable = as.name(vi.size))))
 }
 
-if (vi.x == "factor") {
+if (vi.xt == "factor") {
     # https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2
     # factor labels can be many or long when they come from a corpus,
     # and then they overlap and become unreadable - try at an angle
