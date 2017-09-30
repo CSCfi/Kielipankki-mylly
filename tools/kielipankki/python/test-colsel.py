@@ -3,9 +3,9 @@
 # INPUT some.tsv TYPE GENERIC (Whatever TSV file. TSV file has column names.)
 # INPUT OPTIONAL more.tsv TYPE GENERIC (Whatever another TSV file.)
 # OUTPUT info.txt  (File attempts to reveal parameters)
-# PARAMETER col1: "First column name" (Column in input file)
-# PARAMETER col2: "Nothe column name" (Column in input file)
-# PARAMETER col3: "Anoth column name" (Column in input file)
+# PARAMETER col1: "First column name" TYPE COLUMN_SEL (Column in input file)
+# PARAMETER col2: "Nothe column name" TYPE COLUMN_SEL (Column in input file)
+# PARAMETER col3: "Anoth column name" TYPE COLUMN_SEL (Column in input file)
 # RUNTIME python3
 
 # Want to run this in Chipster and see
