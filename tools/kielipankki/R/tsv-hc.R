@@ -7,13 +7,16 @@
 # OUTPUT hc.svg
 # PARAMETER item: "Item field" TYPE COLUMN_SEL
 # PARAMETER attr: "Attribute field" TYPE COLUMN_SEL
-# PARAMETER OPTIONAL freq: "Optional count field" TYPE COLUMN_SEL
+# PARAMETER OPTIONAL freq: "Optional count field"
+# TYPE COLUMN_SEL DEFAULT "EMPTY"
 # PARAMETER groups: "Number of clusters to cut"
 # TYPE INTEGER FROM 1 TO 10 DEFAULT 3
 # (Number of clusters to cut, not greater than the number of items.)
 # PARAMETER depth: "Dendrogram depth (inches)"
 # TYPE INTEGER FROM 3 TO 21 DEFAULT 4
 # (Depth of dendrogram graphics in inches, not including item labels.)
+
+if (freq == "EMPTY") freq <- "" # do it this way
 
 # Dendrogram depth is horizontal width, min 3 inches for a nice scale.
 # Some vertical space above and below dendrogram remains mysterious
