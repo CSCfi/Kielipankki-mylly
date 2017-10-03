@@ -7,8 +7,8 @@
 # OUTPUT hc.svg
 # PARAMETER item: "Item field" TYPE COLUMN_SEL
 # PARAMETER attr: "Attribute field" TYPE COLUMN_SEL
-# PARAMETER freq: "Optional count field"
-# TYPE COLUMN_SEL DEFAULT ""
+# PARAMETER OPTIONAL freq: "Optional count field"
+# TYPE COLUMN_SEL DEFAULT "EMPTY"
 # PARAMETER groups: "Number of clusters to cut"
 # TYPE INTEGER FROM 1 TO 10 DEFAULT 3
 # (Number of clusters to cut, not greater than the number of items.)
