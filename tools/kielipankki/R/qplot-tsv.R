@@ -39,6 +39,10 @@
 # PARAMETER OPTIONAL vi.shape: "shape grouping variable (factor)" TYPE STRING
 # PARAMETER OPTIONAL vi.size: "size variable (numeric)" TYPE STRING
 
+# TODO: Work this to use COLUMN_SEL and the new (as of this writing)
+# lib_ratsv.R (override prefix-based types with user-selected types
+# where appropriate). But test lib_ratsv.R with clustering first.
+
 # Testing off-chipster (requires and produces files):
 # 
 # chipster.module.path <- ".."

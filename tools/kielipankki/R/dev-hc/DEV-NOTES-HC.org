@@ -1,0 +1,390 @@
+2017-09-30 A note on hierarchical clustering (R)
+2017-10-01
+2017-10-02
+2017-10-03
+
+* Context
+
+A wish has been expressed that, starting from a concordance, heatmaps
+be produced that illustrate the relationship between key words
+selected by a student of a topic and publications where the key words
+appear. It was further suggested that such a graphic would include a
+clustering of the values of each variable. (And cosine should be used
+as a distance - one assumes, tentatively, that this is not the most
+important characteristic of the desired plot.)
+
+Informed-looking sources on the web indicate that the clustering and
+the heatmap are two things rather than one, though they go well
+together and clustering is built in to certain implementations of a
+heatmap graphic.
+
+Also, the intended kind of clustering appears to be so-called
+hierarchical clustering that produces special tree structures that are
+called dendrograms. (The search was in the context of R, which has a
+particular built-in function to do hierarchical clustering.)
+
+* Sources
+
+https://www.r-bloggers.com/how-to-make-a-simple-heatmap-in-ggplot2/
+https://www.r-bloggers.com/r-for-more-powerful-clustering/
+
+https://stackoverflow.com/questions/2535234/find-cosine-similarity-between-two-arrays
+
+https://stackoverflow.com/questions/14118033/horizontal-dendrogram-in-r-with-labels
+
+* Worries
+
+One does not want just pretty pictures. Indeed, one does not find an
+incomprehensible picture pretty.
+
+Taking the process apart and then putting the parts together again,
+one sees a way forward to some sort of an illusion of understanding
+appear: there can be a family of tools that together not only produce
+the requested pictures and related pictures (the dendrograms) but also
+produce possible clusters as annotations to the underlying data.
+
+It will work nicely with the algebra of relations.
+
+* Cosine
+
+Built-in dist does not produce cosines. Find a cosine.
+
+Or write a cosine, of course. For the rows of a matrix, say M.
+
+Square of M is elementwise: M^2. Then rowSums gives the sums of the
+squares of each row. And then sqrt gives Euclidean norms of the row
+vectors. And sqrt of the dot products of the row vectors gives the
+products of the Euclidean norms.
+
+S <- rowSums(M^2)
+
+So the numerator be sqrt(S %*% t(S)).
+
+And the denominator be M %*% t(M).
+
+Could it be so? (M %*% t(M)) / sqrt(S %*% t(S)) where S = rowSums(M^2)
+and the inconsistency of the camel-casing of rowSums is hideous? This
+language is some sort of organic growth.
+
+Test it.
+
+cosine <- function (M) {
+    S <- rowSums(M^2)
+    (M %*% t(M)) / sqrt(S %*% t(S))
+}
+
+> cosine(mc)
+              lemma
+lemma           emigrantti maastamuutto  muuttaja    siirtola siirtolainen
+  emigrantti   1.000000000   0.00000000 0.0000000 0.009745668   0.01706537
+  maastamuutto 0.000000000   1.00000000 0.2222502 0.069341640   0.34402963
+  muuttaja     0.000000000   0.22225022 1.0000000 0.141880843   0.53800892
+  siirtola     0.009745668   0.06934164 0.1418808 1.000000000   0.20352603
+  siirtolainen 0.017065368   0.34402963 0.5380089 0.203526030   1.00000000
+
+Those look sensible in the positive quadrant (when all components are
+counts). Diagonal is maximum possible cosine, aka one, and minimum is
+zero.
+
+There should be negative values across quadrants (above minus 1).
+Similarity with self should still be one. Test this with scale, just
+to make the vectors point all over the space, does not matter whether
+it scale rows or columns.
+
+(The term quadrant is used here in a multidimensional kind of way,
+only referring to the sign of each component and not to the number of
+dimensions or the proportion of the quadrant to the whole space. Ok?)
+
+> cosine(scale(mc))
+              lemma
+lemma          emigrantti maastamuutto   muuttaja   siirtola siirtolainen
+  emigrantti    1.0000000    0.6628605  0.3891504 -0.4134511   -0.5993090
+  maastamuutto  0.6628605    1.0000000  0.3064006 -0.4607567   -0.5243374
+  muuttaja      0.3891504    0.3064006  1.0000000 -0.3825002   -0.4907755
+  siirtola     -0.4134511   -0.4607567 -0.3825002  1.0000000   -0.2720931
+  siirtolainen -0.5993090   -0.5243374 -0.4907755 -0.2720931    1.0000000
+
+Yes, assume this cosine indeed be cosine.
+
+Cosine, however, is not a distance in the required sense. Identities
+should be zeroes, and lesser similarities should be greated distances.
+
+When in positive quadrant, it suffices to flip the polarity.
+
+> 1 - cosine(mc)
+              lemma
+lemma          emigrantti maastamuutto  muuttaja  siirtola siirtolainen
+  emigrantti    0.0000000    1.0000000 1.0000000 0.9902543    0.9829346
+  maastamuutto  1.0000000    0.0000000 0.7777498 0.9306584    0.6559704
+  muuttaja      1.0000000    0.7777498 0.0000000 0.8581192    0.4619911
+  siirtola      0.9902543    0.9306584 0.8581192 0.0000000    0.7964740
+  siirtolainen  0.9829346    0.6559704 0.4619911 0.7964740    0.0000000
+
+Instant distance.
+
+The values can also be clamped to the range with pmax and pmin, for
+example in fear of tiny floating point inaccuracies. For values
+already in the range this be identity map.
+
+> pmin(pmax(1 - cosine(mc), 0), 1)
+              lemma
+lemma          emigrantti maastamuutto  muuttaja  siirtola siirtolainen
+  emigrantti    0.0000000    1.0000000 1.0000000 0.9902543    0.9829346
+  maastamuutto  1.0000000    0.0000000 0.7777498 0.9306584    0.6559704
+  muuttaja      1.0000000    0.7777498 0.0000000 0.8581192    0.4619911
+  siirtola      0.9902543    0.9306584 0.8581192 0.0000000    0.7964740
+  siirtolainen  0.9829346    0.6559704 0.4619911 0.7964740    0.0000000
+
+Clamping of the scaled-vector distances illustrates the clamping
+effect. And floating point inaccuracies near zero and the formatting
+of the numbers by column in R.
+
+> pmin(pmax(1 - cosine(scale(mc)), 0), 1)
+              lemma
+lemma            emigrantti maastamuutto  muuttaja siirtola siirtolainen
+  emigrantti   7.771561e-16 3.371395e-01 0.6108496        1            1
+  maastamuutto 3.371395e-01 9.992007e-16 0.6935994        1            1
+  muuttaja     6.108496e-01 6.935994e-01 0.0000000        1            1
+  siirtola     1.000000e+00 1.000000e+00 1.0000000        0            1
+  siirtolainen 1.000000e+00 1.000000e+00 1.0000000        1            0
+
+Returning to the task at hand, the distance matrix was required for
+clustering and then needs to be in a special format.
+
+> as.dist(1 - cosine(mc))
+             emigrantti maastamuutto  muuttaja  siirtola
+maastamuutto  1.0000000                                 
+muuttaja      1.0000000    0.7777498                    
+siirtola      0.9902543    0.9306584 0.8581192          
+siirtolainen  0.9829346    0.6559704 0.4619911 0.7964740
+
+Probably not going to clamp at all so this be the final cosine
+distance for the hierarchical clustering *when not scaling and
+centering*.
+
+Not sure what to do with cosine when not in positive quadrant (as in
+after centering to have mean zero, which "is found useful" in some
+hierarchical clustering applications, according to the documentation).
+
+* Development
+
+Development data, first joined, selected, and projected from a
+concordance of a handful of key words in KLK FI 1917, then further
+counted in another projection, is in the two files matches.tsv and
+counts.tsv, exported from Mylly where they were made.
+
+HOWTO Copy matches.tsv (not counted) or counts.tsv (counted) to
+data.tsv (technical input name) and set other parameters in the script
+(../tsv-hc.R) to run the script (R --vanilla < ../tsv-hc.R) to get the
+result files (or an error).
+
+** DONE Reading data into R
+
+These can be read into R with read.delim, giving data frames (it's a
+height of frustration that there is no built-in reader without quote
+handling by default, but never mind: there are no quotes in this
+data).
+
+dm <- read.delim("matches.tsv")
+dc <- read.delim("counts.tsv")
+
+> names(dm)
+ [1] "kMmatch"  "kMtok"    "sMcorpus" "title"    "lemma"    "pos"     
+ [7] "word"     "deprel"   "kMsen"    "type"    
+
+> names(dc)
+[1] "cMcount" "lemma"   "title"   "type"   
+
+> nrow(dm)
+[1] 493
+
+> nrow(dc)
+[1] 119
+
+Added a tailor-made library version in lib_ratsv.R that interprets
+Mylly prefixes and allows for an override of such type when called.
+
+** DONE Extracting data matrix from data frame in R
+
+But a data frame is not yet in a desired form. It needs made into a
+numerical matrix where each row represents a publication and each
+column a key word, or vice versa.
+
+This is made by the function table (from individual observations), or
+by the function xtab (from counts of types of observations).
+
+mm <- table(dm$lemma, dm$title) # right? any nice alternative?
+mc <- xtabs(cMcount ~ lemma + title, data = dc)
+
+The results should be the same. And are, except for some annotations
+(class of xtabs result is both table and xtabs, table result only
+table; table does not save field labels, xtabs does). Row and column
+counts, nrow, ncol are the same (5 and 83). Values compare TRUE
+throughout, with mc == mm.
+
+Some of the long titles are unwieldy to look at. It goes to look at
+the top two rows of the transpose.
+
+> t(mm)[1:2,]
+           
+            emigrantti maastamuutto muuttaja siirtola siirtolainen
+  Aamulehti          0            1        6       16           43
+  Aika               0            0        0        1            1
+> t(mc)[1:2,]
+           lemma
+title       emigrantti maastamuutto muuttaja siirtola siirtolainen
+  Aamulehti          0            1        6       16           43
+  Aika               0            0        0        1            1
+
+Hm. The table function did not keep the names of the fields? Of course
+not. But xtabs did. Those should kind of be passed on to the final
+graphic.
+
+There should be 119 non-zero values in these matrices. There are.
+
+> sum(mm != 0)
+[1] 119
+
+> sum(mc != 0)
+[1] 119
+
+And the sum of all counts should be 493. It is.
+
+> sum(mm)
+[1] 493
+
+> sum(mc)
+[1] 493
+
+Of course, the eventual Mylly tool will not have the field names
+hard-coded. So one needs to substitute the actual names into the
+formula.
+
+item = "title"
+attr = "lemma"
+freq = "cMcount"
+
+substitute(foo ~ bar + baz, list(foo = as.name(freq),
+                                 bar = as.name(item),
+                                 baz = as.name(attr)))
+
+E.g. so. And something similar but different with table when there is
+no count (aka freq) provided.
+
+** DONE Hierarchical clustering
+
+Then the clustering procedure should be to compute a distance matrix
+(for the rows) and the dendrogram (for the rows) from that. Columns
+can be clustered from the transpose where they be the rows, ISWIM.
+
+Distance matrix can be made with the function dist, but cosine does
+not appear to be among the available distance metrics.
+
+Being a gram, a dendrogram can be plotted. Except to plot a dendrogram
+horizontally, it must first be made a dendrogram? With as.dendrogram,
+what else. (Though it looks like as.dendrogram is a step towards some
+semblance of sanity. So, ok.)
+
+plot(as.dendrogram(hc), horiz=T)
+
+No idea if horiz can be spelled out or shortened further. What a
+language R is. Ah, no, the name is horiz (vide as.dendrogram).
+
+Need to adjust the space for labels up. Right. A fraction of the plot
+height? No 'hang' is not it. Must make right margin wide enough.
+
+par(mar = c(3, 1, 4, 30)) leaves plenty of room for the labels, like
+30 "lines" or so (and room at bottom for the "height" of tree, and
+useless room on top). But the width of the labels can apparently be
+measured in inches instead of these lines with strwidth (which by
+default produces negative widths, whatever nonsense *that* is).
+
+So set margins in inches instead.
+
+par(mai = c(0.7, 0.2, 0, max(strwidth(rownames(mc), units = "inches") + 0.1)))
+
+Set graphic device height to 0.2 (or par("mar")/par("mai")) inches per
+label (plus administrative overhead?) to accommodate the labels.
+
+pdf("roska.pdf", height = 0.2 * nrow(mc))
+par(mai = c(0.7, 0.2, 0, max(strwidth(rownames(mc), units = "inches") + 0.1)))
+plot(as.dendrogram(hc), horiz=T)
+dev.off()
+
+Maybe try to set the *outer* margin on the right to accommodate the
+labels? par(omi = c(0, 0, 0, loi)) with loi the maximal width. No, in
+this case the margins are still wide but the labels are cut off.
+
+Clusters can be cut from the dendrogram with cutree (sic).
+
+** Scaling and centering of rows
+
+However, there is a suggestion that the rows be "scaled and centered".
+There is a function called scale for that (or either part of that).
+When doing both it moves the row values to have mean zero and standard
+deviation one.
+
+"There is some empirical evidence from genomic plotting that this is
+useful."
+
+Scaling and centering rows is not the same as scaling and centering
+columns. In other words, scale and transpose do not commute. (Note,
+only looking at top rows of the transposed matrix. Other values affect
+one of the results. Not sure which one.)
+
+> scale(t(mc))[1:2,]
+           lemma
+title       emigrantti maastamuutto   muuttaja   siirtola siirtolainen
+  Aamulehti -0.1479879    3.0540686  4.8112817  1.3393504    7.7055574
+  Aika      -0.1479879   -0.2379794 -0.3303884 -0.2146955   -0.2605082
+
+> t(scale(mc))[1:2,]
+           lemma
+title       emigrantti maastamuutto   muuttaja  siirtola siirtolainen
+  Aamulehti -0.7405687   -0.6844650 -0.4039465 0.1570903     1.671890
+  Aika      -0.7302967   -0.7302967 -0.7302967 1.0954451     1.095445
+
+Ok, find out which one is affected by other values.
+
+> mean(t(scale(mc))[1,])
+[1] 3.332837e-17
+
+> sd(t(scale(mc))[1,])
+[1] 1
+
+That top row has mean 0 (written in a funny way) and standard
+deviation 1, so it contains all ... values ... but that is a column of
+the underlying matrix because it is a row of the transpose? Oh well,
+yes, scale scales and centers columns. And in a heatmap, it is used to
+scale and center rows, because that is found useful. Ok?
+
+> mean(scale(t(mc))[1,])
+[1] 3.352454
+
+> sd(scale(t(mc))[1,])
+[1] 3.060735
+
+A row of a scaled matrix does not have standard mean and standard
+deviation because it was the columns that was standardized. Good.
+
+** TODO Finally a heat map
+
+Finally, heatmap functions apparently tend to do the clustering,
+including the scaling unless instructed that the data is already
+scaled. Not sure if they do it both ways, and there does not seem to
+be a way to do it both ways in advance: either the rows, or the rows
+of the transpose. To investigate?
+
+There is a built-in function heatmap, and there is another, heatmap.2,
+in a package.
+
+The built-in heatmap documentation refers to some function image that
+it apparently even calls. The heat map is "a false color image
+(basically 'image(t(x))')" with a dendrogram added [- -]. Turns out
+image is just the painting function.
+
+However, image documentation refers to some functions that produce
+suitable palettes: The built-in heatmap function documentation says
+the "default color are not pretty". It suggest an enhancement. Because
+of course it does. Instead of changing the defaults to something
+better?
