@@ -32,9 +32,15 @@
     <tool>tsv-keepc.py</tool>
     <tool>tsv-drop.py</tool>
     <tool>tsv-dropc.py</tool>
+    <tool>tsv-sum.py</tool>
     <tool>tsv-union.py</tool>
+    <tool>tsv-intersection.py</tool>
+    <tool>tsv-difference.py</tool>
     <tool>tsv-expand-old-map.py</tool>
     <tool>tsv-smooth-zipf.py</tool>
+    <!-- random actions on a relation -->
+    <tool>tsv-sample.py</tool>
+    <tool>tsv-random.py</tool>
     <!-- various "visualisations" here -->
     <tool>tsv-22-cells.py</tool>
     <tool>tsv-22-corner.py</tool>
