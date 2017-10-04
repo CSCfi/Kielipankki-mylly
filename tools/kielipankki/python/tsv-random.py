@@ -26,7 +26,7 @@ with open('one.tsv', encoding = 'utf-8') as fin:
         print('Population is empty', file = sys.stderr)
         exit(1)
         
-    sample = (random.choice(population) for range(size))
+    sample = (random.choice(population) for _ in range(size))
 
 with open('result.tmp', mode = 'w', encoding = 'utf-8') as out:
     print(tag, *head, sep = '\t', file = out)
