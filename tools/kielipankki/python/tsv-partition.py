@@ -36,7 +36,7 @@ if len(vals) > many:
           file = sys.stderr)
     exit(1)
 
-outs = { val : open('part{}.tmp', mode = 'w', encoding = 'utf-8')
+outs = { val : open('part{}.tmp'.format(k), mode = 'w', encoding = 'utf-8')
          for k, val in enumerate(vals) }
 
 for out in outs.values():
