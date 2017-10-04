@@ -48,6 +48,6 @@ for record in data:
 for out in outs.values():
     out.close()
 
-for k in range(n):
+for k, val in enumerate(outs):
     os.rename('part{}.tmp'.format(k),
               'part{}.tsv'.format(k))
