@@ -34,6 +34,8 @@
     <tool>tsv-dropc.py</tool>
     <tool>tsv-sum.py</tool>
     <tool>tsv-part.py</tool>
+    <tool>tsv-part1.py</tool>
+    <tool>tsv-partition.py</tool>
     <tool>tsv-union.py</tool>
     <tool>tsv-intersection.py</tool>
     <tool>tsv-difference.py</tool>
