@@ -27,9 +27,9 @@ def value(record, ks): return tuple(record[k] for k in ks)
 
 def checktag(tag, head):
     if tag in head:
-        print("tag name already in use: "repr(tag),
+        print("tag name already in use:", repr(tag),
               file = sys.stderr)
-        print("choose one that is not in the old head:",
+        print("choose any that is not one of these:",
               *map(repr, head), sep = '\n', file = sys.stderr)
         exit(1)
 

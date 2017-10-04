@@ -18,8 +18,17 @@ import lib_names as names
 names.enforce('one.tsv', '.tsv')
 names.output('sample.tsv', names.replace('one.tsv', '-rand.tsv'))
 
+def checktag(tag, head):
+    if tag in head:
+        print("tag name already in use:", repr(tag),
+              file = sys.stderr)
+        print("choose any that is not one of these:",
+              *map(repr, head), sep = '\n', file = sys.stderr)
+        exit(1)
+
 with open('one.tsv', encoding = 'utf-8') as fin:
     head = next(fin).rstrip('\n').split('\t')
+    checktag(tag, head)
     population = list(tuple(line.rstrip('\n').split('\t')) for line in fin)
     
     if len(population) == 0 < size:
