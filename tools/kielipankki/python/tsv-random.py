@@ -20,7 +20,7 @@ names.output('sample.tsv', names.replace('one.tsv', '-rand.tsv'))
 
 with open('one.tsv', encoding = 'utf-8') as fin:
     head = next(fin1).rstrip('\n').split('\t')
-    population = list(tuple(line.rstrip('\n').split('\t')) for line in fin1)
+    population = list(tuple(line.rstrip('\n').split('\t')) for line in fin)
     
     if len(population) == 0 < size:
         print('Population is empty', file = sys.stderr)

@@ -19,7 +19,7 @@ names.output('sample.tsv', names.replace('one.tsv', '-samp.tsv'))
 
 with open('one.tsv', encoding = 'utf-8') as fin:
     head = next(fin1).rstrip('\n').split('\t')
-    population = list(tuple(line.rstrip('\n').split('\t')) for line in fin1)
+    population = list(tuple(line.rstrip('\n').split('\t')) for line in fin)
     
     if len(population) < size:
         print('Sample of {} is larger than population of {}'
