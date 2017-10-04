@@ -16,7 +16,6 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 import lib_names as names
 
 names.enforce('one.tsv', '.tsv')
-for name in glob('two?.tsv'): names.enforce(name, '.tsv')
 names.output('sample.tsv', names.replace('one.tsv', '-rand.tsv'))
 
 with open('one.tsv', encoding = 'utf-8') as fin:
