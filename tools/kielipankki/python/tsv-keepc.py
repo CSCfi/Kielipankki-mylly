@@ -1,5 +1,5 @@
-# TOOL tsv-keepc.py: "KeepC: projection with counts to the selected attributes"
-# (Keep the selected attributes. Add counts. Prefix cM of the count field name indicates numeric type for some tools. Note that EMPTY is not a name.)
+# TOOL tsv-keepc.py: "KeepC: projection with counts to selected attributes"
+# (Keep selected attributes. Add counts. Prefix cM of count name indicates numeric type for some tools. Note that EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
 # PARAMETER count TYPE STRING DEFAULT "cMcount"

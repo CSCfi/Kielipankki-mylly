@@ -1,23 +1,23 @@
-# TOOL tsv-drop.py: "Drop given TSV attributes"
-# (Drop the given attributes.)
+# TOOL tsv-drop.py: "Drop: projection to other than selected attributes"
+# (Drop the selected attributes. Note that EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
-# PARAMETER OPTIONAL drop0 TYPE STRING
-# PARAMETER OPTIONAL drop1 TYPE STRING
-# PARAMETER OPTIONAL drop2 TYPE STRING
-# PARAMETER OPTIONAL drop3 TYPE STRING
-# PARAMETER OPTIONAL drop4 TYPE STRING
-# PARAMETER OPTIONAL drop5 TYPE STRING
-# PARAMETER OPTIONAL drop6 TYPE STRING
-# PARAMETER OPTIONAL drop7 TYPE STRING
-# PARAMETER OPTIONAL drop8 TYPE STRING
-# PARAMETER OPTIONAL drop9 TYPE STRING
-# PARAMETER OPTIONAL dropA TYPE STRING
-# PARAMETER OPTIONAL dropB TYPE STRING
-# PARAMETER OPTIONAL dropC TYPE STRING
-# PARAMETER OPTIONAL dropD TYPE STRING
-# PARAMETER OPTIONAL dropE TYPE STRING
-# PARAMETER OPTIONAL dropF TYPE STRING
+# PARAMETER OPTIONAL drop0 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop1 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop2 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop3 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop4 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop5 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop6 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop7 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop8 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL drop9 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL dropA TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL dropB TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL dropC TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL dropD TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL dropE TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL dropF TYPE COLUMN_SEL DEFAULT "EMPTY"
 # RUNTIME python3
 
 from collections import Counter
@@ -32,10 +32,11 @@ names.output('narrow.tsv', names.replace('wide.tsv', '-drop.tsv'))
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
-drop = set(filter(None, (drop0, drop1, drop2, drop3,
-                         drop4, drop5, drop6, drop7,
-                         drop8, drop9, dropA, dropB,
-                         dropC, dropD, dropE, dropF)))
+drop = set(name for name in (drop0, drop1, drop2, drop3,
+                             drop4, drop5, drop6, drop7,
+                             drop8, drop9, dropA, dropB,
+                             dropC, dropD, dropE, dropF)
+           if name not in ("EMPTY", ""))
 
 with open('wide.tsv') as wide:
     head = next(wide).rstrip('\n').split('\t')
