@@ -29,6 +29,7 @@
     <tool>tsv-rename.py</tool>
     <tool>tsv-join.py</tool>
     <tool>tsv-match.py</tool>
+    <tool>tsv-miss.py</tool>
     <tool>tsv-keep.py</tool>
     <tool>tsv-keepc.py</tool>
     <tool>tsv-drop.py</tool>
