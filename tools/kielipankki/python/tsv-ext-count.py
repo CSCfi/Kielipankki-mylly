@@ -1,6 +1,6 @@
 # TOOL tsv-ext-count.py: "Extend relation with frequency" (Extend each record with the frequency of a selected attribute combination, by default in the relation itself but optionally in another relation. The prefix cM in count name indicates numeric type to some tools. Note that EMPTY is not a name.)
 # INPUT target.tsv: "relation to extend" TYPE GENERIC
-# INPUT OPTIONAL source.tsv "relation to count" TYPE GENERIC
+# INPUT OPTIONAL source.tsv: "relation to count" TYPE GENERIC
 # OUTPUT result.tsv
 # PARAMETER tfreq: "frequency" TYPE STRING DEFAULT "cMfreq"
 # PARAMETER attr1: "attribute 1" TYPE COLUMN_SEL DEFAULT "EMPTY"
