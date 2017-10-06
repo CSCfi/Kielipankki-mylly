@@ -42,6 +42,7 @@
     <tool>tsv-intersection.py</tool>
     <tool>tsv-difference.py</tool>
     <tool>tsv-expand-old-map.py</tool>
+    <tool>tsv-ext-count.py</tool>
     <tool>tsv-smooth-zipf.py</tool>
     <!-- random actions on a relation -->
     <tool>tsv-sample.py</tool>

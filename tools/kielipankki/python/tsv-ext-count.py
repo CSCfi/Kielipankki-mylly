@@ -11,7 +11,7 @@
 
 # Cannot be a mere counting projection or a join with one because
 # needs to be able to observe zero occurrences. Glad you asked.
-# Hovever, other combinations in other relation - not observed!
+# However, other combinations in other relation - not observed!
 
 from collections import Counter
 
@@ -38,27 +38,28 @@ if tfreq in thead:
     print(*thead, file = sys.stderr)
     exit(1)
 
-with open(( 'source.tsv' if os.exists('source.tsv')
+with open(( 'source.tsv' if os.path.exists('source.tsv')
             else 'target.tsv' ),
           encoding = 'utf-8') as fins:
     shead = next(fins).rstrip('\n').split('\t')
     six = index(shead, comb)
     if sfreq in ("EMPTY", ""):
-        counts = Counter(value(line.rsplit('\n').split('\n'), six)
+        counts = Counter(value(line.rstrip('\n').split('\t'), six)
                          for line in fins)
     else:
         wx = shead.index(sfreq)
         counts = dict((value(record, six), int(record[wx]))
                       for line in fins
-                      for record in [line.rsplit('\n').split('\n')])
+                      for record in [line.rsplit('\n').split('\t')])
 
 with open('target.tsv', encoding = 'utf-8') as fin:
     with open('result.tmp', mode = 'w', encoding = 'utf-8') as out:
+        next(fin)
         print(tfreq, *thead, sep = '\t', file = out)
+        tix = index(thead, comb)
         for line in fin:
             record = line.rstrip('\n').split('\t')
             print(counts.get(value(record, tix), 0),
-                  *record,
-                  file = out)
+                  *record, sep = '\t', file = out)
 
 os.rename('result.tmp', 'result.tsv')
