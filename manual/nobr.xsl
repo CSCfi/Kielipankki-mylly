@@ -9,7 +9,10 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="node()[self::p or self::em]/text()" name="nobreaks">
+  <xsl:template match="node()[self::p or
+		       self::em or
+		       self::a or
+		       self::li]/text()" name="nobreaks">
     <xsl:param name="pText" select="."/>
 
     <xsl:choose>
