@@ -1,3 +1,5 @@
+Nupdate: new naming convention and a Makefile to run nobr and sed
+
 Nupdate: returned to documentation work around 2017-10-07 with a
 general relation theory page ra.html, draft already public. The
 WordPress survival kit consists of nobr.xsl to add harmless spans that
