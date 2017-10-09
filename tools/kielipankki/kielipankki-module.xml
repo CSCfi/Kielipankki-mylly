@@ -19,7 +19,7 @@
     <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
-  <category name="Korp KWIC data" color="#e49898">
+  <category name="Korp data" color="#e49898">
     <!-- Korp concordance derivation -->
     <tool>kwic-as-tsv.py</tool>
     <tool>kwic-2gram.py</tool>

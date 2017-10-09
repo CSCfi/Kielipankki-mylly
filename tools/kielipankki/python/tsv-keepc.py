@@ -1,4 +1,4 @@
-# TOOL tsv-keepc.py: "Keep-and-count selected attributes"
+# TOOL tsv-keepc.py: "Keep/count selected attributes"
 # (Keep selected attributes. Add counts. Prefix cM of count name indicates numeric type for some tools. EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv

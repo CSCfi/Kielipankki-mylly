@@ -1,4 +1,4 @@
-# TOOL tsv-dropc.py: "Drop-and-count selected attributes"
+# TOOL tsv-dropc.py: "Drop/count selected attributes"
 # (Drop selected attributes. Add counts. Prefix cM of count name indicates numeric type for some tools. EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
