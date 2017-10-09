@@ -1,4 +1,4 @@
-# TOOL tsv-expand-old-map.py: "Extend relation from a key_value|... field"
+# TOOL tsv-ext-oldmap.py: "Extend relation from a key_value|... field"
 # (Extend each record in by expanding a key-value mapping in one of its attributes. Non-empty maps must contain key_value pairs separated by vertical bars, with no duplicate keys. The default is to extend with all such keys found in the whole relation.)
 # INPUT narrow.tsv TYPE GENERIC
 # OUTPUT wide.tsv

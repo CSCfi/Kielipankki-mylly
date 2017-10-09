@@ -2,17 +2,13 @@
 
 <module name="kielipankki">
 
-  <category name="Korp API" color = "#d8bf8c">
-    <tool>simple-cqp.py</tool>
+  <category name="Korp search" color="#d8bf8c">
+    <tool>cqp-two.py</tool>
     <tool>cqp-alt.py</tool>
-    <tool>kwic-as-tsv.py</tool>
-    <tool>kwic-2gram.py</tool>
-    <tool>kwic-3gram.py</tool>
-    <tool>kwic-dep.py</tool>
     <tool>korp-list.py</tool>
     <tool>korp-info.py</tool>
-    <tool>korp-kwic-coca.py</tool>
-    <tool>korp-kwic-coha.py</tool>
+    <!-- AUTH :/ tool>korp-kwic-coca.py</tool -->
+    <!-- AUTH :/ tool>korp-kwic-coha.py</tool -->
     <tool>korp-kwic-eduskunta.py</tool>
     <tool>korp-kwic-klk_fi.py</tool>
     <tool>korp-kwic-klk_sv.py</tool>
@@ -23,8 +19,15 @@
     <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
-  <category name="TSV manipulation" color = "#cbd88c">
-    <!-- much relation algebra here -->
+  <category name="Korp KWIC data" color="#e49898">
+    <!-- Korp concordance derivation -->
+    <tool>kwic-as-tsv.py</tool>
+    <tool>kwic-2gram.py</tool>
+    <tool>kwic-3gram.py</tool>
+    <tool>kwic-dep.py</tool>
+  </category>
+
+  <category name="Relation algebra" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <tool>tsv-join.py</tool>
@@ -44,122 +47,129 @@
     <tool>tsv-intersection.py</tool>
     <tool>tsv-difference.py</tool>
     <tool>tsv-expand-old-map.py</tool>
-    <tool>tsv-ext-count.py</tool>
-    <tool>tsv-smooth-zipf.py</tool>
+    <!-- tool>peek-in-tsv.py</tool -->
+  </category>
+
+  <category name="Simple statistics" color="#c7e4e4">
+    <tool>tsv-summary.R</tool>
     <!-- random actions on a relation -->
     <tool>tsv-sample.py</tool>
     <tool>tsv-random.py</tool>
-    <!-- various "visualisations" here -->
+    <!-- frequency distributions -->
+    <tool>tsv-ext-count.py</tool>
+    <tool>tsv-smooth-zipf.py</tool> <!-- is this an ext? -->
+    <!-- contingency tables -->
     <tool>tsv-22-cells.py</tool>
     <tool>tsv-22-corner.py</tool>
     <tool>tsv-22-margins.py</tool>
     <tool>tsv-22-columns.py</tool>
     <tool>tsv-22-rows.py</tool>
-    <tool>peek-in-tsv.py</tool>
   </category>
 
-  <category name="TSV utilization" color = "#a5d88c">
-    <tool>tsv-as-csv.py</tool>
-    <tool>tsv-as-ods.py</tool>
-    <tool>tsv-as-xlsx.py</tool>
+  <category name="Advanced statistics" color="#e8f072">
     <tool>qplot-tsv.R</tool> <!-- where should? this be -->
-    <tool>tsv-summary.R</tool>
     <tool>tsv-hc.R</tool>
   </category>
+
+  <category name="Formats" color="#a5d88c">
+    <tool>tsv-as-csv.py</tool> <!-- kill? -->
+    <tool>tsv-as-ods.py</tool>
+    <tool>tsv-as-xlsx.py</tool>
+  </category>
   
-	<category name="Syntactic analysis" color="#8cd898">
-	  <tool>td-parse.py</tool>
-	  <tool>td-submit.py</tool>
-	  <tool>td-wait.py</tool>
-	</category>
+  <category name="Syntactic analysis" color="#8cd898">
+    <tool>td-parse.py</tool>
+    <tool>td-submit.py</tool>
+    <tool>td-wait.py</tool>
+  </category>
 
-	<category name="Morphological analysis" color="#8cd8bf">
-	  <tool>hfst-lookup-finnish.py</tool>
-	  <tool>hfst-lookup-swedish.py</tool>
-	  <tool>hfst-lookup-english.py</tool>
-	  <tool>hfst-process-finnish.py</tool>
-	  <tool>hfst-process-swedish.py</tool>
-	  <tool>hfst-process-english.py</tool>
-	  <tool>hfst-process2-english.py</tool>
-	</category>
+  <category name="Morphological analysis" color="#8cd8bf">
+    <tool>hfst-lookup-finnish.py</tool>
+    <tool>hfst-lookup-swedish.py</tool>
+    <tool>hfst-lookup-english.py</tool>
+    <tool>hfst-process-finnish.py</tool>
+    <tool>hfst-process-swedish.py</tool>
+    <tool>hfst-process-english.py</tool>
+    <tool>hfst-process2-english.py</tool>
+  </category>
 
-	<category name="Speech recognition" color="#8cccd8">
-	  <tool>aasr-recognize-submit.py</tool>
-	  <tool>aasr-recognize-wait.py</tool>
-	</category>
+  <category name="Speech recognition" color="#8cccd8">
+    <tool>aasr-recognize-submit.py</tool>
+    <tool>aasr-recognize-wait.py</tool>
+  </category>
 
-	<category name="Preprocessing" color="#8ca5d8">
-	  <tool>to-utf8.py</tool>
-	</category>
+  <category name="Preprocessing" color="#8ca5d8">
+    <tool>to-utf8.py</tool>
+  </category>
 
-	<category name="Finite-State Technology" color="#998cd8">
-	  <tool>hfst-format.py</tool>
-	  <tool>hfst-summarize.py</tool>
-	  <tool>hfst-fst2strings.py</tool>
-	  <tool>hfst-fst2fst.py</tool>
-	  <tool>hfst-strings2fst.py</tool>
-	  <tool>hfst-regexp2fst.py</tool>
-	  <tool>hfst-lexc.py</tool>
-	  <tool>hfst-twolc.py</tool>
-	  <tool>hfst-compose.py</tool>
-	  <tool>hfst-invert.py</tool>
-	  <tool>hfst-concatenate.py</tool>
-	  <tool>hfst-union.py</tool>
-	  <tool>hfst-intersect.py</tool>
-	  <tool>hfst-subtract.py</tool>
-	  <tool>hfst-upper.py</tool>
-	  <tool>hfst-lower.py</tool>
-	  <tool>hfst-split.py</tool>
-	  <tool>hfst-head.py</tool>
-	  <tool>hfst-tail.py</tool>
-	</category>
+  <category name="Finite-State Technology" color="#998cd8">
+    <tool>hfst-format.py</tool>
+    <tool>hfst-summarize.py</tool>
+    <tool>hfst-fst2strings.py</tool>
+    <tool>hfst-fst2fst.py</tool>
+    <tool>hfst-strings2fst.py</tool>
+    <tool>hfst-regexp2fst.py</tool>
+    <tool>hfst-lexc.py</tool>
+    <tool>hfst-twolc.py</tool>
+    <tool>hfst-compose.py</tool>
+    <tool>hfst-invert.py</tool>
+    <tool>hfst-concatenate.py</tool>
+    <tool>hfst-union.py</tool>
+    <tool>hfst-intersect.py</tool>
+    <tool>hfst-subtract.py</tool>
+    <tool>hfst-upper.py</tool>
+    <tool>hfst-lower.py</tool>
+    <tool>hfst-split.py</tool>
+    <tool>hfst-head.py</tool>
+    <tool>hfst-tail.py</tool>
+  </category>
 
-	<category name="Finite-State Transducers" color="#bf8cd8">
-	  <tool>fiat-omorfi-a.py</tool>
-	  <tool>fiat-omorfi-g.py</tool>
-	  <tool>fiat-english-a.py</tool>
-	  <tool>fiat-english-g.py</tool>
-	  <tool>fiat-finnish-a.py</tool>
-	  <tool>fiat-finnish-g.py</tool>
-	  <tool>fiat-french-a.py</tool>
-	  <tool>fiat-french-g.py</tool>
-	  <tool>fiat-german-a.py</tool>
-	  <tool>fiat-german-g.py</tool>
-	  <tool>fiat-italian-a.py</tool>
-	  <tool>fiat-italian-g.py</tool>
-	  <tool>fiat-swedish-a.py</tool>
-	  <tool>fiat-swedish-g.py</tool>
-	  <tool>fiat-turkish-a.py</tool>
-	  <tool>fiat-turkish-g.py</tool>
-	</category>
+  <category name="Finite-State Transducers" color="#bf8cd8">
+    <tool>fiat-omorfi-a.py</tool>
+    <tool>fiat-omorfi-g.py</tool>
+    <tool>fiat-english-a.py</tool>
+    <tool>fiat-english-g.py</tool>
+    <tool>fiat-finnish-a.py</tool>
+    <tool>fiat-finnish-g.py</tool>
+    <tool>fiat-french-a.py</tool>
+    <tool>fiat-french-g.py</tool>
+    <tool>fiat-german-a.py</tool>
+    <tool>fiat-german-g.py</tool>
+    <tool>fiat-italian-a.py</tool>
+    <tool>fiat-italian-g.py</tool>
+    <tool>fiat-swedish-a.py</tool>
+    <tool>fiat-swedish-g.py</tool>
+    <tool>fiat-turkish-a.py</tool>
+    <tool>fiat-turkish-g.py</tool>
+  </category>
 
-	<category name="Job management" color="#d88ccb">
-	  <tool>job-status.py</tool>
-	  <tool>wrap-adm.py</tool>
-	</category>
+  <category name="Job management" color="#d88ccb">
+    <tool>job-status.py</tool>
+    <tool>wrap-adm.py</tool>
+  </category>
 
-	<category name="Obsolescent Demo" color="#d88ca5">
-	  <tool>powerplot.R</tool>
-	  <tool>rankplot.R</tool>
-	  <tool>growthplot.R</tool>
-	  <tool>whereplot.R</tool>
-	  <tool>demotokens.py</tool>
-	  <tool>democounts.py</tool>
-	  <tool>demotraces.py</tool>
-	</category>
+  <category name="Obsolescent Demo" color="#d88ca5">
+    <tool>powerplot.R</tool>
+    <tool>rankplot.R</tool>
+    <tool>growthplot.R</tool>
+    <tool>whereplot.R</tool>
+    <tool>demotokens.py</tool>
+    <tool>democounts.py</tool>
+    <tool>demotraces.py</tool>
+  </category>
 
-	<category name="Testing" color="#d8998c">
-	  <tool>co.py</tool>
-	  <tool>test-colsel.py</tool>
-	  <tool>kp-test-data-in-out.R</tool>
-	  <tool>kp-test-data-in-out.py</tool>
-	  <tool>test-parameters.py</tool>
-	  <tool>test-renaming.py</tool>
-	  <tool>test-multifile.py</tool>
-	  <!-- tool>simple-frequencies.py</tool -->
-	  <tool>finnish-analyze.py</tool>
-	  <tool>english-analyze.py</tool>
-	</category>
+  <category name="Testing" color="#d8998c">
+    <tool>co.py</tool>
+    <tool>test-colsel.py</tool>
+    <tool>kp-test-data-in-out.R</tool>
+    <tool>kp-test-data-in-out.py</tool>
+    <tool>test-parameters.py</tool>
+    <tool>test-renaming.py</tool>
+    <tool>test-multifile.py</tool>
+    <!-- tool>simple-frequencies.py</tool -->
+    <tool>finnish-analyze.py</tool>
+    <tool>english-analyze.py</tool>
+  </category>
 
 <!--
 	<category name="Statistics" color="#e7881c">
