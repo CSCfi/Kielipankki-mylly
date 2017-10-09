@@ -1,5 +1,5 @@
-# TOOL tsv-union.py: "Union of relational TSV files"
-# (Union of relational TSV files)
+# TOOL tsv-union.py: "Union of relations"
+# (Union of relations of same type represented as TSV files)
 # INPUT one.tsv TYPE GENERIC
 # INPUT OPTIONAL two1.tsv TYPE GENERIC
 # INPUT OPTIONAL two2.tsv TYPE GENERIC

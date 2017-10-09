@@ -1,4 +1,4 @@
-# TOOL tiny-tsv.py: "Make a tiny TSV"
+# TOOL tiny-tsv.py: "Make a tiny relation"
 # (Make a relation of up to three records of one to three attributes)
 # OUTPUT tiny.tsv
 # PARAMETER          attr0 TYPE STRING

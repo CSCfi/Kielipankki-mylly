@@ -1,4 +1,4 @@
-# TOOL tsv-partition.py: "Partition a relation by a given attribute"
+# TOOL tsv-partition.py: "Partition of a relation by a given attribute"
 # (Makes a partition of a relation into parts with a particular value for the given attribute.)
 # INPUT one.tsv TYPE GENERIC
 # OUTPUT part{...}.tsv

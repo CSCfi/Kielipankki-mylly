@@ -1,5 +1,5 @@
-# TOOL tsv-sum.py: "Disjoint union, aka sum, of relational TSV files"
-# (Makes disjoint union of union-compatible relations. Tags each record to separate the sources.)
+# TOOL tsv-sum.py: "Sum of relations"
+# (Makes sum aka disjoint union of relations of same type. Tags each record to separate the sources.)
 # INPUT one.tsv TYPE GENERIC
 # INPUT OPTIONAL two1.tsv TYPE GENERIC
 # INPUT OPTIONAL two2.tsv TYPE GENERIC

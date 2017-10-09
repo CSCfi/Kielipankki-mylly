@@ -1,5 +1,5 @@
-# TOOL tsv-dropc.py: "DropC: projection with counts to other than selected attributes"
-# (Drop selected attributes. Add counts. Prefix cM of count name indicates numeric type for some tools. Note that EMPTY is not a name.)
+# TOOL tsv-dropc.py: "Drop-and-count selected attributes"
+# (Drop selected attributes. Add counts. Prefix cM of count name indicates numeric type for some tools. EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
 # PARAMETER count TYPE COLUMN_SEL DEFAULT "EMPTY" DEFAULT "cMcount"

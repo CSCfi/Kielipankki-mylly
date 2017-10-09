@@ -1,4 +1,4 @@
-# TOOL tsv-compose.py: "Composition of two relations"
+# TOOL tsv-compose.py: "Composition of relations"
 # (Make a composed relation whose records consists of the non-shared attributes of the matching records.)
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC

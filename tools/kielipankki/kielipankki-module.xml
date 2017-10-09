@@ -46,7 +46,7 @@
     <tool>tsv-union.py</tool>
     <tool>tsv-intersection.py</tool>
     <tool>tsv-difference.py</tool>
-    <tool>tsv-expand-old-map.py</tool>
+    <tool>tsv-ext-oldmap.py</tool>
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 

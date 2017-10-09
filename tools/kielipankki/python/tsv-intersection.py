@@ -1,5 +1,5 @@
-# TOOL tsv-intersection.py: "Intersection of relational TSV files"
-# (Makes intersection of union-compatible relations.)
+# TOOL tsv-intersection.py: "Intersection of relations"
+# (Makes intersection of relations of same type represented as TSV files)
 # INPUT one.tsv TYPE GENERIC
 # INPUT OPTIONAL two1.tsv TYPE GENERIC
 # INPUT OPTIONAL two2.tsv TYPE GENERIC

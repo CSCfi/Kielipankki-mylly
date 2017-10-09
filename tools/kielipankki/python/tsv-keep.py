@@ -1,5 +1,5 @@
-# TOOL tsv-keep.py: "Keep: projection to the selected attributes"
-# (Keep only the selected attributes. Note that EMPTY is not a name.)
+# TOOL tsv-keep.py: "Keep selected attributes"
+# (Keep only the selected attributes. EMPTY is not a name.)
 # INPUT wide.tsv: "input relation" TYPE GENERIC
 # OUTPUT narrow.tsv
 # PARAMETER OPTIONAL keep0 TYPE COLUMN_SEL DEFAULT "EMPTY"

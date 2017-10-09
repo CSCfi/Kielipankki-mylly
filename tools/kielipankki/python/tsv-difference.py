@@ -1,5 +1,5 @@
-# TOOL tsv-difference.py: "Difference of relational TSV files"
-# (Makes difference of union-compatible relations, removing from the first the records in the rest.)
+# TOOL tsv-difference.py: "Difference of relations"
+# (Makes difference of relations of same type, represented as TSV files, removing from the first the records in the rest.)
 # INPUT one.tsv TYPE GENERIC
 # INPUT OPTIONAL two1.tsv TYPE GENERIC
 # INPUT OPTIONAL two2.tsv TYPE GENERIC

@@ -1,4 +1,4 @@
-# TOOL tsv-image.py: "Image of another relation"
+# TOOL tsv-image.py: "Image of composed relation"
 # (Make an image where the records consist of the non-shared attributes of the records of the first relation matching some records in the second relation.)
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC

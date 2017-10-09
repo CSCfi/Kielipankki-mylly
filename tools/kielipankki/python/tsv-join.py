@@ -1,5 +1,5 @@
-# TOOL tsv-join.py: "Join TSV files"
-# (Relational join of two TSV files)
+# TOOL tsv-join.py: "Join of relations"
+# (Join of two relations, represented as TSV files)
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC
 # OUTPUT join.tsv

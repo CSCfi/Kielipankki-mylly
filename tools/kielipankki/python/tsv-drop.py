@@ -1,5 +1,5 @@
-# TOOL tsv-drop.py: "Drop: projection to other than selected attributes"
-# (Drop the selected attributes. Note that EMPTY is not a name.)
+# TOOL tsv-drop.py: "Drop selected attributes"
+# (Drop the selected attributes. EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
 # PARAMETER OPTIONAL drop0 TYPE COLUMN_SEL DEFAULT "EMPTY"
