@@ -1,0 +1,124 @@
+<article>
+  <p><em>
+      Tool in Mylly: Relation algebra / Composition
+    </em>
+    | <a href="../../../tuki/mylly/tsv-compose">
+      fi
+    </a>
+  </p>
+  <h1>Composition of relations</h1>
+  <p>Composition takes two relations and produces
+    the set of combinations of the non-shared
+    attributes where the shared attributes match.
+    Use composition instead of join only when the
+    shared attributes are not of interest in the
+    result.
+  </p>
+  <p>The input and output relations are
+    represented as TSV files.
+  </p>
+  <h2>Example</h2>
+  <p>The first input relation consists of some
+    word forms annotated with a lemma, a sentence
+    number, and a token number. The second input
+    relation consists of sentence numbers
+    annotated with the mood of a sentence.
+  </p>
+  <table>
+    <tr>
+      <th>sen</th>
+      <th>tok</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>3</td>
+      <td>niin</td>
+      <td>niin</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2</td>
+      <td>se</td>
+      <td>se</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+  </table>
+  <table>
+    <tr><th>sen</th><th>mood </th></tr>
+    <tr><td>3  </td><td>calm </td></tr>
+    <tr><td>4  </td><td>calm </td></tr>
+    <tr><td>5  </td><td>angry</td></tr>
+  </table>
+  <p>The output relation consists of those word
+    forms in the first input relation that had
+    their sentence number in the second input
+    relation (all of them), still annotated with
+    their token numbers and lemmas, no longer with
+    the sentence number, but now also with the
+    mood of the sentence.
+  </p>
+  <table>
+    <tr>
+      <th>tok</th>
+      <th>mood</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>calm</td>
+      <td>niin</td>
+      <td>niin</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>calm</td>
+      <td>se</td>
+      <td>se</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>calm</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>angry</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+  </table>
+  <p>Note that the two occurrences of <em>on</em>
+    in the result are separate records only
+    because their sentences were annotated with
+    different moods.
+  </p>
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="../tsv-join">join</a></li>
+    <li><a href="../tsv-drop">drop</a></li>
+    <li><a href="../tsv-rename">rename</a></li>
+  </ul>
+  <h2>See also</h2>
+  <ul>
+    <li><a href="../relation-algebra">
+	Relation algebra
+      </a>
+      for context
+    </li>
+  </ul>
+</article>
