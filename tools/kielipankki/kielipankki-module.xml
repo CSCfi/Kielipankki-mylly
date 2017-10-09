@@ -71,7 +71,7 @@
     <tool>tsv-hc.R</tool>
   </category>
 
-  <category name="Formats" color="#a5d88c">
+  <category name="Export formats" color="#a5d88c">
     <tool>tsv-as-csv.py</tool> <!-- kill? -->
     <tool>tsv-as-ods.py</tool>
     <tool>tsv-as-xlsx.py</tool>
