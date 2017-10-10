@@ -1,15 +1,15 @@
-# TOOL tsv-22-cells.py: "Contingency cells of two TSV combinations"
-# (Contingency table of two combinations of TSV attributes as joint count cM12 and other counts cM1o, cMo2, cMoo. The component attribute names are suffixed with of1 and of2.)
+# TOOL tsv-22-cells.py: "Contingency tables as cells"
+# (Make contingency tables for two combinations of relation attributes. Joint count is named cM12, other counts cM1o, cMo2, cMoo. The component attribute names are suffixed with of1 and of2.)
 # INPUT datum.tsv TYPE GENERIC
 # OUTPUT table.tsv
-# PARAMETER          one0 TYPE STRING
-# PARAMETER OPTIONAL one1 TYPE STRING
-# PARAMETER OPTIONAL one2 TYPE STRING
-# PARAMETER OPTIONAL one3 TYPE STRING
-# PARAMETER          two0 TYPE STRING
-# PARAMETER OPTIONAL two1 TYPE STRING
-# PARAMETER OPTIONAL two2 TYPE STRING
-# PARAMETER OPTIONAL two3 TYPE STRING
+# PARAMETER one0 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER one1 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER one2 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER one3 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER two0 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER two1 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER two2 TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER two3 TYPE COLUMN_SEL DEFAULT "EMPTY"
 # RUNTIME python3
 
 from collections import Counter
@@ -25,8 +25,11 @@ names.output('table.tsv', names.replace('datum.tsv', '-22cel.tsv'))
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
-one = sorted(set(filter(None, (one0, one1, one2, one3))))
-two = sorted(set(filter(None, (two0, two1, two2, two3))))
+one = sorted(set(name for name in (one0, one1, one2, one3)
+                 if name not in ("EMPTY", "")))
+
+two = sorted(set(name for name in (two0, two1, two2, two3)
+                 if name not in ("EMPTY", "")))
 
 with open('datum.tsv') as data:
     head = next(data).rstrip('\n').split('\t')
