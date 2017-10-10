@@ -1,0 +1,206 @@
+<article>
+  <p><em>
+      Tool in Mylly: Simple statistics / Contingency tables as cells
+    </em>
+    | <a href="../../../tuki/mylly/tsv-22-cells">
+      fi
+    </a>
+  </p>
+  <h1>Contingency tables as cells</h1>
+  <p>TODO how often some values where observed
+    together and how often with something else
+  </p>
+  <p>TODO four counts determine the other five</p>
+  <p>Input and output relations are represented as
+    TSV files.
+  </p>
+  <h2>Parameters</h2>
+  <ul>
+    <li>attribute names for first combination</li>
+    <li>attribute names for second combination</li>
+  </ul>
+  <h2>Result</h2>
+  <p>With <b>X = x</b> for
+    the assertion that the
+    first attributes <b>X</b>
+    in the input relation
+    have the particular values
+    <b>x</b>, with
+    <b>X &#x2260; x</b> for the
+    assertion that they do not,
+    and similarly with <b>Y = y</b>
+    and <b>Y &#x2260; y</b> for the
+    second attributes,
+    the output relation has
+    (for each observed combination
+    <b>x, y</b>) the
+    four schematically named
+    counts cM12, cM1o, cMo2,
+    cMoo.
+  </p>
+  <table>
+    <tr>
+      <td>        </td>
+      <th>Y = y   </th>
+      <th>Y &#x2260; y</th>
+      <th>&#x2211;   </th>
+      <td rowspan="4"> &#x223c; </td>
+      <td> </td>
+      <th>Y = y</th>
+      <th>Y &#x2260; y</th>
+      <th>&#x2211;   </th>
+    </tr>
+    <tr>
+      <th>X = x</th>
+      <td>cM12 </td>
+      <td>cM1o </td>
+      <td>     </td>
+      <!-- -->
+      <th>X = x</th>
+      <td>cM12 </td>
+      <td>cM1o </td>
+      <td>cM1s </td>
+    </tr>
+    <tr>
+      <th>X &#x2260; x</th>
+      <td>cMo2    </td>
+      <td>cMoo    </td>
+      <td>        </td>
+      <!-- -->
+      <th>X &#x2260; x</th>
+      <td>cMo2    </td>
+      <td>cMoo    </td>
+      <td>cMos    </td>
+    </tr>
+    <tr>
+      <th>&#x2211;</th>
+      <td>     </td>
+      <td>     </td>
+      <td>     </td>
+      <!-- -->
+      <th>&#x2211;</th>
+      <td>cMs2 </td>
+      <td>cMso </td>
+      <td>cMss </td>
+    </tr>
+  </table>
+  <p>The four numbers
+    on the left
+    determine the full table
+    on the right.
+  </p>
+  <p>The output attributes that
+    correspond to the selected
+    input attributes
+    are named by appending
+    to each input name a suffix
+    (<b>of1</b> or <b>of2</b>)
+    to indicate whether
+    the attribute
+    belongs to <b>X</b>
+    (the first selection)
+    or to <b>Y</b>
+    (the second selection).
+  </p>
+  <h2>Example</h2>
+  <p>TODO add here a concrete example
+    from Mylly. Say, word and deprel
+    against head word in dependency
+    triple. TODO!
+  </p>
+  <p>Show a couple of
+    records from an actual
+    relation.
+  </p>
+  <table>
+    <tr>
+      <th>deptof1</th>
+      <th>relnof1</th>
+      <th>headof2</th>
+      <th>cM12</th>
+      <th>cM1o</th>
+      <th>cMo2</th>
+      <th>cMoo</th>
+    </tr>
+    <tr>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+    </tr>
+    <tr>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>TODO</td>
+    </tr>
+  </table>
+  <p>The first record represents
+    the following table.
+  </p>
+  <table>
+    <tr>
+      <td> </td>
+      <th>headof2 = TODO</th>
+      <th>headof2 &#x2260; TODO</th>
+      <th>&#x2211;</th>
+    </tr>
+    <tr>
+      <th>(deptof1, relnof1) = (TO, DO)</th>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>    </td>
+    </tr>
+    <tr>
+      <th>(deptof1, relnof1) &#x2260; (TO, DO)</th>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>    </td>
+    </tr>
+    <tr>
+      <th>&#x2211;</th>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </table>
+  <p>The filled part of the table
+    determines the remaining part.
+  </p>
+  <h2>Related tools</h2>
+  <p>There should be tools to
+    compute cooccurrence
+    statistics from the
+    contingency tables.
+    TODO!
+  </p>
+  <ul>
+    <li><a href="../tsv-22-columns">
+	contingency tables as columns
+      </a>
+    </li>
+    <li><a href="../tsv-22-corners">
+	contingency tables as corners
+      </a>
+    </li>
+    <li><a href="../tsv-22-margins">
+	contingency tables as margins
+      </a>
+    </li>
+    <li><a href="../tsv-22-rows">
+	contingency tables as rows
+      </a>
+    </li>
+  </ul>
+  <h2>See also</h2>
+  <ul>
+    <li>Some link</li>
+    <li>Dunning?</li>
+  </ul>
+</article>
