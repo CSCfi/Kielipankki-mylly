@@ -148,17 +148,10 @@
     <tool>wrap-adm.py</tool>
   </category>
 
-  <category name="Obsolescent Demo" color="#d88ca5">
-    <tool>powerplot.R</tool>
-    <tool>rankplot.R</tool>
-    <tool>growthplot.R</tool>
-    <tool>whereplot.R</tool>
-    <tool>demotokens.py</tool>
-    <tool>democounts.py</tool>
-    <tool>demotraces.py</tool>
-  </category>
-
   <category name="Testing" color="#d8998c">
+    <tool>fin-plain-tokenize.py</tool>
+    <tool>fin-plain-postag.py</tool>
+    <tool>fin-plain-nertag.py</tool>
     <tool>co.py</tool>
     <tool>test-colsel.py</tool>
     <tool>kp-test-data-in-out.R</tool>
@@ -169,6 +162,16 @@
     <!-- tool>simple-frequencies.py</tool -->
     <tool>finnish-analyze.py</tool>
     <tool>english-analyze.py</tool>
+  </category>
+
+  <category name="Obsolescent Demo" color="#d88ca5">
+    <tool>powerplot.R</tool>
+    <tool>rankplot.R</tool>
+    <tool>growthplot.R</tool>
+    <tool>whereplot.R</tool>
+    <tool>demotokens.py</tool>
+    <tool>democounts.py</tool>
+    <tool>demotraces.py</tool>
   </category>
 
 <!--
