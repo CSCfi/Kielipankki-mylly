@@ -78,6 +78,7 @@
   </category>
   
   <category name="Syntactic analysis" color="#8cd898">
+    <tool>fin-plain-tokenize.py</tool>
     <tool>td-parse.py</tool>
     <tool>td-submit.py</tool>
     <tool>td-wait.py</tool>
@@ -149,7 +150,6 @@
   </category>
 
   <category name="Testing" color="#d8998c">
-    <tool>fin-plain-tokenize.py</tool>
     <tool>fin-plain-postag.py</tool>
     <tool>fin-plain-nertag.py</tool>
     <tool>co.py</tool>
