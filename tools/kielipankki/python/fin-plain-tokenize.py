@@ -1,18 +1,32 @@
-# TOOL fin-plain-tokenize.py: "Tokenize Finnish plaintext" (Analyze Finnish plaintext into sentences and tokens. Produce both the output of the underlying tool and an explicit relation)
+# TOOL fin-plain-tokenize.py: "Tokenize Finnish plaintext" (Analyze Finnish plaintext into sentences and tokens. Produce both the actual output of the underlying tool and a relation where each sentence and token has an explicit identifier)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
 # RUNTIME python3
 
+# they are not in the proper place yet
+DIR = '/wrk/jpiitula/finnish-tagtools'
+
 import os, sys
 from itertools import groupby
 from subprocess import Popen, PIPE
 
-# they are not yet in the proper place
-DIR = '/wrk/jpiitula/finnish-tagtools'
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names2 import base, name
+from lib_paths import prepend
 
-# to enforce *.txt as input name
-# to name output as *.token.{txt,tsv}
+name('output.txt', '{}-token'.format(base('input.txt', '*.txt')),
+     ext = 'txt')
+
+name('output.tsv', '{}-token'.format(base('input.txt', '*.txt')),
+     ext = 'rel.tsv')
+
+# wire to the specific HFST version
+VERbin = '/homeappl/appl_taito/ling/hfst/3.13.0/bin'
+VERlib = '/homeappl/appl_taito/ling/hfst/3.13.0/lib'
+VERENV = dict(os.environ,
+              PATH = prepend(VERbin, 'PATH'),
+              LD_LIBRARY_PATH = prepend(VERlib, 'LD_LIBRARY_PATH'))
 
 def end(*ps):
     for p in ps:
@@ -29,7 +43,9 @@ def end(*ps):
         raise Exception('Non-0 return code in: ' + ' '.join(map(str, cs)))
 
 try:
-    with Popen(['hfst-tokenize', os.path.join(DIR, 'tokenize.pmatch')],
+    with Popen([os.path.join(VERbin, 'hfst-tokenize'),
+                os.path.join(DIR, 'tokenize.pmatch')],
+               env = VERENV,
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE,
                stderr = open('error1.log', mode = 'wb')) as tokenize:
