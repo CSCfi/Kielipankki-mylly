@@ -1,4 +1,4 @@
-# TOOL fin-plain-postag.py: "Tokenize and POS-tag Finnish plaintext" (Tokenize and POS-tag Finnish plaintext. Produce both the output of the underlying tool and an explicit relation)
+# TOOL fin-plain-postag.py: "PoS-tag Finnish plaintext" (PoS-tag Finnish plaintext. Produce both the actual output of the underlying tool and a relation where each sentence and token has an explicit identifier.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
@@ -11,8 +11,14 @@ from subprocess import Popen, PIPE
 # they are not yet in the proper place
 DIR = '/wrk/jpiitula/finnish-tagtools'
 
-# to enforce *.txt as input name
-# to name output as *.token.{txt,tsv}
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names2 import base, name
+
+name('output.txt', '{}-pos'.format(base('input.txt', '*.txt')),
+     ext = 'txt')
+
+name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
+     ext = 'rel.tsv')
 
 def end(*ps):
     for p in ps:

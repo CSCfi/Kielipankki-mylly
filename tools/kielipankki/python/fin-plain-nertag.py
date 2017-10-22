@@ -1,18 +1,24 @@
-# TOOL fin-plain-nertag.py: "Tokenize and name-tag Finnish plaintext" (Tokenize and name-tag Finnish plaintext. Produce both the output of the underlying tool and an explicit relation)
+# TOOL fin-plain-nertag.py: "Name-tag Finnish plaintext" (Tokenize and name-tag Finnish plaintext. Produce both the actual output of the underlying tool and a relation where each sentence and token has an explicit identifier.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
 # RUNTIME python3
 
+# they are not yet in the proper place
+DIR = '/wrk/jpiitula/finnish-tagtools'
+
 import os, sys
 from itertools import groupby
 from subprocess import Popen, PIPE
 
-# they are not yet in the proper place
-DIR = '/wrk/jpiitula/finnish-tagtools'
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names2 import base, name
 
-# to enforce *.txt as input name
-# to name output as *.token.{txt,tsv}
+name('output.txt', '{}-ner'.format(base('input.txt', '*.txt')),
+     ext = 'txt')
+
+name('output.tsv', '{}-ner'.format(base('input.txt', '*.txt')),
+     ext = 'rel.tsv')
 
 def end(*ps):
     for p in ps:
