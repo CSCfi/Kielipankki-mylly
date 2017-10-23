@@ -7,12 +7,21 @@ Esim. oikeaan laitaan? [Mietta]
 Generoidaan HTML-teksti, jossa analyysitulokset helpommin nähtävissä
 alkuperäisehkön tekstin annotaationa. [Mietta]
 
-* TODO Suhteellisten osuuksien näyttäminen (R)
+* DONE TODO Suhteellisten osuuksien näyttäminen (R)
 
 Vähän niin kuin täällä mutta pyydettiin vain yhdestä sarakkeesta:
 https://www.statmethods.net/stats/frequencies.html
 
 Tehdään silti.
+
+Nupdate: Vielä tarvitaan vähintäänkin ohjesivuja, mutta mielellään
+myös graafisia esityksiä, ja ainakin lukumääräkentän pitäisi olla
+oletusarvoisesti EMPTY, kun sen on pakko olla kokonaisluku ja R:stä
+tulee nyt huomattavan paljon historiaa virheilmoituksenomaisena
+valmisteena. (Eikä ole vielä testattu R:ssä että valmiiksi annetut
+lukumäärät toimivat, mutta muuten on pikaisesti testattu.)
+
+Simple statistics / {One-way, Two-way} proportions
 
 * TODO Korp-haku tekemään relaatiotiedostot suoraan
 
