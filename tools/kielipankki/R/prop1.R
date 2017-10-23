@@ -24,7 +24,7 @@ data <- read.ra.tsv("data.tsv", setNames(list("integer"), counts))
 
 trix <-
     if (counts == "") { # what a language
-        table(data[[factorj]], dnn = factoj)
+        table(data[[factoj]], dnn = factoj)
     } else
         xtabs(substitute(foo ~ bar,
 	                 list(foo = as.name(counts),
