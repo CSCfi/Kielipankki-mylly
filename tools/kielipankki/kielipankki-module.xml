@@ -51,6 +51,9 @@
   </category>
 
   <category name="Simple statistics" color="#c7e4e4">
+    <tool>prop1.R</tool>
+    <tool>prop2.R</tool>
+    <!-- must improve on the summary -->
     <tool>tsv-summary.R</tool>
     <!-- random actions on a relation -->
     <tool>tsv-sample.py</tool>
