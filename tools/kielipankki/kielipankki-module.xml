@@ -155,6 +155,7 @@
   </category>
 
   <category name="Testing" color="#d8998c">
+    <tool>tsv-entropy.py</tool>
     <tool>co.py</tool>
     <tool>test-colsel.py</tool>
     <tool>kp-test-data-in-out.R</tool>
