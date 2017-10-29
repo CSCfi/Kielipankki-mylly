@@ -1,5 +1,5 @@
 # TOOL tsv-rename.py: "Rename attributes"
-# (Rename selected attributes. Note that EMPTY is not a name.)
+# (Rename selected attributes. EMPTY is not a name.)
 # INPUT old.tsv TYPE GENERIC
 # OUTPUT new.tsv
 # PARAMETER          old0: "old name" TYPE COLUMN_SEL DEFAULT "EMPTY"
@@ -15,10 +15,10 @@
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
-
-names.enforce('old.tsv', '.tsv')
-names.output('new.tsv', names.replace('old.tsv', '-rename.tsv'))
+from lib_names2 import base, name
+name('new.tsv', base('old.tsv', '*.rel.tsv'),
+     ins = 'rename',
+     ext = 'rel.tsv')
 
 olds = (old0, old1, old2, old3)
 news = (new0, new1, new2, new3)

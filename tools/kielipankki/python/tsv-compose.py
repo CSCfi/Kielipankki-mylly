@@ -1,4 +1,4 @@
-# TOOL tsv-compose.py: "Composition of relations"
+# TOOL tsv-compose.py: "Compose relations"
 # (Make a composed relation whose records consists of the non-shared attributes of the matching records.)
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC
@@ -9,11 +9,11 @@ import os, sys
 from collections import defaultdict
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.enforce('two.tsv', '.tsv')
-names.output('result.tsv', names.replace('one.tsv', '-compose.tsv'))
+name('result.tsv', base('one.tsv', '*.rel.tsv'),
+     ins = 'compose.{}'.format(base('two.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def share(head, head2): return tuple(set(head) & set(head2))

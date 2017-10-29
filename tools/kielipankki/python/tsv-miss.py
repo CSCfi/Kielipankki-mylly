@@ -1,4 +1,4 @@
-# TOOL tsv-miss.py: "Part that does not match another relation"
+# TOOL tsv-miss.py: "Miss another relation"
 # (Makes that part of the first relation that does not match the second relation.)
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC
@@ -8,11 +8,11 @@
 import sys, os
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.enforce('two.tsv', '.tsv')
-names.output('miss.tsv', names.replace('one.tsv', '-miss.tsv'))
+name('miss.tsv', base('one.tsv', '*.rel.tsv'),
+     ins = 'miss.{}'.format(base('two.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def share(head, head2): return tuple(set(head) & set(head2))

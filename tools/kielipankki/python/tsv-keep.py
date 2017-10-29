@@ -24,10 +24,10 @@ from collections import Counter
 import os
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
-
-names.enforce('wide.tsv', '.tsv')
-names.output('narrow.tsv', names.replace('wide.tsv', '-keep.tsv'))
+from lib_names2 import base, name
+name('narrow.tsv', base('wide.tsv', '*.rel.tsv'),
+     ins = 'keep',
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
