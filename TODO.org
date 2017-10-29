@@ -74,5 +74,23 @@ http://www.r-graph-gallery.com/247-network-chart-layouts/
 
 * TODO IMPORTANT UDPipe or is UDpipe
 
+http://ufal.mff.cuni.cz/udpipe
+
 [Krister]
 
+* TODO Bi-parameterized Korp search tool
+
+CQP *and* corpus list as inputs [with Mietta and Martin]
+
+Also, oh my God [with Mietta and Martin] yes we do *want* in Mylly
+corpus names that match Korp and our META-SHARE. But that is such a
+horror.
+
+TODO Tool to create corpus list from some revelant corpus name menu.
+
+See Korpin config.js?
+
+* TODO Export formats + preprocessing = File formats
+
+Yhdistetään luokat, merkistökoodausmuunnokset sinne (import ja export)
+[Mietta]
