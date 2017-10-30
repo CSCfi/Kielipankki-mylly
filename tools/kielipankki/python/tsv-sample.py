@@ -1,4 +1,4 @@
-# TOOL tsv-sample.py: "Random part (aka subset) of a relation"
+# TOOL tsv-sample.py: "Random part of a relation"
 # (Makes a random sample of the elements of a relation, aka a set of records.)
 # INPUT one.tsv TYPE GENERIC
 # OUTPUT sample.tsv
@@ -12,10 +12,10 @@
 import os, random, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.output('sample.tsv', names.replace('one.tsv', '-samp.tsv'))
+name('sample.tsv', '{}-sample'.format(base('one.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 with open('one.tsv', encoding = 'utf-8') as fin:
     head = next(fin).rstrip('\n').split('\t')

@@ -13,10 +13,10 @@
 import os, random, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.output('sample.tsv', names.replace('one.tsv', '-rand.tsv'))
+name('sample.tsv', '{}-random'.format(base('one.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 def checktag(tag, head):
     if tag in head:

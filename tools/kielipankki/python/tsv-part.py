@@ -1,22 +1,22 @@
-# TOOL tsv-part.py: "Part of a relation by a given attribute value"
+# TOOL tsv-part.py: "Part with value of an attribute"
 # (Makes a part of a relation containing those records that have the given value for the given attribute.)
 # INPUT one.tsv TYPE GENERIC
 # OUTPUT part.tsv
-# PARAMETER attr: "attribute name" TYPE COLUMN_SEL
+# PARAMETER attr: "attribute name" TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER val: "attribute value" TYPE STRING
 # RUNTIME python3
 
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.output('part.tsv', names.replace('one.tsv', '-part.tsv'))
+name('part.tsv', base('one.tsv', '*.rel.tsv'),
+     ins = 'part',
+     ext = 'rel.tsv')
 
 if attr in ("EMPTY", ""):
-    print("need a valid attribute name;", file = sys.stderr)
-    print("received attribute name was", repr(attr), file = sys.stderr)
+    print("need valid attribute", file = sys.stderr)
     exit(1)
 
 with open('one.tsv', encoding = 'utf-8') as fin:

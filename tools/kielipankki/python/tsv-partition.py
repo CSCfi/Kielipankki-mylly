@@ -15,8 +15,7 @@ names.enforce('one.tsv', '.tsv')
 names.output('part.tsv', names.replace('one.tsv', '-part.tsv'))
 
 if attr in ("EMPTY", ""):
-    print("need a valid attribute name;", file = sys.stderr)
-    print("received attribute name was", repr(attr), file = sys.stderr)
+    print("need valid attribute", file = sys.stderr)
     exit(1)
 
 with open('one.tsv', encoding = 'utf-8') as fin:

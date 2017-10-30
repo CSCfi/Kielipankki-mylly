@@ -16,11 +16,12 @@ from glob import glob
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-for name in glob('two?.tsv'): names.enforce(name, '.tsv')
-names.output('union.tsv', names.replace('one.tsv', '-u.tsv'))
+for name in glob('two?.tsv'): base(name, '*.rel.tsv')
+name('union.tsv', base('one.tsv', '*.rel.tsv'),
+     ins = 'union',
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def share(head, head2): return tuple(set(head) & set(head2))

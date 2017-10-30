@@ -1,4 +1,4 @@
-# TOOL tsv-part2.py: "Part and complement by a given attribute value"
+# TOOL tsv-part2.py: "Part and complement by value of attribute"
 # (Makes a part of a relation containing those records that have the given value for the given attribute, and a part containing the other records.)
 # INPUT one.tsv TYPE GENERIC
 # OUTPUT part.tsv
@@ -10,15 +10,16 @@
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
 names.enforce('one.tsv', '.tsv')
-names.output('part.tsv', names.replace('one.tsv', '-part.tsv'))
-names.output('rest.tsv', names.replace('one.tsv', '-rest.tsv'))
+name('part.tsv', '{}-part'.format(base('one.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
+name('rest.tsv', '{}-rest'.format(base('one.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 if attr in ("EMPTY", ""):
-    print("need a valid attribute name;", file = sys.stderr)
-    print("received attribute name was", repr(attr), file = sys.stderr)
+    print("need valid attribute", file = sys.stderr)
     exit(1)
 
 with open('one.tsv', encoding = 'utf-8') as fin:

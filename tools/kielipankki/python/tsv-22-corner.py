@@ -17,10 +17,10 @@ from itertools import chain
 import os
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('datum.tsv', '.tsv')
-names.output('table.tsv', names.replace('datum.tsv', '-22cor.tsv'))
+name('table.tsv', '{}-22cor'.format(base('datum.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
