@@ -1,9 +1,11 @@
-# TOOL tsv-entropy.py: "Entropy from joint counts" (Entropy of target variables, computed from a joint frequency distribution, conditional on some variables, grouped by values of some variables)
-# INPUT data.tsv: "Joint counts" TYPE GENERIC (Relation containing joint counts of some variables)
+# TOOL tsv-dist-entropy.py: "Entropy" (Entropy of target variables, computed from a joint distribution, conditional on some variables, grouped by values of some variables)
+# INPUT data.tsv: "Joint distribution" TYPE GENERIC (Relation containing joint proportions of some variables, need not be normalized to proportions)
 # OUTPUT result.tsv
-# PARAMETER dist: "Count field" TYPE COLUMN_SEL ()
+# PARAMETER dist: "Distribution field" TYPE COLUMN_SEL ()
 # PARAMETER val1: "Target field" TYPE COLUMN_SEL ()
 # PARAMETER val2: "Target field" TYPE COLUMN_SEL ()
+# PARAMETER val3: "Target field" TYPE COLUMN_SEL ()
+# PARAMETER val4: "Target field" TYPE COLUMN_SEL ()
 # PARAMETER con1: "Condition field" TYPE COLUMN_SEL ()
 # PARAMETER con2: "Condition field" TYPE COLUMN_SEL ()
 # PARAMETER key1: "Grouping field" TYPE COLUMN_SEL ()
@@ -23,11 +25,12 @@ def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
 # sorted to have canonical combination names in the result
-vals = sorted(set(name for name in (val1, val2) if name not in ("EMPTY", "")))
+vals = sorted(set(name for name in (val1, val2
+                                    val3, val4) if name not in ("EMPTY", "")))
 cons = sorted(set(name for name in (con1, con2) if name not in ("EMPTY", "")))
 keys = sorted(set(name for name in (key1, key2) if name not in ("EMPTY", "")))
 
-freqs = defaultdict(lambda : defaultdict(lambda : defaultdict(int)))
+freqs = defaultdict(lambda : defaultdict(lambda : defaultdict(float)))
 
 try:
     with open('data.tsv', encoding = 'UTF-8') as data:
@@ -38,9 +41,11 @@ try:
         keyix = index(head, keys)
         for line in data:
             record = line.rstrip('\n').split('\t')
-            freq = int(record[distx])
-            if freq < 0: raise ValueError('not a count: {}'.format(freq))
-            if freq > 0:
+            freq = float(record[distx])
+            if freq < 0.0:
+                raise ValueError('proportion cannot be negative: {}'
+                                 .format(freq))
+            elif freq > 0.0:
                 key = value(record, keyix)
                 con = value(record, conix)
                 val = value(record, valix)
