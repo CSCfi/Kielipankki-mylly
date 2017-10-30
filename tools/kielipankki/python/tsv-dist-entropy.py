@@ -71,7 +71,7 @@ kf = br[len(keys)]
 keyname = kf.format(','.join(keys))
 log2 = log(2)
 
-with open('result.tsv', mode = 'w', encoding = 'UTF-8') as out:
+with open('result.tmp', mode = 'w', encoding = 'UTF-8') as out:
     print('variable', 'condition', 'wMentropy', 'unit',
           'grouped', 'group',
           'count',
@@ -82,3 +82,5 @@ with open('result.tsv', mode = 'w', encoding = 'UTF-8') as out:
               sep = '\t', file = out)
         print(valname, conname, res, 'nats', keyname, keyval, dist,
               sep = '\t', file = out)
+
+os.rename('result.tmp', 'result.tsv')

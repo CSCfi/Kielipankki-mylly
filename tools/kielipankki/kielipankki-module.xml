@@ -156,6 +156,7 @@
 
   <category name="Incoming" color="#d8998c">
     <tool>tsv-dist-entropy.py</tool>
+    <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-number.py</tool>
   </category>
 
