@@ -1,15 +1,15 @@
 # TOOL tsv-dist-entropy.py: "Entropy" (Entropy of target variables, computed from a joint distribution, conditional on some variables, grouped by values of some variables)
 # INPUT data.tsv: "Joint distribution" TYPE GENERIC (Relation containing joint proportions of some variables, need not be normalized to proportions)
 # OUTPUT result.tsv
-# PARAMETER dist: "Distribution field" TYPE COLUMN_SEL ()
-# PARAMETER val1: "Target field" TYPE COLUMN_SEL ()
-# PARAMETER val2: "Target field" TYPE COLUMN_SEL ()
-# PARAMETER val3: "Target field" TYPE COLUMN_SEL ()
-# PARAMETER val4: "Target field" TYPE COLUMN_SEL ()
-# PARAMETER con1: "Condition field" TYPE COLUMN_SEL ()
-# PARAMETER con2: "Condition field" TYPE COLUMN_SEL ()
-# PARAMETER key1: "Grouping field" TYPE COLUMN_SEL ()
-# PARAMETER key2: "Grouping field" TYPE COLUMN_SEL ()
+# PARAMETER dist: "Distribution field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER val1: "Target field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER val2: "Target field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER val3: "Target field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER val4: "Target field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER con1: "Condition field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER con2: "Condition field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER key1: "Grouping field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# PARAMETER key2: "Grouping field" TYPE COLUMN_SEL DEFAULT EMPTY ()
 # RUNTIME python3
 
 import os, sys
@@ -25,7 +25,7 @@ def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
 # sorted to have canonical combination names in the result
-vals = sorted(set(name for name in (val1, val2
+vals = sorted(set(name for name in (val1, val2,
                                     val3, val4) if name not in ("EMPTY", "")))
 cons = sorted(set(name for name in (con1, con2) if name not in ("EMPTY", "")))
 keys = sorted(set(name for name in (key1, key2) if name not in ("EMPTY", "")))
