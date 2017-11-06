@@ -155,6 +155,7 @@
   </category>
 
   <category name="Incoming" color="#d8998c">
+    <tool>vrt-as-tsv.py</tool>
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-ext-normalize-dist.py</tool>
