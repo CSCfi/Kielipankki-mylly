@@ -40,6 +40,7 @@ from operator import itemgetter
 igopencounts = Counter()
 igclosecounts = Counter() # element only
 igkeycounts = Counter() # attribute name only
+emptycount = 0
 headcounts = Counter() # from comments that set positional head
 commentcount = 0 # any other comment
 headline = None # set on first token or from such comment
@@ -70,13 +71,17 @@ def data(line):
 def standard(lines, out):
     global headline # may be set in transform if token is first
     global commentcount
+    global emptycount
     for line in lines:
-        if line.startswith('<!-- Positional attributes:'):
+        if line.isspace():
+            # so empty lines are allowed and ignored
+            emptycount += 1
+        elif line.startswith('<!-- Positional attributes:'):
             # e.g., <!-- Positional attributes: word -->
             com, ment = line.split(':', 1)
             names = tuple(re.findall('\w+', ment))
             if len(set(names)) < len(names):
-                # not one after all
+                # not positional attributes after all
                 commentcount += 1
             else:
                 headcounts[names] += 1
@@ -86,9 +91,6 @@ def standard(lines, out):
                           *headline,
                           sep = '\t', file = out)
         elif line.startswith('<!--'):
-            # need more precision -- would set
-            # head on head comment if not set and
-            # update head count, not commentcount
             commentcount += 1
         elif line.startswith(('<text ', '<text>',
                               '<paragraph ', '<paragraph>',
@@ -225,7 +227,7 @@ def transform(lines, out, info, outs):
                           sep = '\t', file = info)
         else:
             if flag:
-                print('(*omitted because not at first)', file = info)
+                print('(*omitted because not first)', file = info)
             else:
                 print(file = info)
 
@@ -243,8 +245,15 @@ def transform(lines, out, info, outs):
         print(file = info)
 
         if commentcount:
-            print('{} comment' if commentcount == 1 else '{} comments'
+            print(('{} comment' if commentcount == 1 else '{} comments')
                   .format(commentcount), 'ignored',
+                  file = info)
+            print(file = info)
+
+        if emptycount:
+            print('Ignored',
+                  ('{} empty line' if emptycount == 1 else '{} empty lines')
+                  .format(emptycount),
                   file = info)
             print(file = info)
 
