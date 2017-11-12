@@ -29,4 +29,4 @@ if iconv.returncode:
           file = sys.stderr)
     exit(1)
 
-os.rename('text.tmp', 'text.tsv')
+os.rename('text.tmp', 'text.txt')
