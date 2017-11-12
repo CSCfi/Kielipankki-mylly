@@ -155,7 +155,7 @@
   </category>
 
   <category name="Incoming" color="#d8998c">
-    <tool>decode-1252.pt</tool>
+    <tool>decode-1252.py</tool>
     <tool>tsv-ngram.py</tool>
     <tool>tsv-sort.py</tool>
     <tool>vrt-as-tsv.py</tool>
