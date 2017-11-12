@@ -155,6 +155,8 @@
   </category>
 
   <category name="Incoming" color="#d8998c">
+    <tool>tsv-ngram.py</tool>
+    <tool>tsv-sort.py</tool>
     <tool>vrt-as-tsv.py</tool>
     <tool>udpipe-ud2-fin.py</tool>
     <tool>tsv-dist-entropy.py</tool>
