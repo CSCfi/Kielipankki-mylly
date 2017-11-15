@@ -9,7 +9,7 @@ import sys, os
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
-name('match.tsv', base('one.tsv', '*,rel.tsv'),
+name('match.tsv', base('one.tsv', '*.rel.tsv'),
      ins = 'match.{}'.format(base('two.tsv', '*.rel.tsv')),
      ext = 'rel.tsv')
 
