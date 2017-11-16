@@ -160,7 +160,9 @@
     <tool>tsv-ngram.py</tool>
     <tool>tsv-sort.py</tool>
     <tool>vrt-as-tsv.py</tool>
+    <tool>udpipe-ud2-eng.py</tool>
     <tool>udpipe-ud2-fin.py</tool>
+    <tool>udpipe-ud2-swe.py</tool>
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-ext-normalize-dist.py</tool>
