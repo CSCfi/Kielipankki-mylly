@@ -155,6 +155,7 @@
   </category>
 
   <category name="Incoming" color="#d8998c">
+    <tool>gg-raster-count.R</tool>
     <tool>decode-1252.py</tool>
     <tool>tsv-ngram.py</tool>
     <tool>tsv-sort.py</tool>
