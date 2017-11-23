@@ -12,7 +12,6 @@ import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
 name('part.tsv', '{}-part'.format(base('one.tsv', '*.rel.tsv')),
      ext = 'rel.tsv')
 name('rest.tsv', '{}-rest'.format(base('one.tsv', '*.rel.tsv')),
