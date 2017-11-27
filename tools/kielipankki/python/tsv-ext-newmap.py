@@ -1,5 +1,5 @@
-# TOOL tsv-ext-oldmap.py: "Extend relation from a key_value|... field"
-# (Extend each record in by expanding a key-value mapping in one of its attributes. Non-empty maps must contain key_value pairs separated by vertical bars, with no duplicate keys. The default is to extend with all such keys found in the whole relation.)
+# TOOL tsv-ext-newmap.py: "Extend relation from a key=value,... field"
+# (Extend each record in by expanding a key-value mapping in one of its attributes. Non-empty maps must contain key=value pairs separated by commas, with no duplicate keys. The default is to extend with all such keys found in the whole relation.)
 # INPUT narrow.tsv TYPE GENERIC
 # OUTPUT wide.tsv
 # PARAMETER source TYPE COLUMN_SEL DEFAULT "EMPTY"
@@ -50,7 +50,7 @@ if not keys:
                    for line in narrow
                    for it in [line.rstrip('\n').split('\t')[k]]
                    if it not in ('_', '')
-                   for key, val in ( kv.split('_', 1) for kv in it.split('|') ))
+                   for key, val in ( kv.split('=', 1) for kv in it.split(',') ))
 
 if keys & set(head):
     print('new keys conflict with old keys', file = sys.stderr)
@@ -69,7 +69,7 @@ with open('wide.tmp', mode = 'w', encoding = 'UTF-8') as out:
             new = dict(pair
                        for it in [record[k]]
                        if it not in ('_', '')
-                       for pair in ( kv.split('_', 1) for kv in it.split('|') ))
+                       for pair in ( kv.split('=', 1) for kv in it.split(',') ))
             print(*chain((new.get(key, '_') for key in ext),
                          record),
                   sep = '\t', file = out)
