@@ -16,14 +16,14 @@ import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 
-for name in glob('two?.tsv'): base(name, '*.rel.tsv')
+for rest in glob('two?.tsv'): base(rest, '*.rel.tsv')
 name('sum.tsv', base('one.tsv', '*.rel.tsv'),
      ins = 'sum',
      ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
-def share(head, head2): return tuple(set(head) & set(head2))
-def other(head, names): return tuple(set(head) - set(names))
+# def share(head, head2): return tuple(set(head) & set(head2))
+# def other(head, names): return tuple(set(head) - set(names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
 def checktag(tag, head):
@@ -41,7 +41,7 @@ def checktype(ones, twos):
     print('only in first:', *(oneset - twoset), file = sys.stderr)
     print('only in second:', *(twoset - oneset), file = sys.stderr)
     print('in both:', *(oneset & twoset), file = sys.stderr)
-    exit(1)    
+    exit(1)
 
 with open('sum.tmp', mode = 'w', encoding = 'utf-8') as out:
     with open('one.tsv', encoding = 'utf-8') as fin1:
