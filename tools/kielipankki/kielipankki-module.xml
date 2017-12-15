@@ -156,6 +156,7 @@
   </category>
 
   <category name="Incoming" color="#d8998c">
+    <tool>tsv-ext-prop.py</tool>
     <tool>gg-raster-count.R</tool>
     <tool>decode-1252.py</tool>
     <tool>tsv-ext-glue.py</tool>
