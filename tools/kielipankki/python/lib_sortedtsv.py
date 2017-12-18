@@ -7,9 +7,9 @@ def process(relationfile, process, *keys):
 
     Sort numerically when indicated by a Mylly prefix.
 
+    With zero keys, do not sort: data is already in *that* order.
+
     '''
-    
-    if not keys: raise ValueError('sort must have at least one key')
     
     with open(relationfile, mode = 'rb', buffering = 0) as source:
         
@@ -22,6 +22,8 @@ def process(relationfile, process, *keys):
                             '' ))
             for key in keys
         ]
+
+        if not keyx: keyx = [ '--merge' ] # do not sort
 
         # may also need to control locale or something - must, really,
         # so this will change (now it appears to sort case-insensitive
@@ -50,8 +52,6 @@ def save(relationfile, resultfile, *keys):
 
     '''
     
-    if not keys: raise ValueError('sort must have at least one key')
-    
     with open(relationfile, mode = 'rb', buffering = 0) as source, \
          open(resultfile, mode = 'wb') as target:
         
@@ -69,6 +69,8 @@ def save(relationfile, resultfile, *keys):
             for key in keys
         ]
 
+        if not keyx: keyx = [ '--merge' ] # do not sort
+        
         # may also need to control locale or something - or not? this
         # is properly just a backend to tsv-sort.py, not to be relied
         # on in further processing

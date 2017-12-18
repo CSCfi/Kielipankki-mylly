@@ -1,4 +1,4 @@
-# TOOL tsv-sort.py: "Sort relation" ()
+# TOOL tsv-sort.py: "Sort relation" (Sort records by selected attributes)
 # INPUT input.tsv TYPE GENERIC
 # OUTPUT output.tsv
 # PARAMETER attr1 TYPE COLUMN_SEL DEFAULT EMPTY
@@ -20,19 +20,13 @@ name('output.tsv', base('input.tsv', '*.rel.tsv'),
 with open('input.tsv', encoding = 'UTF-8') as source:
     head = next(source).rstrip('\n').split('\t')
 
-# actually a mere sort should put its output directly to the file; the
-# present pattern is meant for when the output is further processed in
-# more interesting ways than merely passing it on
-#
-# def copy(source):
-#    with open('output.tmp', mode = 'w', encoding = 'UTF-8') as out:
-#        print(*head, sep = '\t', file = out)
-#        for line in source:
-#            print(line, end = '', file = out)
-
 keys = tuple(key for key in (attr1, attr2, attr3, attr4)
              if key not in ('EMPTY', ''))
-            
+
+if not keys:
+    print('no attributes selected', file = sys.stderr)
+    exit(1)
+
 try:
     save('input.tsv', 'output.tmp', *keys)
 except Exception as exn:

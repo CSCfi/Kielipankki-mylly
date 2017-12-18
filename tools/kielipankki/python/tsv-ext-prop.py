@@ -6,7 +6,7 @@
 #     dec: "four decimals",
 #     by3: "per thousand (round up)",
 #     by6: "per million (round up)"
-# ]
+# ] DEFAULT flo
 # PARAMETER prefix TYPE STRING DEFAULT wM
 # PARAMETER count1 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER count2 TYPE COLUMN_SEL DEFAULT EMPTY
