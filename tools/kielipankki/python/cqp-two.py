@@ -1,13 +1,13 @@
-# TOOL simple-cqp.py: "Simple Korp KWIC query"
-# (Prepare simple CQP query to match sentences that satisfy one or two conditions, each condition describing a single token in a limited way.)
-# OUTPUT query.txt
+# TOOL cqp-two.py: "Create a simple CQP query file for a Korp KWIC tool"
+# (Create a simple CQP query file to match sentences that satisfy one or two conditions. Each condition describes a single token in a limited way.)
+# OUTPUT query.cqp.txt
 # PARAMETER key1a: "Attribute of  a token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (An attribute of a token)
 # PARAMETER val1a: "Value of the attribute" TYPE STRING (Value of the attribute for the token (letters, digits, hyphen, comma, period\))
 # PARAMETER key1b: "Attribute of the token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (Another attribute of the token)
 # PARAMETER OPTIONAL val1b: "Value of the attribute" TYPE STRING (Value of the attribute)
-# PARAMETER key2a: "Attribute of  a token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (An attribute of a token)
+# PARAMETER key2a: "Attribute of another token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (An attribute of a token)
 # PARAMETER OPTIONAL val2a: "Value of the attribute" TYPE STRING (Value of the attribute for the token)
-# PARAMETER key2b: "Attribute of the token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (Another attribute of the token)
+# PARAMETER key2b: "Attribute of the other token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (Another attribute of the token)
 # PARAMETER OPTIONAL val2b: "Value of the attribute" TYPE STRING (Value of the attribute)
 # RUNTIME python3
 
@@ -41,4 +41,4 @@ with open('query.tmp', mode = 'w', encoding = 'utf-8') as out:
               ']',
               file = out)
 
-os.rename('query.tmp', 'query.txt')
+os.rename('query.tmp', 'query.cqp.txt')

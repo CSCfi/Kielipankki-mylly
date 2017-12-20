@@ -1,5 +1,5 @@
-# TOOL tsv-union.py: "Union of relational TSV files"
-# (Union of relational TSV files)
+# TOOL tsv-union.py: "Union of relations"
+# (Union of relations of same type represented as TSV files)
 # INPUT one.tsv TYPE GENERIC
 # INPUT OPTIONAL two1.tsv TYPE GENERIC
 # INPUT OPTIONAL two2.tsv TYPE GENERIC
@@ -16,11 +16,12 @@ from glob import glob
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-for name in glob('two?.tsv'): names.enforce(name, '.tsv')
-names.output('union.tsv', names.replace('one.tsv', '-u.tsv'))
+for name in glob('two?.tsv'): base(name, '*.rel.tsv')
+name('union.tsv', base('one.tsv', '*.rel.tsv'),
+     ins = 'union',
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def share(head, head2): return tuple(set(head) & set(head2))
@@ -44,7 +45,7 @@ with open('one.tsv', encoding = 'utf-8') as fin1:
         with open(two, encoding = 'utf-8') as fin2:
             twohead = next(fin2).rstrip('\n').split('\t')
             checktype(onehead, twohead)
-            twindex = index(onehead, twohead)
+            twindex = index(twohead, onehead)
             union.update(value(line.rstrip('\n').split('\t'), twindex)
                          for line in fin2)
 

@@ -1,0 +1,389 @@
+<article>
+  <p><em>
+      Using Mylly: Frequency distributions
+    </em>
+    | <a href="../../../tuki/mylly/case-freq-dist">
+      fi
+    </a>
+  </p>
+  <hgroup>
+    <h1>Investigating frequency distributions in Mylly</h1>
+    <h1>Part I …</h1>
+  </hgroup>
+  <p>Mylly aims to provide tools for the
+    computational investigation of frequency
+    distributions that arise from observable
+    language.
+  </p>
+  <h2>Background</h2>
+  <p>When each observed item can be put to one
+    specific class, the classes are said to have
+    <em>frequency distributions</em>. Each set of
+    observations determines a specific frequency
+    distribution that assigns to each class the
+    number of items that belong to that class <em>in
+    that set of observations</em>.
+  </p>
+  <p>A family of questions arises.</p>
+  <ol>
+    <li>In a specific set of observations, what
+      classes are frequent? How frequent are they
+      compared to other classes? How many classes
+      are frequent? How many classes are observed at
+      all?
+    </li>
+    <li>How many classes are <em>not</em> observed
+      at all? How different would another set of
+      observations be?
+    </li>
+    <li>Different sets of observations show
+      variation. Variation seems to have limits.
+      Does an underlying population have a
+      <em>probability distribution</em> that
+      accounts for the observed frequency
+      distributions?
+    </li>
+    <li>Is it reasonable to think that two sets of
+      observations come from similar populations?
+      The observations are different — are they so
+      different that the difference matters?
+    </li>
+  </ol>
+  <h2>Getting data</h2>
+  <p>The readiest route to an annotated data set in
+    Mylly at the time (2017-10-11) is to query Korp
+    for a concordance from a suitable corpus. The
+    readiest route to more than one annotated data
+    set is to make more than one query.
+  </p>
+  <p>Simple queries can be made in Mylly. In the
+    following screenshot of a Mylly session, a tool
+    has been selected to create a simple query
+    document. [TODO: user-visible name of the tool
+    will change] [TODO: certain filename conventions
+    will change]
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp03.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp03-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5195" />
+  </a>
+  <p>This tool does not have input files, but it has
+    parameters: an attribute name (required) and a
+    number of alternative values for this attribute
+    (at least one required).
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp07.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp07-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5194" />
+  </a>
+  <p>When the required parameters have values, Mylly
+    will run the tool can be run and produce a query
+    document that then becomes visible in the
+    Datasets and Workflow sections of the user
+    interface. The Visualisation section shows
+    information about the selected query document.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp11.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp11-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5193" />
+  </a>
+  <p>Mylly can display the contents of the query
+    document in the Visualisation section of the
+    user interface.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp15.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-cqp15-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5192" />
+  </a>
+  <p>The next step is to apply a search tool to the
+    query document. Mylly search tools apply to
+    specific corpora or families of corpora. One
+    [currently] of them searches the Eduskunta
+    corpus. The search is set to return at most 1000
+    hits, randomized to the extent allowed by Korp.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu03.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu03-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5191" />
+  </a>
+  <p>The search may take a little while. If it times
+    out, another attempt may succeed. The response
+    appears in the user interface as a new document
+    in JSON form. (The random seed and the page
+    number in the concordance are recorded in the
+    document name and can be used to obtain further
+    pages of the same randomized concordance.)
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu07.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu07-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5190" />
+  </a>
+  <p>Selecting the query document again and running
+    the same search tool again results in another
+    response document.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu11.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu11-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5189" />
+  </a>
+  <p>That can wait.</p>
+  <h2>Getting data in shape</h2>
+  <p>There is not much [at least currently] that
+    Mylly can do with a JSON document, other than
+    extract the contents of a Korp concordance into
+    other formats that it can handle. The most
+    developed of such other formats is the
+    representation of relations (sets of records) as
+    documents in a slightly specialized
+    "tab-separated values" format.
+  </p>
+  <p>The simplest next step is to transform a
+    concordance into relational form. [The
+    user-visible name of the tool will probably
+    change.]
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu15.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu15-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5188" />
+  </a>
+  <p>The result, when the tool is run, is two
+    relations: one consisting of the "data" (word
+    forms and other tokens together with their
+    various annotations), the other of the "meta"
+    (metadata that is properly about larger units of
+    text than individual tokens).
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu19.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu19-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5187" />
+  </a>
+  <p>There is an operation on relations (called
+    "join") to join the data with the corresponding
+    metadata. That can wait.
+  </p>
+  <p>The Chipster platform, on which Mylly is built,
+    has a special viewer to show TSV documents,
+    including those TSV documents that represent
+    relations.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu23.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-edu23-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5186" />
+  </a>
+  <h2>Observing classes</h2>
+  <p>The tokens are annotated with a word class
+    identifier, called the "part of speech" of the
+    token, "pos" for short. These identifiers can be
+    extracted with a tool of relation algebra that
+    is called projection. The specific tool to use
+    in Mylly is called "Keep selected attributes"
+    and used here to select "pos".
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos03.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos03-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5185" />
+  </a>
+  <p>Projection produces another relation.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos07.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos07-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5184" />
+  </a>
+  <p>The new relation has just the one field (or
+    attribute) that was selected. Its records
+    contain nothing that would separate different
+    occurrences of the class identifiers, so it is
+    just a list of the different classes that
+    occurred at least once.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos11.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos11-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5183" />
+  </a>
+  <p>The spreadsheet viewer can show the data in the
+    lexicographic (alphabetical) order of a selected
+    field. The way to indicate a desire for it to do
+    so is to click a column header — the only column
+    header in this case. Clicking again will reverse
+    the order.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos15.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos15-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5182" />
+  </a>
+  <p>A list of all classes is a good thing to have,
+    but there is no way to get the counts from that
+    alone.
+  </p>
+  <h2>Counting observations</h2>
+  <p>Mylly provides a variant projection that adds
+    the counts of the observed combinations of the
+    selected attributes as the values of another
+    attribute.
+  </p>
+  <p>The tool is called "Keep with count", or
+    "Keep/count" for short.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos19.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos19-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5181" />
+  </a>
+  <p>By default the new attribute is named "cMcount"
+    where the stylized prefix "cM" indicates (to
+    some tools) that the value is a whole number (a
+    count). Another name can be chosen.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos23.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos23-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5180" />
+  </a>
+  <p>The new relation that results from the
+    operation is again a list of the observed
+    combinations (observed classes when only the
+    class is observed) — with the desired addition
+    of the number of occurrences in the input
+    relation.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos27.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos27-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5179" />
+  </a>
+  <p>The classes can be listed in the decreasing
+    order of frequency by sorting on the count field
+    (by clicking that column header in the viewer),
+    then reversing (by clicking again).
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos31.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos31-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5178" />
+  </a>
+  <p>This relation is already a frequency
+    distribution of word class identifiers (parts of
+    speech) in a specific concordance page from a
+    specific corpus that was annotated with such
+    identifiers.
+  </p>
+  <h2>Counting again</h2>
+  <p>Repeating the relevant path through the
+    exercise but starting with the other concordance
+    that was obtained using the same query document
+    would give another frequency distribution on the
+    same class identifiers, assuming they all occur
+    in the other concordance and no further
+    identifier occur there. However, a smart thing
+    to do this time is to choose a different name
+    for the count attribute. (There is also a tool
+    to rename attributes.)
+  </p>
+  <p>This time the count attribute is called
+    "cMcount1" instead of the default "cMcount". The
+    pos attribute is still called "pos".
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos35.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos35-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5177" />
+  </a>
+  <p>There are the same number of class identifiers
+    (12) in the other data set, so they may well be
+    the same. The counts are different, as expected.
+    The most frequent classes are the same, also as
+    expected.
+  </p>
+  <h2>Comparing counts</h2>
+  <p>The different counts can be combined into the
+    same relation for easier ocular inspection (and
+    further analysis). The original relation, that
+    was derived from the first concordance, has
+    class attribute called "pos", as has the new
+    relation that was derived from the second
+    concordance; the former has "cMcount" where the
+    latter has "cMcount1".
+  </p>
+  <p>The "join" tool joins the relations on the
+    shared attributes — in this case "pos" and
+    nothing else.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos39.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos39-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5176" />
+  </a>
+  <p>The result has the other attributes from the
+    records of each relation where the shared
+    attributes match. In the case at hand, it has
+    both frequency distributions side by side.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos43.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos43-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5175" />
+  </a>
+  <p>The parallel frequency distributions can be
+    viewed in the order of the class frequencies in
+    the <em>first</em> concordance.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos47.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos47-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5174" />
+  </a>
+  <p>The parallel frequency distributions can be
+    viewed in the order of the class frequencies in
+    the <em>second</em> concordance.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos51.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos51-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5173" />
+  </a>
+  <p>The parallel frequency distributions can also
+    be viewed in the lexicographic (alphabetical)
+    order of the class identifiers.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos55.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-pos55-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5172" />
+  </a>
+  <p>It is a start.</p>
+  <h2>To be continued</h2>
+  <p>There is more that can be done in Mylly
+    already. And more soon.
+  </p>
+  <p>Set a rather generic graphing tool to graph the
+    parallel frequencies as points — with a smoother
+    but …
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh03.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh03-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5214" />
+  </a>
+  <p>This time the result (after correcting a typo
+    in an attribute name — this will be made a menu)
+    is not a relation but a graphic.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh07.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh07-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5213" />
+  </a>
+  <p>… guess it was the colour coding by the pos
+    that ate the smoother. To be fixed. More options
+    should also be available, like bar graphs.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh09.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh09-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5212" />
+  </a>
+  <p>With the colouring factor out of the way, the
+    smoother appears. Look straight.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh11.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh11-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5211" />
+  </a>
+  <p>Relations (and other tables) can also be
+    exported as Open Document Spreadsheet that a
+    local browser should hand over to a program that
+    can handle them.
+  </p>
+  <a href="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh15.png">
+    <img src="https://www.kielipankki.fi/wp-content/uploads/jcfd-grh15-300x131.png"
+	 alt="" class="aligncenter size-medium wp-image-5210" />
+  </a>
+  <p>TODO</p>
+</article>

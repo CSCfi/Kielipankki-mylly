@@ -1,0 +1,494 @@
+kMmatch	kMtok	sMcorpus	title	lemma	pos	word	deprel	kMsen	type
+1	1	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolassa	nommod	341	aikakausi
+1	9	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	223	aikakausi
+1	6	KLK_FI_1917	Valkonauha	siirtola	N	siirtola	ROOT	25	aikakausi
+1	7	KLK_FI_1917	Aamulehti	siirtola	N	siirtolan	poss	269	sanomalehti
+1	2	KLK_FI_1917	Aamulehti	muuttaja	N	muuttajin	dep	45	sanomalehti
+1	21	KLK_FI_1917	Suomen kalastuslehti	siirtolainen	N	siirtolaisia	dobj	478	aikakausi
+1	26	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	nommod	425	aikakausi
+1	7	KLK_FI_1917	Aamulehti	siirtola	N	Siirtolaa	name	442	sanomalehti
+1	1	KLK_FI_1917	Aamulehti	siirtola	N	siirtola	ROOT	415	sanomalehti
+1	21	KLK_FI_1917	Kansanvalistus	siirtolainen	N	siirtolaisia	nommod	243	aikakausi
+1	4	KLK_FI_1917	Etelä-Suomi	siirtola	N	siirtolalle	nommod	88	sanomalehti
+1	4	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolasta	nommod	262	aikakausi
+1	15	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtolan	compar	68	aikakausi
+1	14	KLK_FI_1917	Paperityöläinen	siirtolainen	N	siirtolaisten	poss	145	aikakausi
+1	4	KLK_FI_1917	Heinolan Lehti	siirtola	N	siirtolan	poss	142	sanomalehti
+1	0	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaisten	poss	143	sanomalehti
+1	9	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaisia	nommod	470	sanomalehti
+1	1	KLK_FI_1917	Eteenpäin	maastamuutto	N	maastamuutto	nsubj	234	sanomalehti
+1	1	KLK_FI_1917	Pääskynen	siirtola	N	siirtolan	poss	441	aikakausi
+1	6	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolaa	dobj	367	aikakausi
+1	4	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	491	aikakausi
+1	16	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtoloissa	nommod	148	aikakausi
+1	4	KLK_FI_1917	Vankeinhoitolehti	siirtola	N	siirtolan	poss	184	aikakausi
+1	4	KLK_FI_1917	Vapaa Ajatus	siirtola	N	siirtola	nsubj	186	aikakausi
+1	7	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisia	dobj	449	sanomalehti
+1	27	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolaan	nommod	193	aikakausi
+1	0	KLK_FI_1917	Heinolan Lehti	siirtolainen	N	Siirtolaiset	nsubj	213	sanomalehti
+1	1	KLK_FI_1917	Naisten ääni	siirtola	N	siirtolaan	nommod	46	aikakausi
+1	5	KLK_FI_1917	Helsingin Kuvalehti	siirtola	N	siirtolaan	nommod	235	aikakausi
+1	24	KLK_FI_1917	Kodin lehti	siirtola	N	siirtolasta	nommod	38	aikakausi
+1	0	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	Siirtolaiset	nsubj-cop	6	aikakausi
+1	0	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaisten	poss	39	sanomalehti
+1	0	KLK_FI_1917	Hämeen Voima	siirtolainen	N	Siirtolaiset	nsubj	363	sanomalehti
+1	6	KLK_FI_1917	Suomen kirkon julkisia sanomia	siirtolainen	N	siirtolaisten	nommod	482	aikakausi
+1	43	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisia	dobj	75	sanomalehti
+1	8	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	muuttajan	poss	174	aikakausi
+1	3	KLK_FI_1917	Naisten ääni	siirtola	N	siirtola	nn	334	aikakausi
+1	21	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaisten	nommod	464	aikakausi
+1	11	KLK_FI_1917	Lakimies	siirtola	N	siirtola	dobj	343	aikakausi
+1	12	KLK_FI_1917	Valvoja	siirtola	N	siirtolan	poss	219	aikakausi
+1	0	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	Muuttaja	ROOT	474	aikakausi
+1	5	KLK_FI_1917	Aamulehti	muuttaja	N	muuttaja-	nn	418	sanomalehti
+1	1	KLK_FI_1917	Valvoja	siirtola	N	siirtola	nsubj-cop	42	aikakausi
+1	5	KLK_FI_1917	Kirjatyö	siirtola	N	siirtolassa	nommod	154	aikakausi
+1	0	KLK_FI_1917	Heinolan Lehti	siirtola	N	Siirtola	ROOT	377	sanomalehti
+1	36	KLK_FI_1917	Nuori voima	siirtola	N	siirtoloilla	conj	153	aikakausi
+1	4	KLK_FI_1917	Eteenpäin	siirtolainen	N	siirtolaisilla	nommod	54	sanomalehti
+1	34	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtolan	poss	104	aikakausi
+1	1	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	Siirtoloita	ROOT	304	aikakausi
+1	25	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	168	aikakausi
+1	1	KLK_FI_1917	Partiolainen	siirtola	N	siirtolat	nsubj	265	aikakausi
+1	0	KLK_FI_1917	Suomen kuvalehti	siirtola	N	Siirtoloita	nsubj-cop	150	aikakausi
+1	36	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	dobj	220	sanomalehti
+1	2	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtoloista	nommod	123	aikakausi
+1	1	KLK_FI_1917	Vartio-torni ja Kristuksen läsnäolon julistaja	siirtolainen	N	siirtolaiset	nsubj	373	aikakausi
+1	13	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtola	conj	332	aikakausi
+1	5	KLK_FI_1917	Aamulehti	siirtola	N	siirtola	nn	85	sanomalehti
+1	1	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtola	nsubj	311	aikakausi
+1	3	KLK_FI_1917	Kurikka	siirtola	A	siirtolainen	nsubj	258	aikakausi
+1	8	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	282	aikakausi
+1	10	KLK_FI_1917	Lakimies	siirtola	N	siirtolan	poss	416	aikakausi
+1	0	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	Siirtolaiset	nsubj	122	sanomalehti
+1	6	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtolan	poss	329	aikakausi
+1	1	KLK_FI_1917	Aamulehti	muuttaja	N	muuttajilta	nommod	59	sanomalehti
+1	0	KLK_FI_1917	Lakimies	siirtola	N	Siirtolassa	nommod	195	aikakausi
+1	19	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	270	sanomalehti
+1	36	KLK_FI_1917	Suomen nainen	siirtola	N	siirtoloita	conj	21	aikakausi
+1	6	KLK_FI_1917	Eteenpäin	siirtola	A	siirtolaisina	nommod	210	sanomalehti
+1	9	KLK_FI_1917	Aamulehti	siirtola	N	siirtolan	gobj	115	sanomalehti
+1	8	KLK_FI_1917	Rauhan sanoma	siirtolainen	N	siirtolaiset	nsubj	218	aikakausi
+1	0	KLK_FI_1917	Hämeen Voima	siirtolainen	N	Siirtolaiset	ROOT	264	sanomalehti
+1	37	KLK_FI_1917	Aamulehti	siirtola	N	siirtolassa	nommod	73	sanomalehti
+1	4	KLK_FI_1917	Rauhan sanoma	siirtolainen	N	siirtolaiset	nsubj	277	aikakausi
+1	11	KLK_FI_1917	Kalevan viikkolehti	siirtolainen	N	siirtolaisena	nommod	5	aikakausi
+1	15	KLK_FI_1917	Naisten ääni	siirtolainen	N	siirtolaisten	poss	206	aikakausi
+1	22	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtolainen	N	siirtolaisten	poss	389	aikakausi
+1	2	KLK_FI_1917	Kurikka	siirtolainen	N	siirtolaiselle	nommod	111	aikakausi
+1	6	KLK_FI_1917	Pellervo	siirtolainen	N	siirtolaiset	nsubj	424	aikakausi
+1	3	KLK_FI_1917	Lakimies	siirtola	N	siirtolan	poss	83	aikakausi
+1	0	KLK_FI_1917	Betania	siirtola	N	Siirtolan	poss	237	aikakausi
+1	0	KLK_FI_1917	Etelä-Suomi	siirtolainen	N	Siirtolaisten	poss	162	sanomalehti
+1	7	KLK_FI_1917	Lakimies	siirtola	N	siirtolan	poss	105	aikakausi
+1	1	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	486	aikakausi
+1	2	KLK_FI_1917	Sanomia armosta	siirtola	N	siirtolan	gobj	462	aikakausi
+1	17	KLK_FI_1917	Työväen kalenteri	siirtolainen	N	siirtolaisille	nommod	472	aikakausi
+1	6	KLK_FI_1917	Alempi kansanopetus	siirtola	N	siirtolaan	nommod	172	aikakausi
+1	23	KLK_FI_1917	Kodin lehti	siirtola	N	siirtolalle	nommod	44	aikakausi
+1	5	KLK_FI_1917	Kirjatyö	siirtola	N	siirtolalle	nommod	274	aikakausi
+1	6	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaisten	nommod-own	288	sanomalehti
+1	30	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	473	aikakausi
+1	15	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	318	aikakausi
+1	12	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisten	poss	419	sanomalehti
+1	0	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	Siirtolan	poss	393	aikakausi
+1	148	KLK_FI_1917	Työväen kalenteri	siirtolainen	N	siirtolaiset	dobj	344	aikakausi
+1	0	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaiset	name	362	sanomalehti
+1	3	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	nommod	451	aikakausi
+1	35	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	19	aikakausi
+1	1	KLK_FI_1917	Etelä-Suomi	siirtolainen	N	siirtolaisia	dobj	245	sanomalehti
+1	5	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	358	aikakausi
+1	39	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	gsubj	35	sanomalehti
+1	33	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	94	aikakausi
+1	12	KLK_FI_1917	Kisakenttä	siirtola	N	siirtolaa	nommod	411	aikakausi
+1	18	KLK_FI_1917	Työväen kalenteri	muuttaja	N	muuttaja	nsubj	309	aikakausi
+1	10	KLK_FI_1917	Etelä-Savo	siirtolainen	N	siirtolaiset	conj	296	sanomalehti
+1	53	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisia	dobj	182	sanomalehti
+1	3	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaisemme	nsubj	58	aikakausi
+1	8	KLK_FI_1917	Nuorten airut	siirtolainen	N	siirtolaisten	dobj	423	aikakausi
+1	5	KLK_FI_1917	Brandluren	siirtolainen	N	siirtolaisten	dobj	426	aikakausi
+1	10	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaista	nsubj	140	sanomalehti
+1	18	KLK_FI_1917	Kylväjä	siirtolainen	N	Siirtolaisia	nsubj	103	aikakausi
+1	6	KLK_FI_1917	Lakimies	siirtola	N	siirtolaa	dobj	176	aikakausi
+1	10	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	200	aikakausi
+1	2	KLK_FI_1917	Kirjatyö	siirtola	N	siirtolan	gobj	169	aikakausi
+1	2	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	385	aikakausi
+1	10	KLK_FI_1917	Länsi-Savo	siirtolainen	N	siirtolaiset	conj	280	sanomalehti
+1	12	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	249	aikakausi
+1	12	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolat	nommod	61	aikakausi
+1	4	KLK_FI_1917	Aika	siirtolainen	N	siirtolaisten	poss	226	aikakausi
+1	1	KLK_FI_1917	Suomen kirkon julkisia sanomia	siirtolainen	N	siirtolaisten	poss	53	aikakausi
+1	7	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	gobj	93	aikakausi
+1	1	KLK_FI_1917	Aamulehti	siirtola	N	siirtola	nsubj	450	sanomalehti
+1	16	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisten	gobj	167	sanomalehti
+1	4	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	11	sanomalehti
+1	1	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtola	ROOT	336	aikakausi
+1	8	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisia	dobj	199	sanomalehti
+1	21	KLK_FI_1917	Heinolan Lehti	siirtola	A	siirtolaista	dobj	137	sanomalehti
+1	14	KLK_FI_1917	Luonnon Ystävä	siirtolainen	N	siirtolaisia	ROOT	306	aikakausi
+1	25	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	114	aikakausi
+1	34	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	395	aikakausi
+1	1	KLK_FI_1917	Kirjatyö	siirtola	N	siirtolaan	nommod	402	aikakausi
+1	13	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtoloita	dobj	32	aikakausi
+1	8	KLK_FI_1917	Historiallinen Aikakauskirja	siirtolainen	N	siirtolaiselle	nommod	259	aikakausi
+1	10	KLK_FI_1917	Merimiehen ystäwä	siirtola	N	siirtoloita	dobj	340	aikakausi
+1	5	KLK_FI_1917	Aamulehti	siirtola	A	siirtolaiselta	amod	72	sanomalehti
+1	16	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaisten	poss	84	sanomalehti
+1	11	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaistemme	poss	324	aikakausi
+1	43	KLK_FI_1917	Etelä-Savo	siirtolainen	N	siirtolaisen	dobj	66	sanomalehti
+1	13	KLK_FI_1917	Vakuutussanomia	siirtolainen	N	siirtolainen	nsubj	379	aikakausi
+1	0	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaisten	gsubj	290	sanomalehti
+1	1	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaiset	ROOT	248	sanomalehti
+1	9	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolaa	dobj	413	aikakausi
+1	4	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	34	aikakausi
+1	3	KLK_FI_1917	Hämeen Voima	siirtolainen	N	siirtolaista	ROOT	447	sanomalehti
+1	11	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	muuttaja	nsubj	208	aikakausi
+1	17	KLK_FI_1917	Hämeen Voima	siirtola	N	siirtolaksi	nommod	314	sanomalehti
+1	11	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	Siirtolaisten	appos	287	sanomalehti
+1	16	KLK_FI_1917	Aamulehti	muuttaja	N	muuttajat	nsubj	386	sanomalehti
+1	4	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	267	aikakausi
+1	0	KLK_FI_1917	Hämeen Voima	siirtolainen	N	siirtolaisten	poss	22	sanomalehti
+1	3	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	Siirtolassa	nommod	126	aikakausi
+1	11	KLK_FI_1917	Sunnuntaitervehdys	siirtola	N	siirtolan	poss	173	aikakausi
+1	9	KLK_FI_1917	Naisten ääni	siirtola	N	siirtoloiden	poss	275	aikakausi
+1	47	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisia	dobj	331	sanomalehti
+1	46	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	90	aikakausi
+1	12	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolassa	compar	355	aikakausi
+1	17	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtola	nsubj	214	aikakausi
+1	38	KLK_FI_1917	Naisten ääni	muuttaja	N	muuttajissa	nommod	127	aikakausi
+1	7	KLK_FI_1917	Kurikka	siirtolainen	N	siirtolaiseksi	nommod	40	aikakausi
+1	15	KLK_FI_1917	Betania	siirtola	N	siirtolassa	nommod	294	aikakausi
+1	0	KLK_FI_1917	Suomi	siirtolainen	N	Siirtolaisten	poss	50	aikakausi
+1	6	KLK_FI_1917	Kolkuttaja : totisen parannuksen ja eläwän uskon kannatuslehti	siirtola	A	siirtolainen	amod	207	aikakausi
+1	9	KLK_FI_1917	Kodin lehti	muuttaja	N	muuttaja	nsubj-cop	65	aikakausi
+1	23	KLK_FI_1917	Suomen meijerilehti	muuttaja	N	muuttajan	poss	400	aikakausi
+1	12	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloita	nsubj	459	aikakausi
+1	13	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	dobj	205	sanomalehti
+1	17	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaisilta	nommod	10	aikakausi
+1	5	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaiset	nsubj	476	sanomalehti
+1	3	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtolassa	nommod	9	aikakausi
+1	26	KLK_FI_1917	Suomen Lähetyssanomia	siirtolainen	N	siirtolaisten	conj	319	aikakausi
+1	2	KLK_FI_1917	Betania	siirtola	N	siirtolassa	nommod	246	aikakausi
+1	3	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	ROOT	404	sanomalehti
+1	11	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloina	nommod	388	aikakausi
+1	13	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	134	aikakausi
+1	7	KLK_FI_1917	Helsingin Kuvalehti	siirtola	N	siirtoloita	dobj	485	aikakausi
+1	3	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaisia	dobj	489	sanomalehti
+1	0	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaiset	nsubj	217	sanomalehti
+1	8	KLK_FI_1917	Opettajain lehti	siirtolainen	N	siirtolaisista	nommod	456	aikakausi
+1	20	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	gsubj	461	sanomalehti
+1	1	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	ROOT	238	aikakausi
+1	1	KLK_FI_1917	Pääskynen	siirtola	N	siirtolan	poss	260	aikakausi
+1	15	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	muuttajan	poss	317	aikakausi
+1	9	KLK_FI_1917	Kodin lehti	muuttaja	N	MUUTTAJAIN	nsubj	242	aikakausi
+1	9	KLK_FI_1917	Historiallinen Aikakauskirja	maastamuutto	N	maastamuuttoihin	nommod	161	
+1	11	KLK_FI_1917	Rauhan sanoma	siirtola	N	siirtolan	poss	487	aikakausi
+1	5	KLK_FI_1917	Suomen nainen	siirtola	A	siirtolainen	nsubj	17	aikakausi
+1	3	KLK_FI_1917	Kansakoulun lehti	siirtola	N	siirtola	dobj	171	aikakausi
+1	1	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloissa	nommod	352	aikakausi
+1	18	KLK_FI_1917	Eteenpäin	siirtolainen	N	siirtolaisten	poss	230	sanomalehti
+1	14	KLK_FI_1917	Etelä-Suomi	siirtola	N	siirtolassa	conj	434	sanomalehti
+1	0	KLK_FI_1917	Kodin kuvasto	siirtolainen	N	Siirtolaiset	nsubj	2	aikakausi
+1	20	KLK_FI_1917	Kirjatyö	siirtola	N	siirtolan	nsubj	291	aikakausi
+1	10	KLK_FI_1917	Valkonauha	siirtola	N	siirtolan	poss	454	aikakausi
+1	29	KLK_FI_1917	Helsingin Kuvalehti	siirtolainen	N	siirtolaisille	nommod	453	aikakausi
+1	20	KLK_FI_1917	Aamulehti	muuttaja	N	-muuttajassa	nommod	360	sanomalehti
+1	12	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	366	aikakausi
+1	9	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaista	dobj	428	sanomalehti
+1	3	KLK_FI_1917	Lakimies	siirtola	N	siirtolain	ROOT	0	aikakausi
+1	7	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaisten	advcl	98	aikakausi
+1	20	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	124	sanomalehti
+1	6	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolaan	nommod	467	aikakausi
+1	1	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaiset	nsubj	190	aikakausi
+1	12	KLK_FI_1917	Suomen maanmittari-yhdistyksen aikakauskirja	muuttaja	N	muuttajille	nommod	67	aikakausi
+1	6	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaiset	nsubj	257	sanomalehti
+1	1	KLK_FI_1917	Lakimies	siirtola	N	siirtolain	poss	381	aikakausi
+1	6	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisista	conj	414	sanomalehti
+1	2	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaiset	nsubj-cop	37	sanomalehti
+1	4	KLK_FI_1917	Terveydenhoitolehti	siirtolainen	N	siirtolaisten	poss	201	aikakausi
+1	31	KLK_FI_1917	Aamulehti	siirtola	N	siirtoloihin	nommod	177	sanomalehti
+1	20	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaisia	nommod	349	aikakausi
+1	0	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	Siirtolaistemme	ROOT	271	aikakausi
+1	8	KLK_FI_1917	Sanomia armosta	siirtola	N	siirtolasta	nommod	407	aikakausi
+1	14	KLK_FI_1917	Metallityöläinen	siirtolainen	N	siirtolaisten	poss	359	aikakausi
+1	14	KLK_FI_1917	Länsi-Savo	siirtolainen	N	siirtolaisten	nommod	86	sanomalehti
+1	36	KLK_FI_1917	Lakimies	siirtola	N	siirtolasta	nommod	443	aikakausi
+1	29	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtoloihin	nommod	342	aikakausi
+1	5	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	409	aikakausi
+1	0	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	Siirtolan	poss	1	aikakausi
+1	4	KLK_FI_1917	Kodin kuvasto	siirtolainen	N	siirtolaisia	nommod	36	aikakausi
+1	17	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtola	nsubj	151	aikakausi
+1	7	KLK_FI_1917	Kurikka	siirtola	A	siirtolainen	dobj	330	aikakausi
+1	5	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolassa	nommod	191	aikakausi
+1	2	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolan	poss	292	aikakausi
+1	0	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaiset	nsubj	463	sanomalehti
+1	1	KLK_FI_1917	Historiallinen Aikakauskirja	maastamuutto	N	maastamuutoista	nommod	252	
+1	12	KLK_FI_1917	Pelastusarmeijan nuori sotilas	siirtola	N	siirtolaa	nommod	141	aikakausi
+1	14	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtola	N	siirtolan	dobj	147	aikakausi
+1	0	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaiset	nsubj	80	sanomalehti
+1	3	KLK_FI_1917	Naisten ääni	muuttaja	N	muuttajille	number	82	aikakausi
+1	0	KLK_FI_1917	Haminan Lehti	siirtolainen	N	Siirtolaiset	ROOT	481	sanomalehti
+1	13	KLK_FI_1917	Kurikka	siirtolainen	N	siirtolaiselle	nommod	484	aikakausi
+1	6	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	297	aikakausi
+1	3	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisilta	nommod	302	sanomalehti
+1	2	KLK_FI_1917	Työväen kalenteri	siirtolainen	N	siirtolaiset	dobj	375	aikakausi
+1	9	KLK_FI_1917	Kurikka	siirtolainen	N	siirtolainen	nsubj	368	aikakausi
+1	8	KLK_FI_1917	Aamulehti	siirtola	N	siirtola	ROOT	397	sanomalehti
+1	12	KLK_FI_1917	Aamulehti	siirtola	N	Siirtola	conj	328	sanomalehti
+1	2	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	437	aikakausi
+1	10	KLK_FI_1917	Kotoa ja Kaukaa	siirtola	N	siirtolaa	dobj	483	aikakausi
+1	10	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaista	nommod	427	sanomalehti
+1	8	KLK_FI_1917	Partiolainen	siirtola	N	siirtoloissa	nommod	91	aikakausi
+1	7	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolaa	dobj	354	aikakausi
+1	7	KLK_FI_1917	Kurikka	siirtolainen	N	siirtolaisia	dobj	261	aikakausi
+1	7	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtolainen	N	siirtolaisiamme	nommod	398	aikakausi
+1	3	KLK_FI_1917	Toivon Tähti	siirtolainen	N	siirtolaisia	nsubj	157	aikakausi
+1	5	KLK_FI_1917	Kodin lehti	siirtolainen	N	siirtolaiset	dobj	146	aikakausi
+1	19	KLK_FI_1917	Lakimies	siirtola	N	siirtolasta	nommod	279	aikakausi
+1	27	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	96	aikakausi
+1	2	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisia	dobj	183	sanomalehti
+1	1	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisten	poss	106	sanomalehti
+1	9	KLK_FI_1917	Pääskynen	siirtola	N	siirtolan	poss	435	aikakausi
+1	0	KLK_FI_1917	Länsi-Savo	siirtola	N	Siirtola	dobj	224	sanomalehti
+1	3	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolat	nsubj	95	aikakausi
+1	0	KLK_FI_1917	Kodin lehti	siirtolainen	N	Siirtolaiset	nsubj	417	aikakausi
+1	8	KLK_FI_1917	Etelä-Suomi	siirtolainen	N	siirtolaisen	poss	15	sanomalehti
+1	0	KLK_FI_1917	Kutomatyöläinen	siirtolainen	N	Siirtolaiset	nsubj	299	aikakausi
+1	0	KLK_FI_1917	Etelä-Suomi	siirtolainen	N	Siirtolaiset	nsubj	156	sanomalehti
+1	39	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	nommod	216	aikakausi
+1	10	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtoloita	conj	301	aikakausi
+1	22	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisille	nommod	466	sanomalehti
+1	13	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolassa	nommod	62	aikakausi
+1	63	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	138	sanomalehti
+1	3	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	133	aikakausi
+1	12	KLK_FI_1917	Kodin lehti	siirtola	N	siirtolan	poss	289	aikakausi
+1	29	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	113	aikakausi
+1	1	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	nommod	77	sanomalehti
+1	1	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaiset	nsubj	203	aikakausi
+1	12	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	307	sanomalehti
+1	7	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloihin	nommod	286	aikakausi
+1	19	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolassa	nommod	26	aikakausi
+1	15	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloissa	conj	278	aikakausi
+1	4	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	20	aikakausi
+1	8	KLK_FI_1917	Nuorten toivo	siirtolainen	N	siirtolaisten	nommod	365	aikakausi
+1	1	KLK_FI_1917	Aamulehti	siirtola	N	siirtola	ROOT	396	sanomalehti
+1	19	KLK_FI_1917	Opettajain lehti	siirtola	N	siirtoloissa	nommod	227	aikakausi
+1	1	KLK_FI_1917	Pelastusarmeijan nuori sotilas	siirtola	N	siirtola	ROOT	410	aikakausi
+1	15	KLK_FI_1917	Nuori voima	siirtola	N	siirtolaan	appos	408	aikakausi
+1	3	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtola	nsubj	457	aikakausi
+1	18	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaisten	gobj	351	aikakausi
+1	10	KLK_FI_1917	Suomen maanmittari-yhdistyksen aikakauskirja	muuttaja	N	muuttajalle	nommod	312	aikakausi
+1	0	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaistemme	poss	283	aikakausi
+1	9	KLK_FI_1917	Kodin lehti	siirtola	N	siirtolaan	nommod	295	aikakausi
+1	14	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtolainen	N	siirtolaiset	nsubj	390	aikakausi
+1	2	KLK_FI_1917	Lakimies	siirtola	N	siirtoloille	nommod	109	aikakausi
+1	18	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	56	aikakausi
+1	16	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	130	sanomalehti
+1	3	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtola	nn	51	aikakausi
+1	16	KLK_FI_1917	Sanomia armosta	siirtola	N	siirtola	dobj	164	aikakausi
+1	9	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisia	dobj	337	sanomalehti
+1	3	KLK_FI_1917	Etelä-Suomi	siirtolainen	N	siirtolaista	nsubj	353	sanomalehti
+1	15	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	52	aikakausi
+1	20	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	469	aikakausi
+1	19	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtola	nsubj	41	aikakausi
+1	10	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisia	nsubj	92	sanomalehti
+1	15	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	conj	129	aikakausi
+1	0	KLK_FI_1917	Aamulehti	siirtola	N	Siirtolan	poss	298	sanomalehti
+1	0	KLK_FI_1917	Lakimies	siirtola	N	Siirtolaan	nommod	405	aikakausi
+1	13	KLK_FI_1917	Lakimies	siirtola	N	siirtolasta	nommod	128	aikakausi
+1	11	KLK_FI_1917	Suomen kirkon julkisia sanomia	siirtolainen	N	siirtolaisia	nommod	47	aikakausi
+1	3	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolan	dobj	211	aikakausi
+1	7	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	160	aikakausi
+1	11	KLK_FI_1917	Aika	siirtola	N	siirtoloita	dobj	438	aikakausi
+1	0	KLK_FI_1917	Lakimies	siirtola	N	Siirtoloissa	nommod	273	aikakausi
+1	16	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	323	aikakausi
+1	4	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloissa	conj	117	aikakausi
+1	4	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	78	aikakausi
+1	24	KLK_FI_1917	Valohon	siirtolainen	N	siirtolaiset	conj	197	aikakausi
+1	28	KLK_FI_1917	Heinolan Lehti	siirtola	A	Siirtolaiset	amod	69	sanomalehti
+1	5	KLK_FI_1917	Länsi-Savo	siirtola	N	siirtolan	nommod	276	sanomalehti
+1	5	KLK_FI_1917	Etelä-Suomi	siirtolainen	N	siirtolaisia	dobj	99	sanomalehti
+1	21	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloiden	poss	49	aikakausi
+1	1	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaiset	ROOT	79	sanomalehti
+1	1	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolaa	dobj	247	aikakausi
+1	18	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisina	nommod	406	sanomalehti
+1	41	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	412	aikakausi
+1	19	KLK_FI_1917	Lakimies	siirtola	N	siirtolan	poss	345	aikakausi
+1	2	KLK_FI_1917	Betania	siirtola	N	siirtolassa	nommod	256	aikakausi
+1	5	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	101	sanomalehti
+1	5	KLK_FI_1917	Lakimies	siirtola	N	siirtoloille	nommod	488	aikakausi
+1	5	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	nommod	116	aikakausi
+1	9	KLK_FI_1917	Eteenpäin	siirtolainen	N	siirtolaisia	nommod	202	sanomalehti
+1	2	KLK_FI_1917	Rauhan sanoma	siirtola	N	siirtolassa	nommod	433	aikakausi
+1	6	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtolaa	nsubj	57	aikakausi
+1	10	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisia	dobj	231	sanomalehti
+1	11	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaiset	nsubj	403	aikakausi
+1	15	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisille	nommod	293	sanomalehti
+1	0	KLK_FI_1917	Aamulehti	siirtola	N	Siirtolan	poss	178	sanomalehti
+1	7	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaisten	nommod	255	aikakausi
+1	24	KLK_FI_1917	Vakuutussanomia	siirtolainen	N	siirtolaisen	poss	16	aikakausi
+1	12	KLK_FI_1917	Vartija	siirtolainen	N	siirtolaisten	conj	165	aikakausi
+1	1	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	nommod	55	aikakausi
+1	8	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	89	aikakausi
+1	29	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	conj	175	aikakausi
+1	0	KLK_FI_1917	Nuorison ystävä	muuttaja	N	Muuttaja	nsubj-cop	446	aikakausi
+1	1	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtoloista	ROOT	452	aikakausi
+1	7	KLK_FI_1917	Vartija	muuttaja	N	muuttajista	nommod	222	aikakausi
+1	27	KLK_FI_1917	Lakimies	siirtola	N	siirtoloista	nommod	125	aikakausi
+1	60	KLK_FI_1917	Valvoja	siirtolainen	N	siirtolaista	nsubj-cop	189	aikakausi
+1	0	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	Siirtolaiset	ROOT	108	sanomalehti
+1	42	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	285	aikakausi
+1	4	KLK_FI_1917	Partiolainen	siirtola	N	siirtoloihin	nommod	110	aikakausi
+1	28	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolassa	nommod	281	aikakausi
+1	5	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtola	N	siirtoloissa	appos	194	aikakausi
+1	3	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaiset	nsubj	266	sanomalehti
+1	12	KLK_FI_1917	Kodin kuvasto	siirtolainen	N	siirtolaisten	conj	155	aikakausi
+1	5	KLK_FI_1917	Otava	emigrantti	N	emigrantit	conj	422	aikakausi
+1	41	KLK_FI_1917	Lakimies	siirtola	N	siirtoloita	dobj	236	aikakausi
+1	20	KLK_FI_1917	Kaleva	siirtolainen	N	siirtolaisena	nommod	170	aikakausi
+1	5	KLK_FI_1917	Rauhan sanoma	siirtolainen	N	siirtolaisille	nommod	107	aikakausi
+1	21	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaiset	poss	23	sanomalehti
+1	7	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	241	aikakausi
+1	25	KLK_FI_1917	Eteenpäin	siirtola	N	siirtola	dobj	254	sanomalehti
+1	19	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisille	nommod	378	sanomalehti
+1	5	KLK_FI_1917	Kutomatyöläinen	siirtolainen	N	siirtolaisia	dobj	63	aikakausi
+1	3	KLK_FI_1917	Lakimies	siirtola	N	siirtolan	poss	87	aikakausi
+1	1	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaiset	nsubj	253	sanomalehti
+1	18	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtoloissa	nommod	43	aikakausi
+1	4	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	477	sanomalehti
+1	42	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisia	nsubj	70	sanomalehti
+1	37	KLK_FI_1917	Tietäjä	siirtolainen	N	siirtolaiset	nsubj	445	aikakausi
+1	10	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	335	aikakausi
+1	10	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	188	aikakausi
+1	22	KLK_FI_1917	Suomen kuvalehti	siirtola	A	siirtolaisiin	amod	198	aikakausi
+1	4	KLK_FI_1917	Lakimies	siirtola	N	siirtoloista	nommod	333	aikakausi
+1	9	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisia	nommod	401	sanomalehti
+1	1	KLK_FI_1917	Lakimies	siirtola	N	siirtoloista	nommod	430	aikakausi
+1	0	KLK_FI_1917	Lakimies	siirtola	N	Siirtoloihin	nommod	187	aikakausi
+1	6	KLK_FI_1917	Etelä-Suomen Sanomat	muuttaja	N	muuttajain	nsubj	30	sanomalehti
+1	17	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	Siirtoloissa	nommod	159	aikakausi
+1	3	KLK_FI_1917	Pyrkijä	siirtolainen	N	siirtolaisten	poss	429	aikakausi
+1	0	KLK_FI_1917	Suomen kirkon julkisia sanomia	siirtolainen	N	Siirtolaisina	nommod	132	aikakausi
+1	17	KLK_FI_1917	Kirjatyö	siirtola	N	siirtolan	poss	321	aikakausi
+1	18	KLK_FI_1917	Kotimatkalla: Evankelinen Kalenteri	siirtolainen	N	siirtolaisia	nommod	179	aikakausi
+1	23	KLK_FI_1917	Etelä-Saimaa	siirtola	A	Siirtolaiset	amod	74	sanomalehti
+1	8	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	dobj	471	sanomalehti
+1	9	KLK_FI_1917	Merimiehen ystäwä	siirtolainen	N	siirtolaisten	nsubj	357	aikakausi
+1	3	KLK_FI_1917	Partiolainen	siirtola	N	siirtolassa	conj	370	aikakausi
+1	5	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtola	N	siirtola	nsubj	361	aikakausi
+1	0	KLK_FI_1917	Työväen kalenteri	siirtolainen	N	Siirtolaisilla	nommod	492	aikakausi
+1	1	KLK_FI_1917	Naisten ääni	muuttaja	N	muuttajille	ROOT	263	aikakausi
+1	7	KLK_FI_1917	Lakimies	siirtola	N	siirtoloiden	gsubj	144	aikakausi
+1	7	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisten	ROOT	119	sanomalehti
+1	1	KLK_FI_1917	Eteenpäin	siirtolainen	N	siirtolaiset	ROOT	212	sanomalehti
+1	16	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	338	aikakausi
+1	2	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisia	dobj	421	sanomalehti
+1	6	KLK_FI_1917	Kodin lehti	siirtola	N	siirtolassa	nommod	163	aikakausi
+1	37	KLK_FI_1917	Suomen kirkon julkisia sanomia	siirtolainen	N	siirtolaisina	nommod	33	aikakausi
+1	44	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaiset	nsubj	7	sanomalehti
+1	5	KLK_FI_1917	Työväen kalenteri	siirtolainen	N	siirtolaiset	appos	460	aikakausi
+1	66	KLK_FI_1917	Naisten ääni	siirtola	N	siirtoloissa	nommod	348	aikakausi
+1	14	KLK_FI_1917	Kansanvalistus	maastamuutto	N	maastamuuton	poss	444	aikakausi
+1	1	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaiset	nsubj	448	sanomalehti
+1	27	KLK_FI_1917	Lakimies	siirtola	N	siirtolaa	dobj	305	aikakausi
+1	6	KLK_FI_1917	Suomen kirkon julkisia sanomia	siirtolainen	N	siirtolaisten	poss	465	aikakausi
+1	1	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisia	ROOT	97	sanomalehti
+1	12	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaista	dobj	372	sanomalehti
+1	3	KLK_FI_1917	Suomen ammattijärjestö	maastamuutto	N	maastamuutto	conj	24	aikakausi
+1	4	KLK_FI_1917	Valvoja	siirtolainen	N	Siirtolaisia	name	455	aikakausi
+1	4	KLK_FI_1917	Lakimies	siirtola	N	siirtoloita	dobj	12	aikakausi
+1	25	KLK_FI_1917	Lakimies	siirtola	N	siirtolasta	nommod	322	aikakausi
+1	23	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisia	nommod	152	sanomalehti
+1	1	KLK_FI_1917	Naisten ääni	muuttaja	N	muuttajille	ROOT	479	aikakausi
+1	6	KLK_FI_1917	Eteenpäin	muuttaja	N	muuttajaa	appos	320	sanomalehti
+1	4	KLK_FI_1917	Hämeen Voima	siirtolainen	N	siirtolaisia	dobj	420	sanomalehti
+1	15	KLK_FI_1917	Työväen kalenteri	siirtolainen	N	Siirtolaisia	dobj	374	aikakausi
+1	8	KLK_FI_1917	Kutomatyöläinen	siirtolainen	N	siirtolaisten	poss	225	aikakausi
+1	33	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	81	sanomalehti
+1	28	KLK_FI_1917	Ylioppilaslehti	siirtola	N	siirtolassa	nommod	112	aikakausi
+1	7	KLK_FI_1917	Maatalous	siirtolainen	N	siirtolaisina	nommod	4	aikakausi
+1	3	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	poss	204	sanomalehti
+1	10	KLK_FI_1917	Aamulehti	siirtola	A	siirtolaisilta	amod	326	sanomalehti
+1	29	KLK_FI_1917	Valvoja	emigrantti	N	emigrantin	poss	158	aikakausi
+1	10	KLK_FI_1917	Etelä-Saimaa	siirtola	N	siirtola	nn	399	sanomalehti
+1	8	KLK_FI_1917	Aikakauslehti koneenkäyttäjille ja veturimiehille Suomessa	siirtolainen	N	siirtolaisia	dobj	131	aikakausi
+1	13	KLK_FI_1917	Heinolan Lehti	siirtolainen	N	siirtolaisten	poss	250	sanomalehti
+1	3	KLK_FI_1917	Nuorten airut	siirtola	N	Siirtolat	name	185	aikakausi
+1	7	KLK_FI_1917	Matkailulehti	siirtola	N	siirtola	appos	232	aikakausi
+1	26	KLK_FI_1917	Kodin lehti	siirtola	N	siirtolaan	nommod	31	aikakausi
+1	13	KLK_FI_1917	Lakimies	siirtola	N	siirtoloista	nommod	209	aikakausi
+1	2	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	Muuttaja	nsubj	284	aikakausi
+1	12	KLK_FI_1917	Suomen Lähetyssanomia	siirtola	A	siirtolaisina	nommod	121	aikakausi
+1	23	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	conj	29	sanomalehti
+1	6	KLK_FI_1917	Puutarha	siirtolainen	N	siirtolaisia	dobj	239	aikakausi
+1	30	KLK_FI_1917	Suomen maanmittari-yhdistyksen aikakauskirja	muuttaja	N	muuttajalle	nommod	240	aikakausi
+1	5	KLK_FI_1917	Opettajain lehti	muuttaja	N	muuttajalle	nommod	136	aikakausi
+1	1	KLK_FI_1917	Nuorten toivo	siirtolainen	N	siirtolaisiamme	dobj	135	aikakausi
+1	6	KLK_FI_1917	Pelastusarmeijan nuori sotilas	siirtola	N	siirtolassa	nommod	300	aikakausi
+1	20	KLK_FI_1917	Kodin lehti	siirtolainen	N	siirtolaisia	dobj	60	aikakausi
+1	4	KLK_FI_1917	Rauhan sanoma	siirtola	N	siirtolan	poss	192	aikakausi
+1	9	KLK_FI_1917	Etelä-Saimaa	siirtola	N	Siirtolan	poss	383	sanomalehti
+1	14	KLK_FI_1917	Lakimies	siirtola	N	siirtoloiden	nsubj	480	aikakausi
+1	11	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisia	nommod	166	sanomalehti
+1	1	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaisia	nommod	8	sanomalehti
+1	12	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolassa	conj	310	aikakausi
+1	5	KLK_FI_1917	Aamulehti	siirtolainen	N	Siirtolaiset	nsubj	327	sanomalehti
+1	26	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	181	aikakausi
+1	0	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	Siirtolaiset	ROOT	346	sanomalehti
+1	20	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	436	aikakausi
+1	30	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaista	dobj	228	sanomalehti
+1	26	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolat	nsubj	251	aikakausi
+1	6	KLK_FI_1917	Partiolainen	siirtola	N	siirtoloita	nommod	118	aikakausi
+1	3	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolassa	nommod	102	aikakausi
+1	23	KLK_FI_1917	Rauhan sanoma	siirtola	N	siirtola	nsubj	382	aikakausi
+1	1	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtola	dobj	76	aikakausi
+1	1	KLK_FI_1917	Etelä-Saimaa	siirtola	N	siirtola	ROOT	468	sanomalehti
+1	93	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaisissa	nommod	315	sanomalehti
+1	2	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtolat	nsubj	356	aikakausi
+1	5	KLK_FI_1917	Lakimies	siirtola	N	siirtoloihin	nommod	384	aikakausi
+1	4	KLK_FI_1917	Aamulehti	maastamuutto	N	maastamuuton	poss	221	sanomalehti
+1	3	KLK_FI_1917	Etelä-Suomen Sanomat	siirtolainen	N	siirtolaisia	ROOT	475	sanomalehti
+1	3	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	Muuttaja	nsubj	14	aikakausi
+1	4	KLK_FI_1917	Maatalous	siirtolainen	N	siirtolaisille	nommod	48	aikakausi
+1	13	KLK_FI_1917	Puutarha	siirtolainen	N	siirtolaisen	nsubj	64	aikakausi
+1	0	KLK_FI_1917	Eteenpäin	siirtolainen	N	Siirtolaiset	nsubj	196	sanomalehti
+1	6	KLK_FI_1917	Pellervo	siirtolainen	N	siirtolaiset	appos	325	aikakausi
+1	5	KLK_FI_1917	Lakimies	siirtola	N	siirtolaa	nsubj-cop	272	aikakausi
+1	19	KLK_FI_1917	Lakimies	siirtola	N	siirtoloiden	poss	394	aikakausi
+1	17	KLK_FI_1917	Suomen urheilulehti	muuttaja	N	muuttaja	nsubj	369	aikakausi
+1	2	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	431	aikakausi
+1	12	KLK_FI_1917	Haminan Lehti	muuttaja	N	muuttajista	nommod	28	sanomalehti
+1	0	KLK_FI_1917	Etelä-Suomi	muuttaja	N	Muuttajien	poss	364	sanomalehti
+1	5	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisille	nommod	139	sanomalehti
+1	12	KLK_FI_1917	Etelä-Saimaa	siirtolainen	N	siirtolaisia	appos	376	sanomalehti
+1	15	KLK_FI_1917	Rauhan sanoma	siirtola	N	siirtolan	poss	391	aikakausi
+1	9	KLK_FI_1917	Etelä-Saimaa	siirtola	N	siirtolan	poss	229	sanomalehti
+1	47	KLK_FI_1917	Lakimies	siirtola	N	siirtolaan	nommod	13	aikakausi
+1	8	KLK_FI_1917	Sanomia armosta	siirtola	N	siirtola-	appos	313	aikakausi
+1	32	KLK_FI_1917	Otava	emigrantti	N	emigrantit	nsubj	268	aikakausi
+1	6	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	440	aikakausi
+1	9	KLK_FI_1917	Kauppalehti	siirtolainen	N	siirtolaiset	nsubj	387	aikakausi
+1	7	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	458	aikakausi
+1	1	KLK_FI_1917	Haminan Lehti	siirtolainen	N	siirtolaista	nommod	3	sanomalehti
+1	12	KLK_FI_1917	Liikeapulainen : Suomen liikeapulaisliiton äänenkannattaja	siirtolainen	N	siirtolaisten	conj	347	aikakausi
+1	18	KLK_FI_1917	Hämeen Sanomat	siirtolainen	N	siirtolaisia	appos	71	sanomalehti
+1	13	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaista	dobj	27	sanomalehti
+1	13	KLK_FI_1917	Köyhäinhoitolehti	siirtola	N	siirtolan	poss	371	aikakausi
+1	5	KLK_FI_1917	Köyhäinhoitolehti	muuttaja	N	muuttaja	dobj	439	aikakausi
+1	6	KLK_FI_1917	Suomen kuvalehti	siirtolainen	N	siirtolaisten	nsubj	233	aikakausi
+1	51	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaiset	nsubj-cop	180	sanomalehti
+1	15	KLK_FI_1917	Pääskynen	siirtola	N	siirtoloissa	nommod	18	aikakausi
+1	4	KLK_FI_1917	Suomen kunnallislehti	siirtola	N	siirtolat	conj	490	aikakausi
+1	23	KLK_FI_1917	Vapaa Ajatus	siirtola	N	siirtoloita	conj	350	aikakausi
+1	4	KLK_FI_1917	Naisten ääni	siirtolainen	N	siirtolaista	nsubj	392	aikakausi
+1	26	KLK_FI_1917	Lakimies	siirtola	N	siirtolassa	nommod	303	aikakausi
+1	3	KLK_FI_1917	Lakimies	siirtola	N	siirtoloissa	nommod	215	aikakausi
+1	16	KLK_FI_1917	Hämeen Voima	siirtolainen	N	siirtolaista	nommod	380	sanomalehti
+1	17	KLK_FI_1917	Aamulehti	siirtolainen	N	siirtolaisten	gobj	100	sanomalehti
+1	12	KLK_FI_1917	Pääskynen	siirtola	N	siirtolan	poss	308	aikakausi
+1	1	KLK_FI_1917	Helmiä syvyydestä	siirtola	N	siirtolassa	nommod	432	aikakausi
+1	8	KLK_FI_1917	Aamulehti	muuttaja	N	muuttaja-	conj	149	sanomalehti
+1	18	KLK_FI_1917	Suomen kuvalehti	siirtola	N	siirtoloita	dobj	120	aikakausi
+1	6	KLK_FI_1917	Lakimies	siirtola	N	siirtolan	poss	316	aikakausi
+1	0	KLK_FI_1917	Sunnuntaitervehdys	siirtola	N	Siirtolan	poss	339	aikakausi
+1	0	KLK_FI_1917	Aamulehti	siirtola	N	siirtoloissa	nommod	244	sanomalehti

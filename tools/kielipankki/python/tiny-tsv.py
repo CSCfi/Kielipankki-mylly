@@ -1,4 +1,4 @@
-# TOOL tiny-tsv.py: "Make a tiny TSV"
+# TOOL tiny-tsv.py: "Make tiny relation"
 # (Make a relation of up to three records of one to three attributes)
 # OUTPUT tiny.tsv
 # PARAMETER          attr0 TYPE STRING
@@ -19,6 +19,11 @@
 # if there is demand.
 
 import sys
+
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names2 import base, name
+name('tiny.tsv', 'tiny', ext = 'rel.tsv')
+
 def fail(mess): print(mess, file = sys.stderr) ; exit(1)
 
 attrs = (attr0, attr1, attr2)

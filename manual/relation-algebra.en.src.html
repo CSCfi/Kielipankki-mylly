@@ -1,0 +1,258 @@
+<article>
+  <p><em>
+      Category in Mylly: Relation algebra
+    </em>
+    | <a href="../../../tuki/mylly/relation-algebra">
+      fi
+    </a>
+  </p>
+  <h1>Relation algebra</h1>
+  <p><em>This is a technical document about an implementation of
+      relation algebra in Mylly. For practical examples, see (pages to
+      be written).</em>
+  </p>
+  <p>This is work in progress. Added first examples 2017-10-07.
+  </p>
+  <h2>Introduction</h2>
+  <p>A <em>relation</em> is a set of <em>records</em> that assign
+    definite values to a set of <em>attributes</em>. The attributes
+    are names that constitute the type of the relation.
+  </p>
+  <p>In a fuller theory, the attributes also have their own types,
+    but in Mylly, there is only an <em>intended</em> type for each
+    attribute; formally all values are character strings. This
+    limitation facilitates the representation of a relation as a
+    simple text file in TSV format, with a headline of names and the
+    corresponding values of each record on lines of their own,
+    adjacent fields separated with tabs. (Link to the IANA RFC
+    here.)
+  </p>
+  <p>Relations can contain an annotation structure attached to
+    tokenized text (with unique identifiers within the relation), or
+    metadata attached to sentence identifiers, or data frames that
+    can be the input or output of a statistical analysis.
+  </p>
+  <table>
+    <tr>
+      <th>sen</th>
+      <th>fi</th>
+      <th>en</th>
+      <th>mood</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>On se niin.</td>
+      <td>It is so.</td>
+      <td>calm</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Ei ole.</td>
+      <td>Is not.</td>
+      <td>calm</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>On!</td>
+      <td>Is!</td>
+      <td>angry</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>word</th>
+      <th>tok</th>
+      <th>sen</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>on  </td><td>1</td><td>3</td><td>olla</td></tr>
+    <tr><td>se  </td><td>2</td><td>3</td><td>se  </td></tr>
+    <tr><td>niin</td><td>3</td><td>3</td><td>niin</td></tr>
+    <tr><td>on  </td><td>1</td><td>5</td><td>olla</td></tr>
+    <tr><td>ei  </td><td>1</td><td>4</td><td>ei  </td></tr>
+    <tr><td>ole </td><td>2</td><td>4</td><td>olla</td></tr>
+  </table>
+  <p>A <em>relation algebra</em> consists of operations that make
+    relations out of relations. There are also actions that produce
+    relations but take another kind of input on the side, and tools
+    that take relations but produce something else.
+  </p>
+  <p>Such tools can take apart and put together related relations in
+    useful ways, opening up ways for further analysis. Some tools
+    are generally applicable. In addition, Mylly provides more
+    special tools to facilitate the manipulation and investigation
+    of language data.
+  </p>
+  <h2>Unique and unordered attributes and records</h2>
+  <p>Duplicate records are not allowed in a relation. The order of
+    the lines in the TSV file that represents a relation does not
+    matter: the record lines can be reordered arbitrarily or at
+    will, and the file will still represent the same relation. A
+    relation is literally a <em>set</em> of records.
+  </p>
+  <p>When multiplicity or order are important, the relation can
+    contain attributes that make these explicit.
+  </p>
+  <p>The attributes are similarly distinct from each other and their
+    order is the file that represents a relation is similarly
+    accidental. The attributes, too, are literally a <em>set</em>.
+  </p>
+  <table>
+    <tr><th>pos</th><th>lemma</th></tr>
+    <tr><td>V  </td><td>olla </td></tr>
+    <tr><td>V  </td><td>ei   </td></tr>
+    <tr><td>V  </td><td>voida</td></tr>
+  </table>
+  <table>
+    <tr><th>lemma</th><th>pos</th></tr>
+    <tr><td>ei   </td><td>V  </td></tr>
+    <tr><td>olla </td><td>V  </td></tr>
+    <tr><td>voida</td><td>V  </td></tr>
+  </table>
+
+  <h2>The join</h2>
+  <p>Two relations <em>share</em> the attributes that have the same
+    name (and type, in fuller theory).
+  </p>
+  <p>The <em>join</em> of two relations consists of the records that
+    have all the attributes that either relation has, the <em>shared
+      attributes</em> have the same value in both relations, and the
+    other values are taken from the record that has the non-shared
+    attribute.
+  </p>
+  <table>
+    <tr>
+      <th>word</th>
+      <th>pos</th>
+      <th>tok</th>
+      <th>sen</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>ei </td><td>V</td><td>1</td><td>4</td><td>ei  </td></tr>
+    <tr><td>on </td><td>V</td><td>1</td><td>3</td><td>olla</td></tr>
+    <tr><td>on </td><td>V</td><td>1</td><td>5</td><td>olla</td></tr>
+    <tr><td>ole</td><td>V</td><td>2</td><td>4</td><td>olla</td></tr>
+  </table>
+  <p>(When there are <em>no</em> shared attributes, the join is
+    the <em>product</em> of the relations. When <em>all</em>
+    attributes are shared, the join is the <em>intersection</em> of
+    the relations. It makes no <em>sense</em> to join relations
+    where the formally shared attributes have
+    different <em>intended</em> types.)
+  </p>
+  <p>(Example is to join data and meta that share a sentence
+    identifier.)
+  </p>
+  <h2>Renaming of attributes</h2>
+  <p>One or more attributes of a relation can be <em>renamed</em>
+    for any reason, for no reason, and particularly to control their
+    participation in joins as shared attributes or not as shared
+    attributes, whichever is appropriate.
+  </p>
+  <h2>The projections</h2>
+  <p>(Project to or out of selected attributes. Mylly provides
+    versions that count the selected combinations.)
+  </p>
+  <table>
+    <tr><th>lemma</th></tr>
+    <tr><td>ei   </td></tr>
+    <tr><td>niin </td></tr>
+    <tr><td>olla </td></tr>
+    <tr><td>se   </td></tr>
+  </table>
+  <table>
+    <tr><th>lemma</th><th>count</th></tr>
+    <tr><td>olla </td><td>3</td></tr>
+    <tr><td>ei   </td><td>1</td></tr>
+    <tr><td>niin </td><td>1</td></tr>
+    <tr><td>se   </td><td>1</td></tr>
+  </table>
+  <p>The classification of sentences into moods without the actual
+    sentences can be obtained either by keeping the mood and the
+    sentence number, or by dropping the Finnish and English sentences.
+  </p>
+  <table>
+    <tr><th>mood </th><th>sen</th></tr>
+    <tr><td>calm </td><td>4  </td></tr>
+    <tr><td>calm </td><td>3  </td></tr>
+    <tr><td>angry</td><td>5  </td></tr>
+  </table>
+  <h2>Variations on the join</h2>
+  <p>(Matching records, and those that do not match. Compose and
+    image, probably, because it should be easier to provide them
+    than explain that an immediate use case was not at hand. (The
+    latter two are not implemented at the time of this writing,
+    which is 2017-10-06.)
+  </p>
+  <p>The composition of the annotated sentences with the mood
+    classification is like the corresponding join except for the
+    omission of the shared attribute.
+  </p>
+  <table>
+    <tr>
+      <th>tok</th>
+      <th>mood</th>
+      <th>word</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>1</td><td>calm </td><td>on  </td><td>olla</td></tr>
+    <tr><td>2</td><td>calm </td><td>se  </td><td>se  </td></tr>
+    <tr><td>3</td><td>calm </td><td>niin</td><td>niin</td></tr>
+    <tr><td>1</td><td>angry</td><td>on  </td><td>olla</td></tr>
+    <tr><td>1</td><td>calm </td><td>ei  </td><td>ei  </td></tr>
+    <tr><td>2</td><td>calm </td><td>ole </td><td>olla</td></tr>
+  </table>
+  <h2>Parts and partitions</h2>
+  <p>(Sum, selection of a part by a combination of attribute values,
+    partition on an attribute either to a specific combination and
+    complement or all parts - within reason, because who would want
+    to deal with more files than they can reasonably deal with, in a
+    graphical user interface)
+  </p>
+  <table>
+    <tr>
+      <th>tok</th>
+      <th>mood</th>
+      <th>word</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>1</td><td>calm </td><td>on  </td><td>olla</td></tr>
+    <tr><td>1</td><td>angry</td><td>on  </td><td>olla</td></tr>
+    <tr><td>2</td><td>calm </td><td>ole </td><td>olla</td></tr>
+  </table>
+  <table>
+    <tr>
+      <th>tok</th>
+      <th>mood</th>
+      <th>word</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>2</td><td>calm </td><td>se  </td><td>se  </td></tr>
+    <tr><td>3</td><td>calm </td><td>niin</td><td>niin</td></tr>
+    <tr><td>1</td><td>calm </td><td>ei  </td><td>ei  </td></tr>
+  </table>
+  <p>(Random part. Not to be misunderestimated. (Also a tool to
+    sample observations, more difficult to classify but also nice to
+    have.))
+  </p>
+  <p>(Union, intersection and difference. No complement.)
+  </p>
+  <h2>Functional extension</h2>
+  <p>A number of tools extend each record with a value that can be
+    computed based on the values in that record. Such operations may
+    involve another source of information, which can be another
+    relation but can also be anything whatsoever.
+  </p>
+  <p>(Examples are the key-value expander and the new, as of
+    2017-10-06, frequency counter.)
+  </p>
+  <p>For example, the frequencies of the lemmas in the vocabulary
+    relation as counted in the corpus relation.
+  </p>
+  <table>
+    <tr><th>lemma</th><th>pos</th><th>freq</th></tr>
+    <tr><td>ei   </td><td>V  </td><td>1   </td></tr>
+    <tr><td>olla </td><td>V  </td><td>3   </td></tr>
+    <tr><td>voida</td><td>V  </td><td>0   </td></tr>
+  </table>
+</article>

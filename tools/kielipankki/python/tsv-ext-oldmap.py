@@ -1,8 +1,8 @@
-# TOOL tsv-expand-old-map.py: "Extend TSV from a key_value|... field"
-# (Extend each record in the TSV by expanding a key-value mapping given in the record. Non-empty maps must contain key_value pairs separated by vertical bars, with no duplicate keys. The default is to extend with all such keys found in the whole TSV.)
+# TOOL tsv-ext-oldmap.py: "Extend relation from a key_value|... field"
+# (Extend each record in by expanding a key-value mapping in one of its attributes. Non-empty maps must contain key_value pairs separated by vertical bars, with no duplicate keys. The default is to extend with all such keys found in the whole relation.)
 # INPUT narrow.tsv TYPE GENERIC
 # OUTPUT wide.tsv
-# PARAMETER source TYPE STRING DEFAULT "msd"
+# PARAMETER source TYPE COLUMN_SEL DEFAULT "EMPTY"
 # PARAMETER OPTIONAL key0 TYPE STRING
 # PARAMETER OPTIONAL key1 TYPE STRING
 # PARAMETER OPTIONAL key2 TYPE STRING
@@ -28,10 +28,11 @@ from itertools import chain
 import os
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('narrow.tsv', '.tsv')
-names.output('wide.tsv', names.replace('narrow.tsv', '-expand.tsv'))
+name('wide.tsv', base('narrow.tsv', '*.rel.tsv'),
+     ins = 'expand',
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
@@ -42,7 +43,7 @@ keys = set(filter(None, (key0, key1, key2, key3,
                          keyC, keyD, keyE, keyF)))
 
 if not keys:
-    with open('narrow.tsv') as narrow:
+    with open('narrow.tsv', encoding = 'UTF-8') as narrow:
         head = next(narrow).rstrip('\n').split('\t')
         k = head.index(source)
         keys = set(key
@@ -50,13 +51,16 @@ if not keys:
                    for it in [line.rstrip('\n').split('\t')[k]]
                    if it not in ('_', '')
                    for key, val in ( kv.split('_', 1) for kv in it.split('|') ))
-                   
-# should check that keys not intersect with head (that be an error)
+
+if keys & set(head):
+    print('new keys conflict with old keys', file = sys.stderr)
+    print('conflicting keys:', *(keys & set(head)), file = sys.stderr)
+    exit(1)
 
 ext = tuple(keys)
 
-with open('wide.tmp', mode = 'w', encoding = 'utf-8') as out:
-    with open('narrow.tsv') as narrow:
+with open('wide.tmp', mode = 'w', encoding = 'UTF-8') as out:
+    with open('narrow.tsv', encoding = 'UTF-8') as narrow:
         head = next(narrow).rstrip('\n').split('\t')
         print(*chain(ext, head), sep = '\t', file = out)
         k = head.index(source)

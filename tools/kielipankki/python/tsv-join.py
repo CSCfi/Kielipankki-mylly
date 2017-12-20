@@ -1,5 +1,5 @@
-# TOOL tsv-join.py: "Join TSV files"
-# (Relational join of two TSV files)
+# TOOL tsv-join.py: "Join relations"
+# (Join of two relations, represented as TSV files)
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC
 # OUTPUT join.tsv
@@ -9,11 +9,11 @@ from collections import defaultdict
 from itertools import chain
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.enforce('two.tsv', '.tsv')
-names.output('join.tsv', names.replace('one.tsv', '-j.tsv'))
+name('join.tsv', base('one.tsv', '*.rel.tsv'),
+     ins = 'join.{}'.format(base('two.tsv', '*.rel.tsv')),
+     ext = 'rel.tsv')
 
 def index(head, names): return tuple(map(head.index, names))
 def share(head, head2): return tuple(set(head) & set(head2))

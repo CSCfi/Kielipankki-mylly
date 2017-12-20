@@ -1,0 +1,105 @@
+<article>
+  <p><em>
+      Tool in Mylly: Relation algebra / Part that does not match
+    </em>
+    | <a href="../../../tuki/mylly/tsv-miss">
+      fi
+    </a>
+  </p>
+  <h1>Part that does not match another relation</h1>
+  <p>The "miss" operation takes two relations
+    and produces those records of the first
+    that do not match the shared attributes
+    of any record of the second.
+  </p>
+  <p>The input and output relations are
+    represented as TSV files.
+  </p>
+  <h2>Example</h2>
+  <p>The first input relation consists of some
+    word forms annotated with a lemma, a sentence
+    number, and a token number. The second input
+    relation consists of sentence numbers
+    annotated with the mood of a sentence.
+  </p>
+  <table>
+    <tr>
+      <th>sen</th>
+      <th>tok</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>3</td>
+      <td>niin</td>
+      <td>niin</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2</td>
+      <td>se</td>
+      <td>se</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+  </table>
+  <table>
+    <tr><th>sen</th><th>mood </th></tr>
+    <tr><td>3  </td><td>calm </td></tr>
+    <tr><td>4  </td><td>calm </td></tr>
+    <tr><td>5  </td><td>angry</td></tr>
+  </table>
+  <p>The output relation consists of those records
+    of the first input relation that did not have
+    their sentence number in any record of the
+    second input relation (none of them).
+  </p>
+  <table>
+    <tr>
+      <th>tok</th>
+      <th>sen</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+  </table>
+  <p>On the other hand, reversing the
+    roles of the input relations
+    produces those records of the
+    second relation (the one that
+    annotates sentence numbers with
+    moods) that have no
+    corresponding token in the first
+    relation (sentence 4).
+  </p>
+  <table>
+    <tr><th>sen</th><th>mood </th></tr>
+    <tr><td>4  </td><td>calm </td></tr>
+  </table>
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="../tsv-match">match</a></li>
+    <li><a href="../tsv-join">join</a></li>
+    <li><a href="../tsv-rename">rename</a></li>
+    <li><a href="../tsv-keep">keep</a></li>
+    <li><a href="../tsv-drop">drop</a></li>
+  </ul>
+  <h2>See also</h2>
+  <ul>
+    <li><a href="../relation-algebra">
+	Relation algebra
+      </a>
+      for context
+    </li>
+  </ul>
+</article>

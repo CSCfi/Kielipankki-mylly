@@ -1,0 +1,3 @@
+Stuff to do (tabulation and testing and such):
+
+http://www.statmethods.net/stats/frequencies.html

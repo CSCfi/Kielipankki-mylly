@@ -1,0 +1,96 @@
+* DONE Ohjetekstien kielivalinta selvemmin näkyviin
+
+Esim. oikeaan laitaan? [Mietta]
+
+* TODO Tekstin analyysin näyttäminen tekstissä
+
+Generoidaan HTML-teksti, jossa analyysitulokset helpommin nähtävissä
+alkuperäisehkön tekstin annotaationa. [Mietta]
+
+* DONE TODO Suhteellisten osuuksien näyttäminen (R)
+
+Vähän niin kuin täällä mutta pyydettiin vain yhdestä sarakkeesta:
+https://www.statmethods.net/stats/frequencies.html
+
+Tehdään silti.
+
+Nupdate: Vielä tarvitaan vähintäänkin ohjesivuja, mutta mielellään
+myös graafisia esityksiä, ja ainakin lukumääräkentän pitäisi olla
+oletusarvoisesti EMPTY, kun sen on pakko olla kokonaisluku ja R:stä
+tulee nyt huomattavan paljon historiaa virheilmoituksenomaisena
+valmisteena. (Eikä ole vielä testattu R:ssä että valmiiksi annetut
+lukumäärät toimivat, mutta muuten on pikaisesti testattu.)
+
+Simple statistics / {One-way, Two-way} proportions
+
+* TODO Korp-haku tekemään relaatiotiedostot suoraan
+
+Aina. [Mietta]
+
+* TODO Varmistettava että Mylly toimii Korpista tuoduilla JSON:lla
+
+Ei se varmaan ihan toimi, mutta toimitettava. [Itse!]
+
+Voitaneen vaatia, että tiedoston nimi päättyy että kwic.json.
+Mutta ei Myllyn omia lisäyksiä, hakiessa.
+
+* NO CAN DO MUCH Tekstinsyöttötyökalu
+
+Chipster REDACTED.
+
+[MiettaKIN]
+
+* TODO Tietojen suodattaminen esiin taulukoista/ssa
+
+[Mietta/Turo]
+
+Tietyn ehdon täyttävien rivien poiminta: sana alkaa, loppuu, päättyy,
+keskeytyy, sisältää.
+
+Sarakkeiden valinta (myös taulukkona - ei duplikaatteja - voiks
+laittaa rivinumerot?)
+
+* TODO PANIC Miksei nertag tunnista *Myllyssä*
+
+Emilio Campos Arauzta, kerta tunnistaa Taidossa?
+
+* TODO Puheentunnistin ajan-tasalle ja paremmin
+
+Myllyssä.
+
+* TODO CONSIDER Gephi?
+
+Network analysis
+Viivoja [Krister]
+
+https://en.wikipedia.org/wiki/Gephi
+https://github.com/gephi/gephi
+
+* TODO CONSIDER other network plot
+
+http://www.r-graph-gallery.com/247-network-chart-layouts/
+
+[Krister]
+
+* TODO IMPORTANT UDPipe or is UDpipe
+
+http://ufal.mff.cuni.cz/udpipe
+
+[Krister]
+
+* TODO Bi-parameterized Korp search tool
+
+CQP *and* corpus list as inputs [with Mietta and Martin]
+
+Also, oh my God [with Mietta and Martin] yes we do *want* in Mylly
+corpus names that match Korp and our META-SHARE. But that is such a
+horror.
+
+TODO Tool to create corpus list from some revelant corpus name menu.
+
+See Korpin config.js?
+
+* TODO Export formats + preprocessing = File formats
+
+Yhdistetään luokat, merkistökoodausmuunnokset sinne (import ja export)
+[Mietta]

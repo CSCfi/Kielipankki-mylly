@@ -2,17 +2,46 @@
 # (Graph the relationship of two variables, using qplot of ggplot2 library in R)
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT graph.any
-# PARAMETER vi.file: "file type" TYPE [pdf: "pdf", png: "png", svg: "svg"] DEFAULT png
-# PARAMETER vi.geom: "graph type" TYPE [points: "points", pointswsmooth: "points with a smoother", jitter: "jitter", boxplot: "boxplot"] DEFAULT points
+# PARAMETER vi.file: "result file type"
+#     TYPE [pdf: "pdf",
+#           png: "png",
+#           svg: "svg"]
+#     DEFAULT png
+# PARAMETER vi.geom: "graph type"
+#     TYPE [points: "points",
+#           pointswsmooth: "points with a smoother",
+#           jitter: "jitter",
+#           boxplot: "boxplot"]
+#     DEFAULT points
 # PARAMETER vi.x: "x variable" TYPE STRING
-# PARAMETER vi.xt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
+# PARAMETER vi.xt: "x type"
+#     TYPE [logical: "logical",
+#           integer: "integer",
+#           numeric: "numeric",
+#           factor: "factor"]
+#     DEFAULT integer
 # PARAMETER vi.y: "y variable" TYPE STRING
-# PARAMETER vi.yt TYPE [logical: "logical", integer: "integer", numeric: "numeric", factor: "factor"] DEFAULT integer
+# PARAMETER vi.yt: "x type"
+#     TYPE [logical: "logical",
+#           integer: "integer",
+#           numeric: "numeric",
+#           factor: "factor"]
+#     DEFAULT integer
 # PARAMETER OPTIONAL vi.ax: "log scale" TYPE [x: "x", y: "y", xy: "xy"]
-# PARAMETER OPTIONAL vi.ia: "transparency" TYPE [o1: "1/1", o5: "1/5", o10: "1/10", o50: "1/50", o100: "1/100", o200: "1/200"]
+# PARAMETER OPTIONAL vi.ia: "transparency"
+#     TYPE [o1: "1/1",
+#           o5: "1/5",
+#           o10: "1/10",
+#           o50: "1/50",
+#           o100: "1/100",
+#           o200: "1/200"]
 # PARAMETER OPTIONAL vi.colour: "colour grouping variable (factor)" TYPE STRING
 # PARAMETER OPTIONAL vi.shape: "shape grouping variable (factor)" TYPE STRING
 # PARAMETER OPTIONAL vi.size: "size variable (numeric)" TYPE STRING
+
+# TODO: Work this to use COLUMN_SEL and the new (as of this writing)
+# lib_ratsv.R (override prefix-based types with user-selected types
+# where appropriate). But test lib_ratsv.R with clustering first.
 
 # Testing off-chipster (requires and produces files):
 # 
@@ -138,6 +167,13 @@ if (sum(nchar(vi.shape)) > 0) {
 if (sum(nchar(vi.size)) > 0) {
     plot <- plot + eval(substitute(aes(size = variable),
                                    list(variable = as.name(vi.size))))
+}
+
+if (vi.xt == "factor") {
+    # https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2
+    # factor labels can be many or long when they come from a corpus,
+    # and then they overlap and become unreadable - try at an angle
+    plot <- plot + theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
 }
 
 vi.dev(file = "graph.any")

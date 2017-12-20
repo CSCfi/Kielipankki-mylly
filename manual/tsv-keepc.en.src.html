@@ -1,0 +1,109 @@
+<article>
+  <p><em>
+      Tool in Mylly: Relation algebra / Keep with count
+    </em>
+    | <a href="../../../tuki/mylly/tsv-keepc">
+      fi
+    </a>
+  </p>
+  <h1>Keep/count selected attributes</h1>
+  <p>The "keep with count" operation
+    <em>projects</em>
+    an input relation to the selected
+    attributes with the addition of
+    a new <em>count</em> attribute
+    to record the multiplicity in the
+    input relation of the kept
+    combinations.
+  </p>
+  <p>The input and output relations are
+    represented as TSV files.
+  </p>
+  <h2>Parameters</h2>
+  <ul>
+    <li>name for the count attribute</li>
+    <li>zero or more attributes</li>
+  </ul>
+  <p>Attributes
+    are presented as
+    menus that list the
+    attributes that the
+    relation has. EMPTY
+    indicates that the
+    parameter is not
+    used.
+  </p>
+  <p>Selecting the same
+    attribute more than
+    once is harmless.
+  </p>
+  <p>(Selecting no
+    attributes, by leaving
+    every attribute
+    parameter at EMPTY,
+    produces a relation
+    with no attributes.
+    There are two such
+    relations.)
+  </p>
+  <h2>Example</h2>
+  <p>The input relation consists of
+    word forms annotated with
+    sentence and token numbers and
+    lemmas.
+  </p>
+  <table>
+    <tr>
+      <th>word</th>
+      <th>tok</th>
+      <th>sen</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>on  </td><td>1</td><td>3</td><td>olla</td></tr>
+    <tr><td>se  </td><td>2</td><td>3</td><td>se  </td></tr>
+    <tr><td>niin</td><td>3</td><td>3</td><td>niin</td></tr>
+    <tr><td>on  </td><td>1</td><td>5</td><td>olla</td></tr>
+    <tr><td>ei  </td><td>1</td><td>4</td><td>ei  </td></tr>
+    <tr><td>ole </td><td>2</td><td>4</td><td>olla</td></tr>
+  </table>
+  <p>The count attribute is named
+    <b>count</b>. (The default
+    name is <b>cMcount</b>.)
+  </p>
+  <p>When the word form and lemma
+    are kept, the two occurrences
+    of <em>olla</em> as <em>on</em>
+    melt into one record.
+  </p>
+  <table>
+    <tr>
+      <th>count</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+    <tr><td>1</td><td>ei  </td><td>ei  </td></tr>
+    <tr><td>1</td><td>se  </td><td>se  </td></tr>
+    <tr><td>1</td><td>niin</td><td>niin</td></tr>
+    <tr><td>2</td><td>olla</td><td>on  </td></tr>
+    <tr><td>1</td><td>olla</td><td>ole </td></tr>
+  </table>
+  <p>When only the lemma is kept, all
+    three occurrences of <em>olla</em>
+    melt into one record.
+  </p>
+  <table>
+    <tr>
+      <th>count</th>
+      <th>lemma</th>
+    </tr>
+    <tr><td>1</td><td>ei  </td></tr>
+    <tr><td>1</td><td>se  </td></tr>
+    <tr><td>3</td><td>olla</td></tr>
+    <tr><td>1</td><td>niin</td></tr>
+  </table>
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="../tsv-dropc">drop with count</a></li>
+    <li><a href="../tsv-keep">keep</a></li>
+  </ul>
+</article>

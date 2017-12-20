@@ -1,35 +1,36 @@
-# TOOL tsv-rename.py: "Rename TSV fields"
-# (Rename TSV fields)
+# TOOL tsv-rename.py: "Rename attributes"
+# (Rename selected attributes. EMPTY is not a name.)
 # INPUT old.tsv TYPE GENERIC
 # OUTPUT new.tsv
-# PARAMETER          old0 TYPE STRING
-# PARAMETER          new0 TYPE STRING
-# PARAMETER OPTIONAL old1 TYPE STRING
-# PARAMETER OPTIONAL new1 TYPE STRING
-# PARAMETER OPTIONAL old2 TYPE STRING
-# PARAMETER OPTIONAL new2 TYPE STRING
-# PARAMETER OPTIONAL old3 TYPE STRING
-# PARAMETER OPTIONAL new3 TYPE STRING
+# PARAMETER          old0: "old name" TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER          new0: "new name" TYPE STRING
+# PARAMETER OPTIONAL old1: "old name" TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL new1: "new name" TYPE STRING
+# PARAMETER OPTIONAL old2: "old name" TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL new2: "new name" TYPE STRING
+# PARAMETER OPTIONAL old3: "old name" TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER OPTIONAL new3: "new name" TYPE STRING
 # RUNTIME python3
 
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
-
-names.enforce('old.tsv', '.tsv')
-names.output('new.tsv', names.replace('old.tsv', '-ren.tsv'))
+from lib_names2 import base, name
+name('new.tsv', base('old.tsv', '*.rel.tsv'),
+     ins = 'rename',
+     ext = 'rel.tsv')
 
 olds = (old0, old1, old2, old3)
 news = (new0, new1, new2, new3)
 
 for old, new in zip(olds, news):
-    if bool(old) == bool(new): continue
-    print('bad map', repr(old), '=>', repr(new),
+    if (old in ("EMPTY", "")) == (new in ("EMPTY", "")): continue
+    print('bad renaming:', repr(old), '=>', repr(new),
           file = sys.stderr)
     exit(1)
 
-mappin = dict(zip(filter(None, olds), filter(None, news)))
+mappin = dict((old, new) for old, new in zip(olds, news)
+              if old not in ("EMPTY", ""))
 
 with open('old.tsv') as oldfile:
     oldhead = next(oldfile).rstrip('\n').split('\t')
@@ -41,8 +42,10 @@ with open('old.tsv') as oldfile:
             exit(1)
 
     newhead = tuple(mappin.get(old, old) for old in oldhead)
+
     if len(set(newhead)) < len(newhead):
-        print('ambiguity in', newhead, file = sys.stderr)
+        print('duplicate name in new head:', file = sys.stderr)
+        print(*newhead, file = sys.stderr)
         exit(1)
 
     with open('new.tmp', mode = 'w', encoding = 'utf-8') as newfile:

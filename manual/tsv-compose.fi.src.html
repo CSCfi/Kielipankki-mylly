@@ -1,0 +1,123 @@
+<article>
+  <p><em>
+      Myllyn työkalu: Relation algebra / Composition
+    </em>
+    | <a href="../../../support/mylly/tsv-compose">
+      en
+    </a>
+  </p>
+  <h1>Relaatioiden yhdistäminen</h1>
+  <p>Relaatioiden yhdistäminen (composition) tekee
+    niistä attribuuteista, jotka eivät ole
+    relaatioille yhteisiä, niiden yhdistelmien
+    joukon, missä yhteisillä attribuuteilla on
+    samat arvot. Jos tulokseen haluaa myös
+    yhteiset attribuutit, ei pidä yhdistää vaan
+    liittää (join).
+  </p>
+  <p>Syöte- ja tulosrelaatiot esitetään Myllyssä
+    TSV-tiedostoina.
+  </p>
+  <h2>Esimerkki</h2>
+  <p>Ensimmäisessä syöterelaatiossa sananmuotoja
+    on annotoitu perusmuodolla ja virkkeen ja
+    saneen numerolla. Toisessa syöterelaatiossa
+    virkenumeroita on annotoitu virkkeen
+    tunnetilalla.
+  </p>
+  <table>
+    <tr>
+      <th>sen</th>
+      <th>tok</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>3</td>
+      <td>niin</td>
+      <td>niin</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>2</td>
+      <td>se</td>
+      <td>se</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>1</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+  </table>
+  <table>
+    <tr><th>sen</th><th>mood </th></tr>
+    <tr><td>3  </td><td>calm </td></tr>
+    <tr><td>4  </td><td>calm </td></tr>
+    <tr><td>5  </td><td>angry</td></tr>
+  </table>
+  <p>Tulosrelaatiossa on ne ensimmäisen relaation
+    sananmuodot, joiden virkenumero on myös
+    toisessa relaatiossa (kaikki). Niillä on yhä
+    annotaationa perusmuoto ja saneen numero mutta
+    ei enää virkenumeroa. Lisäksi niissä toisesta
+    relaatiosta saatu virkkeen tunnetila.
+  </p>
+  <table>
+    <tr>
+      <th>tok</th>
+      <th>mood</th>
+      <th>lemma</th>
+      <th>word</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>calm</td>
+      <td>niin</td>
+      <td>niin</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>calm</td>
+      <td>se</td>
+      <td>se</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>calm</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>angry</td>
+      <td>olla</td>
+      <td>on</td>
+    </tr>
+  </table>
+  <p>Sananmuodon <em>on</em> esiintymät tuloksessa
+    ovat yhä eri tietueita vain koska virkkeet oli
+    annotoitu eri tunnetilalla.
+  </p>
+  <h2>Muita työkaluja</h2>
+  <ul>
+    <li><a href="../tsv-join">join</a></li>
+    <li><a href="../tsv-drop">drop</a></li>
+    <li><a href="../tsv-rename">rename</a></li>
+  </ul>
+  <h2>Katso myös</h2>
+  <ul>
+    <li><a href="../relation-algebra">
+	Relaatioalgebra
+      </a>
+      taustaksi
+    </li>
+  </ul>
+</article>
