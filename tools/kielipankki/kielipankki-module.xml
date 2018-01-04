@@ -166,6 +166,7 @@
     <tool>vrt-as-tsv.py</tool>
     <tool>udpipe-ud2-eng.py</tool>
     <tool>udpipe-ud2-fin.py</tool>
+    <tool>udpipe-ud2-fin-tokens.py</tool>
     <tool>udpipe-ud2-swe.py</tool>
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>

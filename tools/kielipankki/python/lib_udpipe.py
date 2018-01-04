@@ -76,7 +76,8 @@ def parse_tokens(modelfile, inputfile, textfile, relationfile):
     # but not even sure what to do with them
     try:
         with Popen([os.path.join(BINDIR, 'udpipe'),
-                    '--immediate', '--tag', '--parse',
+                    '--immediate', '--input=vertical',
+                    '--tag', '--parse',
                     os.path.join(MODELS, modelfile)],
                    stdin = open(inputfile, mode = 'rb'),
                    stdout = PIPE,
