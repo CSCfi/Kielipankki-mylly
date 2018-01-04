@@ -8,7 +8,7 @@ import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
-from lib_udpipe import parse_plain
+from lib_udpipe import parse_tokens
 
 name('ud2.txt', '{}-ud2'.format(base('input.txt', '*.txt')),
      ins = 'fi', ext = 'txt')
