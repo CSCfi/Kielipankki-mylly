@@ -66,3 +66,35 @@ def parse_plain(modelfile, inputfile, textfile, relationfile):
         # traceback.print_exc()
         print(exn, file = sys.stderr)
         exit(1)
+
+def parse_tokens(modelfile, inputfile, textfile, relationfile):
+    '''Runs udpipe with given model file (in directory MODELS) on
+    tokenized input file, tagging and parsing.
+
+    '''
+    # should rename error1.log and error2.log
+    # but not even sure what to do with them
+    try:
+        with Popen([os.path.join(BINDIR, 'udpipe'),
+                    '--immediate', '--tag', '--parse',
+                    os.path.join(MODELS, modelfile)],
+                   stdin = open(inputfile, mode = 'rb'),
+                   stdout = PIPE,
+                   stderr = open('error1.log', mode = 'wb')) as p:
+            with Popen(['tee', textfile],
+                       stdin = p.stdout,
+                       stdout = PIPE,
+                       stderr = open('error2.log', mode = 'wb')) as t:
+                with open(relationfile, mode = 'w', encoding = 'UTF-8') as out:
+                    transform(TextIOWrapper(t.stdout, encoding = 'UTF-8'), out)
+
+                    # like, when *should* it time out?
+                    p.communicate(timeout = 3)
+        
+        if p.returncode or p.returncode is None:
+            raise Exception('Non-0 return code: {}'
+                            .format(p.returncode))
+    except Exception as exn:
+        # traceback.print_exc()
+        print(exn, file = sys.stderr)
+        exit(1)
