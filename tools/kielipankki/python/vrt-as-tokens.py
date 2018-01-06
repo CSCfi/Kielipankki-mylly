@@ -7,7 +7,7 @@
 # PARAMETER ign4 TYPE STRING DEFAULT EMPTY
 # RUNTIME python3
 
-import os, sys
+import html, os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 from lib_vrt import VeRTicalError, Positionals, screen, hoisted
@@ -33,6 +33,7 @@ except VeRTicalError as exn:
 with open('hoisted.tmp', encoding = 'UTF-8') as source, \
      open('output.tmp', mode = 'w', encoding = 'UTF-8') as out:
     for sentence in sentences(source):
-        print(*sentence, sep = '\n', end = '\n\n', file = out)
+        print(*map(html.unescape, sentence),
+              sep = '\n', end = '\n\n', file = out)
 
 os.rename('output.tmp', 'output.txt')
