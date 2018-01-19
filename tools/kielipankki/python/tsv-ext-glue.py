@@ -8,6 +8,9 @@
 # PARAMETER attr3 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER attr4 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER attr5 TYPE COLUMN_SEL DEFAULT EMPTY
+# PARAMETER attr6 TYPE COLUMN_SEL DEFAULT EMPTY
+# PARAMETER attr7 TYPE COLUMN_SEL DEFAULT EMPTY
+# PARAMETER attr8 TYPE COLUMN_SEL DEFAULT EMPTY
 # RUNTIME python3
 
 import sys, os
@@ -30,7 +33,8 @@ gluechar = dict(space = ' ',
                 hyphen = '-',
                 slash = '/')[glue]
 
-attrs = [ attr for attr in (attr1, attr2, attr3, attr4, attr5)
+attrs = [ attr for attr in (attr1, attr2, attr3, attr4,
+                            attr5, attr6, attr7, attr8)
           if attr not in ("EMPTY", "") ]
 
 if len(attrs) < 2:
