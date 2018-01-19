@@ -78,7 +78,9 @@ if asen == 'end':
     exit(1)
 
 try:
-    process('input.tsv', window, asen, atok)
+    process('input.tsv', window,
+            (asen, 'default', 'increasing'),
+            (atok, 'default', 'increasing'))
 except Exception as exn:
     print(exn, file = sys.stderr)
     exit(1)

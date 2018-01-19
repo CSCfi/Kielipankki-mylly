@@ -32,7 +32,8 @@ name('output.tsv', base('input.tsv', '*.rel.tsv'),
 countkeys = tuple(c for c in (count1, count2, count3)
                   if c not in ("EMPTY", ""))
 
-groupkeys = tuple(g for g in (group1, group2, group3)
+groupkeys = tuple((g, 'default', 'increasing')
+                  for g in (group1, group2, group3)
                   if g not in ("EMPTY", ""))
 
 if not countkeys:
