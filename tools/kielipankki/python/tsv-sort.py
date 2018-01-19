@@ -2,29 +2,29 @@
 # INPUT input.tsv TYPE GENERIC
 # OUTPUT output.tsv
 # PARAMETER attr1 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind1 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign1 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind1 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign1 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr2 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind2 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign2 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind2 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign2 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr3 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind3 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign3 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind3 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign3 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr4 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind4 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign4 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind4 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign4 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr5 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind5 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign5 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind5 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign5 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr6 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind6 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign6 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind6 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign6 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr7 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind7 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign7 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind7 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign7 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # PARAMETER attr8 TYPE COLUMN_SEL DEFAULT EMPTY
-# PARAMETER kind8 TYPE [ 'default', 'integer', 'float', 'string' ] DEFAULT default
-# PARAMETER sign8 TYPE [ 'increasing', 'decreasing' ] DEFAULT increasing
+# PARAMETER kind8 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
+# PARAMETER sign8 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
 # RUNTIME python3
 
 import os, sys
