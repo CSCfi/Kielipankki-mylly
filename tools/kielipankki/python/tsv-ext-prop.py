@@ -74,7 +74,7 @@ def pick(head, keys):
              if keys else
              (lambda record: ()))
 
-getgroup = pick(head, groupkeys)
+getgroup = pick(head, [ name for name, kind, sign in groupkeys ])
 getcount = pick(head, countkeys)
 
 def normalize(source):
