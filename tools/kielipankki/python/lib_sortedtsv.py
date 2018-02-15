@@ -1,3 +1,5 @@
+import os
+
 from subprocess import Popen, PIPE
 from io import TextIOWrapper
 
@@ -36,12 +38,12 @@ def process(relationfile, process, *keys):
 
         if not keyx: keyx = [ '--merge' ] # do not sort
 
-        # may also need to control locale or something - must, really,
-        # so this will change (now it appears to sort case-insensitive
+        # without locale control, appeared to sort case-insensitive
         # which is not right when the purpose is to group by identity
-        # as string)
+        # as string
         
         with Popen(['sort', '--stable', '--field-separator=\t'] + keyx,
+                   env = dict(os.environ, LC_ALL = 'C'),
                    stdin = source,
                    stdout = PIPE,
                    stderr = open('errors.log', mode = 'wb')) as sort:
@@ -75,11 +77,11 @@ def save(relationfile, resultfile, *keys):
         
         if not keyx: keyx = [ '--merge' ] # do not sort
 
-        # may also need to control locale or something - or not? this
-        # is properly just a backend to tsv-sort.py, not to be relied
-        # on in further processing
+        # without locale control, expected decimal separator to be a
+        # comma, would not interpret decimal part after period
         
         with Popen(['sort', '--stable', '--field-separator=\t'] + keyx,
+                   env = dict(os.environ, LC_ALL = 'C'),
                    stdin = source,
                    stdout = target,
                    stderr = open('errors.log', mode = 'wb')) as sort:
