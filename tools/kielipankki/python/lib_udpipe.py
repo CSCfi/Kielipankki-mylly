@@ -5,9 +5,12 @@ from subprocess import Popen, PIPE
 from itertools import groupby
 from io import TextIOWrapper
 
-# TO BE INSTALLED IN A PLACE MORE PROPER
-BINDIR = '/wrk/jpiitula/udpipe-1.2.0-bin/bin-linux64'
-MODELS = '/wrk/jpiitula/udpipe-1.2.0-bin/udpipe-ud-2.0-170801'
+# Note (2018-03-09) these locations may still be temporary:
+# bin/udpipe is the appropriate binary from version 1.2.0
+# binary distribution, share/ contains UD 2.0 models 170801
+# (meaning 2017-08-01), downloaded as binary.
+BINDIR = '/proj/kieli/udpipe/bin'
+MODELS = '/proj/kieli/udpipe/share'
 
 def transform(source, out):
     '''Read UD2 data from source, write a corresponding relation out.
