@@ -35,7 +35,6 @@ mapping = dict((old, (old if new in ('', 'EMPTY') else new))
                                   (old4, new4))
                if old not in ('', 'EMPTY'))
 
-# quite, quite stupid to work so hard on deficient input - more likely
 # should really just reject any document with no content line, maybe
 
 if line is None and not mapping:
@@ -47,11 +46,12 @@ if line is None and not mapping:
 elif line is None:
     try:
         highest = max(int(old.strip('V')) for old in mapping)
+        if not (0 < highest < 30): raise Exception()
         oldnames = [ 'V{}'.format(k + 1) for k in range(highest) ]
     except Exception:
         print('Insufficient information:',
               '- no input names or records',
-              '- mapping not in default name form',
+              '- with mapping not in default name form',
               sep = '\n', file = sys.stderr)
         exit(1)
 elif line.startswith('<'):
