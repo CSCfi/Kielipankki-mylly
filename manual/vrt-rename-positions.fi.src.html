@@ -1,0 +1,58 @@
+<article>
+  <p><em>
+      Myllyn työkalu: VRT manipulation / Rename VRT positions
+    </em>
+    <br/>
+    <a href="../../../support/mylly/vrt-rename-positions/">
+      in English
+    </a>
+  </p>
+  <h1>VRT-kenttien nimien vaihtaminen</h1>
+  <p>Työkalulla voi vaihtaa VRT-dokumentin sarkainerotelluille
+  kentille annettuja nimiä. Nimettävä kenttä ja uusi nimi valitaan
+  asettamalla vanha ja uusi nimi arvoiksi kahdelle toisiaan
+  vastaavalle parametrille.
+  </p>
+  <p>Muut kentät säilyttävät vanhat nimensä tai oletusarvona
+    nimen <code>V<em>k</em></code>, missä <code><em>k</em></code> on
+    kentän numero.
+  </p>
+  <h2>Esimerkki</h2>
+  <p>Syötetiedostossa jokaisella saneella voi esimerkiksi olla
+    seuraavat kolme kenttää.
+  </p>
+  <ol>
+    <li>pintamuoto</li>
+    <li>perusmuoto</li>
+    <li>jokin annotaatio</li>
+  </ol>
+  <p>Syötetiedosto voi alkaa seuraavalla kommentilla, joka määrittelee
+    kolmen kentän nimiksi <code>foo</code>, <code>bar</code>,
+    <code>baz</code>.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: foo bar baz --&gt;
+  </pre>
+  <p>Jos haluaa, että toisella kentällä on tulosdokumentissa
+    nimi <code>lemma</code>, voi asettaa parametreissa vanhaksi
+    nimeksi <code>bar</code> ja vastaavaksi uudeksi
+    nimeksi <code>lemma</code>. Tulosteksti alkaa sitten seuraavalla
+    kommentilla, joka mukaan toisella kentällä on uusi nimi ja muilla
+    kahdella kentällä edelleen niiden vanhat nimet.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: foo lemma baz --&gt;
+  </pre>
+  <h2>Muita työkaluja</h2>
+  <ul>
+    <li><a href="../vrt-name-positions/">kenttien nimeäminen</a></li>
+  </ul>
+  <h2>Katso myös</h2>
+  <ul>
+    <li><a href="https://www.kielipankki.fi/development/korp/corpus-input-format/">
+	VRT-tiedostomuoto
+      </a>
+      Kielipankissa
+    </li>
+  </ul>
+</article>

@@ -1,0 +1,60 @@
+<article>
+  <p><em>
+      Tool in Mylly: VRT manipulation / Rename VRT positions
+    </em>
+    <br/>
+    <a href="../../../tuki/mylly/vrt-rename-positions/">
+      suomeksi
+    </a>
+  </p>
+  <h1>Rename VRT positions</h1>
+  <p>This tool specifies new names to VRT positional fields. Each
+    field is identified by the value to an old-name parameter rather
+    than by position. The value of the corresponding new-name
+    parameter specifies the new name.
+  </p>
+  <p>Other fields keep their old names, or else their default
+    name <code>V<em>k</em></code> where <code><em>k</em></code> is the
+    number of the position.
+  </p>
+  <h2>Example</h2>
+  <p>Suppose the input VRT document has the following three fields for
+    each token.
+  </p>
+  <ol>
+    <li>surface form</li>
+    <li>lemma (aka base form)</li>
+    <li>some annotation</li>
+  </ol>
+  <p>Suppose that the input document starts with the following comment
+    that specifies the names <code>foo</code>, <code>bar</code>,
+    <code>baz</code> for the three fields.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: foo bar baz --&gt;
+  </pre>
+  <p>To make the output document have the name <code>lemma</code> for
+    the second field, specify <code>bar</code> as the value of an
+    old-name parameter and <code>lemma</code> as the value of the
+    corresponding new-name parameter. Then the output document starts
+    with the following comment that specifies the new
+    name <code>lemma</code> for the field previously
+    named <code>bar</code>, and the previous names for the other two
+    fields.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: foo lemma baz --&gt;
+  </pre>
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="../vrt-name-positions/">name fields</a></li>
+  </ul>
+  <h2>See also</h2>
+  <ul>
+    <li><a href="https://www.kielipankki.fi/development/korp/corpus-input-format/">
+	VRT format
+      </a>
+      in the Language Bank of Finland
+    </li>
+  </ul>
+</article>

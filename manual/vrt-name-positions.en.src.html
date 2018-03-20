@@ -1,0 +1,62 @@
+<article>
+  <p><em>
+      Tool in Mylly: VRT manipulation / Name positions
+    </em>
+    <br/>
+    <a href="../../../tuki/mylly/vrt-name-positions/">
+      suomeksi
+    </a>
+  </p>
+  <h1>Name VRT positions</h1>
+  <p>This tool specifies names for positions aka positional attributes
+    aka tab-separated fields in a VRT document. The first parameter
+    gives a name for the first position, the second parameter for the
+    second position, and so on. Then the output VRT document starts
+    with a comment that gives the names.
+  </p>
+  <p>When the value of a parameter is left as <code>EMPTY</code>, the
+    output name for the field is either the corresponding name from
+    the input document, or else the default
+    name <code>V<em>k</em></code> where <code><em>k</em></code> is the
+    position number.
+  </p>
+  <h2>Example</h2>
+  <p>Suppose the input VRT document has the following three fields for
+    each token.
+  </p>
+  <ol>
+    <li>surface form</li>
+    <li>lemma (aka base form)</li>
+    <li>some annotation</li>
+  </ol>
+  <p>To make sure that the second field has the
+    name <code>lemma</code> in the output document,
+    specify <code>lemma</code> as the value of the second parameter.
+  </p>
+  <p>If the input document has no names before any record but contains
+    at least one record, the output document starts with the following
+    comment.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: V1 lemma V2 --&gt;
+  </pre>
+  <p>If, instead, the input document specifies the three
+    names <code>foo</code>, <code>bar</code>, <code>baz</code>, the
+    output document starts with the following comment.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: foo lemma baz --&gt;
+  </pre>
+  <h2>Related tools</h2>
+  <ul>
+    <li><a href="../vrt-rename-positions/">rename positions</a></li>
+  </ul>
+  <h2>See also</h2>
+  <ul>
+    <li><a href="https://www.kielipankki.fi/development/korp/corpus-input-format/">
+	VRT format
+      </a>
+      in the Language Bank of Finland
+    </li>
+  </ul>
+</article>
