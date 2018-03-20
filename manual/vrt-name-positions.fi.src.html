@@ -1,0 +1,61 @@
+<article>
+  <p><em>
+      Myllyn työkalu: VRT manipulation / Name positions
+    </em>
+    <br/>
+    <a href="../../../support/mylly/vrt-name-positions/">
+      in English
+    </a>
+  </p>
+  <h1>VRT-kenttien nimeäminen</h1>
+  <p>Työkalulla nimetään VRT-dokumentin sarkaineroteltuja kenttiä.
+    Ensimmäisen parametrin arvoksi asetataan ensimmäisen kentän nimi,
+    toisen parametrin arvoksi toisen kentän, ja niin edelleen.
+    Tulosdokumentti alkaa sitten kommentilla, joka luettelee kenttien
+    nimet.
+  </p>
+  <p>Jos parametrin arvoksi jätetään <code>EMPTY</code>, sitä
+    vastaavan kentän nimeksi tulee joko sille syötedokumentissa
+    annettu nimi tai oletusarvona <code>V<em>k</em></code>,
+    missä <code><em>k</em></code> on kentän numero.
+  </p>
+  <h2>Esimerkki</h2>
+  <p>Syötetiedostossa jokaisella saneella voi esimerkiksi olla
+    seuraavat kolme kenttää.
+  </p>
+  <ol>
+    <li>pintamuoto</li>
+    <li>perusmuoto</li>
+    <li>jokin annotaatio</li>
+  </ol>
+  <p>Jos haluaa varmistaa, että tulosdokumentissa toisen kentän nimi
+    on <code>lemma</code>, voi toisen parametrin arvoksi asettaa
+    merkkijonon <code>lemma</code>.
+  </p>
+  <p>Jos syötedokumentissa ei ole määritelty kenttien nimiä mutta
+    saneita on ainakin yksi ja siinä kolme kenttää, tulosdokumentti
+    alkaa seuraavalla kommentilla.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: V1 lemma V2 --&gt;
+  </pre>
+  <p>Jos taas syötedokumentissa määritellään kenttien
+    nimiksi <code>foo</code>, <code>bar</code>, <code>baz</code>,
+    tulosdokumentti alkaakin seuraavalla kommentilla.
+  </p>
+  <pre>
+     &lt;!-- Positional attributes: foo lemma baz --&gt;
+  </pre>
+  <h2>Muita työkaluja</h2>
+  <ul>
+    <li><a href="../vrt-rename-positions/">kentän nimen vaihtaminen</a></li>
+  </ul>
+  <h2>Katso myös</h2>
+  <ul>
+    <li><a href="https://www.kielipankki.fi/development/korp/corpus-input-format/">
+	VRT-tiedostomuoto
+      </a>
+      Kielipankissa (englanniksi)
+    </li>
+  </ul>
+</article>

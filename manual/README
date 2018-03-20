@@ -1,3 +1,129 @@
+-*- Mode: Org; -*-
+
+These are notes on getting Mylly documentation to Language Bank pages.
+
+Eventually each tool in Mylly should have an English manual page at
+https://www.kielipankki.fi/support/mylly/tool-name/, Finnish at
+https://www.kielipankki.fi/tuki/mylly/tool-name/.
+
+Chipster "More help" button points to the English page, which should
+point to the Finnish page, which should point to the English page.
+
+* How to make a new manual page
+
+There are English and Finnish template files for tools.
+- template-en.html
+- template-fi.html
+
+Copy these over to names that match no fewer than four different
+conventions: tool name, page language, src, and html. These are the
+source files that need to be compiled to output files that protect the
+HTML from being damaged by WordPress.
+- tool-name.en.src.html
+- tool-name.fi.src.html
+
+(WordPress would insert spurious br-elements at ends of some lines.
+The compilation step prevents this by inserting empty span-elements so
+that the lines end inside an attribute value. For some reason this
+makes WordPress give up.)
+
+(Copy-paste will also break long lines. This may be a problem anyway.)
+
+Touch the corresponding target files so that Makefile notices them.
+- tool-name.en.out.html
+- tool-name.fi.out.html
+
+Edit the source. Then each source file will be newer than the target
+file.
+
+Make the output files. (The target file name can be specified as an
+argument if the target file is not there. But the advice was to touch
+it. Then it would be there.)
+
+* How to edit a manual page
+
+Edit the source.
+
+Make the output file. (If a previous output file is not there, specify
+it as a target. Or touch it before editing the source.)
+
+* How to publish a manual page
+
+Assume you have the necessary rights. Talk to Martin or Tero if not.
+
+Establish a VPN connection to UHEL. WordPress login is restricted so.
+
+$ sudo systemctl start openvpn@openvpn.service
+
+Log in with HAKA at https://www.kielipankki.fi/wp-admin. (Use the link
+"Login with Shibboleth" instead of the more prominent dialog.)
+
+Select to *edit pages*:
+- on the left, there are little pictures
+- hover on the little picture that looks like stacked plain papers,
+  and choose "Lisää uusi" (maybe - trying to figure it out again -
+  incidentally, the little pictures do have text titles like "Sivut"
+  in this case when there is room in the browser window)
+
+Scroll down to select the *language* of the page.
+
+Set *parent page* from "Yläsivu" in "Sivun ominaisuudet" on the right.
+This will presumably set the eventual URL at support/mylly or
+tuki/mylly.
+- select "Support/Mylly user guide" if publishing an English page
+- select "Tuki/Myllyn käyttöohjeet" if publishing a Finnish page
+
+Add *Title* in the box on top where it says "Lisää otsikko tähän".
+This may become the first part of HTML title element. Assume so?
+
+The "permanent link" aka URL of the eventual page then appears below
+that box, with the "last part" initially made from the given title but
+editable. *Edit the last part* to match the tool name in Mylly; that
+is how Mylly points to the English page.
+
+See that the larger text box is in *text mode*. It accepts HTML then,
+which it transforms in some ways (hence the protective compilation
+step).
+
+Copy the *output HTML page* to the *clipboard* with the following
+command.
+
+$ xclip -selection clipboard tool-name.en.out.html
+
+Then *paste* the clipboard in the box. C-v will work. (Wonder whether
+a "middle click" with -target text/html on xclip would work, but may
+not want to activate the touchpad to do the middle click. Search web.)
+
+To *update*, use C-a C-v in the box. No need to remove the previous
+version.
+
+$ xclip -selection clipboard /dev/null
+
+It may be prudent to *preview* the page (a button "Esikatsele" in the
+box "Julkaise" on the right, or "Esikatsele muutokset" after the page
+is published).
+
+*Publish* the page (the button "Julkaise" before publication, then
+"Päivitä" after).
+
+A bar of sorts appears with a link to *see the page* "Katso sivu".
+
+To *log out*, hover on the "Tervehdys, Jussi Piitulainen" at top right
+and select to log out "Kirjaudu ulos".
+
+To instead continue adding pages, continue adding pages. There will be
+a button to add another "Lisää uusi" even on top of the page. Repeat
+the steps above.
+
+* How to maintain a published page
+
+To *find* the page in WordPress, go edit "Kaikki sivut" and *search*
+for the name. English pages are under "support", Finnish pages "tuki".
+Select "Muokkaa" or "Muokkaus" or whatever it is. Proceed as when the
+page was first edited.
+
+* Old notes follow
+
 Nupdate: new naming convention and a Makefile to run nobr and sed
 
 Nupdate: returned to documentation work around 2017-10-07 with a
