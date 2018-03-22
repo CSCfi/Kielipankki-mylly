@@ -1,0 +1,608 @@
+# TOOL vrt-validate.py: "Validate VRT document" (Produce a report on issues that violate formal expectations in a VRT document.)
+# INPUT input.vrt TYPE GENERIC
+# OUTPUT report.tsv
+# PARAMETER level TYPE ["error", "warning", "info"] DEFAULT warning
+# PARAMETER verbosity TYPE ["verbose", "summary"] DEFAULT verbose
+# RUNTIME python3
+
+import os, sys
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names2 import base, name
+
+name('report.tsv',
+     're-{}'.format(base('input.vrt', '*.vrt', '*.vrt.txt')),
+     ext = 'rel.tsv')
+
+# Prepare synthetic command line arguments. The validation script is
+# primarily a command line tool and is inserted below verbatim up to
+# the point where it parses its arguments.
+
+arguments = ['--out', 'report.tmp']
+
+if level == 'error': arguments.append('--error')
+elif level == 'info': arguments.append('--info')
+else: pass # default is warning
+
+if verbosity == 'verbose': arguments.append('--verbose')
+elif verbosity == 'summary': arguments.append('--summary')
+else: pass # this cannot happen
+
+arguments.append('input.vrt')
+
+#! /usr/bin/env python3
+# -*- mode: Python; -*-
+
+# This script checks a surprisingly many number of things in a
+# purported VRT file and reports on issues.
+
+# Warning re re: IGNORECASE used to be broken with fullmatch or
+# more generally before Python 3.5 or so; Taito/kieli is at 3.4.
+# Do *not* use re.IGNORECASE in this script!
+# https://bugs.python.org/issue20998 (IGNORECASE, fullmatch)
+# https://bugs.python.org/issue17381 (IGNORECASE, Unicode)
+# https://bugs.python.org/issue12728 (IGNORECASE, Unicode)
+
+import argparse, os, re, string, sys
+from collections import Counter
+from html import unescape, escape
+from operator import itemgetter
+from unicodedata import category
+
+import signal
+signal.signal(signal.SIGINT, signal.SIG_DFL)
+signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+
+class GiveUp(Exception):
+    pass
+
+class State():
+    issues = Counter() # (kind, level, issue) -> how many
+    firsts = dict() # (kind, level, issue) -> first line
+    number = 0 # total number of issues for optional stopping
+    
+    # element name -> attribute names
+    # list seen on the first occurrence of the element
+    attributes = dict()
+
+    # First encountered field names
+    fields = None
+
+    # First encountered field count, from names or a record
+    length = None
+
+    current = dict() # element name -> whether open or not
+
+# this makes "if __name__ == '__main__'" silly
+STATE = State()
+
+def responder(args):
+    def respond(k, kind, level, legend):
+        '''Called for each issue; k is the 1-based line number.'''
+        this = (kind, level, legend)
+        STATE.number += 1
+        STATE.issues[this] += 1
+        if STATE.issues[this] == 1: STATE.firsts[this] = k
+        if ((level == 'error'
+             or args.info
+             or (level == 'warning'
+                 and not args.error))
+            and (args.verbose or STATE.issues[this] == 1)
+            and not args.summary):
+            print(k, *this, sep = '\t', file = args.out)
+    return respond
+
+def validate(k, byteline, respond):
+    try:
+        line = byteline.decode('UTF-8')
+    except UnicodeDecodeError:
+        respond(k, 'code', 'error', 'not even UTF-8')
+        return
+
+    if line.endswith('\r\n'):
+        respond(k, 'code', 'info', 'CR LF line terminator')
+        line = line[:-2]
+    elif line.endswith('\r'):
+        respond(k, 'code', 'info', 'CR line terminator')
+        line = line[:-1]
+    elif line.endswith('\n'):
+        line = line[:-1]
+    else:
+        respond(k, 'code', 'info', 'no line terminator')
+
+    validateline(k, line, respond)
+
+    (( validateemptyline if not line
+       else validatespaceline if line.isspace()
+       else validatecomment if line.startswith('<!')
+       else validatemeta if line.startswith('<')
+       else validatedata )
+     (k, line, respond))
+
+def validateline(k, line, respond):
+    '''Characters that are problematic anywhere, regardless'''
+
+    if any(ch in line
+           for ch in ('\N{line feed}' # cannot happen
+                      '\N{line tabulation}'
+                      '\N{form feed}'
+                      '\N{carriage return}'
+                      '\N{next line}'
+                      '\N{line separator}'
+                      '\N{paragraph separator}')):
+        respond(k, 'code', 'error', 'line terminator in line')
+
+    # yes line terminators may be reported again in the following
+
+    for cat in set(map(category, line.replace('\t', ' '))):
+        if cat == 'Cc':
+            # \t is Cc but fine in data - to check separately in meta
+            respond(k, 'code', 'warning', 'control character in line')
+        elif cat == 'Cn':
+            respond(k, 'code', 'warning', 'unassigned character in line')
+        elif cat == 'Co':
+            respond(k, 'code', 'warning', 'private character in line')
+        elif cat == 'Cs':
+            respond(k, 'code', 'warning', 'surrogate character in line')
+        else:
+            # TODO bidi, ...
+            pass
+
+def validateemptyline(k, line, respond):
+    # warn of empty lines because they affect further processing but
+    # are, apparently, allowed in VRT; identify all open elements
+    # because there is no sure sense of which is innermost, nor can
+    # there be when elements may overlap instead of properly nest
+
+    inside = sorted(name for name, state in STATE.current.items()
+                    if state)
+
+    if inside:
+        for name in inside:
+            respond(k, 'form', 'warning',
+                    'empty line in element: {}'.format(name))
+    else:
+        respond(k, 'form', 'warning', 'empty line outside elements')
+
+def validatespaceline(k, line, respond):
+    # hard to tell what it should be or why it should be allowed
+
+    respond(k, 'form', 'error', 'non-empty space line')
+
+comment = re.compile(R'''
+    # ignore XML prohibition of --
+    < ! -- (.*) -- > (\s*)
+''', re.VERBOSE)
+
+# matched against the contens of a comment;
+# names validated separately after matching
+fieldnamespec = re.compile(R'''
+    \s* Positional \s+ attributes \s* :
+    (.*)
+''', re.VERBOSE)
+
+def validatecomment(k, line, respond):
+    m = comment.fullmatch(line)
+    if not m:
+        respond(k, 'form', 'error', 'malformed comment')
+        return
+
+    if STATE.current.get('sentence', False):
+        respond(k, 'form', 'warning', 'comment in sentence')
+    else:
+        respond(k, 'form', 'info', 'comment')
+
+    if m.group(2):
+        respond(k, 'form', 'warning', 'comment has trailing space')
+
+    m = fieldnamespec.fullmatch(m.group(1))
+    if not m: return
+
+    names = m.group(1).strip().split()
+
+    if not names:
+        respond(k, 'form', 'error', 'empty field name comment')
+        return
+
+    if any(not (name.isidentifier() and
+                all(ch in string.ascii_letters for ch in name
+                    if ch.isalpha()))
+            for name in names):
+        respond(k, 'form', 'error', 'bad field name')
+        return
+
+    if not len(set(names)) == len(names):
+        respond(k, 'form', 'error', 'duplicate field name: {}'
+                .format(' '.join(sorted(name for name in set(names)
+                                        if names.count(name) > 1))))
+        return
+
+    respond(k, 'name', 'info', 'field names: {}'.format(' '.join(names)))
+
+    # track field names
+
+    if STATE.fields is not None:
+        # then STATE.length == len(STATE.fields)
+        if STATE.fields == names:
+            pass
+        else:
+            respond(k, 'name', 'error', 'original field names: {}'
+                    .format(' '.join(STATE.fields)))
+            respond(k, 'name', 'error', 'different field names: {}'
+                    .format(' '.join(names)))
+
+    elif STATE.fields is None is STATE.length:
+        STATE.fields = names
+        STATE.length = len(names)
+        respond(k, 'data', 'info', 'number of fields: {}'
+                .format(len(names)))
+
+    elif STATE.fields is None is not STATE.length:
+        if len(names) == STATE.length:
+            STATE.fields = names
+            respond(k, 'name', 'warning', 'late field names: {}'
+                    .format(' '.join(names)))
+        else:
+            respond(k, 'name', 'error',
+                    'original number of fields: {}'.format(STATE.length))
+            respond(k, 'name', 'error',
+                    'different number of names: {}'.format(len(names)))
+
+    else:
+        raise Exception('this cannot happen (please report)')
+
+# match spurious whitespace in and after tags
+# but not between < or </ and element name;
+# allow _ - . in element and attribute names;
+# require doublequoted attribute values
+
+opening = re.compile(R'''
+    < ([a-zA-Z_\-.]+) # element name as .group(1)
+    (?: \s+ [a-zA-Z_\-.]+ \s* = \s* "[^"]*" )*
+    \s* > \s*
+''', re.VERBOSE)
+
+openingspace = re.compile(R'<\S+(?: \S+="[^"]*")*>')
+
+closing = re.compile(R'''
+    </ ([a-zA-Z_\-.]+) # element name as .group(1)
+    \s* > \s*
+''', re.VERBOSE)
+
+closingspace = re.compile(R'</\S+>')
+
+attribute = re.compile(R'''
+    ([a-zA-Z_\-.]+) # attribute name as .group(1)
+    \s* = \s*
+    " (.*?) " # attribute value as .group(2)
+''', re.VERBOSE)
+
+def validatemeta(k, line, respond):
+    m = opening.fullmatch(line)
+    if m:
+        # same check as for 'data' - could push the check down to
+        # individual values here and be able indicate element and
+        # attribute, but let it be for now
+        validatereferences(k, line, 'meta', respond)
+        if line.count('<') > 1 or line.count('>') > 1:
+            respond(k, 'meta', 'error', 'bare angle bracket')
+
+        element = m.group(1)
+        respond(k, 'name', 'info',
+                'opened element: {}'
+                .format(element))
+        ( openingspace.fullmatch(line) or
+          respond(k, 'syntax', 'warning',
+                  'spurious spacing in opening: {}'
+                  .format(element))
+        )
+        if STATE.current.get(element, False):
+            respond(k, 'nest', 'error',
+                    'element already open: {}'
+                    .format(element))
+        else:
+            STATE.current[element] = True
+            
+        attributes = attribute.findall(line)
+        validateattributes(k, element, attributes, respond)
+        return
+
+    m = closing.fullmatch(line)
+    if m:
+        element = m.group(1)
+        ( closingspace.fullmatch(line) or
+          respond(k, 'syntax', 'warning',
+                  'spurious spacing in closing: {}'
+                  .format(element))
+        )
+        if STATE.current.get(element, False):
+            STATE.current[element] = False
+        else:
+            respond(k, 'nest', 'error',
+                    'element not open: {}'
+                    .format(element))
+
+        return
+
+    respond(k, 'form', 'error', 'malformed tag')
+
+def validateattributes(k, element, attributes, respond):
+
+    names = list(map(itemgetter(0), attributes))
+    values = list(map(itemgetter(1), attributes))
+
+    if element not in STATE.attributes:
+        STATE.attributes[element] = names
+
+    if names != sorted(names):
+        respond(k, 'names', 'info',
+                'attribute names out of order in element: {}'
+                .format(element))
+
+    if len(names) != len(set(names)):
+        respond(k, 'names', 'error',
+                'duplicate attribute names in element: {}'
+                .format(element))
+
+    if names != STATE.attributes[element]:
+        if set(names) != set(STATE.attributes[element]):
+            respond(k, 'names', 'warning',
+                    'different attribute names in element: {}'
+                    .format(element))
+        else:
+            respond(k, 'names', 'warning',
+                    'attribute names in different order in element: {}'
+                    .format(element))
+
+    for name, value in zip(names, values):
+        validateattribute(k, element, name, respond)
+        label = '{} of {}'.format(name, element)
+        # should check against references
+        if "'" in value:
+            respond(k, 'meta', 'error',
+                    'bare apostrophe in value: {}'
+                    .format(label))
+
+        validatevalue(k, label, value, respond)
+
+        # some attributes may have particular validators
+        attributevalidator.get(name, ignore)(k, value, label, respond)
+
+def validateattribute(k, element, name, respond):
+    ( name.isidentifier() or
+      respond(k, 'names', 'warning',
+              'attribute name not an identifier: {} of {}'
+              .format(name, element)) )
+
+def date8(k, value, label, respond):
+    if not (len(value) == 8 and value.isdigit()):
+        respond(k, 'meta', 'warning', 'suspect date: {}'.format(label))
+
+def time6(k, value, label, respond):
+    if not (len(value) == 6 and value.isdigit()):
+        respond(k, 'meta', 'warning', 'suspect time: {}'.format(label))
+
+def year4(k, value, label, respond):
+    if not (len(value) == 4 and value.isdigit()):
+        respond(k, 'meta', 'warning', 'suspect year: {}'.format(label))
+
+def ignore(k, value, label, respond):
+    pass
+
+# these take k, value, label, respond
+attributevalidator = dict(datefrom = date8,
+                          dateto = date8,
+                          timefrom = time6,
+                          timeto = time6,
+                          year = year4)
+
+# html.unescape does funny things (makes references like &#26; vanish,
+# ignores missing semicolons, interprets prefixes like "&ampersand;"
+# is taken to "&ersand;")- one could live with unrecognized references
+# left intact but not with all of this - check every valid-looking
+# reference that also has the semicolon and complain of others and of
+# those that fail with html.unescape
+
+reference = re.compile(R'''
+    & [a-zA-Z]+ ; |
+    & \# [0-9]+ ; |
+    & \# x [0-9a-fA-F] + ;
+''', re.VERBOSE)
+
+def validatedata(k, line, respond):
+
+    if not any(STATE.current[element] for element in STATE.current):
+        respond(k, 'data', 'error', 'data outside any element')
+    elif not STATE.current.get('sentence', False):
+        respond(k, 'data', 'warning',
+                'data outside sentence')
+
+    if any(ch in line for ch in '<>'):
+        respond(k, 'data', 'error',
+                'bare angle bracket')
+
+    validatereferences(k, line, 'data', respond)
+
+    record = unescape(line).split('\t')
+
+    # track number of records
+    if STATE.length is None:
+        STATE.length = len(record)
+        respond(k, 'data', 'info', 'number of fields: {}'
+                .format(len(record)))
+    elif STATE.length == len(record):
+        pass
+    else:
+        respond(k, 'data', 'error', 'original number of fields: {}'
+                .format(STATE.length))
+        respond(k, 'data', 'error', 'different number of fields: {}'
+                .format(len(record)))
+
+    for pos, value in enumerate(record, start = 1):
+        label = 'field {}'.format(pos)
+        validatefield(k, label, value, respond)
+
+def validatefield(k, label, value, respond):
+    '''Bare value (with unescaped references) in a position in a field,
+    where empty values are discouraged (unlike in attributes).
+
+    '''
+
+    if value:
+        validatevalue(k, label, value, respond)
+    else:
+        respond(k, 'data', 'warning',
+                'empty value: {}'.format(label))
+
+def validatevalue(k, label, value, respond):
+    '''Bare value, common validator for attributes and fields'''
+
+    if value.isspace():
+        respond(k, 'data', 'warning',
+                'value is all space: {}'.format(label))
+    elif value.startswith(' ') or value.endswith(' '):
+        respond(k, 'data', 'warning',
+                'outer space in value: {}'
+                .format(label))
+    elif '  ' in value:
+        respond(k, 'data', 'warning',
+                'double space in value: {}'
+                .format(label))
+
+    if '\t' in value:
+        respond(k, 'data', 'error',
+                'tab in value: {}'
+                .format(label))
+
+def validatereferences(k, line, kind, respond):
+    if '&' in line:
+        refs = reference.findall(line)
+        if line.count('&') > len(refs):
+            respond(k, kind, 'error', 'bare ampersand')
+
+        for ref in refs:
+            validatereference(k, ref, kind, respond)
+
+def validatereference(k, ref, kind, respond):
+    bare = unescape(ref)
+    if not bare:
+        # html.unescape produced nothing
+        respond(k, kind, 'error', 'vanishing reference')
+    elif bare.endswith(';'):
+        # html.unescape has interpreted at most a proper prefix
+        # - this case covers both &ampersand; and &nerror;
+        respond(k, kind, 'error', 'unknown reference')
+    elif bare == '\N{character tabulation}':
+
+        # not allowing insertion of spurious field terminators even in
+        # attribute values - the cost is potentially high whereas any
+        # gain would be pretty close to nothing whatsoever
+
+        respond(k, kind, 'error', 'field separator reference')
+    elif bare in ( '\N{line feed}'
+                   '\N{line tabulation}'
+                   '\N{form feed}'
+                   '\N{carriage return}'
+                   '\N{next line}'
+                   '\N{line separator}'
+                   '\N{paragraph separator}' ):
+
+        # not allowing any potential line terminator in any field or
+        # in any attribute - these are likely to be left unescaped
+        # even in further forms of the VRT, or the unescaped form of
+        # the data may be passed to external tools that may actually
+        # interpret the rarer line terminators as such
+
+        # not sure whether html.unescape can produce all of these
+
+        respond(k, kind, 'error', 'line terminator reference')
+    elif category(bare) == 'Cc':
+        # at least &#x90; produces one of these; many Unicode control
+        # codes produce something else!
+        respond(k, kind, 'warning', 'control character reference')
+    elif category(bare) == 'Cn':
+        # not known if any reference produces any Cn
+        respond(k, kind, 'warning', 'unassigned character reference')
+    elif category(bare) == 'Co':
+        # &#xe000; and others do produce these
+        respond(k, kind, 'warning', 'private character reference')
+    elif category(bare) == 'Cs':
+        # but &xdb800; and others seem to produce U+fffd replacement
+        # character in So; not known if any reference produces any Cs
+        respond(k, kind, 'warning', 'surrogate character reference')
+    else:
+        # TODO bidi references, ...
+        pass
+    
+    pass
+
+def main(argv):
+    parser = argparse.ArgumentParser(description = '''
+    Reports on issues in an intended VRT file.''')
+    parser.add_argument('arg', metavar = 'FILE', nargs = '?',
+                        type = argparse.FileType('br'),
+                        default = sys.stdin.buffer,
+                        help = 'input (stdin)')
+    parser.add_argument('--out', '-o', metavar = 'outfile',
+                        type = argparse.FileType('w', encoding = 'UTF-8'),
+                        default = sys.stdout,
+                        help = 'report (stdout)')
+    parser.add_argument('--verbose', action = 'store_true',
+                        help = 'report each issue'
+                        ' (default first occurrences)')
+    parser.add_argument('--summary', action = 'store_true',
+                        help = 'only report at end'
+                        ' (with count and first occurrence)')
+    parser.add_argument('--info', action = 'store_true',
+                        help = 'also report information'
+                        ' (default warnings and errors)')
+    parser.add_argument('--error', action = 'store_true',
+                        help = 'only report errors'
+                        ' (default also warnings)')
+    parser.add_argument('--version', action = 'store_true',
+                        help = 'print a  version indicator and exit')
+
+    # TODO also allow to limit number of observations (probably
+    # subject to --info and --error)
+
+    args = parser.parse_args(argv)
+    
+    if args.version:
+        print('vrt-validate 0.4b (FIN-CLARIN 2018)')
+        exit(0)
+    
+    respond = responder(args)
+    
+    with args.arg as source, args.out as target:
+        if not args.summary:
+            print('line', 'kind', 'level', 'issue',
+                  sep = '\t', file = target)
+        
+        try:
+            for k, line in enumerate(source, start = 1):
+                validate(k, line, respond)
+                
+            for element, state in STATE.current.items():
+                if state:
+                    respond(k + 1, 'nest', 'error',
+                            'element not closed: {}'
+                            .format(element))
+        except GiveUp:
+            pass
+
+        if args.summary:
+            print('count', 'line', 'kind', 'level', 'issue',
+                  sep = '\t', file = target)
+            for issue, line in sorted(STATE.firsts.items(),
+                                      key = itemgetter(1)):
+                kind, level, _ = issue
+                if (level == 'error'
+                    or args.info
+                    or (level == 'warning' and not args.error)):
+                    print(STATE.issues[issue], line, *issue,
+                          sep = '\t', file = target)
+
+if __name__ == '__main__':
+    # command line tool would call with sys.argv
+    main(arguments)
+
+os.rename('report.tmp', 'report.tsv')
