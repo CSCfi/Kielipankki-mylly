@@ -1,0 +1,141 @@
+<article>
+  <p><em>
+      Myllyn työkalu: VRT Manipulation / Validate VRT document
+    </em>
+    <br/>
+    <a href="../../../support/mylly/vrt-validate">
+      in English
+    </a>
+  </p>
+  <h1>VRT-dokumentin validointi</h1>
+  <p>Työkalu tarkistaa erinäisiä seikkoja VRT-muotoiseksi
+    aiotusta dokumentista ja laatii siitä raportin.
+  </p>
+  <p>Parametreilla voi valita, kuinka yksityiskohtainen
+    raportista tulee.
+  </p>
+  <dl>
+    <dt>level</dt>
+    <dd>error, warning, tai info (oletuksena warning) —
+      error-tasolla raportoidaan vain varsinaisista
+      virheistä; info-tasolla raportoidaan myös seikoista,
+      jotka eivät ole ollenkaan ongelmia vaan ovat muuten
+      hyödyllisiä tietää
+    </dd>
+    <dt>verbosity</dt>
+    <dd>verbose tai summary (oletuksena verbose) —
+      verbose-tasolla raportoidaan jokaisen raportoitavan
+      seikan jokaisen esiintymän rivinumero; summary-tasolla
+      raportoidaan esiintymien lukumäärät mutta vain
+      ensimmäisen esiintymän rivinumero
+    </dd>
+  </dl>
+  <h2>Esimerkki</h2>
+  <p>Oletetaan, että seuraavan dokumentin
+    on <em>tarkoitus</em> olla VRT-muotoinen.
+  </p>
+  <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;text license="not
+    to make nay use of this data"&gt;
+    &lt;sentence&gt;
+    five
+    years
+    &lt;sentence&gt;
+  </pre>
+  <p>Dokumentti on väärällään ongelmia: Ensimmäinen rivi
+    alkaa "vasemmalla kulmasululla" (pienempi kuin
+    -merkillä) mutta ei ole elementin alku- tai
+    loppumerkintä eikä kommentti. Toinen ja kolmas rivi
+    olisivat kelvollinen text-elementin alkumerkintä yhtenä
+    rivinä, mutta kahtena rivinä kumpikaan niistä ei ole
+    kelvollista VRT:tä.  Toisen sentence-elementin
+    alkumerkinnän pitäisi olla loppumerkintä — tai ehkä
+    todellinen virhe on jotain ihan muuta, kuten useamman
+    rivin puuttuminen kyseisessä kohdassa.  Ja
+    loppumerkinnät puuttuvat sekä text-elementiltä että
+    sentence-elementiltä.
+  </p>
+  <p>Dokumentissa näyttää myös olevan kirjoitusvirhe
+    ("nay"pitäisi ehkä olla "any"), ja lainopillisesti ei
+    ehkä ole perusteltua yrittää kieltää tämän aineiston
+    käyttöä yhtään mihinkään. Tällaisia seikkoja
+    validaattori ei tarkista.
+  </p>
+  <p>Validointiraportti on seuraavanlainen taulukko, jossa
+    jokainen rivi ilmaisee yhden havaitun seikan ja viittaa
+    rivinumerolla sen esiintymään dokumentissa.
+    Ongelmallista sisältöä ei näytetä raportissa.
+    (Aikaisemmat yritykset ovat opettaneet, että
+    ongelmatapausten sisällyttäminen raporttiin tekee
+    raportin lukemisen työlääksi. Eräät ongelmat voivat myös
+    olla ongelmallisia näyttää.)
+  </p>
+  <table>
+    <tr>
+      <th>line</th>
+      <th>kind</th>
+      <th>level</th>
+      <th>issue</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>form</td>
+      <td>error</td>
+      <td>malformed tag</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>form</td>
+      <td>error</td>
+      <td>malformed tag</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>data</td>
+      <td>error</td>
+      <td>bare angle</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>nest</td>
+      <td>error</td>
+      <td>element already open: sentence</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>nest</td>
+      <td>error</td>
+      <td>element not closed: sentence</td>
+    </tr>
+  </table>
+  <p>Raportin "bare angle" viittaa "oikeaan kulmasulkuun"
+    (suurempi kuin -merkkiin), joka sisältörivillä pitäisi
+    koodata muotoon <code>&amp;gt;</code>. Validaattori
+    tulkitsee kyseisen rivin sisältöriviksi, koska se ei ala
+    vasemmalla kulmasululla.
+  </p>
+  <p>Tässä raportissa validaattori ei ole tunnistanut
+    text-elementin alkumerkintää. Siksi se ei myöskään
+    havaitse, että vastaava loppumerkintä puuttuu.
+  </p>
+  <p>Rivi 8, jossa puuttuvat loppumerkinnät havaitaan, on
+    yhden rivin verran dokumentin ulkopuolella.
+  </p>
+  <p>Raportti saattaa poiketa tässä esitetystä riippuen
+    siitä, mikä nimenomainen versio validaattorista on
+    käytössä.
+  </p>
+  <h2>Muita työkaluja</h2>
+  <ul>
+    <li>JOSKUS<!--a href="../RELATED-TOOL-NAME">työkalun nimi</a--></li>
+  </ul>
+  <h2>Katso myös</h2>
+  <ul>
+    <li><a href="https://www.kielipankki.fi/development/korp/corpus-input-format/">
+	VRT-tiedostomuoto
+      </a>
+      Kielipankissa
+    </li>
+  </ul>
+</article>

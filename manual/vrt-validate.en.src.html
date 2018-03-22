@@ -1,0 +1,136 @@
+<article>
+  <p><em>
+      Tool in Mylly: VRT manipulation / Validate VRT document
+    </em>
+    <br/>
+    <a href="../../../tuki/mylly/vrt-validate">
+      suomeksi
+    </a>
+  </p>
+  <h1>Validate VRT document</h1>
+  <p>Check a purported VRT document for various issues and
+    produce a validation report.
+  </p>
+  <p>Parameters specify the level of detail of the report.
+  </p>
+  <dl>
+    <dt>level</dt>
+    <dd>error, warning, or info (defaults to warning) —
+      when set to error, only report errors; when set to
+      info, also report issues that are not problems at
+      all but may be good to know
+    </dd>
+    <dt>verbosity</dt>
+    <dd>verbose or summary (defaults to verbose) — when
+      verbose, report the line number of each occurrence
+      of each kind of issue; when summary, report the
+      counts of each kind of issue but the line number for
+      only the first occurrence
+    </dd>
+  </dl>
+  <h2>Example</h2>
+  <p>Suppose the following document is <em>meant</em> to
+    be in the VRT format.
+  </p>
+  <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;text license="not
+    to make nay use of this data"&gt;
+    &lt;sentence&gt;
+    five
+    years
+    &lt;sentence&gt;
+  </pre>
+  <p>The document is full of problems: The first line
+    starts with a "left angle bracket" (less-than sign)
+    but is neither a tag nor a comment. The second and
+    third line would be a valid start tag of a text
+    element if they were on one line, but neither line is
+    valid VRT on their own. The second start tag of a
+    sentence element should be an end tag — or the actual
+    error might be something else, like many lines missing
+    at this point. And there is no end tag to the text
+    element or to a sentence element.
+  </p>
+  <p>There is also an apparent spelling error ("nay" for
+    "any") in the intended attribute value, and likely no
+    legal basis to attempt to prohibit any use of the data
+    (which looks quite trivial). The validator cannot
+    address such issues.
+  </p>
+  <p>The validation report is laid out as the following
+    kind of table where each row documents a detected type
+    of issue, together with the line number of an
+    instance. The actual problematic content is not shown
+    in the report. (Previous attempts to show the content
+    in the reports have made the reports overly verbose.
+    Some kinds of problems may also make the content
+    awkward to display.)
+  </p>
+  <table>
+    <tr>
+      <th>line</th>
+      <th>kind</th>
+      <th>level</th>
+      <th>issue</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>form</td>
+      <td>error</td>
+      <td>malformed tag</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>form</td>
+      <td>error</td>
+      <td>malformed tag</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>data</td>
+      <td>error</td>
+      <td>bare angle</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>nest</td>
+      <td>error</td>
+      <td>element already open: sentence</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>nest</td>
+      <td>error</td>
+      <td>element not closed: sentence</td>
+    </tr>
+  </table>
+  <p>The "bare angle" refers to the "right angle bracket"
+    (greater-than sign) that should be encoded
+    as <code>&amp;gt;</code> in content. The line looks
+    like a content line to the validator because it does
+    not start with a left angle bracket.
+  </p>
+  <p>In this report, the validator has not recognized the
+    start tag of the text element, so it cannot detect
+    that the corresponding end tag is missing.
+  </p>
+  <p>The line number 8, where missing end tags are
+    reported, is one past the end of the document.
+  </p>
+  <p>An actual report may vary depending on the current
+    version of the validator.
+  </p>
+  <h2>Related tools</h2>
+  <ul>
+    <li>TO BE<!--a href="">tool name</a--></li>
+  </ul>
+  <h2>See also</h2>
+  <ul>
+    <li><a href="https://www.kielipankki.fi/development/korp/corpus-input-format/">
+	VRT format
+      </a>
+      in the Language Bank of Finland
+    </li>
+  </ul>
+</article>
