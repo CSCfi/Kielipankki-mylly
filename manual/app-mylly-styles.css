@@ -1,0 +1,17 @@
+.chipster-highlight {
+    background-color: #cbd2e6 !important;
+}
+
+.btn-success {
+    background-color: #e95a2f !important;
+    border-color: #e95a2f !important;
+}
+
+.btn-success.disabled .btn-success:disabled {
+    background-color: #f5a54c !important;
+    border-color: #f5a54c !important;
+}
+
+.body {
+    font-family: 'Lato', sans-serif !important;
+}
