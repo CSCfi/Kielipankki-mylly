@@ -7,8 +7,8 @@
 # RUNTIME python3
 
 # they are still not yet in the proper place
-# DIR = '/proj/kieli/finnish-tagtools'
-DIR = '/wrk/jpiitula/finnish-tagtools'
+DIR = '/proj/kieli/finnish-tagtools'
+# DIR = '/wrk/jpiitula/finnish-tagtools'
 
 import os, sys
 from itertools import groupby
