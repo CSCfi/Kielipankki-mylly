@@ -4,8 +4,8 @@
 # OUTPUT output.tsv
 # RUNTIME python3
 
-# they are not yet in the proper place
-DIR = '/wrk/jpiitula/finnish-tagtools'
+# they are still not yet in the proper place
+DIR = '/proj/kieli/finnish-tagtools'
 
 import os, sys
 from itertools import groupby
