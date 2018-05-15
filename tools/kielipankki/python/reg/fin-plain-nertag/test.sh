@@ -26,7 +26,7 @@ cat > chipster-inputs.tsv <<-EOF
 	input.txt	sorsa.txt
 EOF
 
-cat > input.vrt <<-EOF
+cat > input.txt <<-EOF
 	Saksan jalkapalloliiton päävalmentaja Joachim Löw jatkaa
 	joukkueen peräsimessä aina vuoteen 2022 asti.
 	Saksan jalkapalloliitto tiedotti tiistaina, että se on

@@ -2,10 +2,13 @@
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
+# OUTPUT error1.log
+# OUTPUT error2.log
 # RUNTIME python3
 
 # they are still not yet in the proper place
-DIR = '/proj/kieli/finnish-tagtools'
+# DIR = '/proj/kieli/finnish-tagtools'
+DIR = '/wrk/jpiitula/finnish-tagtools'
 
 import os, sys
 from itertools import groupby
