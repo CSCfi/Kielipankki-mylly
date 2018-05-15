@@ -6,7 +6,9 @@
 # OUTPUT error2.log
 # RUNTIME python3
 
-# they are still not yet in the proper place
+# they are still not yet in the proper place;
+# DIR/finnish-nertag wired to use hfst 3.14.0;
+# error?.log above left visible just in case
 DIR = '/proj/kieli/finnish-tagtools'
 # DIR = '/wrk/jpiitula/finnish-tagtools'
 
