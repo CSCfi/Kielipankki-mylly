@@ -9,9 +9,9 @@ def prepend_to_path(path, *entries):
 def setenv(hfst_version):
     if hfst_version == 'v_3_14_0':
         prepend_to_path('PATH',
-                        '/homeappl/appl_taito/ling/hfst/3.14.0/bin')
+                        '/appl/ling/hfst/3.14.0/bin')
         prepend_to_path('LD_LIBRARY_PATH',
-                        '/homeappl/appl_taito/ling/hfst/3.14.0/lib')
+                        '/appl/ling/hfst/3.14.0/lib')
     else:
         # find out what is needed for summary v 3.14.0, then work on
         # other versions and other HFST programs
