@@ -3,7 +3,7 @@ from subprocess import Popen
 
 def prepend_to_path(path, *entries):
     os.environ[path] = ( ':'.join((':'.join(entries),
-                                   os.environ[path]))
+                                   os.environ.get(path, '')))
                          .rstrip(':') )
 
 def setenv(hfst_version):
