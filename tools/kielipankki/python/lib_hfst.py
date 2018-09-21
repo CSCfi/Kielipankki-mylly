@@ -7,15 +7,15 @@ def prepend_to_path(path, *entries):
                          .rstrip(':') )
 
 def setenv(hfst_version):
-    if hfst_version == 'v_3_12_1':
+    if hfst_version == 'v_3_14_0':
         prepend_to_path('PATH',
-                        '/homeappl/appl_taito/ling/hfst/3.12.1/bin')
+                        '/homeappl/appl_taito/ling/hfst/3.14.0/bin')
         prepend_to_path('LD_LIBRARY_PATH',
-                        '/homeappl/appl_taito/ling/hfst/3.12.1/lib')
+                        '/homeappl/appl_taito/ling/hfst/3.14.0/lib')
     else:
-        # find out what is needed for summary v3121, then work on other
-        # versions and other HFST programs
-        pass
+        # find out what is needed for summary v 3.14.0, then work on
+        # other versions and other HFST programs
+        raise ValueError('only implemented for 3.14.0')
 
 def finish(require = None, version = None):
     '''Ensure that a required result file exists, by touching it if
