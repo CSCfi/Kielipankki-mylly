@@ -7,7 +7,7 @@ def prepend_to_path(path, *entries):
                          .rstrip(':') )
 
 def setenv(hfst_version):
-    if hfst_version == '3.14.0':
+    if hfst_version == 'v_3_14_0':
         prepend_to_path('PATH',
                         '/homeappl/appl_taito/ling/hfst/3.14.0/bin')
         prepend_to_path('LD_LIBRARY_PATH',
