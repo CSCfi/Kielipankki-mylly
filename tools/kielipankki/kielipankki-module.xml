@@ -113,6 +113,7 @@
 
   <category name="Preprocessing" color="#8ca5d8">
     <tool>to-utf8.py</tool>
+    <tool>hrt-from-txt.py</tool>
   </category>
 
   <category name="Finite-State Technology" color="#998cd8">
