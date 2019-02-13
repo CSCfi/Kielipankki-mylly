@@ -18,12 +18,12 @@ name('output.hrt', base('input.txt', '*.txt'),
      ext = 'hrt.txt')
 
 try:
-    with Popen([PROG],
+    with Popen(['python3', PROG],
                stdin = open('input.txt', mode = 'rb'),
                stdout = open('output.hrt', mode = 'wb'),
                stderr = open('error.log', mode = 'wb')) as segment:
         pass
 except Exception as exn:
     et, ev, tr = sys.exc_info()
-    print(ev, file = sys.stderr)
+    print(et, ev, tr, sep = '\n', file = sys.stderr)
     exit(1)
