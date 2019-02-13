@@ -1,5 +1,5 @@
 chipster_ip: 86.50.168.171
-chipster_production_tarball: http://vm0151.kaj.pouta.csc.fi/artefacts/jenkins-jobs/build_chipster_project/builds/164-chipster-3.12.3_2/archive/dist/chipster-3.12.3.tar.gz
+chipster_production_tarball: http://vm0151.kaj.pouta.csc.fi/artefacts/jenkins-jobs/build_chipster_project/builds/167-chipster-3.12.4_02/archive/dist/chipster-3.12.4.tar.gz
 
 nodes:
  - c305
