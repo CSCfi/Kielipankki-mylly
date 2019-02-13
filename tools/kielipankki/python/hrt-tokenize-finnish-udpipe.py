@@ -14,7 +14,7 @@ PROG = os.path.join(chipster_module_path, 'python', 'xvrt-tools',
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 
-name('output.vrt', base('input.hrt', '*.hrt'),
+name('output.vrt', base('input.hrt', '*.hrt.txt'),
      ext = 'vrt.txt')
 
 try:
