@@ -1,0 +1,9 @@
+This directory tools/kielipankki/python/xvrt-tools
+is a *temporary* location for some of VRT tools
+until they get properly installed in Taito and
+the new Mylly server.
+
+So these tools are maintained and developed in
+another repository and only copied here
+because the new Mylly server will not otherwise
+have them *yet*.

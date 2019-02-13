@@ -9,8 +9,9 @@
 # they are still not yet in the proper place;
 # DIR/finnish-nertag wired to use hfst 3.14.0;
 # error?.log above left visible just in case
-DIR = '/proj/kieli/finnish-tagtools'
+# DIR = '/proj/kieli/finnish-tagtools'
 # DIR = '/wrk/jpiitula/finnish-tagtools'
+DIR = '/appl/ling/finnish-tagtools/1.1/bin'
 
 import os, sys
 from itertools import groupby

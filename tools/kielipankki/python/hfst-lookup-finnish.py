@@ -13,8 +13,8 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_pipeline import hfst_lookup
 from lib_errorlog import consolidate
 
-def lookup_3_8_3():
-    home = "/homeappl/appl_taito/ling/hfst/3.8.3"
+def lookup_3_15_0():
+    home = "/appl/ling/hfst/3.15.0"
     processor  = os.path.join(home, "bin", "hfst-optimized-lookup")
     transducer = os.path.join(home, "share/hfst/fi", "fi-analysis.hfst.ol")
 
@@ -27,6 +27,6 @@ def lookup_3_9_0():
 
     hfst_lookup(processor, transducer)
 
-dict(v383 = lookup_3_8_3, v390 = lookup_3_9_0)[Version]()
+dict(v383 = lookup_3_15_0, v390 = lookup_3_9_0)[Version]()
 
 consolidate()
