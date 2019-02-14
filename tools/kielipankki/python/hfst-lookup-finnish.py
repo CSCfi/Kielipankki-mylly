@@ -1,4 +1,4 @@
-# TOOL hfst-lookup-finnish.py: "HFST Lookup Finnish" (Looks up Finnish morphological analyses of tokens, each in the first field of a line. Output format depends on the underlying combination of lookup tool, its options, and lexical transducer.)
+# TOOL hfst-lookup-finnish.py: "HFST Lookup Finnish" (This tool looks up Finnish morphological analyses of tokens, each in the first field of a line. Output format depends on the underlying combination of lookup tool, its options, and lexical transducer.)
 # INPUT tokens.tsv TYPE GENERIC
 # OUTPUT readings.txt
 # OUTPUT OPTIONAL error.log
