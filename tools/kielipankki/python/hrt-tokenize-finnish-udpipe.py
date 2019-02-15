@@ -30,12 +30,12 @@ except Exception as exn:
     et, ev, tr = sys.exc_info()
     print(et, ev, tr, sep = '\n', file = sys.stderr)
 
-    # trying to see why PROG is not found
-    with Popen(['ls', '-ldF',
-                '/appl',
-                '/appl/ling',
-                '/appl/ling/udpipe'],
-               stdout = open('ls-out.log', mode = 'wb'),
-               stderr = open('ls-err.log', mode = 'wb')) as whatever:
-        pass
-    exit(1)
+# still trying to see why PROG is not found
+with Popen(['ls', '-ldF',
+            '/appl',
+            '/appl/ling',
+            '/appl/ling/udpipe'],
+           stdout = open('ls-out.log', mode = 'wb'),
+           stderr = open('ls-err.log', mode = 'wb')) as whatever:
+    pass
+# exit(1)
