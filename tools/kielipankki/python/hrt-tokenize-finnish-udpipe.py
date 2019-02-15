@@ -1,7 +1,9 @@
-# TOOL hrt-tokenize-finnish-udpipe.py: "X Tokenize Finnish HRT with UDPipe" (Tokenize Finnish HRT into VRT with UDPipe.)
+# TOOL hrt-tokenize-finnish-udpipe.py: "Tokenize Finnish HRT with UDPipe" (Tokenize Finnish HRT into VRT with UDPipe.)
 # INPUT input.hrt TYPE GENERIC
 # OUTPUT output.vrt
 # OUTPUT error.log
+# OUTPUT OPTIONAL ls-out.log
+# OUTPUT OPTIONAL ls-err.log
 # RUNTIME python3
 
 import os, sys
@@ -32,6 +34,8 @@ except Exception as exn:
     with Popen(['ls', '-ldF',
                 '/appl',
                 '/appl/ling',
-                '/appl/ling/udpipe']) as whatever:
+                '/appl/ling/udpipe'],
+               stdout = open('ls-out.log', mode = 'wb'),
+               stderr = open('ls-err.log', mode = 'wb')) as whatever:
         pass
     exit(1)
