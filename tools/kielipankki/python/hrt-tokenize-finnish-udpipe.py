@@ -4,6 +4,8 @@
 # OUTPUT error.log
 # OUTPUT OPTIONAL ls-out.log
 # OUTPUT OPTIONAL ls-err.log
+# OUTPUT OPTIONAL ls-ling-out.log
+# OUTPUT OPTIONAL ls-ling-err.log
 # RUNTIME python3
 
 import os, sys
@@ -38,4 +40,11 @@ with Popen(['ls', '-ldF',
            stdout = open('ls-out.log', mode = 'wb'),
            stderr = open('ls-err.log', mode = 'wb')) as whatever:
     pass
+
+# /appl/ling/udpipe was inaccessible, see more?
+with Popen(['ls', '-lF', '/appl/ling'],
+           stdout = open('ls-ling-out.log', mode = 'wb'),
+           stderr = open('ls-ling-err.log', mode = 'wb')) as whatever:
+    pass
+
 # exit(1)
