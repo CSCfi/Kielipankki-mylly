@@ -27,4 +27,11 @@ try:
 except Exception as exn:
     et, ev, tr = sys.exc_info()
     print(et, ev, tr, sep = '\n', file = sys.stderr)
+
+    # trying to see why PROG is not found
+    with Popen(['ls', '-ldF',
+                '/appl',
+                '/appl/ling',
+                '/appl/ling/udpipe']) as whatever:
+        pass
     exit(1)
