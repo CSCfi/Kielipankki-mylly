@@ -1,4 +1,4 @@
-# TOOL hrt-tokenize-finnish-udpipe.py: "Tokenize Finnish HRT with UDPipe" (Tokenize Finnish HRT into VRT with UDPipe.)
+# TOOL hrt-tokenize-finnish-udpipe.py: "X Tokenize Finnish HRT with UDPipe" (Tokenize Finnish HRT into VRT with UDPipe.)
 # INPUT input.hrt TYPE GENERIC
 # OUTPUT output.vrt
 # OUTPUT error.log
