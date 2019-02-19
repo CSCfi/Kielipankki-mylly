@@ -37,8 +37,8 @@ def parsearguments():
                             'finnish-tdt-ud',
                             'finnish-ftb-ud',
                             'swedish-talbanken-ud',
-                            'english-ewt-ud'
-                            'english-gum-ud'
+                            'english-ewt-ud',
+                            'english-gum-ud',
                         ],
                         default = 'finnish-tdt-ud',
                         help = '''
