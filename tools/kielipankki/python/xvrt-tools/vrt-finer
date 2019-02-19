@@ -64,7 +64,11 @@ def main(args, ins, ous):
                           # but is that always set?
                           PATH = prepend(HFSTBIN, to = 'PATH'),
                           LD_LIBRARY_PATH
-                          = prepend(HFSTLIB, to = 'LD_LIBRARY_PATH')),
+                          = prepend(HFSTLIB, to = 'LD_LIBRARY_PATH'),
+
+                          # And finnpos expects ascii over there?
+                          # And then hangs on actual input?
+                          LC_ALL = 'en_US.UTF-8'),
                stdin = PIPE,
                stdout = PIPE,
                stderr = sys.stderr.buffer) as fine:
