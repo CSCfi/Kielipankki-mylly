@@ -18,7 +18,7 @@ from vrtnamelib import bininsertnames as insertnames
 from vrtdatalib import binasrecord as asrecord
 from vrtdatalib import binescape as escape, binunescape as unescape
 
-from outsidelib import FINER
+from outsidelib import FINER, HFSTBIN
 
 def parsearguments():
     description = '''
@@ -56,6 +56,11 @@ def terminate(proc):
 def main(args, ins, ous):
 
     with Popen([ FINER, '--no-tokenize', '--show-analyses' ],
+               env = dict(os.environ,
+                          # surely PATH is always set and not empty?
+                          # (FINER needs hfst-lookup on PATH, and also
+                          # uses hfst-tokenize on PATH if it is there)
+                          PATH = HFSTBIN + ':' + os.environ['PATH']),
                stdin = PIPE,
                stdout = PIPE,
                stderr = sys.stderr.buffer) as fine:

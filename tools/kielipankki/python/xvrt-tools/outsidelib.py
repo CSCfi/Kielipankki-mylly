@@ -8,6 +8,10 @@ UDPIPEMODEL = (
     '/appl/ling/udpipe/models/udpipe-ud-2.3-181115/{}-2.3-181115.udpipe'
 )
 
+# certain scripts need HFSTBIN in PATH, and they need to work on
+# certain servers that do not have HFSTBIN in PATH
+HFSTBIN = '/appl/ling/hfst/3.15.0/bin'
+
 HFSTTOKENIZE = '/appl/ling/hfst/3.15.0/bin/hfst-tokenize'
 OMORFITOKENIZE = (
     '/appl/ling/finnish-tagtools/1.3.2/share/finnish-tagtools'
