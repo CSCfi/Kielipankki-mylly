@@ -68,7 +68,11 @@ def main(args, ins, ous):
 
                           # And finnpos expects ascii over there?
                           # And then hangs on actual input?
-                          LC_ALL = 'en_US.UTF-8'),
+                          # LC_ALL = 'en_US.UTF-8'
+                          # That was not available over there.
+                          # What about just Python then?
+                          # That may be better anyway if it works?
+                          PYTHONIOENCODING = 'UTF-8'),
                stdin = PIPE,
                stdout = PIPE,
                stderr = sys.stderr.buffer) as fine:
