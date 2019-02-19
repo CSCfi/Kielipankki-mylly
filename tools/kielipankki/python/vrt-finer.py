@@ -23,4 +23,6 @@ fine = Popen(['python3', PROG],
 
 status = fine.wait()
 
-os.rename('output.tmp', 'output.vrt')
+# to see that stderr again - with paths set,
+# the result was an empty file
+# os.rename('output.tmp', 'output.vrt')
