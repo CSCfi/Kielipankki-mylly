@@ -21,8 +21,9 @@ name('output.vrt', base('input.vrt', '*.vrt.txt'),
 try:
     fine = Popen(['python3', PROG],
                  stdin = open('input.vrt', mode = 'rb'),
-                 stdout = open('output.tmp', mode = 'wb'),
-                 stderr = open('error.log', mode = 'wb'))
+                 stdout = open('output.tmp', mode = 'wb')
+                 # stderr = open('error.log', mode = 'wb')
+    )
     status = fine.wait(20)
 
 except TimeoutExpired as exn:
