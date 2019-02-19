@@ -18,7 +18,7 @@ from vrtnamelib import bininsertnames as insertnames
 from vrtdatalib import binasrecord as asrecord
 from vrtdatalib import binescape as escape, binunescape as unescape
 
-from outsidelib import FINER, HFSTBIN
+from outsidelib import FINER, HFSTBIN, HFSTLIB, prepend
 
 def parsearguments():
     description = '''
@@ -60,7 +60,11 @@ def main(args, ins, ous):
                           # surely PATH is always set and not empty?
                           # (FINER needs hfst-lookup on PATH, and also
                           # uses hfst-tokenize on PATH if it is there)
-                          PATH = HFSTBIN + ':' + os.environ['PATH']),
+                          # (oh, of course LD_LIBRARY_PATH, too, but
+                          # but is that always set?
+                          PATH = prepend(HFSTBIN, to = 'PATH'),
+                          LD_LIBRARY_PATH
+                          = prepend(HFSTLIB, to = 'LD_LIBRARY_PATH')),
                stdin = PIPE,
                stdout = PIPE,
                stderr = sys.stderr.buffer) as fine:
