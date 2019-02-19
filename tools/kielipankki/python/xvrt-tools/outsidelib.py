@@ -31,6 +31,10 @@ FINPOS =  (
 )
 
 def prepend(*paths, to):
-    '''Prepend paths to the value of an environment variable,
-    which is meant to be either PATH or LD_LIBRARY_PATH.'''
-    return ':'.join(paths + (os.environ.get(to) or ()))
+    '''Prepend paths to the value of a environment variable.'''
+    
+    if to not in ('PATH', 'LD_LIBRARY_PATH'):
+        raise Exception('unexpected path variable')
+
+    old = os.environ.get(to)
+    return ':'.join(paths + ((old,) if old else ()))

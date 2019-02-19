@@ -22,7 +22,8 @@ fine = Popen(['python3', PROG],
              stdout = open('output.tmp', mode = 'wb'))
 
 status = fine.wait()
+status and exit(status)
 
 # to see that stderr again - with paths set,
-# the result was an empty file
+# the result was an empty file - programming
 # os.rename('output.tmp', 'output.vrt')
