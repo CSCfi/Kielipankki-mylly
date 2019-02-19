@@ -58,7 +58,7 @@
   </category>
 
   <category name="VRT analysis" color="#cceeff">
-    <tool>vrt-fine.py</tool>
+    <tool>vrt-finer.py</tool>
   </category>
 
   <category name="Simple statistics" color="#c7e4e4">
