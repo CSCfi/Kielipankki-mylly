@@ -70,8 +70,10 @@ def main(args, ins, ous):
                           # And then hangs on actual input?
                           # LC_ALL = 'en_US.UTF-8'
                           # That was not available over there.
-                          LC_ALL = 'en_GB.UTF-8',
-                          # Blind guess?
+                          # LC_ALL = 'en_GB.UTF-8',
+                          # Blind guess? Also not available.
+                          LC_ALL = 'fi_FI.UTF-8',
+                          # That would be kind of nice, maybe?
                           # What about just Python then?
                           # That may be better anyway if it works?
                           # Er, it only affects standard streams.
