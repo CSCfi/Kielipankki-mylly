@@ -57,6 +57,10 @@
     <tool>vrt-rename-positions.py</tool>
   </category>
 
+  <category name="VRT analysis" color="#cceeff">
+    <tool>vrt-fine.py</tool>
+  </category>
+
   <category name="Simple statistics" color="#c7e4e4">
     <tool>prop1.R</tool>
     <tool>prop2.R</tool>
