@@ -24,5 +24,7 @@ fine = Popen(['python3', PROG],
 status = fine.wait()
 status and exit(status)
 
-# with LC_ALL=C.UTF.8, vrt-fine finally finished succesfully
+# with LC_ALL=C.UTF.8, vrt-fine finally finished succesfully;
+# not sure yet if that is good enough in the end but for the
+# time being, there were only C, C.UTF-8, POSIX available
 os.rename('output.tmp', 'output.vrt')

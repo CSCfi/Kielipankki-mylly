@@ -18,7 +18,7 @@ from vrtnamelib import bininsertnames as insertnames
 from vrtdatalib import binasrecord as asrecord
 from vrtdatalib import binescape as escape, binunescape as unescape
 
-from outsidelib import FINER, HFSTBIN, HFSTLIB, prepend
+from outsidelib import FINER, HFSTBIN, HFSTLIB, prebins, prelibs, utf8ish
 
 def parsearguments():
     description = '''
@@ -57,30 +57,21 @@ def main(args, ins, ous):
 
     with Popen([ FINER, '--no-tokenize', '--show-analyses' ],
                env = dict(os.environ,
-                          # surely PATH is always set and not empty?
-                          # (FINER needs hfst-lookup on PATH, and also
-                          # uses hfst-tokenize on PATH if it is there)
-                          # (oh, of course LD_LIBRARY_PATH, too, but
-                          # but is that always set?
-                          PATH = prepend(HFSTBIN, to = 'PATH'),
-                          LD_LIBRARY_PATH
-                          = prepend(HFSTLIB, to = 'LD_LIBRARY_PATH'),
 
-                          # And finnpos expects ascii over there?
-                          # And then hangs on actual input?
-                          # LC_ALL = 'en_US.UTF-8'
-                          # That was not available over there.
-                          # LC_ALL = 'en_GB.UTF-8',
-                          # Blind guess? Also not available.
-                          # LC_ALL = 'fi_FI.UTF-8',
-                          # No. But peeked at locale -a over there:
-                          LC_ALL = 'C.UTF-8',
-                          # That would be kind of nice, maybe?
-                          # What about just Python then?
-                          # That may be better anyway if it works?
-                          # Er, it only affects standard streams.
-                          # FinnPos scripts are calling open.
-                          # Without specifying an encoding.
+                          # FINER needs hfst-lookup on PATH, and uses
+                          # hfst-tokenize on PATH if it is on PATH,
+                          # and those then need their own libraries on
+                          # LD_LIBRARY_PATH)
+                          PATH = prebins(HFSTBIN),
+                          LD_LIBRARY_PATH = prelibs(HFSTLIB),
+
+                          # FinnPos scripts open files without
+                          # specifying an encoding, need UTF-8 locale,
+                          # Mylly server only had C.UTF-8, and Taito
+                          # did not have that :/ not sure if anything
+                          # needs standard-stream encoding to be
+                          # specified but leave that be for now
+                          LC_ALL = utf8ish(),
                           PYTHONIOENCODING = 'UTF-8'),
                stdin = PIPE,
                stdout = PIPE,
