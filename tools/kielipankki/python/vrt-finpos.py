@@ -15,6 +15,7 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 
 name('output.vrt', base('input.vrt', '*.vrt.txt'),
+     ins = 'pos',
      ext = 'vrt.txt')
 
 postag = Popen(['python3', PROG, '--prefix=pos.'],
