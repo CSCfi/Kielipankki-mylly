@@ -1,4 +1,4 @@
-# TOOL vrt-as-tsv.py: "VRT as relations" (Make data and meta relations that represent standard VRT content - tokens within text, paragraph, sentence elements - and a summary report)
+# TOOL vrt-as-tsv.py: "VRT as REL-TSV" (Make data and meta relations that represent standard VRT content - tokens within text, paragraph, sentence elements - and a summary report)
 # INPUT data.vrt TYPE GENERIC
 # OUTPUT data.tsv
 # OUTPUT info.txt
@@ -12,7 +12,7 @@ import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 
-own = base('data.vrt', '*.vrt')
+own = base('data.vrt', '*.vrt.txt')
 name('data.tsv', own, ins = 'data', ext = 'rel.tsv')
 name('info.txt', own, ins = 'info', ext = 'txt')
 name('sentence-meta.tsv', own, ins = 'sentence-meta', ext = 'rel.tsv')

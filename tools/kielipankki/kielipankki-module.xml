@@ -55,6 +55,7 @@
     <tool>vrt-validate.py</tool>
     <tool>vrt-name-positions.py</tool>
     <tool>vrt-rename-positions.py</tool>
+    <tool>vrt-as-tsv.py</tool>
   </category>
 
   <category name="VRT analysis" color="#cceeff">
@@ -177,7 +178,6 @@
     <tool>tsv-ext-glue.py</tool>
     <tool>tsv-ngram.py</tool>
     <tool>tsv-sort.py</tool>
-    <tool>vrt-as-tsv.py</tool>
     <tool>udpipe-ud2-eng.py</tool>
     <tool>udpipe-ud2-fin.py</tool>
     <tool>udpipe-ud2-fin-tokens.py</tool>
