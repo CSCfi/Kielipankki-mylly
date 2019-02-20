@@ -6,6 +6,8 @@
 # OUTPUT OPTIONAL ls-err.log
 # OUTPUT OPTIONAL ls-ling-out.log
 # OUTPUT OPTIONAL ls-ling-err.log
+# OUTPUT OPTIONAL locale-out.log
+# OUTPUT OPTIONAL locale-err.log
 # RUNTIME python3
 
 import os, sys
@@ -33,18 +35,24 @@ except Exception as exn:
     print(et, ev, tr, sep = '\n', file = sys.stderr)
 
 # still trying to see why PROG is not found
-with Popen(['ls', '-ldF',
-            '/appl',
-            '/appl/ling',
-            '/appl/ling/udpipe'],
-           stdout = open('ls-out.log', mode = 'wb'),
-           stderr = open('ls-err.log', mode = 'wb')) as whatever:
-    pass
+# with Popen(['ls', '-ldF',
+#             '/appl',
+#             '/appl/ling',
+#             '/appl/ling/udpipe'],
+#            stdout = open('ls-out.log', mode = 'wb'),
+#            stderr = open('ls-err.log', mode = 'wb')) as whatever:
+#    pass
 
 # /appl/ling/udpipe was inaccessible, see more?
-with Popen(['ls', '-lF', '/appl/ling'],
-           stdout = open('ls-ling-out.log', mode = 'wb'),
-           stderr = open('ls-ling-err.log', mode = 'wb')) as whatever:
+# with Popen(['ls', '-lF', '/appl/ling'],
+#            stdout = open('ls-ling-out.log', mode = 'wb'),
+#            stderr = open('ls-ling-err.log', mode = 'wb')) as whatever:
+#     pass
+
+# must see something for another tool
+with Popen(['locale', '-a'],
+           stdout = open('locale-out.log', mode = 'wb'),
+           stderr = open('locale-err.log', mode = 'wb')) as whatever:
     pass
 
 # exit(1)
