@@ -37,6 +37,7 @@ def prebins(*paths):
     '''Return the string where paths are prepended to PATH.'''
     return ':'.join(paths +
                     tuple(path
+                          for path
                           in os.environ['PATH'].split(':')
                           if path))
 
@@ -44,6 +45,7 @@ def prelibs(*paths):
     '''Return the string were paths are prepended to LD_LIBRARY_PATH.'''
     return ':'.join(paths +
                     tuple(path
+                          for path
                           in os.environ.get('LD_LIBRARY_PATH', '').split(':')
                           if path))
 
