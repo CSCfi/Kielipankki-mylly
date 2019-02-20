@@ -61,6 +61,7 @@
   <category name="VRT analysis" color="#cceeff">
     <tool>vrt-finer.py</tool>
     <tool>vrt-finpos.py</tool>
+    <tool>vrt-udpipe-finnish-tdt.py</tool>
   </category>
 
   <category name="Simple statistics" color="#c7e4e4">

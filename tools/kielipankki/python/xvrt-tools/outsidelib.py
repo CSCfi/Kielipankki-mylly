@@ -10,7 +10,7 @@ MARMOTMODEL = '/proj/kieli/varpunen/models/fin_model.marmot'
 UDPIPE = '/appl/ling/udpipe/1.2.0/bin/udpipe'
 
 UDPIPEMODEL = (
-    '/appl/ling/udpipe/models/udpipe-ud-2.3-181115/{}-2.3-181115.udpipe'
+    '/appl/ling/udpipe/models/udpipe-ud-2.3-181115/{}-ud-2.3-181115.udpipe'
 )
 
 # certain scripts need HFSTBIN in PATH, and they need to work on
@@ -19,6 +19,7 @@ UDPIPEMODEL = (
 HFSTBIN = '/appl/ling/hfst/3.15.0/bin'
 HFSTLIB = '/appl/ling/hfst/3.15.0/lib'
 
+# no longer using HFSTTOKENIZE? but find it in HFSTBIN?
 HFSTTOKENIZE = '/appl/ling/hfst/3.15.0/bin/hfst-tokenize'
 OMORFITOKENIZE = (
     '/appl/ling/finnish-tagtools/1.3.2/share/finnish-tagtools'
