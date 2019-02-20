@@ -17,7 +17,7 @@ from lib_names2 import base, name
 name('output.vrt', base('input.vrt', '*.vrt.txt'),
      ext = 'vrt.txt')
 
-nertag = Popen(['python3', PROG],
+nertag = Popen(['python3', PROG, '--prefix=ner.'],
                stdin = open('input.vrt', mode = 'rb'),
                stdout = open('output.tmp', mode = 'wb'))
 
