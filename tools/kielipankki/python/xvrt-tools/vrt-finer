@@ -72,7 +72,9 @@ def main(args, ins, ous):
                           # That was not available over there.
                           # LC_ALL = 'en_GB.UTF-8',
                           # Blind guess? Also not available.
-                          LC_ALL = 'fi_FI.UTF-8',
+                          # LC_ALL = 'fi_FI.UTF-8',
+                          # No. But peeked at locale -a over there:
+                          LC_ALL = 'C.UTF-8',
                           # That would be kind of nice, maybe?
                           # What about just Python then?
                           # That may be better anyway if it works?
