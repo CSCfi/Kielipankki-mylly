@@ -24,6 +24,5 @@ fine = Popen(['python3', PROG],
 status = fine.wait()
 status and exit(status)
 
-# to see that stderr again - with paths set,
-# the result was an empty file - programming
-# os.rename('output.tmp', 'output.vrt')
+# with LC_ALL=C.UTF.8, vrt-fine finally finished succesfully
+os.rename('output.tmp', 'output.vrt')
