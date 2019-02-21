@@ -15,10 +15,10 @@ sys.path.append(os.path.join(chipster_module_path, "python"))
 # names.output('tokens.tsv', names.replace('kwic.json', '-tokens.tsv'))
 # names.output('meta.tsv', names.replace('kwic.json', '-meta.tsv'))
 from lib_names2 import base, name
-name('tokens.tsv', base('kwic.json', '*,korp.json'),
+name('tokens.tsv', base('kwic.json', '*.korp.json'),
      ins = 'data',
      ext = 'rel.tsv')
-name('meta.tsv', base('kwic.json', '*.json'),
+name('meta.tsv', base('kwic.json', '*.korp.json'),
      ins = 'meta',
      ext = 'rel.tsv')
 
