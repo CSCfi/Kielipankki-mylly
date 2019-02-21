@@ -9,11 +9,18 @@ import json, os, sys
 from itertools import chain
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
-
-names.enforce('kwic.json', '.json')
-names.output('tokens.tsv', names.replace('kwic.json', '-tokens.tsv'))
-names.output('meta.tsv', names.replace('kwic.json', '-meta.tsv'))
+# import lib_names as names
+# 
+# names.enforce('kwic.json', '.json')
+# names.output('tokens.tsv', names.replace('kwic.json', '-tokens.tsv'))
+# names.output('meta.tsv', names.replace('kwic.json', '-meta.tsv'))
+from lib_names2 import base, name
+name('tokens.tsv', base('kwic.json', '*,korp.json'),
+     ins = 'data',
+     ext = 'rel.tsv')
+name('meta.tsv', base('kwic.json', '*.json'),
+     ins = 'meta',
+     ext = 'rel.tsv')
 
 with open('kwic.json', encoding = 'utf-8') as f:
     data = json.load(f)
