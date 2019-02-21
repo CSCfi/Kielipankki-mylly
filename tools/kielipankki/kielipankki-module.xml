@@ -43,8 +43,7 @@
   <category name="Relation algebra" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
-    <tool>tsv-chipname.py</tool>
-    <tool>tsv-join.py</tool>
+    <!-- in Sans: tsv-join.py -->
     <tool>tsv-compose.py</tool>
     <tool>tsv-image.py</tool>
     <tool>tsv-match.py</tool>
@@ -65,8 +64,17 @@
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 
-  <category name="Relation algebra sans CS" color="#cbd89c">
-    <tool>tsv-rename-sans-column_sel.py</tool>
+  <category name="Relation algebra Sans" color="#cbd89c">
+    <!-- Sans COLUMN_SEL -->
+    <!-- because COLUMN_SEL is broken 2019-02-21 -->
+    <tool>tsv-chipname.py</tool>
+    <tool>tsv-rename-sans.py</tool>
+    <tool>tsv-number.py</tool>
+    <tool>tsv-join.py</tool>
+    <tool>tsv-keep-sans.py</tool>
+    <tool>tsv-keepc-sans.py</tool>
+    <tool>tsv-drop-sans.py</tool>
+    <tool>tsv-dropc-sans.py</tool>
   </category>
 
   <category name="Simple statistics" color="#c7e4e4">
@@ -192,7 +200,6 @@
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-ext-normalize-dist.py</tool>
-    <tool>tsv-number.py</tool>
   </category>
 
   <category name="Obsolescent" color="#d88ca5">
