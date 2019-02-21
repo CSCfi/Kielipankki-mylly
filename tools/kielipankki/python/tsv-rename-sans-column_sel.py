@@ -1,4 +1,4 @@
-# TOOL tsv-rename-sans_column_sel.py: "Rename attributes without using COLUMN_SEL"
+# TOOL tsv-rename-sans-column_sel.py: "Rename attributes without using COLUMN_SEL"
 # (Rename selected attributes. EMPTY is not a name.)
 # INPUT old.tsv TYPE GENERIC
 # OUTPUT new.tsv
