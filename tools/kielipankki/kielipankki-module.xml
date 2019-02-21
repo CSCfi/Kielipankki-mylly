@@ -27,6 +27,19 @@
     <tool>kwic-dep.py</tool>
   </category>
 
+  <category name="VRT manipulation" color="#ccffff">
+    <tool>vrt-validate.py</tool>
+    <tool>vrt-name-positions.py</tool>
+    <tool>vrt-rename-positions.py</tool>
+    <tool>vrt-as-tsv.py</tool>
+  </category>
+
+  <category name="VRT analysis" color="#cceeff">
+    <tool>vrt-finer.py</tool>
+    <tool>vrt-finpos.py</tool>
+    <tool>vrt-udpipe-finnish-tdt.py</tool>
+  </category>
+
   <category name="Relation algebra" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
@@ -52,17 +65,8 @@
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 
-  <category name="VRT manipulation" color="#ccffff">
-    <tool>vrt-validate.py</tool>
-    <tool>vrt-name-positions.py</tool>
-    <tool>vrt-rename-positions.py</tool>
-    <tool>vrt-as-tsv.py</tool>
-  </category>
-
-  <category name="VRT analysis" color="#cceeff">
-    <tool>vrt-finer.py</tool>
-    <tool>vrt-finpos.py</tool>
-    <tool>vrt-udpipe-finnish-tdt.py</tool>
+  <category name="Relation algebra sans CS" color="#cbd89c">
+    <tool>tsv-rename-sans-column_sel.py</tool>
   </category>
 
   <category name="Simple statistics" color="#c7e4e4">
