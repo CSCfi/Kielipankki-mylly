@@ -1,4 +1,4 @@
-# TOOL tsv-drop-sans.py: "Drop selected attributes without using COLUMN_SEL"
+# TOOL tsv-drop-sans.py: "Drop selected attributes without COLUMN_SEL"
 # (Drop the selected attributes. EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv

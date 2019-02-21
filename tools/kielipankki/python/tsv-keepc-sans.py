@@ -46,13 +46,13 @@ if count in keep:
     print(*keep, file = sys.stderr)
     exit(1)
 
-with open('wide.tsv') as wide:
+with open('wide.tsv', encoding = 'UTF-8') as wide:
     head = next(wide).rstrip('\n').split('\t')
     take = index(head, keep)
     them = Counter(value(line.rstrip('\n').split('\t'), take)
                    for line in wide)
 
-with open('narrow.tmp', mode = 'w', encoding = 'utf-8') as out:
+with open('narrow.tmp', mode = 'w', encoding = 'UTF-8') as out:
     print(count, *value(head, take), sep = '\t', file = out)
     for it in them:
         print(them[it], *it, sep = '\t', file = out)

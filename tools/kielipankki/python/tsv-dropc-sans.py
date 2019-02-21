@@ -1,4 +1,4 @@
-# TOOL tsv-dropc-sans.py: "Drop/count selected attributes without using COLUMN_SEL"
+# TOOL tsv-dropc-sans.py: "Drop/count selected attributes without COLUMN_SEL"
 # (Drop selected attributes. Add counts. Prefix cM of count name indicates numeric type for some tools. EMPTY is not a name.)
 # INPUT wide.tsv TYPE GENERIC
 # OUTPUT narrow.tsv
