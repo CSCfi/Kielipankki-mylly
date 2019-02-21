@@ -12,7 +12,7 @@ name('new.tsv', base('old.tsv', '*.rel.tsv'),
      ins = 'chip',
      ext = 'rel.tsv')
 
-with open('old.tsv') as oldfile:
+with open('old.tsv', encoding = 'UTF-8') as oldfile:
     oldhead = next(oldfile).rstrip('\n').split('\t')
 
     newhead = tuple(('chip.' + old
@@ -25,7 +25,7 @@ with open('old.tsv') as oldfile:
         print(*newhead, file = sys.stderr)
         exit(1)
 
-    with open('new.tmp', mode = 'w', encoding = 'utf-8') as newfile:
+    with open('new.tmp', mode = 'w', encoding = 'UTF-8') as newfile:
         print(*newhead, sep = '\t', file = newfile)
         for line in oldfile:
             print(line, end = '', file = newfile)
