@@ -70,13 +70,23 @@ META = comma.join('''
 
 QUERIES = parse_queries('query.cqp.txt')
 
-kwic = request_kwic(corpus = CORPUS,
-                    seed = seed,
-                    size = 1000,
-                    page = page,
-                    anno = ANNO,
-                    meta = META,
-                    queries = QUERIES)
+try:
+    kwic = request_kwic(corpus = CORPUS,
+                        seed = seed,
+                        size = 1000,
+                        page = page,
+                        anno = ANNO,
+                        meta = META,
+                        queries = QUERIES)
+except Exception as exn:
+    # attempt to give a nicer message
+    # (should really catch exact type, but need to work out what it is)
+    print('Exception:', exn, file = sys.stderr)
+    print('Exception type:', type(exn), file = sys.stderr)
+    print('The Korp server did not respond in time.',
+          'A second or third attempt may succeed',
+          sep = '\n',
+          file = sys.stderr)
 
 # note: it *adds* dict(M = dict(origin = size * page)) to the kwic
 
