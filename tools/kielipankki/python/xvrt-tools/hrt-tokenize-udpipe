@@ -16,11 +16,8 @@ from vrtargslib import trans_args, trans_main
 from vrtdatalib import binescape, binasrecord
 from hrtlib import tokenize
 
-# external UDPipe program pathname
-UDPIPE = '/appl/ling/udpipe/1.2.0/bin/udpipe'
-
-# UDPipe model pathname format pattern
-MODEL = ('/appl/ling/udpipe/models/udpipe-ud-2.3-181115/{}-2.3-181115.udpipe')
+from outsidelib import UDPIPE
+from outsidelib import UDPIPEMODEL as MODEL
 
 def parsearguments():
     description = '''
@@ -64,6 +61,7 @@ def main(args, inf, ouf):
                    # horizontal: input with normalized spacing
                    # plaintext: reconstructed input with original spacing
                    # matxin: whatever it is, it _hangs_ (TO INVESTIGATE)
+                   # (still not investigated and udpipe version updated)
                    MODEL.format(args.model) ],
                  stdin = PIPE,
                  stdout = PIPE,
@@ -138,16 +136,16 @@ def shipdata(lines, ouf):
             # ...
             # (with finnish-ftb-ud)
             for part in (b'<multitoken id="', jd,
-                         b'" spaces="', spaces,
+                         b'" spaces="', binescape(spaces),
                          b'" word="', binescape(word),
                          b'">\n'):
                 ouf.write(part)
-            # TODO also escape any quotes in word!
+            # TODO also escape any quotes in word! and in spaces!
             _, end = jd.split(b'-')
         else:
             for part in (jd, b'\t',
                          binescape(word), b'\t',
-                         spaces, b'\n'):
+                         binescape(spaces), b'\n'):
                 ouf.write(part)
             if jd == end: ouf.write(b'</multitoken>\n')                
     else:
