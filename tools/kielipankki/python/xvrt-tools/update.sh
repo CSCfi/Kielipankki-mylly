@@ -10,6 +10,7 @@ files=(
     hrt-tokenize-udpipe
     outsidelib.py
     vrtargslib.py
+    vrtcommentlib.py
     vrtdatalib.py
     vrt-finer
     vrt-finpos
