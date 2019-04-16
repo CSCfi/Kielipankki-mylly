@@ -2,6 +2,35 @@
 
 <module name="kielipankki">
 
+  <category name="Plaintext" color="#8ca5d8">
+    <tool>to-utf8.py</tool>
+    <tool>hrt-from-txt.py</tool>
+    <tool>fin-plain-tokenize.py</tool>
+    <tool>fin-plain-postag.py</tool>
+    <tool>fin-plain-nertag.py</tool>
+    <tool>td-parse.py</tool>
+    <tool>udpipe-ud2-fin.py</tool>
+    <tool>udpipe-ud2-swe.py</tool>
+    <tool>udpipe-ud2-eng.py</tool>
+    <tool>udpipe-ud2-fin-tokens.py</tool>
+  </category>
+
+  <category name="HRT" color="#8da6d9">
+    <tool>hrt-tokenize-finnish-hfst.py</tool>
+    <tool>hrt-tokenize-finnish-udpipe.py</tool>
+  </category>
+
+  <category name="VRT" color="#ccffff">
+    <tool>vrt-validate.py</tool>
+    <tool>vrt-name-positions.py</tool>
+    <tool>vrt-rename-positions.py</tool>
+    <tool>vrt-as-tsv.py</tool>
+    <!--category name="VRT analysis" color="#cceeff" -->
+    <tool>vrt-finer.py</tool>
+    <tool>vrt-finpos.py</tool>
+    <tool>vrt-udpipe-finnish-tdt.py</tool>
+  </category>
+
   <category name="Korp search" color="#d8bf8c">
     <tool>cqp-two.py</tool>
     <tool>cqp-alt.py</tool>
@@ -27,20 +56,7 @@
     <tool>kwic-dep.py</tool>
   </category>
 
-  <category name="VRT manipulation" color="#ccffff">
-    <tool>vrt-validate.py</tool>
-    <tool>vrt-name-positions.py</tool>
-    <tool>vrt-rename-positions.py</tool>
-    <tool>vrt-as-tsv.py</tool>
-  </category>
-
-  <category name="VRT analysis" color="#cceeff">
-    <tool>vrt-finer.py</tool>
-    <tool>vrt-finpos.py</tool>
-    <tool>vrt-udpipe-finnish-tdt.py</tool>
-  </category>
-
-  <category name="Relation algebra" color="#cbd88c">
+  <category name="Relational TSV" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <!-- in Sans: tsv-join.py -->
@@ -64,7 +80,7 @@
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 
-  <category name="Relation algebra Sans" color="#cbd89c">
+  <category name="Relational TSV Sans" color="#cbd89c">
     <!-- Sans COLUMN_SEL -->
     <!-- because COLUMN_SEL is broken 2019-02-21 -->
     <tool>tsv-chipname.py</tool>
@@ -108,10 +124,6 @@
   </category>
   
   <category name="Syntactic analysis" color="#8cd898">
-    <tool>fin-plain-tokenize.py</tool>
-    <tool>fin-plain-postag.py</tool>
-    <tool>fin-plain-nertag.py</tool>
-    <tool>td-parse.py</tool>
     <tool>td-submit.py</tool>
     <tool>td-wait.py</tool>
   </category>
@@ -126,17 +138,13 @@
     <tool>hfst-process2-english.py</tool>
   </category>
 
-  <category name="Speech recognition" color="#8cccd8">
-    <tool>aasr-recognize-submit.py</tool>
-    <tool>aasr-recognize-wait.py</tool>
-  </category>
-
-  <category name="Preprocessing" color="#8ca5d8">
-    <tool>to-utf8.py</tool>
-    <tool>hrt-from-txt.py</tool>
-    <tool>hrt-tokenize-finnish-hfst.py</tool>
-    <tool>hrt-tokenize-finnish-udpipe.py</tool>
-  </category>
+  <!--
+      to have kaldi instead
+      <category name="Speech recognition" color="#8cccd8">
+      <tool>aasr-recognize-submit.py</tool>
+      <tool>aasr-recognize-wait.py</tool>
+      </category>
+  -->
 
   <category name="Finite-State Technology" color="#998cd8">
     <tool>hfst-format.py</tool>
@@ -179,10 +187,13 @@
     <tool>fiat-turkish-g.py</tool>
   </category>
 
-  <category name="Job management" color="#d88ccb">
-    <tool>job-status.py</tool>
-    <tool>wrap-adm.py</tool>
-  </category>
+  <!--
+      obsolete by move to "cloud"
+      <category name="Job management" color="#d88ccb">
+      <tool>job-status.py</tool>
+      <tool>wrap-adm.py</tool>
+      </category>
+  -->
 
   <category name="Incoming" color="#d8998c">
     <tool>tsv-ext-differ.py</tool>
@@ -193,10 +204,6 @@
     <tool>tsv-ext-glue.py</tool>
     <tool>tsv-ngram.py</tool>
     <tool>tsv-sort.py</tool>
-    <tool>udpipe-ud2-eng.py</tool>
-    <tool>udpipe-ud2-fin.py</tool>
-    <tool>udpipe-ud2-fin-tokens.py</tool>
-    <tool>udpipe-ud2-swe.py</tool>
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-ext-normalize-dist.py</tool>
