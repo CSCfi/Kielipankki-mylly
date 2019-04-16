@@ -58,7 +58,7 @@
     <tool>kwic-dep.py</tool>
   </category>
 
-  <category name="RelTSV" color="#cbd88c">
+  <category name="Rel.TSV" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <tool>tsv-join.py</tool>
@@ -86,7 +86,7 @@
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 
-  <category name="RelTSV Sans" color="#cbd89c">
+  <category name="Rel.TSV (temp)" color="#cbd89c">
     <!-- Sans COLUMN_SEL -->
     <!-- because COLUMN_SEL is broken 2019-02-21 -->
     <tool>tsv-chipname.py</tool>
@@ -100,20 +100,21 @@
   </category>
 
   <category name="Any TSV" color="#a5d88c">
+    <!-- random actions on a relation -->
+    <!-- should these be in RelTSV? -->
+    <tool>tsv-sample.py</tool>
+    <tool>tsv-random.py</tool>
     <tool>tsv-sort.py</tool>
+    <!-- must improve on the summary -->
+    <tool>tsv-summary.R</tool>
     <tool>tsv-as-csv.py</tool> <!-- kill? -->
     <tool>tsv-as-ods.py</tool>
     <tool>tsv-as-xlsx.py</tool>
   </category>
 
-  <category name="Simple statistics" color="#c7e4e4">
+  <category name="Simple statistics?" color="#c7e4e4">
     <tool>prop1.R</tool>
     <tool>prop2.R</tool>
-    <!-- must improve on the summary -->
-    <tool>tsv-summary.R</tool>
-    <!-- random actions on a relation -->
-    <tool>tsv-sample.py</tool>
-    <tool>tsv-random.py</tool>
     <!-- frequency distributions -->
     <tool>tsv-ext-count.py</tool>
     <tool>tsv-smooth-zipf.py</tool> <!-- is this an ext? -->
@@ -213,22 +214,22 @@
   </category>
 
   <category name="Obsolescent" color="#d88ca5">
-    <tool>kp-test-data-in-out.R</tool>
-    <tool>kp-test-data-in-out.py</tool>
-    <tool>test-parameters.py</tool>
-    <tool>test-renaming.py</tool>
-    <tool>test-multifile.py</tool>
-    <tool>co.py</tool>
-    <tool>test-colsel.py</tool>
+    <!-- <tool>kp-test-data-in-out.R</tool> -->
+    <!-- <tool>kp-test-data-in-out.py</tool> -->
+    <!-- <tool>test-parameters.py</tool> -->
+    <!-- <tool>test-renaming.py</tool> -->
+    <!-- <tool>test-multifile.py</tool> -->
+    <!-- <tool>co.py</tool> -->
+    <!-- <tool>test-colsel.py</tool> -->
     <!-- tool>simple-frequencies.py</tool -->
-    <tool>finnish-analyze.py</tool>
-    <tool>english-analyze.py</tool>
+    <!-- <tool>finnish-analyze.py</tool> -->
+    <!-- <tool>english-analyze.py</tool> -->
     <tool>powerplot.R</tool>
     <tool>rankplot.R</tool>
     <tool>growthplot.R</tool>
     <tool>whereplot.R</tool>
-    <tool>demotokens.py</tool>
-    <tool>democounts.py</tool>
+    <!-- <tool>demotokens.py</tool> -->
+    <!-- <tool>democounts.py</tool> -->
     <tool>demotraces.py</tool>
   </category>
 
