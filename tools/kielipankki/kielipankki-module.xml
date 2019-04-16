@@ -4,6 +4,7 @@
 
   <category name="Plaintext" color="#8ca5d8">
     <tool>to-utf8.py</tool>
+    <tool>decode-1252.py</tool>
     <tool>hrt-from-txt.py</tool>
     <tool>fin-plain-tokenize.py</tool>
     <tool>fin-plain-postag.py</tool>
@@ -24,6 +25,7 @@
     <tool>vrt-validate.py</tool>
     <tool>vrt-name-positions.py</tool>
     <tool>vrt-rename-positions.py</tool>
+    <tool>vrt-as-tokens.py</tool>
     <tool>vrt-as-tsv.py</tool>
     <!--category name="VRT analysis" color="#cceeff" -->
     <tool>vrt-finer.py</tool>
@@ -56,10 +58,10 @@
     <tool>kwic-dep.py</tool>
   </category>
 
-  <category name="Relational TSV" color="#cbd88c">
+  <category name="RelTSV" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
-    <!-- in Sans: tsv-join.py -->
+    <tool>tsv-join.py</tool>
     <tool>tsv-compose.py</tool>
     <tool>tsv-image.py</tool>
     <tool>tsv-match.py</tool>
@@ -77,20 +79,31 @@
     <tool>tsv-difference.py</tool>
     <tool>tsv-ext-oldmap.py</tool>
     <tool>tsv-ext-newmap.py</tool>
+    <tool>tsv-ext-differ.py</tool>
+    <tool>tsv-ext-prop.py</tool>
+    <tool>tsv-ext-glue.py</tool>
+    <tool>tsv-ngram.py</tool>
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 
-  <category name="Relational TSV Sans" color="#cbd89c">
+  <category name="RelTSV Sans" color="#cbd89c">
     <!-- Sans COLUMN_SEL -->
     <!-- because COLUMN_SEL is broken 2019-02-21 -->
     <tool>tsv-chipname.py</tool>
     <tool>tsv-rename-sans.py</tool>
     <tool>tsv-number.py</tool>
-    <tool>tsv-join.py</tool>
+    <!-- was briefly here: tsv-join.py -->
     <tool>tsv-keep-sans.py</tool>
     <tool>tsv-keepc-sans.py</tool>
     <tool>tsv-drop-sans.py</tool>
     <tool>tsv-dropc-sans.py</tool>
+  </category>
+
+  <category name="Any TSV" color="#a5d88c">
+    <tool>tsv-sort.py</tool>
+    <tool>tsv-as-csv.py</tool> <!-- kill? -->
+    <tool>tsv-as-ods.py</tool>
+    <tool>tsv-as-xlsx.py</tool>
   </category>
 
   <category name="Simple statistics" color="#c7e4e4">
@@ -117,16 +130,13 @@
     <tool>tsv-hc.R</tool>
   </category>
 
-  <category name="Export formats" color="#a5d88c">
-    <tool>tsv-as-csv.py</tool> <!-- kill? -->
-    <tool>tsv-as-ods.py</tool>
-    <tool>tsv-as-xlsx.py</tool>
-  </category>
-  
-  <category name="Syntactic analysis" color="#8cd898">
-    <tool>td-submit.py</tool>
-    <tool>td-wait.py</tool>
-  </category>
+  <!--
+      nothing remains - job management is obsolete by "cloud"
+      <category name="Syntactic analysis" color="#8cd898">
+      <tool>td-submit.py</tool>
+      <tool>td-wait.py</tool>
+      </category>
+  -->
 
   <category name="Morphological analysis" color="#8cd8bf">
     <tool>hfst-lookup-finnish.py</tool>
@@ -196,14 +206,7 @@
   -->
 
   <category name="Incoming" color="#d8998c">
-    <tool>tsv-ext-differ.py</tool>
-    <tool>vrt-as-tokens.py</tool>
-    <tool>tsv-ext-prop.py</tool>
     <tool>gg-raster-count.R</tool>
-    <tool>decode-1252.py</tool>
-    <tool>tsv-ext-glue.py</tool>
-    <tool>tsv-ngram.py</tool>
-    <tool>tsv-sort.py</tool>
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-ext-normalize-dist.py</tool>
