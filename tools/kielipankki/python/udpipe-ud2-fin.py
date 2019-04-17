@@ -16,7 +16,7 @@ name('ud2.tsv', '{}-ud2'.format(base('input.txt', '*.txt')),
      ins = 'fi', ext = 'rel.tsv')
 
 # makes ud2.txt.tmp, ud2.tsv.tmp, or exits with error message in stderr
-parse_plain('finnish-ud-2.0-170801.udpipe',
+parse_plain('finnish-tdt',
             'input.txt',
             'ud2.txt.tmp', 'ud2.tsv.tmp')
 

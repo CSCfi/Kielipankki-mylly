@@ -1,8 +1,10 @@
-# TOOL udpipe-ud2-eng.py: "Parse English plaintext /UDPipe" (Segment and parse English plaintext with UDPipe according to the Universal Dependencies version 2.)
+# TOOL udpipe-ud2-eng.py: "Parse English plaintext /UDPipe EWT" (Segment and parse English plaintext with UDPipe according to the Universal Dependencies version 2, EWT model.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT ud2.txt
 # OUTPUT ud2.tsv
 # RUNTIME python3
+
+# not sure of capitalization EWT, should find out what it is
 
 import os, sys
 
@@ -16,7 +18,7 @@ name('ud2.tsv', '{}-ud2'.format(base('input.txt', '*.txt')),
      ins = 'en', ext = 'rel.tsv')
 
 # makes ud2.txt.tmp, ud2.tsv.tmp, or exits with error message in stderr
-parse_plain('english-ud-2.0-170801.udpipe',
+parse_plain('english-ewt',
             'input.txt',
             'ud2.txt.tmp', 'ud2.tsv.tmp')
 

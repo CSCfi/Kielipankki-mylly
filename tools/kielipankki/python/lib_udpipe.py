@@ -5,12 +5,13 @@ from subprocess import Popen, PIPE
 from itertools import groupby
 from io import TextIOWrapper
 
-# Note (2018-03-09) these locations may still be temporary:
-# bin/udpipe is the appropriate binary from version 1.2.0
-# binary distribution, share/ contains UD 2.0 models 170801
-# (meaning 2017-08-01), downloaded as binary.
 BINDIR = '/proj/kieli/udpipe/bin'
 MODELS = '/proj/kieli/udpipe/share'
+
+UDPIPE = '/appl/ling/udpipe/1.2.0/bin/udpipe'
+MODEL = (
+    '/appl/ling/udpipe/models/udpipe-ud-2.3-181115/{}-ud-2.3-181115.udpipe'
+)
 
 def transform(source, out):
     '''Read UD2 data from source, write a corresponding relation out.
@@ -38,7 +39,7 @@ def transform(source, out):
                   sep = '\t', end = '',
                   file = out)
 
-def parse_plain(modelfile, inputfile, textfile, relationfile):
+def parse_plain(modelname, inputfile, textfile, relationfile):
     '''Runs udpipe with given model file (in directory MODELS), plain text
     input file, all analysis levels.
 
@@ -46,9 +47,9 @@ def parse_plain(modelfile, inputfile, textfile, relationfile):
     # should rename error1.log and error2.log
     # but not even sure what to do with them
     try:
-        with Popen([os.path.join(BINDIR, 'udpipe'),
+        with Popen([UDPIPE,
                     '--immediate', '--tokenize', '--tag', '--parse',
-                    os.path.join(MODELS, modelfile)],
+                    MODEL.format(modelname)],
                    stdin = open(inputfile, mode = 'rb'),
                    stdout = PIPE,
                    stderr = open('error1.log', mode = 'wb')) as p:
@@ -70,7 +71,7 @@ def parse_plain(modelfile, inputfile, textfile, relationfile):
         print(exn, file = sys.stderr)
         exit(1)
 
-def parse_tokens(modelfile, inputfile, textfile, relationfile):
+def parse_tokens(modelname, inputfile, textfile, relationfile):
     '''Runs udpipe with given model file (in directory MODELS) on
     tokenized input file, tagging and parsing.
 
@@ -78,10 +79,10 @@ def parse_tokens(modelfile, inputfile, textfile, relationfile):
     # should rename error1.log and error2.log
     # but not even sure what to do with them
     try:
-        with Popen([os.path.join(BINDIR, 'udpipe'),
+        with Popen([UDPIPE,
                     '--immediate', '--input=vertical',
                     '--tag', '--parse',
-                    os.path.join(MODELS, modelfile)],
+                    MODEL.format(modelname)],
                    stdin = open(inputfile, mode = 'rb'),
                    stdout = PIPE,
                    stderr = open('error1.log', mode = 'wb')) as p:

@@ -1,8 +1,10 @@
-# TOOL udpipe-ud2-swe.py: "Parse Swedish plaintext /UDPipe" (Segment and parse Swedish plaintext with UDPipe according to the Universal Dependencies version 2.)
+# TOOL udpipe-ud2-swe.py: "Parse Swedish plaintext /UDPipe LinES" (Segment and parse Swedish plaintext with UDPipe according to the Universal Dependencies version 2, LinES model.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT ud2.txt
 # OUTPUT ud2.tsv
 # RUNTIME python3
+
+# https://github.com/UniversalDependencies/UD_Swedish-LinES
 
 import os, sys
 
@@ -16,7 +18,7 @@ name('ud2.tsv', '{}-ud2'.format(base('input.txt', '*.txt')),
      ins = 'sv', ext = 'rel.tsv')
 
 # makes ud2.txt.tmp, ud2.tsv.tmp, or exits with error message in stderr
-parse_plain('swedish-ud-2.0-170801.udpipe',
+parse_plain('swedish-lines',
             'input.txt',
             'ud2.txt.tmp', 'ud2.tsv.tmp')
 
