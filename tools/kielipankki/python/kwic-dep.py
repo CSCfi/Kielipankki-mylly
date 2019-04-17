@@ -1,4 +1,4 @@
-# TOOL kwic-dep.py: "KWIC dependency triples in TSV"
+# TOOL kwic-dep.py: "Write KWIC dependency triples in Rel.TSV"
 # (Dependents and their heads, together with their dependency relation from a suitably annotated Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1 for the dependent and 2 for the head. Sentence and token counters, kMsen and kMtok, are added to identify each dependent occurrence.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT triplaux.tsv

@@ -1,4 +1,4 @@
-# TOOL korp-kwic-eduskunta.py: "Get Korp KWIC concordance from Eduskunta corpus"
+# TOOL korp-kwic-eduskunta.py: "KWIC from Eduskunta"
 # (Queries korp.csc.fi for a KWIC concordance from Eduskunta corpus. Input file contains CQP expressions separated by empty lines. They must all match. The last of them defines the final match. Output file is the concordance in the Korp JSON form.)
 # INPUT query.cqp.txt TYPE GENERIC
 # OUTPUT result.korp.json

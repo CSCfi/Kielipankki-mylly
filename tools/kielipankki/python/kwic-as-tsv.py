@@ -1,4 +1,4 @@
-# TOOL kwic-as-tsv.py: "KWIC as TSV"
+# TOOL kwic-as-tsv.py: "Write KWIC as Rel.TSV"
 # (Korp JSON-form concordance as two TSV files, tokens with their annotations in one and structural annotations in the other. Both files contain a sentence counter attribute so that they can be easily joined into one.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT tokens.tsv

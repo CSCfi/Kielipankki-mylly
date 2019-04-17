@@ -1,4 +1,4 @@
-# TOOL udpipe-ud2-fin.py: "Parse text with UD2-Finnish model" (Segment and parse Finnish plaintext according to the Universal Dependencies version 2.)
+# TOOL udpipe-ud2-fin.py: "Parse Finnish plaintext /UDPipe TDT" (Segment and parse Finnish plaintext with UDPipe according to the Universal Dependencies version 2, TDT model.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT ud2.txt
 # OUTPUT ud2.tsv

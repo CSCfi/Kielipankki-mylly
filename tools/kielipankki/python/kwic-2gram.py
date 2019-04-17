@@ -1,4 +1,4 @@
-# TOOL kwic-2gram.py: "KWIC 2-grams in TSV"
+# TOOL kwic-2gram.py: "Extract KWIC 2-grams in Rel.TSV"
 # (Two-grams from a Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1 and 2 for consecutive tokens inside sentences. Sentence and token counters, kMsen and kMtok, are added to identify each occurrence.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT grammata.tsv

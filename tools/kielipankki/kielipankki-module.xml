@@ -33,11 +33,15 @@
     <tool>vrt-udpipe-finnish-tdt.py</tool>
   </category>
 
-  <category name="Korp search" color="#d8bf8c">
+  <category name="Korp" color="#d8bf8c">
     <tool>cqp-two.py</tool>
     <tool>cqp-alt.py</tool>
     <tool>korp-list.py</tool>
     <tool>korp-info.py</tool>
+    <tool>kwic-as-tsv.py</tool>
+    <tool>kwic-2gram.py</tool>
+    <tool>kwic-3gram.py</tool>
+    <tool>kwic-dep.py</tool>
     <!-- AUTH :/ tool>korp-kwic-coca.py</tool -->
     <!-- AUTH :/ tool>korp-kwic-coha.py</tool -->
     <tool>korp-kwic-eduskunta.py</tool>
@@ -50,13 +54,11 @@
     <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
-  <category name="Korp data" color="#e49898">
-    <!-- Korp concordance derivation -->
-    <tool>kwic-as-tsv.py</tool>
-    <tool>kwic-2gram.py</tool>
-    <tool>kwic-3gram.py</tool>
-    <tool>kwic-dep.py</tool>
-  </category>
+  <!--
+      emptied into general Korp category
+      <category name="Korp data" color="#e49898">
+      </category>
+  -->
 
   <category name="Rel.TSV" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
@@ -99,12 +101,18 @@
     <tool>tsv-dropc-sans.py</tool>
   </category>
 
-  <category name="Any TSV" color="#a5d88c">
+  <category name="TSV" color="#a5d88c">
     <!-- random actions on a relation -->
     <!-- should these be in RelTSV? -->
     <tool>tsv-sample.py</tool>
     <tool>tsv-random.py</tool>
     <tool>tsv-sort.py</tool>
+    <!-- contingency tables -->
+    <tool>tsv-22-cells.py</tool>
+    <tool>tsv-22-corner.py</tool>
+    <tool>tsv-22-margins.py</tool>
+    <tool>tsv-22-columns.py</tool>
+    <tool>tsv-22-rows.py</tool>
     <!-- must improve on the summary -->
     <tool>tsv-summary.R</tool>
     <tool>tsv-as-csv.py</tool> <!-- kill? -->
@@ -118,12 +126,6 @@
     <!-- frequency distributions -->
     <tool>tsv-ext-count.py</tool>
     <tool>tsv-smooth-zipf.py</tool> <!-- is this an ext? -->
-    <!-- contingency tables -->
-    <tool>tsv-22-cells.py</tool>
-    <tool>tsv-22-corner.py</tool>
-    <tool>tsv-22-margins.py</tool>
-    <tool>tsv-22-columns.py</tool>
-    <tool>tsv-22-rows.py</tool>
   </category>
 
   <category name="Advanced statistics" color="#e8f072">

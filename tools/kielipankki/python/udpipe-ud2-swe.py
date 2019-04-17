@@ -1,4 +1,4 @@
-# TOOL udpipe-ud2-swe.py: "Parse text with UD2-Swedish model" (Segment and parse Swedish plaintext according to the Universal Dependencies version 2.)
+# TOOL udpipe-ud2-swe.py: "Parse Swedish plaintext /UDPipe" (Segment and parse Swedish plaintext with UDPipe according to the Universal Dependencies version 2.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT ud2.txt
 # OUTPUT ud2.tsv

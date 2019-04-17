@@ -1,4 +1,4 @@
-# TOOL udpipe-ud2-fin-tokens.py: "Parse tokenized text with UD2-Finnish model" (Parse tokenized Finnish text according to the Universal Dependencies version 2. Each input token must be on its own line, with sentences separated by empty lines.)
+# TOOL udpipe-ud2-fin-tokens.py: "Parse tokenized Finnish plaintext/UDPipe TDT" (Parse tokenized Finnish plaintext with UDPipe according to the Universal Dependencies version 2, TDT model. Each input token must be on its own line, with sentences separated by empty lines.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT ud2.txt
 # OUTPUT ud2.tsv

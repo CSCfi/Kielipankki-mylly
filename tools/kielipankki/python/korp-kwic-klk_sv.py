@@ -1,4 +1,4 @@
-# TOOL korp-kwic-klk_sv.py: "Get Korp KWIC concordance from KLK_SV corpus"
+# TOOL korp-kwic-klk_sv.py: "KWIC from KLK_SV"
 # (Queries korp.csc.fi for a KWIC concordance from KLK_SV corpus. Input file contains CQP expressions separated by empty lines. They must all match. The last of them defines the final match. Output file is the concordance in the Korp JSON form.)
 # INPUT query.cqp.txt TYPE GENERIC
 # OUTPUT result.korp.json

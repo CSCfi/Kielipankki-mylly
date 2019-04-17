@@ -1,4 +1,4 @@
-# TOOL kwic-3gram.py: "KWIC 3-grams in TSV"
+# TOOL kwic-3gram.py: "Write KWIC 3-grams in Rel.TSV"
 # (Three-grams from a Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1, 2, and 3 for consecutive tokens inside sentences. Sentence and token counters, kMsen and kMtok, are added to identify each occurrence.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT grammata.tsv
