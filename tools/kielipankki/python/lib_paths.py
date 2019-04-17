@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 def prepend(path, PATH):
     '''Sigh. And prepend a new path (a directory)
