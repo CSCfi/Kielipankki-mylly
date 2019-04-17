@@ -40,7 +40,7 @@ def transform(source, out):
                   file = out)
 
 def parse_plain(modelname, inputfile, textfile, relationfile):
-    '''Runs udpipe with given model file (in directory MODELS), plain text
+    '''Runs udpipe with given model file, plain text
     input file, all analysis levels.
 
     '''
@@ -72,7 +72,7 @@ def parse_plain(modelname, inputfile, textfile, relationfile):
         exit(1)
 
 def parse_tokens(modelname, inputfile, textfile, relationfile):
-    '''Runs udpipe with given model file (in directory MODELS) on
+    '''Runs udpipe with given model file, on
     tokenized input file, tagging and parsing.
 
     '''
