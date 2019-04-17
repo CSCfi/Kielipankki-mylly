@@ -4,16 +4,16 @@
 # OUTPUT output.tsv
 # RUNTIME python3
 
-# they are not in the proper place yet
-DIR = '/wrk/jpiitula/finnish-tagtools'
-
 import os, sys
 from itertools import groupby
 from subprocess import Popen, PIPE
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
-from lib_paths import prepend
+
+# new finnish-tokenize in Taito seems not to need PATH or
+# LD_LIBRARY_PATH any more - we shall see how Mylly behaves;
+# from lib_paths import prepath, prelibs
 
 name('output.txt', '{}-token'.format(base('input.txt', '*.txt')),
      ext = 'txt')
@@ -21,12 +21,15 @@ name('output.txt', '{}-token'.format(base('input.txt', '*.txt')),
 name('output.tsv', '{}-token'.format(base('input.txt', '*.txt')),
      ext = 'rel.tsv')
 
-# wire to the specific HFST version
-VERbin = '/homeappl/appl_taito/ling/hfst/3.13.0/bin'
-VERlib = '/homeappl/appl_taito/ling/hfst/3.13.0/lib'
-VERENV = dict(os.environ,
-              PATH = prepend(VERbin, 'PATH'),
-              LD_LIBRARY_PATH = prepend(VERlib, 'LD_LIBRARY_PATH'))
+# finnish-tokenize in Taito runs its own binary of hfst-tokenize, and
+# has it in the same directory with the model file; the executable
+# does not seem to rely on the dynamic hfst library, by readelf -d,
+# so not setting LD_LIBRARY_PATH
+
+TOOLDIR = '/appl/ling/finnish-tagtools/1.3.2/share/finnish-tagtools'
+TOOLENV = os.environ
+TOOL = [os.path.join(TOOLDIR, 'hfst-tokenize'),
+        os.path.join(TOOLDIR, 'omorfi_tokenize.pmatch')]
 
 def end(*ps):
     for p in ps:
@@ -43,9 +46,7 @@ def end(*ps):
         raise Exception('Non-0 return code in: ' + ' '.join(map(str, cs)))
 
 try:
-    with Popen([os.path.join(VERbin, 'hfst-tokenize'),
-                os.path.join(DIR, 'tokenize.pmatch')],
-               env = VERENV,
+    with Popen(TOOL, env = TOOLENV,
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE,
                stderr = open('error1.log', mode = 'wb')) as tokenize:

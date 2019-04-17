@@ -1,22 +1,23 @@
 import os, sys
 
-def prepend(path, PATH):
-    '''Sigh. And prepend a new path (a directory)
-    to the value of an old PATH (an environment
-    variable naming a sequence of directories).
-
-    Return the new value. Do not set the environment!
-
-    Except act surprised if the PATH was not even set.
-
-    '''
-    
-    OLDPATH = os.getenv(PATH)
-    if OLDPATH is None:
-        print('environment variable', PATH, 'not set',
-              file = sys.stderr)
-        print('(this is unexpected - please report)',
+def prepath(path):
+    PATH = os.getenv('PATH')
+    if PATH is None:
+        print('PATH is not set',
+              'This cannot happen',
+              'Please report',
+              sep = '\n',
               file = sys.stderr)
         exit(1)
     else:
-        return os.pathsep.join((path, OLDPATH))
+        return os.pathsep.join((path, PATH))
+
+def prelibs(path):
+    return os.pathsep.join((path, os.getenv('LD_LIBRARY_PATH', '')))
+
+def prepend(path, PATH):
+    print('Deprecated function: lib_paths.prepend',
+          'This should not be called any more',
+          sep = '\n',
+          file = sys.stderr)
+    exit(1)
