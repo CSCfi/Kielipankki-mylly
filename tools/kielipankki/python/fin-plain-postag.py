@@ -14,7 +14,7 @@ from lib_names2 import base, name
 
 # temporary copy of outsidelib from vrt-tools, primarily to access a
 # workable locale, secondarily to use more convenient path machinery
-from outsidelib import prebins, prelibs, HFSTBIN, HFSTLIB, uf8ish
+from outsidelib import prebins, prelibs, HFSTBIN, HFSTLIB, utf8ish
 
 name('output.txt', '{}-pos'.format(base('input.txt', '*.txt')),
      ext = 'txt')
