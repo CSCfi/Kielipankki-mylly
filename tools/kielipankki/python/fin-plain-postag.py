@@ -25,10 +25,13 @@ name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
 # files, no message - now *try* with libhfst.so on LD_LIBRARY_PATH -
 # does not seem to help - also, finnish-postag also depends on
 # hfst-tokenize, which probably also needs libhfst.so, but if that is
-# not the problem, what is?
+# not the problem, what is? Adding HFST to PATH does not help, still
+# getting empty output with success status - try invoking the script
+# with some error-trapping options.
 
 TOOLBIN = '/appl/ling/finnish-tagtools/1.3.2/bin'
-TOOL = [os.path.join(TOOLBIN, 'finnish-postag')]
+TOOL = ['/bin/bash', '-e', '-E', '-opipefail',
+        os.path.join(TOOLBIN, 'finnish-postag')]
 
 HFSTBIN = '/appl/ling/hfst/3.15.0/bin'
 HFSTLIB = '/appl/ling/hfst/3.15.0/lib'
