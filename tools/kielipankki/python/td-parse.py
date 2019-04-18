@@ -15,7 +15,17 @@ name('output.txt', '{}-dep'.format(base('input.txt', '*.txt')),
 # ok, it does produce output stdin->stdout in Taito, eventually, so
 # try in Mylly - there would be 7 output fields in case one wants to
 # process the output somehow, but does it work without environment?
-# be seen
+# be seen - yeah, right, it tells in *stdout* that "Parser not found
+# in
+# /appl//ling/finnish-parse/1.0/share/Finnish-dep-parser/alpha-custom"
+
+print('ls -R /appl//ling/finnish-parse/, hopefully,',
+      'and no idea why such double slashes',
+      sep = '\n')
+
+with Popen([ 'ls', '-R',
+             '/appl//ling/finnish-parse/' ]) as sigh:
+    pass
 
 with Popen([ '/appl/ling/finnish-parse/1.0/bin/finnish-parse',
              '--stanford' ],
