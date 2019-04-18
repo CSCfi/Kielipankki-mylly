@@ -29,7 +29,7 @@ TOOL = [os.path.join(TOOLBIN, 'finnish-postag')]
 
 TOOLLIB = '/appl/ling/hfst/3.15.0/lib'
 LIBPATH = (os.pathsep
-           .join(TOOLLIB, os.environ.get('LD_LIBRARY_PATH', ''))
+           .join((TOOLLIB, os.environ.get('LD_LIBRARY_PATH', '')))
            .rstrip(os.pathsep))
 
 def end(*ps):
