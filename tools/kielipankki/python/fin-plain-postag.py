@@ -15,32 +15,13 @@ from lib_names2 import base, name
 # temporary copy of outsidelib from vrt-tools, primarily to access a
 # workable locale, secondarily to use more convenient path machinery
 from outsidelib import prebins, prelibs, HFSTBIN, HFSTLIB, utf8ish
+from outsidelib import FINPOS
 
 name('output.txt', '{}-pos'.format(base('input.txt', '*.txt')),
      ext = 'txt')
 
 name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
      ext = 'rel.tsv')
-
-# finnish-postag in Taito runs its own components with direct paths
-# but depends on having hsft-lookup on PATH - remains to be seen
-# whether it can run without LD_LIBRARY_PATH in Mylly - readelf -d
-# indicates dependence of hfst-lookup on libhfst.so - something does
-# go wrong but the symptom in Mylly is "success" with empty output
-# files, no message - now *try* with libhfst.so on LD_LIBRARY_PATH -
-# does not seem to help - also, finnish-postag also depends on
-# hfst-tokenize, which probably also needs libhfst.so, but if that is
-# not the problem, what is? Adding HFST to PATH does not help, still
-# getting empty output with success status - try invoking the script
-# with some error-trapping options.
-
-TOOLBIN = '/appl/ling/finnish-tagtools/1.3.2/bin'
-TOOL = ['/bin/bash', '-e', '-E', '-o', 'pipefail',
-        os.path.join(TOOLBIN, 'finnish-postag')]
-
-print('does PATH contain hfst bin directory?')
-for component in os.environ.get('PATH', '').split(os.pathsep):
-    print(component)
 
 def end(*ps):
     for p in ps:
@@ -57,18 +38,21 @@ def end(*ps):
         raise Exception('Non-0 return code in: ' + ' '.join(map(str, cs)))
 
 try:
-    with Popen(TOOL,
+    with Popen([FINPOS],
+               # finnish-postag needs HFST bin and lib (for
+               # hfst-tokenize, hfst-lookup) on respective paths, and
+               # a locale that does UTF-8 (for its Python scripts),
+               # none of which Mylly has (2019-04-18)
                env = dict(os.environ,
                           LC_ALL = utf8ish(),
                           PATH = prebins(HFSTBIN),
                           LD_LIBRARY_PATH = prelibs(HFSTLIB)),
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE) as tokenize:
-        # stderr = open('error1.log', mode = 'wb')) as tokenize:
+
         with Popen(['tee', 'output.txt'],
                    stdin = tokenize.stdout,
                    stdout = PIPE) as tee:
-            # stderr = open('error2.log', mode = 'wb')) as tee:
             
             # tee saves the actual output in output.txt; then the
             # following writes a corresponding relation in output.tsv
@@ -82,8 +66,10 @@ try:
                                         in groupby(tee.stdout, bytes.isspace)
                                         if not kind ),
                                       start = 1):
-                    for t, w in enumerate(g, start = 1):
-                        print('{:04}-{:03}'.format(k, t), k, t, w.decode('UTF-8'),
+                    for t, wbm in enumerate(g, start = 1):
+                        w, b, m = w.decode('UTF-8').split('\t')
+                        m = m.strip('[]').replace(']|[', '|') or '_'
+                        print('{:04}-{:03}'.format(k, t), k, t, w, b, m,
                               sep = '\t',
                               end = '',
                               file = out)
