@@ -4,6 +4,7 @@
 # RUNTIME python3
 
 import os, sys
+from subprocess import Popen
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
