@@ -30,7 +30,7 @@ name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
 # with some error-trapping options.
 
 TOOLBIN = '/appl/ling/finnish-tagtools/1.3.2/bin'
-TOOL = ['/bin/bash', '-e', '-E', '-opipefail',
+TOOL = ['/bin/bash', '-e', '-E', '-o', 'pipefail',
         os.path.join(TOOLBIN, 'finnish-postag')]
 
 HFSTBIN = '/appl/ling/hfst/3.15.0/bin'
