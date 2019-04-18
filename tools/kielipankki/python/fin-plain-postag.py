@@ -20,10 +20,17 @@ name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
 # finnish-postag in Taito runs its own components with direct paths
 # but depends on having hsft-lookup on PATH - remains to be seen
 # whether it can run without LD_LIBRARY_PATH in Mylly - readelf -d
-# indicates dependence of hfst-lookup on libhfst.so
+# indicates dependence of hfst-lookup on libhfst.so - something does
+# go wrong but the symptom in Mylly is "success" with empty output
+# files, no message - now *try* with libhfst.so on LD_LIBRARY_PATH
 
-TOOLDIR = '/appl/ling/finnish-tagtools/1.3.2/bin'
-TOOL = [os.path.join(TOOLDIR, 'finnish-postag')]
+TOOLBIN = '/appl/ling/finnish-tagtools/1.3.2/bin'
+TOOL = [os.path.join(TOOLBIN, 'finnish-postag')]
+
+TOOLLIB = '/appl/ling/hfst/3.15.0/lib'
+LIBPATH = (os.pathsep
+           .join(TOOLLIB, os.environ.get('LD_LIBRARY_PATH', ''))
+           .rstrip(os.pathsep))
 
 def end(*ps):
     for p in ps:
@@ -41,6 +48,7 @@ def end(*ps):
 
 try:
     with Popen(TOOL,
+               env = dict(os.environ, LD_LIBRARY_PATH = LIBPATH),
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE,
                stderr = open('error1.log', mode = 'wb')) as tokenize:
