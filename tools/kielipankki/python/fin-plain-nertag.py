@@ -1,4 +1,4 @@
-# TOOL fin-plain-nertag.py: "Name-tag Finnish plaintext" (Tokenize and name-tag Finnish plaintext. Produce both the actual output of the underlying tool and a relation where each sentence and token has an explicit identifier.)
+# TOOL fin-plain-nertag.py: "Classify names in Finnish plaintext" (Tokenize and name-tag Finnish plaintext. Produce both the actual output of the underlying tool and a relation where each sentence and token has an explicit identifier.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
@@ -38,7 +38,7 @@ def end(*ps):
         raise Exception('Non-0 return code in: ' + ' '.join(map(str, cs)))
 
 try:
-    with Popen([FINER],
+    with Popen([FINER, '--show-analyses'],
                # finnish-nertag needs HFST bin and lib (at least for
                # hfst-tokenize, hfst-lookup in finnish-postag) on
                # respective paths, and a locale that does UTF-8 (for
@@ -60,7 +60,8 @@ try:
             # following writes a corresponding relation in output.tsv
             
             with open('output.tsv', mode = 'w', encoding = 'UTF-8') as out:
-                print('sentok', 'kMsen', 'kMtok', 'word', 'nertag',
+                print('sentok', 'kMsen', 'kMtok',
+                      'word', 'base', 'nertag', 'msd', 'aux',
                       sep = '\t',
                       file = out)
                 for k, g in enumerate(( group
@@ -68,10 +69,17 @@ try:
                                         in groupby(tee.stdout, bytes.isspace)
                                         if not kind ),
                                       start = 1):
-                    for t, w in enumerate(g, start = 1):
-                        print('{:04}-{:03}'.format(k, t), k, t, w.decode('UTF-8'),
+                    for t, wbmaz in enumerate(g, start = 1):
+                        # word, base, msd, aux?, tag
+                        w, b, m, a, z = (wbmaz
+                                         .decode('UTF-8')
+                                         .rstrip('\r\n')
+                                         .split('\t'))
+                        print('{:04}-{:03}'.format(k, t), k, t,
+                              w, b, z,
+                              m.strip('[]').replace('][', '|'),
+                              a,strip('[]').replace('][', '|'),
                               sep = '\t',
-                              end = '',
                               file = out)
                 # waits with time
                 end(tokenize, tee)

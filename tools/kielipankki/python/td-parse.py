@@ -1,4 +1,4 @@
-# TOOL td-parse.py: "Parse Finnish plaintext/TDP (α)" (Segments Finnish plaintext into sentences and tokens. Annotates each sentence with a morpho-syntactic structure using an early version of the Turku Dependency Parser.)
+# TOOL td-parse.py: "Parse Finnish plaintext /TDP (alpha)" (Segments Finnish plaintext into sentences and tokens. Annotates each sentence with a morpho-syntactic structure using an early version of the Turku Dependency Parser.)
 # INPUT text.txt TYPE GENERIC
 # OUTPUT analyses.txt
 # OUTPUT OPTIONAL error.log
