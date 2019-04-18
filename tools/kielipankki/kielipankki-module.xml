@@ -9,7 +9,10 @@
     <tool>fin-plain-tokenize.py</tool>
     <tool>fin-plain-postag.py</tool>
     <tool>fin-plain-nertag.py</tool>
-    <tool>td-parse.py</tool>
+    <!-- old td-parse.py aka finnish-parse stanford does not work in
+         Mylly because its components are not there as of 2019-04-18
+    -->
+    <!-- tool>td-parse.py</tool -->
     <tool>td-parse-ud1.py</tool>
     <tool>udpipe-ud2-fin.py</tool>
     <tool>udpipe-ud2-swe.py</tool>

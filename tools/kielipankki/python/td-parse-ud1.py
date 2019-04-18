@@ -15,9 +15,9 @@ from outsidelib import utf8ish
 name('output.txt', '{}-ud1'.format(base('input.txt', '*.txt')),
      ext = 'txt')
 
-# see if default finnish-parse works in Mylly 2019-04-18;
-# it kind of seems to work but is full of question marks;
-# see if a utf8ish locale helps
+# see if default finnish-parse works in Mylly 2019-04-18; it kind of
+# seems to work but is full of question marks; see if a utf8ish locale
+# helps - yes, it helps!
 
 with Popen([ '/appl/ling/finnish-parse/1.0/bin/finnish-parse' ],
            env = dict(os.environ,
