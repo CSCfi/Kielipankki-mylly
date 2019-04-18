@@ -10,6 +10,7 @@
     <tool>fin-plain-postag.py</tool>
     <tool>fin-plain-nertag.py</tool>
     <tool>td-parse.py</tool>
+    <tool>td-parse-ud1.py</tool>
     <tool>udpipe-ud2-fin.py</tool>
     <tool>udpipe-ud2-swe.py</tool>
     <tool>udpipe-ud2-eng.py</tool>
