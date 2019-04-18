@@ -23,7 +23,7 @@ name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
 # indicates dependence of hfst-lookup on libhfst.so
 
 TOOLDIR = '/appl/ling/finnish-tagtools/1.3.2/bin'
-TOOL = [os.path.join(TOOLDIR, 'finnish-postag']
+TOOL = [os.path.join(TOOLDIR, 'finnish-postag')]
 
 def end(*ps):
     for p in ps:
