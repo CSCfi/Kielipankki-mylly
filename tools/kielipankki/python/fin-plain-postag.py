@@ -8,9 +8,6 @@ import os, sys
 from itertools import groupby
 from subprocess import Popen, PIPE
 
-# they are not yet in the proper place
-DIR = '/wrk/jpiitula/finnish-tagtools'
-
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_names2 import base, name
 
@@ -19,6 +16,14 @@ name('output.txt', '{}-pos'.format(base('input.txt', '*.txt')),
 
 name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
      ext = 'rel.tsv')
+
+# finnish-postag in Taito runs its own components with direct paths
+# but depends on having hsft-lookup on PATH - remains to be seen
+# whether it can run without LD_LIBRARY_PATH in Mylly - readelf -d
+# indicates dependence of hfst-lookup on libhfst.so
+
+TOOLDIR = '/appl/ling/finnish-tagtools/1.3.2/bin'
+TOOL = [os.path.join(TOOLDIR, 'finnish-postag']
 
 def end(*ps):
     for p in ps:
@@ -35,7 +40,7 @@ def end(*ps):
         raise Exception('Non-0 return code in: ' + ' '.join(map(str, cs)))
 
 try:
-    with Popen(['/bin/bash', os.path.join(DIR, 'finnish-postag')],
+    with Popen(TOOL,
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE,
                stderr = open('error1.log', mode = 'wb')) as tokenize:
