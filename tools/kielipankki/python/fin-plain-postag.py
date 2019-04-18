@@ -9,7 +9,12 @@ from itertools import groupby
 from subprocess import Popen, PIPE
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
+sys.path.append(os.path.join(chipster_module_path, "python/xvrt-tools"))
 from lib_names2 import base, name
+
+# temporary copy of outsidelib from vrt-tools, primarily to access a
+# workable locale, secondarily to use more convenient path machinery
+from outsidelib import prebins, prelibs, HSFTBIN, HFSTLIB, uf8ish
 
 name('output.txt', '{}-pos'.format(base('input.txt', '*.txt')),
      ext = 'txt')
@@ -33,15 +38,6 @@ TOOLBIN = '/appl/ling/finnish-tagtools/1.3.2/bin'
 TOOL = ['/bin/bash', '-e', '-E', '-o', 'pipefail',
         os.path.join(TOOLBIN, 'finnish-postag')]
 
-HFSTBIN = '/appl/ling/hfst/3.15.0/bin'
-HFSTLIB = '/appl/ling/hfst/3.15.0/lib'
-BINPATH = (os.pathsep
-           .join((HFSTBIN, os.environ.get('PATH', '')))
-           .rstrip(os.pathsep))
-LIBPATH = (os.pathsep
-           .join((HFSTLIB, os.environ.get('LD_LIBRARY_PATH', '')))
-           .rstrip(os.pathsep))
-
 print('does PATH contain hfst bin directory?')
 for component in os.environ.get('PATH', '').split(os.pathsep):
     print(component)
@@ -63,8 +59,9 @@ def end(*ps):
 try:
     with Popen(TOOL,
                env = dict(os.environ,
-                          PATH = BINPATH,
-                          LD_LIBRARY_PATH = LIBPATH),
+                          LC_ALL = utf8ish(),
+                          PATH = prebins(HFSTBIN),
+                          LD_LIBRARY_PATH = prelibs(HFSTLIB)),
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE) as tokenize:
         # stderr = open('error1.log', mode = 'wb')) as tokenize:
