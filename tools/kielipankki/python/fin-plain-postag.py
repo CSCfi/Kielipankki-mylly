@@ -68,10 +68,9 @@ try:
                                       start = 1):
                     for t, wbm in enumerate(g, start = 1):
                         w, b, m = wbm.decode('UTF-8').split('\t')
-                        m = m.strip('[]').replace(']|[', '|') or '_'
+                        m = m.strip('[]\r\n').replace(']|[', '|') or '_'
                         print('{:04}-{:03}'.format(k, t), k, t, w, b, m,
                               sep = '\t',
-                              end = '',
                               file = out)
                 # waits with time
                 end(tokenize, tee)
