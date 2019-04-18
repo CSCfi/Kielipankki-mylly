@@ -67,7 +67,7 @@ try:
                                         if not kind ),
                                       start = 1):
                     for t, wbm in enumerate(g, start = 1):
-                        w, b, m = w.decode('UTF-8').split('\t')
+                        w, b, m = wbm.decode('UTF-8').split('\t')
                         m = m.strip('[]').replace(']|[', '|') or '_'
                         print('{:04}-{:03}'.format(k, t), k, t, w, b, m,
                               sep = '\t',
