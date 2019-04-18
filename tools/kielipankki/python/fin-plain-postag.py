@@ -66,12 +66,12 @@ try:
                           PATH = BINPATH,
                           LD_LIBRARY_PATH = LIBPATH),
                stdin = open('input.txt', mode = 'rb'),
-               stdout = PIPE,
-               stderr = open('error1.log', mode = 'wb')) as tokenize:
+               stdout = PIPE) as tokenize:
+        # stderr = open('error1.log', mode = 'wb')) as tokenize:
         with Popen(['tee', 'output.txt'],
                    stdin = tokenize.stdout,
-                   stdout = PIPE,
-                   stderr = open('error2.log', mode = 'wb')) as tee:
+                   stdout = PIPE) as tee:
+            # stderr = open('error2.log', mode = 'wb')) as tee:
             
             # tee saves the actual output in output.txt; then the
             # following writes a corresponding relation in output.tsv
