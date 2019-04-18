@@ -2,23 +2,20 @@
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
-# OUTPUT error1.log
-# OUTPUT error2.log
 # RUNTIME python3
-
-# they are still not yet in the proper place;
-# DIR/finnish-nertag wired to use hfst 3.14.0;
-# error?.log above left visible just in case
-# DIR = '/proj/kieli/finnish-tagtools'
-# DIR = '/wrk/jpiitula/finnish-tagtools'
-DIR = '/appl/ling/finnish-tagtools/1.1/bin'
 
 import os, sys
 from itertools import groupby
 from subprocess import Popen, PIPE
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
+sys.path.append(os.path.join(chipster_module_path, "python/xvrt-tools"))
 from lib_names2 import base, name
+
+# temporary copy of outsidelib from vrt-tools, primarily to access a
+# workable locale, secondarily to use more convenient path machinery
+from outsidelib import prebins, prelibs, HFSTBIN, HFSTLIB, utf8ish
+from outsidelib import FINER
 
 name('output.txt', '{}-ner'.format(base('input.txt', '*.txt')),
      ext = 'txt')
@@ -41,14 +38,23 @@ def end(*ps):
         raise Exception('Non-0 return code in: ' + ' '.join(map(str, cs)))
 
 try:
-    with Popen(['/bin/bash', os.path.join(DIR, 'finnish-nertag')],
+    with Popen([FINER],
+               # finnish-nertag needs HFST bin and lib (at least for
+               # hfst-tokenize, hfst-lookup in finnish-postag) on
+               # respective paths, and a locale that does UTF-8 (for
+               # its Python scripts), none of which Mylly has
+               # (2019-04-18)
+               env = dict(os.environ,
+                          LC_ALL = utf8ish(),
+                          PATH = prebins(HFSTBIN),
+                          LD_LIBRARY_PATH = prelibs(HFSTLIB)),
                stdin = open('input.txt', mode = 'rb'),
-               stdout = PIPE,
-               stderr = open('error1.log', mode = 'wb')) as tokenize:
+               stdout = PIPE) as tokenize:
+        # stderr = open('error1.log', mode = 'wb')) as tokenize:
         with Popen(['tee', 'output.txt'],
                    stdin = tokenize.stdout,
-                   stdout = PIPE,
-                   stderr = open('error2.log', mode = 'wb')) as tee:
+                   stdout = PIPE) as tee:
+            #stderr = open('error2.log', mode = 'wb')) as tee:
             
             # tee saves the actual output in output.txt; then the
             # following writes a corresponding relation in output.tsv
