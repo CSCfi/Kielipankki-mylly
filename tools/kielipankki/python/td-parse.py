@@ -1,28 +1,24 @@
 # TOOL td-parse.py: "Parse Finnish plaintext /TDP (alpha)" (Segments Finnish plaintext into sentences and tokens. Annotates each sentence with a morpho-syntactic structure using an early version of the Turku Dependency Parser.)
-# INPUT text.txt TYPE GENERIC
-# OUTPUT analyses.txt
-# OUTPUT OPTIONAL error.log
+# INPUT input.txt TYPE GENERIC
+# OUTPUT output.txt
 # RUNTIME python3
 
-import os
-import sys
+import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
-from lib_pipeline import turku_parser_wrapper
-from lib_errorlog import consolidate
+from lib_names2 import base, name
 
-# First! See if this works.
-# päivän teksti.txt => päivän teksti.tsv (most likely)
-# e.g.txt => e.g.tsv (probably)
-# e.g.wav => e.g.tsv (assuming there is a result)
-# e.g. => e.g..tsv (er, not the smartest filename anyway)
-names.output("analyses.txt", names.replace("text.txt", ".tsv"))
+name('output.txt', '{}-dep'.format(base('input.txt', '*.txt')),
+     ext = 'txt')
 
-def parse_text():
-    home="/appl/ling/finnish-process/share/hfst/fi/Finnish-dep-parser-alpha"
-    turku_parser_wrapper(os.path.join(home, "parser_wrapper.sh"))
+# ok, it does produce output stdin->stdout in Taito, eventually, so
+# try in Mylly - there would be 7 output fields in case one wants to
+# process the output somehow, but does it work without environment?
+# be seen
 
-parse_text()
-
-consolidate()
+with Popen([ '/appl/ling/finnish-parse/1.0/bin/finnish-parse',
+             '--stanford' ],
+           # env = dict(os.environ, TMPDIR = os.getcwd()),
+           stdin  = open('input.txt', mode = 'rb'),
+           stdout = open('output.txt', mode = 'wb')) as parse:
+    pass
