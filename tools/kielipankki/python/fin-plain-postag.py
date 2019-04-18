@@ -30,9 +30,13 @@ name('output.tsv', '{}-pos'.format(base('input.txt', '*.txt')),
 TOOLBIN = '/appl/ling/finnish-tagtools/1.3.2/bin'
 TOOL = [os.path.join(TOOLBIN, 'finnish-postag')]
 
-TOOLLIB = '/appl/ling/hfst/3.15.0/lib'
+HFSTBIN = '/appl/ling/hfst/3.15.0/bin'
+HFSTLIB = '/appl/ling/hfst/3.15.0/lib'
+BINPATH = (os.pathsep
+           .join((HFSTBIN, os.environ.get('PATH', '')))
+           .rstrip(os.pathsep))
 LIBPATH = (os.pathsep
-           .join((TOOLLIB, os.environ.get('LD_LIBRARY_PATH', '')))
+           .join((HFSTLIB, os.environ.get('LD_LIBRARY_PATH', '')))
            .rstrip(os.pathsep))
 
 print('does PATH contain hfst bin directory?')
@@ -55,7 +59,9 @@ def end(*ps):
 
 try:
     with Popen(TOOL,
-               env = dict(os.environ, LD_LIBRARY_PATH = LIBPATH),
+               env = dict(os.environ,
+                          PATH = BINPATH,
+                          LD_LIBRARY_PATH = LIBPATH),
                stdin = open('input.txt', mode = 'rb'),
                stdout = PIPE,
                stderr = open('error1.log', mode = 'wb')) as tokenize:
