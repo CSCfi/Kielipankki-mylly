@@ -78,7 +78,7 @@ try:
                         print('{:04}-{:03}'.format(k, t), k, t,
                               w, b, z,
                               m.strip('[]').replace('][', '|'),
-                              a,strip('[]').replace('][', '|'),
+                              a.strip('[]').replace('][', '|'),
                               sep = '\t',
                               file = out)
                 # waits with time
