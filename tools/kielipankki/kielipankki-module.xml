@@ -221,6 +221,8 @@
   </category>
 
   <category name="Obsolescent" color="#d88ca5">
+    <!-- testing if can has aux file for names -->
+    <tool>test-meta.py</tool>
     <!-- <tool>kp-test-data-in-out.R</tool> -->
     <!-- <tool>kp-test-data-in-out.py</tool> -->
     <!-- <tool>test-parameters.py</tool> -->
