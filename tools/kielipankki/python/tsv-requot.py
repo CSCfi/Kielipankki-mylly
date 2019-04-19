@@ -23,9 +23,9 @@ try:
     with open('data.tsv', encoding = 'UTF-8') as data:
         head = next(data).rstrip('\n').split('\t')
         with open('result.tsv', mode = 'w', encoding = 'UTF-8') as out:
-            print(number, *head, sep = '\t', file = out)
-            for k, line in enumerate(data, start = 1):
-                print(k, line.translate(reps),
+            print(*head, sep = '\t', file = out)
+            for line in data:
+                print(line.translate(reps),
                       sep = '\t',
                       end = '',
                       file = out)
