@@ -41,7 +41,8 @@ drop = set(name for name in (drop0, drop1, drop2, drop3,
 
 with open('wide.tsv', mode = 'r', encoding = 'UTF-8') as wide:
     head = next(wide).rstrip('\n').split('\t')
-    take = index(head, set(head) - drop)
+    take = index(head, tuple(name for name in head
+                             if name not in drop))
     them = Counter(value(line.rstrip('\n').split('\t'), take)
                    for line in wide)
 
