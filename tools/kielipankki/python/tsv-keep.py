@@ -1,5 +1,5 @@
 # TOOL tsv-keep.py: "Keep selected attributes"
-# (Keep only the selected attributes. EMPTY is not a name.)
+# (Keep only the selected attributes.)
 # INPUT wide.tsv: "input relation" TYPE GENERIC
 # OUTPUT narrow.tsv
 # PARAMETER OPTIONAL keep0 TYPE COLUMN_SEL
@@ -32,11 +32,16 @@ name('narrow.tsv', base('wide.tsv', '*.rel.tsv'),
 def index(head, names): return tuple(map(head.index, names))
 def value(record, ks): return tuple(record[k] for k in ks)
 
-keep = set(name for name in (keep0, keep1, keep2, keep3,
-                             keep4, keep5, keep6, keep7,
-                             keep8, keep9, keepA, keepB,
-                             keepC, keepD, keepE, keepF)
-           if name not in ("EMPTY", ""))
+keep = tuple(name for name in (keep0, keep1, keep2, keep3,
+                               keep4, keep5, keep6, keep7,
+                               keep8, keep9, keepA, keepB,
+                               keepC, keepD, keepE, keepF)
+             if name)
+
+if len(set(keep)) < len(keep):
+    print('multiple selection:', file = sys.stderr)
+    print(*keep, sep = '\n', file = sys.stderr)
+    exit(1)
 
 with open('wide.tsv', mode = 'r', encoding = 'UTF-8') as wide:
     head = next(wide).rstrip('\n').split('\t')

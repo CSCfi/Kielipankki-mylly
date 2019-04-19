@@ -76,10 +76,10 @@ def standard(lines, out):
         if line.isspace():
             # so empty lines are allowed and ignored
             emptycount += 1
-        elif line.startswith('<!-- Positional attributes:'):
-            # e.g., <!-- Positional attributes: word -->
+        elif line.startswith('<!-- #vrt positional-attributes:'):
+            # e.g., <!-- #vrt positional-attributes: word -->
             com, ment = line.split(':', 1)
-            names = tuple(re.findall('\w+', ment))
+            names = tuple(re.findall('[\w.-]+', ment))
             if len(set(names)) < len(names):
                 # not positional attributes after all
                 commentcount += 1
