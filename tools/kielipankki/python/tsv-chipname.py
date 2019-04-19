@@ -1,4 +1,4 @@
-# TOOL tsv-chipname.py: "Rename attributes in 'chip.'"
+# TOOL tsv-chipname.py: "Chip attributes"
 # (Add 'chip.' prefix to attribute names that already have a numeric prefix.)
 # INPUT old.tsv TYPE GENERIC
 # OUTPUT new.tsv

@@ -67,6 +67,8 @@
   <category name="Rel.TSV" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
+    <tool>tsv-number.py</tool>
+    <tool>tsv-chipname.py</tool>
     <tool>tsv-join.py</tool>
     <tool>tsv-compose.py</tool>
     <tool>tsv-image.py</tool>
@@ -92,10 +94,11 @@
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
 
-  <category name="Rel.TSV (temp)" color="#cbd89c">
-    <tool>tsv-chipname.py</tool>
-    <tool>tsv-number.py</tool>
-  </category>
+  <!--
+      emptied now that COLUMN_SEL again works
+      <category name="Rel.TSV (temp)" color="#cbd89c">
+      </category>
+  -->
 
   <category name="TSV" color="#a5d88c">
     <tool>tsv-requot.py</tool>

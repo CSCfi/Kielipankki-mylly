@@ -1,4 +1,4 @@
-# TOOL tsv-number.py: "Number the records" (Number the records in such arbitrary order as they happen to be)
+# TOOL tsv-number.py: "Number records" (Number the records in such arbitrary order as they happen to be)
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT result.tsv
 # PARAMETER number: "Number field name" TYPE STRING DEFAULT "kMid"
