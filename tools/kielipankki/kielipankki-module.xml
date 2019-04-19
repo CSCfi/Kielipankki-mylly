@@ -93,16 +93,8 @@
   </category>
 
   <category name="Rel.TSV (temp)" color="#cbd89c">
-    <!-- Sans COLUMN_SEL -->
-    <!-- because COLUMN_SEL is broken 2019-02-21 -->
     <tool>tsv-chipname.py</tool>
-    <tool>tsv-rename-sans.py</tool>
     <tool>tsv-number.py</tool>
-    <!-- was briefly here: tsv-join.py -->
-    <tool>tsv-keep-sans.py</tool>
-    <tool>tsv-keepc-sans.py</tool>
-    <tool>tsv-drop-sans.py</tool>
-    <tool>tsv-dropc-sans.py</tool>
   </category>
 
   <category name="TSV" color="#a5d88c">
@@ -222,7 +214,7 @@
 
   <category name="Obsolescent" color="#d88ca5">
     <!-- testing if can has aux file for names -->
-    <tool>test-meta.py</tool>
+    <!-- answer: no tool>test-meta.py</tool -->
     <!-- <tool>kp-test-data-in-out.R</tool> -->
     <!-- <tool>kp-test-data-in-out.py</tool> -->
     <!-- <tool>test-parameters.py</tool> -->
