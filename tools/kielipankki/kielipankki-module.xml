@@ -106,6 +106,7 @@
   </category>
 
   <category name="TSV" color="#a5d88c">
+    <tool>tsv-requot.py</tool>
     <!-- random actions on a relation -->
     <!-- should these be in RelTSV? -->
     <tool>tsv-sample.py</tool>
