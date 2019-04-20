@@ -54,6 +54,6 @@ if ext == 'rel.tsv':
     if ucount < count:
         ext = 'tsv'
 
-name('result.tsv', base('data.tsv', '*.rel.tsv', '*.tsv')
+name('result.tsv', base('data.tsv', '*.rel.tsv', '*.tsv'),
      ins = 'requot',
      ext = ext)
