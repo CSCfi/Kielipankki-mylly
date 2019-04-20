@@ -85,11 +85,6 @@
     <tool>tsv-union.py</tool>
     <tool>tsv-intersection.py</tool>
     <tool>tsv-difference.py</tool>
-    <tool>tsv-ext-oldmap.py</tool>
-    <tool>tsv-ext-newmap.py</tool>
-    <tool>tsv-ext-differ.py</tool>
-    <tool>tsv-ext-prop.py</tool>
-    <tool>tsv-ext-glue.py</tool>
     <tool>tsv-ngram.py</tool>
     <!-- tool>peek-in-tsv.py</tool -->
   </category>
@@ -107,6 +102,12 @@
     <tool>tsv-sample.py</tool>
     <tool>tsv-random.py</tool>
     <tool>tsv-sort.py</tool>
+    <tool>tsv-ext-vumap.py</tool>
+    <tool>tsv-ext-vemap.py</tool>
+    <tool>tsv-ext-cemap.py</tool>
+    <tool>tsv-ext-differ.py</tool>
+    <tool>tsv-ext-prop.py</tool>
+    <tool>tsv-ext-glue.py</tool>
     <!-- contingency tables -->
     <tool>tsv-22-cells.py</tool>
     <tool>tsv-22-corner.py</tool>
