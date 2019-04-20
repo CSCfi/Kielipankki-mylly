@@ -54,7 +54,7 @@ def base(argname, *patterns):
               file = sys.stderr)
         print('(this cannot happen - please report)', file = sys.stderr)
         exit(1)
-    
+
     name = cash[argname]
     for pattern in patterns:
         if fnmatch(name, pattern):
@@ -74,6 +74,26 @@ def base(argname, *patterns):
         exit(1)
 
     return base
+
+def extension(argname, *exts):
+    if argname not in cash:
+        print('either input name', argname, 'not in chipster-inputs.tsv',
+              'or base not matched before extension;',
+              'neither should happen - please report',
+              sep = '\n',
+              file = sys.stderr)
+        exit(1)
+
+    name = cash[argname]
+    for ext in exts:
+        if name.endswith('.' + ext):
+            return ext
+
+    print('input file name', name, 'does not have any extension:',
+          *exts,
+          file = sys.stderr)
+    print('this looks like a programming error', file = sys.stderr)
+    exit(1)
 
 def name(resname, base, *, ext, ins = None):
     # to append to chipster_outputs.tsv

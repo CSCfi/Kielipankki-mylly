@@ -30,12 +30,12 @@
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import name, base
+from lib_names2 import name, base, extension
 from lib_sortedtsv import save
 
-name('output.tsv', base('input.tsv', '*.rel.tsv'),
+name('output.tsv', base('input.tsv', '*.rel.tsv', '*.tsv'),
      ins = 'sorted',
-     ext = 'rel.tsv')
+     ext = extension('input.tsv', 'rel.tsv', 'tsv'))
 
 keys = tuple((attr, kind, sign)
              for (attr, kind, sign)
