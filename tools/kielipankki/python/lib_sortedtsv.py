@@ -18,7 +18,18 @@ def formatkeys(head, keys):
         for attr, kind, sign in keys
     ]
 
-def process(relationfile, process, *keys, **, anyway = False):
+# the following do not really need a relation file any more, any TSV
+# will be fine; maybe there should also be an option to not be stable
+# when there are keys?
+
+def process(relationfile, process, *keys):
+    process1(relationfile, process, False, *keys)
+
+def processanyway(relationfile, process):
+    '''No keys but sort anyway, for uniqueness. Needs a better name.'''
+    process1(relationfile, process, True)
+
+def process1(relationfile, process, anyway, *keys):
     '''In which a relation may be on the physically large side, so an
     external sort that is engineered to cope with such is used.
 
@@ -62,7 +73,14 @@ def process(relationfile, process, *keys, **, anyway = False):
             raise Exception('sort returned with {}'
                             .format(sort.returncode))
 
-def save(relationfile, resultfile, *keys, **, anyway = False):
+def save(relationfile, resultfile, *keys):
+    save1(relationfile, resultfile, False, *keys)
+
+def saveanyway(relationfile, resultfile):
+    '''Needs a better name. But is this even needed for anything?'''
+    save1(relationfile, resultfile, True)
+
+def save1(relationfile, resultfile, anyway, *keys):
     '''Writes the sorted result straight out.
 
     Update: allow sorting anyway when no keys provided, as in the
