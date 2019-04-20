@@ -1,5 +1,5 @@
-# TOOL kwic-as-tsv.py: "Write KWIC as Rel.TSV"
-# (Korp JSON-form concordance as two TSV files, tokens with their annotations in one and structural annotations in the other. Both files contain a sentence counter attribute so that they can be easily joined into one.)
+# TOOL kwic-as-tsv.py: "KWIC as Rel.TSV"
+# (Write Korp JSON-form concordance as two TSV files: tokens with their positional annotations as one relation, structural annotations as another. Both files contain a sentence counter on which they can be easily joined.)
 # INPUT kwic.json TYPE GENERIC
 # OUTPUT tokens.tsv
 # OUTPUT meta.tsv
@@ -9,12 +9,8 @@ import json, os, sys
 from itertools import chain
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-# import lib_names as names
-# 
-# names.enforce('kwic.json', '.json')
-# names.output('tokens.tsv', names.replace('kwic.json', '-tokens.tsv'))
-# names.output('meta.tsv', names.replace('kwic.json', '-meta.tsv'))
 from lib_names2 import base, name
+
 name('tokens.tsv', base('kwic.json', '*.korp.json'),
      ins = 'data',
      ext = 'rel.tsv')

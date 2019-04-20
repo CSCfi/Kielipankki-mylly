@@ -42,10 +42,6 @@
     <tool>cqp-alt.py</tool>
     <tool>korp-list.py</tool>
     <tool>korp-info.py</tool>
-    <tool>kwic-as-tsv.py</tool>
-    <tool>kwic-2gram.py</tool>
-    <tool>kwic-3gram.py</tool>
-    <tool>kwic-dep.py</tool>
     <!-- AUTH :/ tool>korp-kwic-coca.py</tool -->
     <!-- AUTH :/ tool>korp-kwic-coha.py</tool -->
     <tool>korp-kwic-eduskunta.py</tool>
@@ -58,11 +54,12 @@
     <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
-  <!--
-      emptied into general Korp category
-      <category name="Korp data" color="#e49898">
-      </category>
-  -->
+  <category name="Korp KWIC" color="#e49898">
+    <tool>kwic-as-tsv.py</tool>
+    <tool>kwic-2gram.py</tool>
+    <tool>kwic-3gram.py</tool>
+    <tool>kwic-dep.py</tool>
+  </category>
 
   <category name="Rel.TSV" color="#cbd88c">
     <tool>tiny-tsv.py</tool>

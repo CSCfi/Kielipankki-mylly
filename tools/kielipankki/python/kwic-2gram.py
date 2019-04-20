@@ -1,21 +1,22 @@
-# TOOL kwic-2gram.py: "Extract KWIC 2-grams in Rel.TSV"
-# (Two-grams from a Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1 and 2 for consecutive tokens inside sentences. Sentence and token counters, kMsen and kMtok, are added to identify each occurrence.)
-# INPUT kwic.json TYPE GENERIC
-# OUTPUT grammata.tsv
-# PARAMETER          attr0 TYPE STRING
-# PARAMETER OPTIONAL attr1 TYPE STRING
-# PARAMETER OPTIONAL attr2 TYPE STRING
-# PARAMETER OPTIONAL attr3 TYPE STRING
+# TOOL kwic-2gram.py: "2-grams in KWIC as Rel.TSV"
+# (Write 2-grams from a Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1 and 2 for consecutive tokens inside sentences. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
+# INPUT kwic.json: "KWIC file" TYPE GENERIC (Korp concordance in JSON format)
+# OUTPUT grammata.tsv: "2-gram file" (Extracted 2-grams as records in Rel.TSV format)
+# PARAMETER          attr0: "attribute" TYPE STRING
+# PARAMETER OPTIONAL attr1: "attribute" TYPE STRING
+# PARAMETER OPTIONAL attr2: "attribute" TYPE STRING
+# PARAMETER OPTIONAL attr3: "attribute" TYPE STRING
 # RUNTIME python3
 
 import json, os, sys
 from itertools import chain, count
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('kwic.json', '.json')
-names.output('grammata.tsv', names.replace('kwic.json', '-2g.tsv'))
+name('grammata.tsv', base('kwic.json', '*.korp.json'),
+     ins = '2-gram',
+     ext = 'rel.tsv')
 
 with open('kwic.json', encoding = 'utf-8') as f:
     data = json.load(f)
