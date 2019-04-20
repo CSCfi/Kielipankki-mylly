@@ -1,4 +1,4 @@
-# TOOL tsv-ext-vumap.py: "Extend from key=value,..."
+# TOOL tsv-ext-cemap.py: "Extend from key=value,..."
 # (Extend each record from a key-value attribute. A non-empty map contains key=value pairs separated by commas, with no duplicate keys. The default is to extend with those keys that occur.)
 # INPUT narrow.tsv TYPE GENERIC
 # OUTPUT wide.tsv
@@ -42,6 +42,6 @@ keys = scan('narrow.tsv', source, ',', '=',
                                   keyC, keyD, keyE, keyF)
                   if key))
 
-extend('narrow.tsv', 'wide.tmp', ',', '=', keys)
+extend('narrow.tsv', 'wide.tmp', source, ',', '=', keys)
 
 os.rename('wide.tmp', 'wide.tsv')

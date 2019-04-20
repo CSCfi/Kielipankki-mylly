@@ -42,6 +42,6 @@ keys = scan('narrow.tsv', source, '|', '=',
                                   keyC, keyD, keyE, keyF)
                   if key))
 
-extend('narrow.tsv', 'wide.tmp', '|', '=', keys)
+extend('narrow.tsv', 'wide.tmp', source, '|', '=', keys)
 
 os.rename('wide.tmp', 'wide.tsv')
