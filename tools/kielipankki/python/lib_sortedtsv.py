@@ -18,7 +18,7 @@ def formatkeys(head, keys):
         for attr, kind, sign in keys
     ]
 
-def process(relationfile, process, *keys):
+def process(relationfile, process, *keys, **, anyway = False):
     '''In which a relation may be on the physically large side, so an
     external sort that is engineered to cope with such is used.
 
@@ -28,6 +28,8 @@ def process(relationfile, process, *keys):
     when indicated by a Mylly prefix. Explicit kind overrides.
 
     With zero keys, do not sort: data is already in *that* order.
+    (Update: now can be asked to sort anyway, to support counting and
+    making relations out of more general TSV.)
 
     '''
     
@@ -36,7 +38,9 @@ def process(relationfile, process, *keys):
         head = next(source).decode('UTF-8').rstrip('\n').split('\t')
         keyx = formatkeys(head, keys)
 
-        if not keyx: keyx = [ '--merge' ] # do not sort
+        # with no keys, do not sort (merge of one is just a copy)
+        # unless specifically asked to sort anyway
+        if not keyx and not anyway: keyx = [ '--merge' ]
 
         # without locale control, appeared to sort case-insensitive
         # which is not right when the purpose is to group by identity
@@ -45,9 +49,7 @@ def process(relationfile, process, *keys):
         with Popen(['sort', '--stable', '--field-separator=\t'] + keyx,
                    env = dict(os.environ, LC_ALL = 'C'),
                    stdin = source,
-                   stdout = PIPE,
-                   stderr = open('errors.log', mode = 'wb')) as sort:
-
+                   stdout = PIPE) as sort:
             process(TextIOWrapper(sort.stdout, encoding = 'UTF-8'))
 
         # still unsure of this part
@@ -60,22 +62,25 @@ def process(relationfile, process, *keys):
             raise Exception('sort returned with {}'
                             .format(sort.returncode))
 
-def save(relationfile, resultfile, *keys):
+def save(relationfile, resultfile, *keys, **, anyway = False):
     '''Writes the sorted result straight out.
 
+    Update: allow sorting anyway when no keys provided, as in the
+    piping variant above, though not sure of a use case.
+
     '''
-    
+
     with open(relationfile, mode = 'rb', buffering = 0) as source, \
          open(resultfile, mode = 'wb') as target:
-        
+
         binhead = next(source)
         target.write(binhead)
         target.flush()
-        
+
         head = binhead.decode('UTF-8').rstrip('\n').split('\t')
         keyx = formatkeys(head, keys)
-        
-        if not keyx: keyx = [ '--merge' ] # do not sort
+
+        if not keyx and not anyway: keyx = [ '--merge' ]
 
         # without locale control, expected decimal separator to be a
         # comma, would not interpret decimal part after period
@@ -83,8 +88,7 @@ def save(relationfile, resultfile, *keys):
         with Popen(['sort', '--stable', '--field-separator=\t'] + keyx,
                    env = dict(os.environ, LC_ALL = 'C'),
                    stdin = source,
-                   stdout = target,
-                   stderr = open('errors.log', mode = 'wb')) as sort:
+                   stdout = target) as sort:
             pass # wait
 
         # still unsure of this part
