@@ -41,7 +41,7 @@ if ext == 'rel.tsv':
     # check if relationality is preserved;
     # if not, drop rel and produce mere tsv
 
-    def discount():
+    def discount(ins):
         global ucount
         for unique, _ in enumerate(groupby(ins), start = 1):
             pass
