@@ -33,7 +33,7 @@ from lib_extmap import scan, extend
 
 name('wide.tsv', base('narrow.tsv', '*.rel.tsv', '*.tsv'),
      ins = 'ext-map',
-     ext = extension('narrow.tsv', 'rel.tsv', 'tsv')
+     ext = extension('narrow.tsv', 'rel.tsv', 'tsv'))
 
 keys = scan('narrow.tsv', source, '|', '_',
             tuple(key for key in (key0, key1, key2, key3,
