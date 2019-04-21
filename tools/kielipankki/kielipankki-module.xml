@@ -202,7 +202,7 @@
   </category>
   -->
 
-  <category name="Oddities (TODO)" color="#c7e4e4">
+  <category name="Oddities (TODO or not)" color="#c7e4e4">
     <tool>prop1.R</tool>
     <tool>prop2.R</tool>
     <!-- frequency distributions -->
@@ -216,10 +216,7 @@
     <!-- category name="Advanced statistics" color="#e8f072" -->
     <tool>qplot-tsv.R</tool> <!-- where should? this be -->
     <tool>tsv-hc.R</tool>
-  </category>
-
-
-  <category name="Obsolescent" color="#d88ca5">
+    <!-- category name="Obsolescent" color="#d88ca5" -->
     <!-- testing if can has aux file for names -->
     <!-- answer: no tool>test-meta.py</tool -->
     <!-- <tool>kp-test-data-in-out.R</tool> -->
