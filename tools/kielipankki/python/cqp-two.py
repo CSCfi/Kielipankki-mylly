@@ -75,4 +75,4 @@ with open('query.tmp', mode = 'w', encoding = 'utf-8') as out:
               ']',
               file = out)
 
-os.rename('query.tmp', 'query.cqp.txt')
+os.rename('query.tmp', 'query.cqp')
