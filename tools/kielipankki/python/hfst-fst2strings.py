@@ -58,7 +58,7 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name # TODO
 import lib_hfst as hfst
 
 import os, shutil
