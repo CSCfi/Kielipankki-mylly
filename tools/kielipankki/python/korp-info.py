@@ -1,5 +1,5 @@
-# TOOL korp-info.py: "Get corpus info from Korp"
-# (Queries korp.csc.fi for info on each corpus in a family)
+# TOOL korp-info.py: "Corpus info"
+# (Get info about a selected corpus family from korp.csc.fi)
 # OUTPUT korp.info.json
 # OUTPUT korp.info.tsv
 # PARAMETER corpus TYPE [
@@ -14,7 +14,7 @@
 #     VNS: "VNS",
 #     VNSK: "VNSK",
 #     YLILAUTA: "YLILAUTA"
-# ] DEFAULT S24
+# ]
 # RUNTIME python3
 
 # Turns out COCA and COHA require authentication so no go. Remove?

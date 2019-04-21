@@ -1,18 +1,47 @@
-# TOOL cqp-two.py: "Create a simple CQP query file for a Korp KWIC tool"
-# (Create a simple CQP query file to match sentences that satisfy one or two conditions. Each condition describes a single token in a limited way.)
+# TOOL cqp-two.py: "Simple two-token query"
+# (Make a CQP query to match one or two given values of one or two tokens. The query can be used to find matches in sentences.)
 # OUTPUT query.cqp.txt
-# PARAMETER key1a: "Attribute of  a token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (An attribute of a token)
-# PARAMETER val1a: "Value of the attribute" TYPE STRING (Value of the attribute for the token (letters, digits, hyphen, comma, period\))
-# PARAMETER key1b: "Attribute of the token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (Another attribute of the token)
-# PARAMETER OPTIONAL val1b: "Value of the attribute" TYPE STRING (Value of the attribute)
-# PARAMETER key2a: "Attribute of another token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (An attribute of a token)
-# PARAMETER OPTIONAL val2a: "Value of the attribute" TYPE STRING (Value of the attribute for the token)
-# PARAMETER key2b: "Attribute of the other token" TYPE [word: word, lemma: lemma, pos: pos, deprel: deprel] DEFAULT word (Another attribute of the token)
-# PARAMETER OPTIONAL val2b: "Value of the attribute" TYPE STRING (Value of the attribute)
+# PARAMETER qbase: "Query file base name" TYPE STRING DEFAULT "two"
+# PARAMETER key1a: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     deprel: deprel
+# ] DEFAULT word (An attribute of a token)
+# PARAMETER val1a: "Value" TYPE STRING
+#     (A value of the attribute (letters, digits, hyphen, comma, period\))
+# PARAMETER key1b: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     deprel: deprel
+# ] DEFAULT word (Another attribute of the same token)
+# PARAMETER OPTIONAL val1b: "Value" TYPE STRING
+#     (A value of the attribute)
+# PARAMETER key2a: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     deprel: deprel
+# ] DEFAULT word (An attribute of a second token)
+# PARAMETER OPTIONAL val2a: "Value" TYPE STRING
+#     (A value of the attribute)
+# PARAMETER key2b: "Attribute of the other token" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     deprel: deprel
+# ] DEFAULT word (Another attribute of the second token)
+# PARAMETER OPTIONAL val2b: "Value" TYPE STRING
+#    (A value of the attribute)
 # RUNTIME python3
 
 from itertools import chain
 import os, sys
+
+sys.path.append(os.path.join(chipster_module_path, "python"))
+from lib_names2 import name
+name('query.cqp', qbase, ext = 'cqp.txt')
 
 if not all((c.isalpha() or c.isdigit() or c in '-,.')
            for c in chain(filter(None, (val1a, val1b,
