@@ -46,7 +46,11 @@ name('query.cqp', qbase, ext = 'cqp.txt')
 if not all((c.isalpha() or c.isdigit() or c in '-,.')
            for c in chain(filter(None, (val1a, val1b,
                                         val2a, val2b)))):
-    print('Only letters, digits, hyphen, comma, and period allowed',
+    print('Only letters, digits, hyphen, comma, and period allowed;',
+          'or this may be a locale problem on the server,',
+          'in which case we be properly mortified:',
+          *map(repr, (val1a, val1b, val2a, val2b)),
+          sep = '\n',
           file = sys.stderr)
     exit(1)
 
