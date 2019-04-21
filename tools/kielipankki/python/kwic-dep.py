@@ -1,25 +1,37 @@
-# TOOL kwic-dep.py: "Write KWIC dependency triples in Rel.TSV"
-# (Dependents and their heads, together with their dependency relation from a suitably annotated Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1 for the dependent and 2 for the head. Sentence and token counters, kMsen and kMtok, are added to identify each dependent occurrence.)
-# INPUT kwic.json TYPE GENERIC
+# TOOL kwic-dep.py: "KWIC dependency triples as relation"
+# (Write dependents and their heads, together with the type of dependency, from a dependency-annotated Korp JSON-form concordance, as a TSV relation file. One or more positional attributes are suffixed with 1 for the dependent and 2 for the head. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
+# INPUT kwic.json: "Concordance file" TYPE GENERIC
+#     (Korp JSON KWIC-concordance file)
 # OUTPUT triplaux.tsv
-# PARAMETER          attr0 TYPE STRING
-# PARAMETER OPTIONAL attr1 TYPE STRING
-# PARAMETER OPTIONAL attr2 TYPE STRING
-# PARAMETER OPTIONAL attr3 TYPE STRING
-# PARAMETER OPTIONAL attr4 TYPE STRING
-# PARAMETER OPTIONAL attr5 TYPE STRING
-# PARAMETER OPTIONAL attr6 TYPE STRING
-# PARAMETER OPTIONAL attr7 TYPE STRING
+# PARAMETER attr0: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     msd: msd
+# ] (An attribute to include for dependent and head in a triple)
+# PARAMETER OPTIONAL attr1: "Attribute" TYPE [
+#     word: word,
+#     lemma, lemma,
+#     pos: pos,
+#     msd: msd
+# ]
+# PARAMETER OPTIONAL attr2: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr3: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr4: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr5: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr6: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr7: "Attribute" TYPE STRING
 # RUNTIME python3
 
 import json, os, sys
 from itertools import chain, count
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('kwic.json', '.json')
-names.output('triplaux.tsv', names.replace('kwic.json', '-dep.tsv'))
+name("triplaux.tsv", base('kwic.json', '*.korp.json'),
+     ins = 'dep',
+     ext = 'rel.tsv')
 
 with open('kwic.json', encoding = 'utf-8') as f:
     data = json.load(f)

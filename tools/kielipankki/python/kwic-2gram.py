@@ -1,11 +1,14 @@
-# TOOL kwic-2gram.py: "2-grams in KWIC as Rel.TSV"
-# (Write 2-grams from a Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1 and 2 for consecutive tokens inside sentences. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
-# INPUT kwic.json: "KWIC file" TYPE GENERIC (Korp concordance in JSON format)
-# OUTPUT grammata.tsv: "2-gram file" (Extracted 2-grams as records in Rel.TSV format)
-# PARAMETER          attr0: "attribute" TYPE STRING
-# PARAMETER OPTIONAL attr1: "attribute" TYPE STRING
-# PARAMETER OPTIONAL attr2: "attribute" TYPE STRING
-# PARAMETER OPTIONAL attr3: "attribute" TYPE STRING
+# TOOL kwic-2gram.py: "KWIC 2-grams as relation"
+# (Write 2-grams from a Korp JSON-form concordance as a TSV relation file. One or more positional attributes are suffixed with 1 and 2 for consecutive tokens in a sentence. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
+# INPUT kwic.json: "Concordance file" TYPE GENERIC
+#    (Korp JSON KWIC-concordance file)
+# OUTPUT grammata.tsv: "2-gram file"
+#    (2-grams as records in a TSV relation file)
+# PARAMETER          attr0: "Attribute" TYPE STRING
+#    (An attribute to include for both tokens in a 2-gram)
+# PARAMETER OPTIONAL attr1: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr2: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr3: "Attribute" TYPE STRING
 # RUNTIME python3
 
 import json, os, sys

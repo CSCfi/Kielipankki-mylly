@@ -1,21 +1,23 @@
-# TOOL kwic-3gram.py: "Write KWIC 3-grams in Rel.TSV"
-# (Three-grams from a Korp JSON-form concordance in a TSV file. Selected positional attributes are suffixed with 1, 2, and 3 for consecutive tokens inside sentences. Sentence and token counters, kMsen and kMtok, are added to identify each occurrence.)
-# INPUT kwic.json TYPE GENERIC
+# TOOL kwic-3gram.py: "KWIC 3-grams as relation"
+# (Write 3-grams from a Korp JSON-form concordance as a TSV relation file. One or more positional attributes are suffixed with 1, 2, and 3 for consecutive tokens in a sentence. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
+# INPUT kwic.json: "Concordance file" TYPE GENERIC
 # OUTPUT grammata.tsv
-# PARAMETER          attr0 TYPE STRING
-# PARAMETER OPTIONAL attr1 TYPE STRING
-# PARAMETER OPTIONAL attr2 TYPE STRING
-# PARAMETER OPTIONAL attr3 TYPE STRING
+# PARAMETER          attr0: "Attribute" TYPE STRING
+#     (An attribute to include for each token in a 3-gram)
+# PARAMETER OPTIONAL attr1: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr2: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr3: "Attribute" TYPE STRING
 # RUNTIME python3
 
 import json, os, sys
 from itertools import chain, count
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('kwic.json', '.json')
-names.output('grammata.tsv', names.replace('kwic.json', '-3g.tsv'))
+name('grammata.tsv', base('kwic.json', '*.korp.json'),
+     ins = '3-gram',
+     ext = 'rel.tsv')
 
 with open('kwic.json', encoding = 'utf-8') as f:
     data = json.load(f)
