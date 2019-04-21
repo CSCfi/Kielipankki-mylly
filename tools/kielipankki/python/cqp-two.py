@@ -48,7 +48,8 @@ if not all((c.isalpha() or c.isdigit() or c in '-,.')
                                         val2a, val2b)))):
     print('Only letters, digits, hyphen, comma, and period allowed;',
           'or this may be a locale problem on the server,',
-          'in which case we be properly mortified:',
+          'maybe one cannot even say "hyvää päivää",', # testing!
+          'which surely is a cause for mortification:',
           *map(repr, (val1a, val1b, val2a, val2b)),
           sep = '\n',
           file = sys.stderr)
