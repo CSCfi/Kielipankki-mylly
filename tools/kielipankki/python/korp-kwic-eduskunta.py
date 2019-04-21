@@ -1,12 +1,15 @@
 # TOOL korp-kwic-eduskunta.py: "Eduskunta KWIC"
-# (Search Eduskunta corpus in korp.csc.fi for a KWIC concordance. Query file contains CQP expressions that must match. The last expression defines the Key Word. Concordance is saved in the Korp JSON format.)
-# INPUT query.cqp.txt: "Query file" TYPE GENERIC (one or more CQP expressions)
-# OUTPUT result.korp.json
+# (Search Eduskunta corpus in korp.csc.fi for a KWIC concordance. Query file contains CQP expressions that must match. The last expression defines Key Word. Concordance is saved in Korp JSON format.)
+# INPUT query.cqp: "Query file" TYPE GENERIC
+#     (One or more CQP expressions)
+# OUTPUT result.json
 # PARAMETER corpus: "Corpus" TYPE [
 #     EDUSKUNTA: "EDUSKUNTA"
 # ] DEFAULT EDUSKUNTA
-# PARAMETER OPTIONAL seed: "Random seed" TYPE INTEGER FROM 1000 TO 9999 (Use the same seed to repeat the same ordering of the results.)
-# PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0 (Extract the specified page, 0-9, of up to 1000 results each, from the concordance.)
+# PARAMETER OPTIONAL seed: "Random seed" TYPE INTEGER FROM 1000 TO 9999
+#     (Use the same seed to repeat the same ordering of the results.)
+# PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0
+#     (Extract the specified page, 0-9, of up to 1000 results each, from the concordance.)
 # RUNTIME python3
 
 # This tool specifies attributes for a particular corpus.
@@ -19,8 +22,8 @@ from lib_names2 import base, name
 
 seed = random.randrange(1000, 10000) if math.isnan(seed) else seed
 
-name('result.korp.json', base('query.cqp.txt', '*.cqp.txt'),
-     ins = 'kwic-s{}-p{}.format(seed, page)',
+name('result.json', base('query.cqp', '*.cqp.txt'),
+     ins = 'kwic-{}-s{}-p{}'.format(corpus, seed, page),
      ext = 'korp.json')
 
 comma = ','
@@ -42,7 +45,7 @@ META = comma.join('''
 
     '''.split())
 
-QUERIES = parse_queries('query.cqp.txt')
+QUERIES = parse_queries('query.cqp')
 
 kwic = request_kwic(corpus = CORPUS,
                     seed = seed,
@@ -54,7 +57,7 @@ kwic = request_kwic(corpus = CORPUS,
 
 # note: it *adds* dict(M = dict(origin = size * page)) to the kwic
 
-with open('result.korp.json', mode = 'w', encoding = 'utf-8') as result:
+with open('result.json', mode = 'w', encoding = 'utf-8') as result:
     json.dump(kwic, result,
               ensure_ascii = False,
               check_circular = False)

@@ -49,11 +49,11 @@ def request_kwic(*,
 
     Return the KWIC as a dict.
 
-    Halt execution on error response or empty concordance. The latter
-    is because in an empty concordance positional attributes are not
-    named, and the result can then not be transformed into a tabular
-    form that is compatible with non-empty tables from the same
-    source.
+    Halt execution on timeout or an error response or an empty
+    concordance. The latter is because in an empty concordance
+    positional attributes are not named, and the result can then not
+    be transformed into a tabular form that is compatible with
+    non-empty tables from the same source.
 
     '''
 
@@ -70,8 +70,12 @@ def request_kwic(*,
     
     it.update(queries)
 
-    response = requests.get(KORP, params = it, timeout = 30.0)
-    response.raise_for_status()
+    try:
+        response = requests.get(KORP, params = it, timeout = 180.0)
+        response.raise_for_status()
+    except Exception as exn:
+        print(type(exn), exn, file = sys.stderr)
+        exit(1)
 
     result = response.json()
 
@@ -105,15 +109,19 @@ def request_info(*, corpora):
 
     Return the INFO as a dict.
 
-    Halt execution on error response.
+    Halt execution on timeout or an error response.
 
     '''
 
     it = dict(command = 'info',
               corpus = corpora)
- 
-    response = requests.get(KORP, params = it, timeout = 30.0)
-    response.raise_for_status()
+
+    try:
+        response = requests.get(KORP, params = it, timeout = 180.0)
+        response.raise_for_status()
+    except Exception as exn:
+        print(type(exn), exn, file = sys.stderr)
+        exit(1)
 
     result = response.json()
 
@@ -131,8 +139,12 @@ def request_list():
 
     it = dict(command = 'info')
 
-    response = requests.get(KORP, params = it, timeout = 30.0)
-    response.raise_for_status()
+    try:
+        response = requests.get(KORP, params = it, timeout = 180.0)
+        response.raise_for_status()
+    except Exception as exn:
+        print(type(exn), exn, file = sys.stderr)
+        exit(1)
 
     result = response.json()
 
