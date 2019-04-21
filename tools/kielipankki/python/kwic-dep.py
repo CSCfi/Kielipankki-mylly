@@ -1,7 +1,7 @@
 # TOOL kwic-dep.py: "KWIC dependency triples as relation"
 # (Write dependents and their heads, together with the type of dependency, from a dependency-annotated Korp JSON-form concordance, as a TSV relation file. One or more positional attributes are suffixed with 1 for the dependent and 2 for the head. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
 # INPUT kwic.json: "Concordance file" TYPE GENERIC
-#     (Korp JSON KWIC-concordance file)
+#     (A KWIC concordance in a Korp JSON file)
 # OUTPUT triplaux.tsv
 # PARAMETER attr0: "Attribute" TYPE [
 #     word: word,
@@ -15,8 +15,18 @@
 #     pos: pos,
 #     msd: msd
 # ]
-# PARAMETER OPTIONAL attr2: "Attribute" TYPE STRING
-# PARAMETER OPTIONAL attr3: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr2: "Attribute" TYPE [
+#     word: word,
+#     lemma, lemma,
+#     pos: pos,
+#     msd: msd
+# ]
+# PARAMETER OPTIONAL attr3: "Attribute" TYPE [
+#     word: word,
+#     lemma, lemma,
+#     pos: pos,
+#     msd: msd
+# ]
 # PARAMETER OPTIONAL attr4: "Attribute" TYPE STRING
 # PARAMETER OPTIONAL attr5: "Attribute" TYPE STRING
 # PARAMETER OPTIONAL attr6: "Attribute" TYPE STRING
@@ -42,6 +52,13 @@ kwic = data['kwic']
 # should make some relational sanity checks here
 head = tuple(filter(None, (attr0, attr1, attr2, attr3,
                            attr4, attr5, attr6, attr7)))
+
+# some sanity check
+if len(head) > len(set(head)):
+    print('duplicate attribute names:', *head,
+          sep = '\n',
+          file = sys.stderr)
+    exit(1)
 
 # also: kMsen (counter), kMtok (counter within kMsen)
 # not sure if there should be kMmatch or bMmatch or some such some day (Boolean?)

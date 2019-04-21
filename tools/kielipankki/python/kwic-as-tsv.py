@@ -1,7 +1,7 @@
 # TOOL kwic-as-tsv.py: "KWIC as relation"
 # (Write Korp concordance as two TSV relation files: tokens and positional annotations in one, structural annotations in other. Both relations contain a sentence counter on which they can be joined.)
 # INPUT kwic.json: "Concordance file" TYPE GENERIC
-#     (Korp JSON KWIC-concordance file)
+#     (A  KWIC concordance in a Korp JSON file)
 # OUTPUT tokens.tsv
 # OUTPUT meta.tsv
 # RUNTIME python3

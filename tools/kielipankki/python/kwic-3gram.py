@@ -1,12 +1,36 @@
 # TOOL kwic-3gram.py: "KWIC 3-grams as relation"
 # (Write 3-grams from a Korp JSON-form concordance as a TSV relation file. One or more positional attributes are suffixed with 1, 2, and 3 for consecutive tokens in a sentence. Sentence and token counters, kMsen and kMtok, identify each occurrence.)
 # INPUT kwic.json: "Concordance file" TYPE GENERIC
+#     (A KWIC concordance in a Korp JSON file)
 # OUTPUT grammata.tsv
-# PARAMETER          attr0: "Attribute" TYPE STRING
-#     (An attribute to include for each token in a 3-gram)
-# PARAMETER OPTIONAL attr1: "Attribute" TYPE STRING
-# PARAMETER OPTIONAL attr2: "Attribute" TYPE STRING
-# PARAMETER OPTIONAL attr3: "Attribute" TYPE STRING
+# PARAMETER          attr0: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     msd: msd
+# ] (An attribute to include for each token in a 3-gram)
+# PARAMETER OPTIONAL attr1: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     msd: msd
+# ]
+# PARAMETER OPTIONAL attr2: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     msd: msd
+# ]
+# PARAMETER OPTIONAL attr3: "Attribute" TYPE [
+#     word: word,
+#     lemma: lemma,
+#     pos: pos,
+#     msd: msd
+# ]
+# PARAMETER OPTIONAL attr4: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr5: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr6: "Attribute" TYPE STRING
+# PARAMETER OPTIONAL attr7: "Attribute" TYPE STRING
 # RUNTIME python3
 
 import json, os, sys
@@ -26,7 +50,15 @@ kwic = data['kwic']
 
 # head = list(kwic[0]['tokens'][0]) # lead token
 # should make some relational sanity checks here
-head = tuple(filter(None, (attr0, attr1, attr2, attr3)))
+head = tuple(filter(None, (attr0, attr1, attr2, attr3,
+                           attr4, attr5, attr6, attr7)))
+
+# some sanity check
+if len(head) > len(set(head)):
+    print('duplicate attribute names:', *head,
+          sep = '\n',
+          file = sys.stderr)
+    exit(1)
 
 # also: kMsen (counter, also in meta), kMtok (counter within kMsen)
 # not sure if there should be kMmatch or bMmatch or some such some day (Boolean?)
