@@ -1,8 +1,8 @@
 # TOOL cqp-two.py: "Simple two-token query"
 # (Make a CQP query to match one or two given values of one or two tokens. The query can be used to find matches in sentences.)
-# OUTPUT query.cqp.txt
+# OUTPUT query.cqp
 # PARAMETER qbase: "Query file base name" TYPE STRING DEFAULT "two"
-# PARAMETER key1a: "Attribute" TYPE [
+# PARAMETER key1a: "First attribute of first token" TYPE [
 #     word: word,
 #     lemma: lemma,
 #     pos: pos,
@@ -10,7 +10,7 @@
 # ] DEFAULT word (An attribute of a token)
 # PARAMETER val1a: "Value" TYPE STRING
 #     (A value of the attribute (letters, digits, hyphen, comma, period\))
-# PARAMETER key1b: "Attribute" TYPE [
+# PARAMETER key1b: "Second attribute" TYPE [
 #     word: word,
 #     lemma: lemma,
 #     pos: pos,
@@ -18,7 +18,7 @@
 # ] DEFAULT word (Another attribute of the same token)
 # PARAMETER OPTIONAL val1b: "Value" TYPE STRING
 #     (A value of the attribute)
-# PARAMETER key2a: "Attribute" TYPE [
+# PARAMETER key2a: "First attribute of second token" TYPE [
 #     word: word,
 #     lemma: lemma,
 #     pos: pos,
@@ -26,7 +26,7 @@
 # ] DEFAULT word (An attribute of a second token)
 # PARAMETER OPTIONAL val2a: "Value" TYPE STRING
 #     (A value of the attribute)
-# PARAMETER key2b: "Attribute of the other token" TYPE [
+# PARAMETER key2b: "Second attribute" TYPE [
 #     word: word,
 #     lemma: lemma,
 #     pos: pos,
