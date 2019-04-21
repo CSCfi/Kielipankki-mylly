@@ -118,19 +118,6 @@
     <tool>tsv-as-xlsx.py</tool>
   </category>
 
-  <category name="Simple statistics?" color="#c7e4e4">
-    <tool>prop1.R</tool>
-    <tool>prop2.R</tool>
-    <!-- frequency distributions -->
-    <tool>tsv-ext-count.py</tool>
-    <tool>tsv-smooth-zipf.py</tool> <!-- is this an ext? -->
-  </category>
-
-  <category name="Advanced statistics" color="#e8f072">
-    <tool>qplot-tsv.R</tool> <!-- where should? this be -->
-    <tool>tsv-hc.R</tool>
-  </category>
-
   <!--
       nothing remains - job management is obsolete by "cloud"
       <category name="Syntactic analysis" color="#8cd898">
@@ -139,15 +126,17 @@
       </category>
   -->
 
-  <category name="Morphological analysis" color="#8cd8bf">
-    <tool>hfst-lookup-finnish.py</tool>
-    <tool>hfst-lookup-swedish.py</tool>
-    <tool>hfst-lookup-english.py</tool>
-    <tool>hfst-process-finnish.py</tool>
-    <tool>hfst-process-swedish.py</tool>
-    <tool>hfst-process-english.py</tool>
-    <tool>hfst-process2-english.py</tool>
-  </category>
+  <!--
+      <category name="Morphological analysis" color="#8cd8bf">
+      <tool>hfst-lookup-finnish.py</tool>
+      <tool>hfst-lookup-swedish.py</tool>
+      <tool>hfst-lookup-english.py</tool>
+      <tool>hfst-process-finnish.py</tool>
+      <tool>hfst-process-swedish.py</tool>
+      <tool>hfst-process-english.py</tool>
+      <tool>hfst-process2-english.py</tool>
+      </category>
+  -->
 
   <!--
       to have kaldi instead
@@ -179,24 +168,26 @@
     <tool>hfst-tail.py</tool>
   </category>
 
-  <category name="Finite-State Transducers" color="#bf8cd8">
-    <tool>fiat-omorfi-a.py</tool>
-    <tool>fiat-omorfi-g.py</tool>
-    <tool>fiat-english-a.py</tool>
-    <tool>fiat-english-g.py</tool>
-    <tool>fiat-finnish-a.py</tool>
-    <tool>fiat-finnish-g.py</tool>
-    <tool>fiat-french-a.py</tool>
-    <tool>fiat-french-g.py</tool>
-    <tool>fiat-german-a.py</tool>
-    <tool>fiat-german-g.py</tool>
-    <tool>fiat-italian-a.py</tool>
-    <tool>fiat-italian-g.py</tool>
-    <tool>fiat-swedish-a.py</tool>
-    <tool>fiat-swedish-g.py</tool>
-    <tool>fiat-turkish-a.py</tool>
-    <tool>fiat-turkish-g.py</tool>
-  </category>
+  <!--
+      <category name="Finite-State Transducers" color="#bf8cd8">
+      <tool>fiat-omorfi-a.py</tool>
+      <tool>fiat-omorfi-g.py</tool>
+      <tool>fiat-english-a.py</tool>
+      <tool>fiat-english-g.py</tool>
+      <tool>fiat-finnish-a.py</tool>
+      <tool>fiat-finnish-g.py</tool>
+      <tool>fiat-french-a.py</tool>
+      <tool>fiat-french-g.py</tool>
+      <tool>fiat-german-a.py</tool>
+      <tool>fiat-german-g.py</tool>
+      <tool>fiat-italian-a.py</tool>
+      <tool>fiat-italian-g.py</tool>
+      <tool>fiat-swedish-a.py</tool>
+      <tool>fiat-swedish-g.py</tool>
+      <tool>fiat-turkish-a.py</tool>
+      <tool>fiat-turkish-g.py</tool>
+      </category>
+  -->
 
   <!--
       obsolete by move to "cloud"
@@ -206,12 +197,27 @@
       </category>
   -->
 
+  <!--
   <category name="Incoming" color="#d8998c">
+  </category>
+  -->
+
+  <category name="Oddities (TODO)" color="#c7e4e4">
+    <tool>prop1.R</tool>
+    <tool>prop2.R</tool>
+    <!-- frequency distributions -->
+    <tool>tsv-ext-count.py</tool>
+    <tool>tsv-smooth-zipf.py</tool> <!-- is this an ext? -->
+    <!-- /category -->
     <tool>gg-raster-count.R</tool>
     <tool>tsv-dist-entropy.py</tool>
     <tool>tsv-dist-mut-inf.py</tool>
     <tool>tsv-ext-normalize-dist.py</tool>
+    <!-- category name="Advanced statistics" color="#e8f072" -->
+    <tool>qplot-tsv.R</tool> <!-- where should? this be -->
+    <tool>tsv-hc.R</tool>
   </category>
+
 
   <category name="Obsolescent" color="#d88ca5">
     <!-- testing if can has aux file for names -->
