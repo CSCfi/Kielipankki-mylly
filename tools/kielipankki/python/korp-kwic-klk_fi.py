@@ -1,4 +1,4 @@
-# TOOL korp-kwic-klk_fi.py: "KLK_FI KWIC"
+# TOOL korp-kwic-klk_fi.py: "KLK_FI concordance"
 # (Search KLK_FI corpus in korp.csc.fi for a KWIC concordance. Query file contains CQP expressions that must match. The last expression defines Key Word. Concordance is saved in Korp JSON format.)
 # INPUT query.cqp: "Query file" TYPE GENERIC
 #     (One or more CQP expressions)

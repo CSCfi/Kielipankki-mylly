@@ -1,4 +1,4 @@
-# TOOL korp-kwic-s24.py: "Suomi24 KWIC"
+# TOOL korp-kwic-s24.py: "Suomi24 concordance"
 # (Search Suomi24 corpus korp.csc.fi for a KWIC concordance. Query file contains CQP expressions that must match. The last expression defines Key Word. Concordance is saved in Korp JSON format.)
 # INPUT query.cqp: "Query file" TYPE GENERIC
 #     (One or more CQP expressions)

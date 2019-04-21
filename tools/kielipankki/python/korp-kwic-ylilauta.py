@@ -1,4 +1,4 @@
-# TOOL korp-kwic-ylilauta.py: "Ylilauta KWIC"
+# TOOL korp-kwic-ylilauta.py: "Ylilauta concordance"
 # (Search Ylilauta corpus in korp.csc.fi for a KWIC concordance. Query file contains CQP expressions that must match. The last expression defines Key Word. Concordance is saved in Korp JSON format.)
 # INPUT query.cqp: "Query file" TYPE GENERIC
 #     (One or more CQP expressions)

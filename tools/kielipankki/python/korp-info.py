@@ -1,8 +1,8 @@
 # TOOL korp-info.py: "Corpus info"
 # (Get info about a selected corpus family from korp.csc.fi)
-# OUTPUT korp.info.json
-# OUTPUT korp.info.tsv
-# PARAMETER corpus TYPE [
+# OUTPUT info.json
+# OUTPUT info.tsv
+# PARAMETER corpus: "Corpus" TYPE [
 #     COCA: "COCA",
 #     COHA: "COHA",
 #     EDUSKUNTA: "EDUSKUNTA",
@@ -20,23 +20,18 @@
 # Turns out COCA and COHA require authentication so no go. Remove?
 
 import json, os, sys
-# os, sys are imported for testing - else chipster has them imported
-
-# for testing! when outside chipster
-# chipster_module_path = "home/jpiitula/proj/CSCfi/mylly/tools/kielipankki"
-# corpus = "VNSK"
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
 from lib_korp import request_info
-import lib_names as names
+from lib_names2 import name
 
 # someone might want JSON, to use for something, or as a check
-names.output('korp-info.json',
-             'korp-{}.info.json'.format(corpus.lower()))
+names.output('info.json',
+             'info-{}.json'.format(corpus.lower()))
 
 # but TSV is nicer to use in Mylly (for now anyway)
-names.output('korp-info.tsv',
-             'korp-{}.info.tsv'.format(corpus.lower()))
+names.output('info.tsv',
+             'info-{}.tsv'.format(corpus.lower()))
 
 comma = ','
 
@@ -318,7 +313,7 @@ CORPORA = comma.join(dict(COCA = ("COCA_ACAD", "COCA_FIC", "COCA_MAG",
 
 info = request_info(corpora = CORPORA)
                
-with open('korp.info.json', mode = 'w', encoding = 'utf-8') as result:
+with open('info.json', mode = 'w', encoding = 'utf-8') as result:
     json.dump(info, result,
               ensure_ascii = False,
               check_circular = False)
@@ -326,7 +321,7 @@ with open('korp.info.json', mode = 'w', encoding = 'utf-8') as result:
 # omitting attrs/a for now - need at least see an example first!
 # (it has to do with alignment in parallel corpora, which learn)
 
-with open('korp.info.tsv', mode = 'w', encoding = 'utf-8') as out:
+with open('info.tsv', mode = 'w', encoding = 'utf-8') as out:
     print('corpus', 'group', 'type', 'info', sep = '\t', file = out)
     for corpus, data in info['corpora'].items():
         for name in data['attrs']['p']:
