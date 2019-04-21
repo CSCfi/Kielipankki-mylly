@@ -1,6 +1,7 @@
 # TOOL hfst-regexp2fst.py: "Compile regular expressions"
 #     (Compiles regular expressions into transducers.)
-# INPUT regexen.txt TYPE GENERIC
+# INPUT regexen.txt: "Regular expression file" TYPE GENERIC
+#     (HFST regular expressions)
 # OUTPUT duceren.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -26,13 +27,14 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('duceren.hfst', names.replace('regexen.txt', '.hfst'))
+name('duceren.hfst', base('regexen.txt', '*.txt'),
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

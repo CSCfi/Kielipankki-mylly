@@ -1,6 +1,7 @@
 # TOOL hfst-twolc.py: "Compile a two-level grammar"
 #     (Compiles a two-level grammar into an archive of rule transducers.)
-# INPUT grammar.txt TYPE GENERIC
+# INPUT grammar.txt: "Grammar" TYPE GENERIC
+#     (A two-level rule file)
 # OUTPUT ducer.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -26,14 +27,14 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import glob, os, shutil
 from subprocess import Popen
 
-# is it so that Chipster ensures there is at least grammar-1.txt?
-names.output('ducer.hfst', names.replace('grammar.txt', '.hfst'))
+name('ducer.hfst', base('grammar.txt', '*.txt'),
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

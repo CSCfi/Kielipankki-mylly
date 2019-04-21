@@ -1,6 +1,7 @@
 # TOOL hfst-strings2fst.py: "Compile strings"
 #     (Compiles string pairs into transducers.)
-# INPUT stringen.txt TYPE GENERIC
+# INPUT stringen.txt: "String file" TYPE GENERIC
+#     (String pairs to compile)
 # OUTPUT duceren.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -32,13 +33,14 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('duceren.hfst', names.replace('stringen.txt', '.hfst'))
+name('duceren.hfst', base('stringen.txt', '*.txt'),
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

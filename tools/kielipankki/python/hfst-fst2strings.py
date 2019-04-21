@@ -2,7 +2,8 @@
 #     (Produces a convenient sample of path labels in the transducers.
 # These paths can be just some paths, best paths by weight, or random paths.
 # This tool may not work correctly with optimized-lookup formats, according to its --help.)
-# INPUT ducer.hfst TYPE GENERIC
+# INPUT ducer.hfst: "Transducers" TYPE GENERIC
+#     (An HFST transducer archive)
 # OUTPUT sample.txt
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -58,13 +59,15 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('sample.txt', names.replace('ducer.hfst', '-sample.txt'))
+name('sample.txt', base('ducer.hfst', '*.hfst'),
+     ins = 'sample',
+     ext = 'txt')
 
 hfst.setenv(Version)
 

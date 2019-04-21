@@ -1,6 +1,7 @@
 # TOOL hfst-split.py: "Split an archive"
 # (Split an HFST archive into individual transducers.)
-# INPUT input.hfst TYPE GENERIC
+# INPUT input.hfst: "Transducers" TYPE GENERIC
+#     (An HFST transducer archive)
 # OUTPUT output-{...}-hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -13,7 +14,7 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import glob, os, shutil
@@ -29,6 +30,7 @@ with Popen(['hfst-split', '--prefix', 'output-', '--extension', '-hfst',
 
 for oh in glob.glob('output-*-hfst'):
     o, N, h = oh.split('-')
-    names.output(oh, names.replace('input.hfst', '-{}.hfst'.format(N)))
+    name(oh, base('input.hfst', '*.hfst') + str(N),
+         ext = 'hfst')
 
 hfst.finish(version = 'hfst-split' if VersionLog == 'produce' else None)

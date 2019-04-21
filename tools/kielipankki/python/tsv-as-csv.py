@@ -1,6 +1,7 @@
 # TOOL tsv-as-csv.py: "TSV as CSV"
 # (TSV as Comma-Separated Values)
-# INPUT table.tsv TYPE GENERIC
+# INPUT table.tsv: "TSV file" TYPE GENERIC
+#     (Tab-Separated Values, with mandatory header)
 # OUTPUT table.csv
 # RUNTIME python3
 
@@ -8,10 +9,10 @@ import csv, json, os, sys
 from itertools import chain
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import name, base
 
-names.enforce('table.tsv', '.tsv')
-names.output('table.csv', names.replace('table.tsv', '.csv'))
+name('table.csv', base('table.tsv', '*.tsv'),
+     ext = 'csv')
 
 # Python's default CSV dialect aka excel
 

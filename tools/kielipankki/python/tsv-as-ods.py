@@ -1,16 +1,16 @@
 # TOOL tsv-as-ods.py: "TSV as ODS"
 # (TSV as Open Document Spreadsheet. Column name prefix cM or kM indicates that cells contain whole numbers, like counts, and wM or vM indicates a numeric weight.)
-# INPUT table.tsv TYPE GENERIC
+# INPUT table.tsv: "TSV file" TYPE GENERIC
 # OUTPUT table.ods
 # RUNTIME python3
 
 import odf, os, sys # depends on odf (package odfpy from PyPI)
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name,
 
-names.enforce('table.tsv', '.tsv')
-names.output('table.ods', names.replace('table.tsv', '.ods'))
+name('table.ods', base('table.tsv', '*.tsv'),
+     ext = 'ods')
 
 from odf.opendocument import OpenDocumentSpreadsheet
 from odf.table import Table, TableHeaderRows, TableRow, TableCell

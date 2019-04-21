@@ -1,6 +1,7 @@
-# TOOL tsv-partition.py: "Partition of a relation by a given attribute"
+# TOOL tsv-partition.py: "Partition a relation by a given attribute"
 # (Makes a partition of a relation into parts with a particular value for the given attribute.)
-# INPUT one.tsv TYPE GENERIC
+# INPUT one.tsv: "Relation" TYPE GENERIC
+#     (A relational TSV file)
 # OUTPUT part{...}.tsv
 # PARAMETER attr: "attribute name" TYPE COLUMN_SEL
 # PARAMETER many: "maximum number of parts" TYPE INTEGER FROM 2 TO 30 DEFAULT 6
@@ -9,10 +10,11 @@
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('one.tsv', '.tsv')
-names.output('part.tsv', names.replace('one.tsv', '-part.tsv'))
+# broken? when output files are part1.tsv, ... TODO
+name('part.tsv', base('one.tsv', '*.tsv') + 'part',
+     ext = 'tsv')
 
 if attr in ("EMPTY", ""):
     print("need valid attribute", file = sys.stderr)

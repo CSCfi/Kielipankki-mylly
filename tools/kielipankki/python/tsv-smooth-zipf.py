@@ -11,10 +11,11 @@ import os, sys
 from itertools import chain
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('counts.tsv', '.tsv')
-names.output('smooth.tsv', names.replace('counts.tsv', '-smooth.tsv'))
+name('smooth.tsv', base('counts.tsv', '*.rel.tsv'),
+     ins = 'smooth',
+     ext = 'rel.tsv')
 
 with open('counts.tsv') as counts:
     head = next(counts).rstrip('\n').split('\t')

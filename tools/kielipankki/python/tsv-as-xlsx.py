@@ -1,6 +1,6 @@
 # TOOL tsv-as-xlsx.py: "TSV as XLSX"
 # (TSV as Microsoft Excel spreadsheet)
-# INPUT table.tsv TYPE GENERIC
+# INPUT table.tsv: "TSV file" TYPE GENERIC
 # OUTPUT table.xlsx
 # RUNTIME python3
 
@@ -9,10 +9,10 @@ from itertools import chain, count
 from openpyxl import Workbook
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
 
-names.enforce('table.tsv', '.tsv')
-names.output('table.xlsx', names.replace('table.tsv', '.xlsx'))
+name('table.xlsx', base('table.tsv', '*.tsv'),
+     ext = 'xlsx')
 
 # Begins!
 

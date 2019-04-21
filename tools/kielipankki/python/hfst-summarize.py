@@ -1,5 +1,7 @@
-# TOOL hfst-summarize.py: "Describe an archive" (Produces a summary description about a HFST transducer archive)
-# INPUT ducer.hfst TYPE GENERIC
+# TOOL hfst-summarize.py: "Describe an archive"
+# (Produces a summary description for an HFST transducer archive)
+# INPUT ducer.hfst: "Transducers" TYPE GENERIC
+#     (An HFST transducer archive)
 # OUTPUT summary.txt
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -10,18 +12,21 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('summary.txt', names.replace('ducer.hfst', '-summary.txt'))
+name('summary.txt', base('ducer.hfst', '*.hfst'),
+     ins = 'summary',
+     ext = 'txt')
+
 hfst.setenv(Version)
 
 # hfst-summarize --help says -o names a transducer but it seems to
 # name the summary report, and hfst-summarize does not output a
-# transducer. (Should be reported. TODO.)
+# transducer. (Should be reported. Is it still the case? TODO.)
 
 with Popen(['hfst-summarize', '-o', 'summary.txt', 'ducer.hfst'],
            stdout = open('stdout.log', mode = 'wb'),

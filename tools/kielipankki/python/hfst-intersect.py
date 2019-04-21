@@ -1,7 +1,9 @@
 # TOOL hfst-intersect.py: "Intersection"
 # (Intersect HFST transducers. Match archives pairwise, or broadcast the second archive.)
-# INPUT input1.hfst TYPE GENERIC
-# INPUT input2.hfst TYPE GENERIC
+# INPUT input1.hfst: "First transducers" TYPE GENERIC
+#     (An HFST transducer archive)
+# INPUT input2.hfst: "Second transducers" TYPE GENERIC
+#     (An HFST transducer archive)
 # OUTPUT output.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -22,13 +24,15 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('output.hfst', names.replace('input1.hfst', '-i.hfst'))
+name('output.hfst', base('input1.hfst', '*.hfst'),
+     ins = 'intersect',
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

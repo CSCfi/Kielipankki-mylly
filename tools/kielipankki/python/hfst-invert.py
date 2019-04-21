@@ -1,6 +1,7 @@
 # TOOL hfst-invert.py: "Inversion"
 # (Invert the transducer.)
-# INPUT input.hfst TYPE GENERIC
+# INPUT input.hfst: "Transducers" TYPE GENERIC
+#     (An HFST transducer archive)
 # OUTPUT output.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -11,13 +12,15 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('output.hfst', names.replace('input.hfst', '-i.hfst'))
+name('output.hfst', base('input.hfst', '*.hfst'),
+     ins = 'invert',
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

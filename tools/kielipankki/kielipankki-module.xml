@@ -2,7 +2,7 @@
 
 <module name="kielipankki">
 
-  <category name="Plaintext" color="#8ca5d8">
+  <category name="Plaintext files" color="#8ca5d8">
     <tool>to-utf8.py</tool>
     <tool>decode-1252.py</tool>
     <tool>hrt-from-txt.py</tool>
@@ -20,12 +20,12 @@
     <tool>udpipe-ud2-fin-tokens.py</tool>
   </category>
 
-  <category name="HRT" color="#8da6d9">
+  <category name="HRT files" color="#8da6d9">
     <tool>hrt-tokenize-finnish-hfst.py</tool>
     <tool>hrt-tokenize-finnish-udpipe.py</tool>
   </category>
 
-  <category name="VRT" color="#ccffff">
+  <category name="VRT files" color="#ccffff">
     <tool>vrt-validate.py</tool>
     <tool>vrt-name-positions.py</tool>
     <tool>vrt-rename-positions.py</tool>
@@ -54,14 +54,14 @@
     <tool>korp-kwic-ylilauta.py</tool>
   </category>
 
-  <category name="Korp KWIC" color="#e49898">
+  <category name="Korp KWIC files" color="#e49898">
     <tool>kwic-as-tsv.py</tool>
     <tool>kwic-2gram.py</tool>
     <tool>kwic-3gram.py</tool>
     <tool>kwic-dep.py</tool>
   </category>
 
-  <category name="Rel.TSV" color="#cbd88c">
+  <category name="TSV relation files" color="#cbd88c">
     <tool>tiny-tsv.py</tool>
     <tool>tsv-rename.py</tool>
     <tool>tsv-number.py</tool>
@@ -92,7 +92,7 @@
       </category>
   -->
 
-  <category name="TSV" color="#a5d88c">
+  <category name="TSV files" color="#a5d88c">
     <tool>tsv-requot.py</tool>
     <!-- random actions on a relation -->
     <!-- should these be in RelTSV? -->
@@ -113,7 +113,7 @@
     <tool>tsv-22-rows.py</tool>
     <!-- must improve on the summary -->
     <tool>tsv-summary.R</tool>
-    <tool>tsv-as-csv.py</tool> <!-- kill? -->
+    <tool>tsv-as-csv.py</tool>
     <tool>tsv-as-ods.py</tool>
     <tool>tsv-as-xlsx.py</tool>
   </category>
@@ -221,7 +221,6 @@
     <!-- <tool>test-parameters.py</tool> -->
     <!-- <tool>test-renaming.py</tool> -->
     <!-- <tool>test-multifile.py</tool> -->
-    <!-- <tool>co.py</tool> -->
     <!-- <tool>test-colsel.py</tool> -->
     <!-- tool>simple-frequencies.py</tool -->
     <!-- <tool>finnish-analyze.py</tool> -->

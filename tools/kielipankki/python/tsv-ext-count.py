@@ -1,12 +1,13 @@
-# TOOL tsv-ext-count.py: "Extend relation with frequency" (Extend each record with the frequency of a selected attribute combination, by default in the relation itself but optionally in another relation. The prefix cM in count name indicates numeric type to some tools. Note that EMPTY is not a name.)
-# INPUT target.tsv: "relation to extend" TYPE GENERIC
-# INPUT OPTIONAL source.tsv: "relation to count" TYPE GENERIC
+# TOOL tsv-ext-count.py: "Extend relation with frequency"
+# (Extend each record with the frequency of a selected attribute combination, by default in the relation itself but optionally in another relation. The prefix cM in count name indicates numeric type to some tools.)
+# INPUT target.tsv: "Relation to extend" TYPE GENERIC
+# INPUT OPTIONAL source.tsv: "Relation to count in" TYPE GENERIC
 # OUTPUT result.tsv
 # PARAMETER tfreq: "frequency" TYPE STRING DEFAULT "cMfreq"
-# PARAMETER attr1: "attribute 1" TYPE COLUMN_SEL DEFAULT "EMPTY"
-# PARAMETER OPTIONAL attr2: "attribute 2" TYPE COLUMN_SEL DEFAULT "EMPTY"
-# PARAMETER OPTIONAL attr3: "attribute 3" TYPE COLUMN_SEL DEFAULT "EMPTY"
-# PARAMETER OPTIONAL sfreq: "count (if already counted)" TYPE COLUMN_SEL DEFAULT "EMPTY"
+# PARAMETER attr1: "attribute 1" TYPE COLUMN_SEL
+# PARAMETER OPTIONAL attr2: "attribute 2" TYPE COLUMN_SEL
+# PARAMETER OPTIONAL attr3: "attribute 3" TYPE COLUMN_SEL
+# PARAMETER OPTIONAL sfreq: "count (if already counted)" TYPE COLUMN_SEL
 # RUNTIME python3
 
 # Cannot be a mere counting projection or a join with one because
@@ -18,7 +19,11 @@ from collections import Counter
 import os, sys
 
 sys.path.append(os.path.join(chipster_module_path, "python"))
-import lib_names as names
+from lib_names2 import base, name
+
+name('result.tsv', base('target.tsv', '*.rel.tsv'),
+     ins = 'count',
+     ext = 'rel.tsv')
 
 # hope that chipster allows COLUMN_SEL from the other relation! aha,
 # but both relations must have the attributes that are being counted!

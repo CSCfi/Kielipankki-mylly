@@ -1,6 +1,7 @@
 # TOOL hfst-fst2fst.py: "Convert archive format"
 # (Converts a HFST transducer archive to another format. Default is OpenFST format with tropical weights.)
-# INPUT input.hfst TYPE GENERIC
+# INPUT input.hfst: "Transducers" TYPE GENERIC
+#     (An HFST transducer archive)
 # OUTPUT output.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -18,14 +19,15 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-# Chipster, is it fine with this? Expect so.
-names.output('output.hfst', names.replace('input.hfst', '.hfst'))
+name('output.hfst', base('input.hfst', '*.hfst'),
+     ins = 'convert',
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

@@ -38,14 +38,15 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import glob, os, shutil
 from subprocess import Popen
 
-# is it so that Chipster ensures there is at least grammar-1.txt?
-names.output('ducer.hfst', names.replace('grammar-1.txt', '.hfst'))
+# is it so that Chipster ensures there is at least grammar1.txt?
+name('ducer.hfst', base('grammar1.txt', '*.lexc.txt'),
+     ext = 'hfst')
 
 hfst.setenv(Version)
 

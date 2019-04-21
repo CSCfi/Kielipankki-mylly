@@ -1,6 +1,6 @@
 # TOOL hfst-lower.py: "Lower projection"
 # (Project to the lower level of the transducer.)
-# INPUT input.hfst TYPE GENERIC
+# INPUT input.hfst: "Transducers" TYPE GENERIC
 # OUTPUT output.hfst
 # OUTPUT OPTIONAL version.log
 # OUTPUT OPTIONAL stdout.log
@@ -11,13 +11,15 @@
 
 import sys
 sys.path.append(os.path.join(chipster_module_path, "python"))
-from lib_names2 import base, name # TODO
+from lib_names2 import base, name
 import lib_hfst as hfst
 
 import os, shutil
 from subprocess import Popen
 
-names.output('output.hfst', names.replace('input.hfst', '-2.hfst'))
+name('output.hfst', base('input.hfst', '*.hfst'),
+     ins = 'lower',
+     ext = 'hfst')
 
 hfst.setenv(Version)
 
