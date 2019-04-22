@@ -1,4 +1,4 @@
-# TOOL vrt-as-tsv.py: "VRT as TSV relation" (Write data and meta relations that represent standard VRT content - tokens within text, paragraph, sentence elements - and a summary report)
+# TOOL vrt-as-tsv.py: "VRT as relations" (Write data and meta relations that represent standard VRT content - tokens within text, paragraph, sentence elements - and a summary report)
 # INPUT data.vrt TYPE GENERIC
 # OUTPUT data.tsv
 # OUTPUT info.txt
@@ -27,7 +27,7 @@ name('text-meta.tsv', own, ins = 'text-meta', ext = 'rel.tsv')
 
 # Standard structure as meta, sentences/tokens as data, with 1-based
 # counters, using provided positional names if provided in a comment,
-# uniquely, and matching record length, else using V1, ...
+# uniquely, and matching record length, else using v1, ...
 
 import html, re
 from collections import Counter
