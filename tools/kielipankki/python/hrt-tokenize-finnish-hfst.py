@@ -1,4 +1,4 @@
-# TOOL hrt-tokenize-finnish-hfst.py: "Tokenize Finnish HRT with HFST" (Tokenize Finnish HRT into VRT with HFST.)
+# TOOL hrt-tokenize-finnish-hfst.py: "Tokenize Finnish HRT /HFST" (Tokenize Finnish HRT into VRT with HFST.)
 # INPUT input.hrt TYPE GENERIC
 # OUTPUT output.vrt
 # RUNTIME python3

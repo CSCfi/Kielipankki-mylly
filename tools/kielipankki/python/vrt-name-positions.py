@@ -1,4 +1,4 @@
-# TOOL vrt-name-positions.py: "Name fields" (Name some fields. Default field names are V1, V2, ...)
+# TOOL vrt-name-positions.py: "Name VRT positions" (Name some positions. Default field names are v1, v2, ...)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
 # PARAMETER pos1 TYPE STRING DEFAULT EMPTY
@@ -27,7 +27,7 @@ with open('input.vrt', encoding = 'UTF-8') as source:
     # in the form of the comment or implicitly as a record, whichever
     # comes first.
     lines = (line for line in source
-             if ((line.startswith('<!-- Positional attributes:')
+             if ((line.startswith('<!-- #vrt positional-attributes:')
                   or not (line.startswith('<')))
                  and not line.isspace()))
     line = next(lines, None)
@@ -48,15 +48,15 @@ elif line is None:
     # make oldnames and mapping the same length
     while mapping and mapping[-1]:
         mapping.pop()
-    oldnames = [ 'V{}'.format(k)
+    oldnames = [ 'v{}'.format(k)
                  for k, n in enumerate(mapping, start = 1) ]
 elif line.startswith('<'):
     # explicit old names
     head, tail = line.split(':')
-    oldnames = tail.split('-')[0].split()
+    oldnames = tail.rstrip(' ->\r\n')
 else:
     # implicit old names from a first record
-    oldnames = [ 'V{}'.format(k)
+    oldnames = [ 'v{}'.format(k)
                  for k, v in enumerate(line.split('\t'), start = 1) ]
 
 if any(mapping[len(oldnames):]):
@@ -67,7 +67,7 @@ if any(mapping[len(oldnames):]):
 # should really just reject any document with no content line, maybe
 
 newnames = ([ (new or old) for old, new in zip(oldnames, mapping) ]
-            or [ 'V1' ])
+            or [ 'v1' ])
 
 if len(newnames) > len(set(newnames)):
     print('Duplicate in new names:', *newnames, file = sys.stderr)
@@ -75,10 +75,10 @@ if len(newnames) > len(set(newnames)):
 
 with open('input.vrt', encoding = 'UTF-8') as source, \
      open('output.tmp', 'w', encoding = 'UTF-8') as target:
-    print('<!-- Positional attributes: {} -->'.format(' '.join(newnames)),
+    print('<!-- #vrt positional-attributes: {} -->'.format(' '.join(newnames)),
           file = target)
     for line in source:
-        if line.startswith('<!-- Positional attributes:'):
+        if line.startswith('<!-- #vrt positional-attributes:'):
             continue
         else:
             print(line, end = '', file = target)

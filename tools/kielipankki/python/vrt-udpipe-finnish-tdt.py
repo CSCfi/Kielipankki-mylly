@@ -1,4 +1,4 @@
-# TOOL vrt-udpipe-finnish-tdt.py: "Parse Finnish VRT with UDPipe Finnish-TDT UD2" (Parse Finnish VRT.)
+# TOOL vrt-udpipe-finnish-tdt.py: "Parse Finnish VRT /UDPipe TDT UD2" (Parse Finnish VRT.)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
 # RUNTIME python3

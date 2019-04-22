@@ -1,4 +1,4 @@
-# TOOL vrt-rename-positions.py: "Rename fields" (Rename some fields. Default input names are V1, V2, ...)
+# TOOL vrt-rename-positions.py: "Rename VRT positions" (Rename some positions. Default input names are v1, v2, ...)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
 # PARAMETER old1 TYPE STRING DEFAULT EMPTY
@@ -23,7 +23,7 @@ with open('input.vrt', encoding = 'UTF-8') as source:
     # in the form of the comment or implicitly as a record, whichever
     # comes first.
     lines = (line for line in source
-             if ((line.startswith('<!-- Positional attributes:')
+             if ((line.startswith('<!-- #vrt positional-attributes:')
                   or not (line.startswith('<')))
                  and not line.isspace()))
     line = next(lines, None)
@@ -41,13 +41,14 @@ if line is None and not mapping:
     print('Insufficient information:',
           '- no input names or records',
           '- no mapping',
-          sep = '\n', file = sys.stderr)
+          sep = '\n',
+          file = sys.stderr)
     exit(1)
 elif line is None:
     try:
-        highest = max(int(old.strip('V')) for old in mapping)
+        highest = max(int(old.strip('v')) for old in mapping)
         if not (0 < highest < 30): raise Exception()
-        oldnames = [ 'V{}'.format(k + 1) for k in range(highest) ]
+        oldnames = [ 'v{}'.format(k + 1) for k in range(highest) ]
     except Exception:
         print('Insufficient information:',
               '- no input names or records',
@@ -57,10 +58,10 @@ elif line is None:
 elif line.startswith('<'):
     # explicit old names
     head, tail = line.split(':')
-    oldnames = tail.split('-')[0].split()
+    oldnames = tail.rstrip(' ->\r\n')
 else:
     # implicit old names from a first record
-    oldnames = [ 'V{}'.format(k)
+    oldnames = [ 'v{}'.format(k)
                  for k, v in enumerate(line.split('\t'), start = 1) ]
 
 try:
@@ -75,10 +76,11 @@ if len(newnames) > len(set(newnames)):
 
 with open('input.vrt', encoding = 'UTF-8') as source, \
      open('output.tmp', 'w', encoding = 'UTF-8') as target:
-    print('<!-- Positional attributes: {} -->'.format(' '.join(newnames)),
+    print('<!-- #vrt positional-attributes: {} -->'
+          .format(' '.join(newnames)),
           file = target)
     for line in source:
-        if line.startswith('<!-- Positional attributes:'):
+        if line.startswith('<!-- #vrt positional-attributes:'):
             continue
         else:
             print(line, end = '', file = target)

@@ -1,4 +1,4 @@
-# TOOL vrt-finpos.py: "Postag Finnish VRT with FinnPos" (Classify words in Finnish VRT.)
+# TOOL vrt-finpos.py: "Classify tokens in VRT /FinnPos" (Classify tokens in Finnish VRT.)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
 # RUNTIME python3

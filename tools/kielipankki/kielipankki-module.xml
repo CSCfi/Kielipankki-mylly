@@ -202,7 +202,7 @@
   </category>
   -->
 
-  <category name="Oddities (TODO?)" color="#c7e4e4">
+  <category name="Oddities - TODO?" color="#c7e4e4">
     <tool>prop1.R</tool>
     <tool>prop2.R</tool>
     <!-- frequency distributions -->

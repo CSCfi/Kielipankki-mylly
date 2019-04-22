@@ -1,4 +1,4 @@
-# TOOL vrt-finer.py: "Classify names in Finnish VRT with FiNER" (Classify names in Finnish VRT.)
+# TOOL vrt-finer.py: "Classify names in VRT /FiNER" (Classify names in Finnish VRT.)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
 # RUNTIME python3

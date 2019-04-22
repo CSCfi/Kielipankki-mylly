@@ -1,4 +1,4 @@
-# TOOL vrt-as-tsv.py: "VRT as Rel.TSV" (Write data and meta relations that represent standard VRT content - tokens within text, paragraph, sentence elements - and a summary report)
+# TOOL vrt-as-tsv.py: "VRT as TSV relation" (Write data and meta relations that represent standard VRT content - tokens within text, paragraph, sentence elements - and a summary report)
 # INPUT data.vrt TYPE GENERIC
 # OUTPUT data.tsv
 # OUTPUT info.txt
