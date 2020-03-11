@@ -2,7 +2,7 @@
 
 Esim. oikeaan laitaan? [Mietta]
 
-* TODO Tekstin analyysin näyttäminen tekstissä
+* TODO Tekstin analyysin näyttäminen tekstissä.
 
 Generoidaan HTML-teksti, jossa analyysitulokset helpommin nähtävissä
 alkuperäisehkön tekstin annotaationa. [Mietta]
