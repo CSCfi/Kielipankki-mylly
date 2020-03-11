@@ -6,6 +6,6 @@ up a testing environment.
 
 Note that this repo contains only scripts to set up the "comp" servers on Taito, setting up the VM is handled by the Chipster team's scripts.
 
-CSC internal documentation: Kielipankki/MyllyAdministration
+CSC internal documentation: Kielipankki/MyllyAdministration.
 
 The repo updates now also https://chipster.rahtiapp.fi/mylly/analyze
