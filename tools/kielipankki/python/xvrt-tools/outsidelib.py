@@ -22,16 +22,16 @@ HFSTLIB = '/appl/ling/hfst/3.15.0/lib'
 # no longer using HFSTTOKENIZE? but find it in HFSTBIN?
 HFSTTOKENIZE = '/appl/ling/hfst/3.15.0/bin/hfst-tokenize'
 OMORFITOKENIZE = (
-    '/appl/ling/finnish-tagtools/1.3.2/share/finnish-tagtools'
+    '/appl/ling/finnish-tagtools/1.5.0/share/finnish-tagtools'
     '/omorfi_tokenize.pmatch'
 )
 
 FINER = (
-    '/appl/ling/finnish-tagtools/1.3.2/bin/finnish-nertag'
+    '/appl/ling/finnish-tagtools/1.5.0/bin/finnish-nertag'
 )
 
 FINPOS =  (
-    '/appl/ling/finnish-tagtools/1.3.2/bin/finnish-postag'
+    '/appl/ling/finnish-tagtools/1.5.0/bin/finnish-postag'
 )
 
 HUNPOSTAG = '/proj/kieli/sparv/hunpos/hunpos-tag'

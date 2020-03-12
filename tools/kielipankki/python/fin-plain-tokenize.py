@@ -26,7 +26,7 @@ name('output.tsv', '{}-token'.format(base('input.txt', '*.txt')),
 # does not seem to rely on the dynamic hfst library, by readelf -d,
 # so not setting LD_LIBRARY_PATH
 
-TOOLDIR = '/appl/ling/finnish-tagtools/1.3.2/share/finnish-tagtools'
+TOOLDIR = '/appl/ling/finnish-tagtools/1.5.0/share/finnish-tagtools'
 TOOLENV = os.environ
 TOOL = [os.path.join(TOOLDIR, 'hfst-tokenize'),
         os.path.join(TOOLDIR, 'omorfi_tokenize.pmatch')]
