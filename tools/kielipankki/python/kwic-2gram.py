@@ -32,6 +32,7 @@
 # PARAMETER OPTIONAL attr5: "Attribute" TYPE STRING
 # PARAMETER OPTIONAL attr6: "Attribute" TYPE STRING
 # PARAMETER OPTIONAL attr7: "Attribute" TYPE STRING
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import json, os, sys

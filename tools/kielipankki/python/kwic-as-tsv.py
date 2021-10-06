@@ -4,6 +4,7 @@
 #     (A  KWIC concordance in a Korp JSON file)
 # OUTPUT tokens.tsv
 # OUTPUT meta.tsv
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import json, os, sys

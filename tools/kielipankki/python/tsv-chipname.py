@@ -2,6 +2,7 @@
 # (Add 'chip.' prefix to attribute names that already have a numeric prefix.)
 # INPUT old.tsv TYPE GENERIC
 # OUTPUT new.tsv
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys

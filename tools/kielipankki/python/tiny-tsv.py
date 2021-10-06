@@ -13,6 +13,7 @@
 # PARAMETER OPTIONAL val20 TYPE STRING
 # PARAMETER OPTIONAL val21 TYPE STRING
 # PARAMETER OPTIONAL val22 TYPE STRING
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # So it cannot make Dee or Dum. Make separate tools for those two

@@ -4,6 +4,7 @@
 # OUTPUT traces.tsv (Token per line, with position within word)
 # OUTPUT OPTIONAL error.log
 # PARAMETER encoding TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # Since Kielipankki Chipster failed to show a tokens.tsv as

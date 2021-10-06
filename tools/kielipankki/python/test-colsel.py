@@ -9,6 +9,7 @@
 # PARAMETER col1: "First column name" TYPE COLUMN_SEL (Column in input file)
 # PARAMETER col2: "Nothe column name" TYPE COLUMN_SEL (Column in input file)
 # PARAMETER col3: "Anoth column name" TYPE COLUMN_SEL (Column in input file)
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # Want to run this in Chipster and see

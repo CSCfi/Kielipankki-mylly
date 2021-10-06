@@ -1,6 +1,7 @@
 # TOOL vrt-finpos.py: "Classify tokens in VRT /FinnPos" (Classify tokens in Finnish VRT.)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys

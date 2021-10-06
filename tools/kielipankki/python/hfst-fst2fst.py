@@ -15,6 +15,7 @@
 #     (HFST binary format)
 # PARAMETER Version TYPE [v_3_14_0: "3.14.0"] DEFAULT v_3_14_0 (HFST version)
 # PARAMETER VersionLog TYPE [omit: "omit version.log", produce: "produce version.log"] DEFAULT omit (Whether to produce --version log)
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import sys

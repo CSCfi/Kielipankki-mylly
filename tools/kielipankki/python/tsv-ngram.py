@@ -9,6 +9,7 @@
 # PARAMETER attr3 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER attr4 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER attr5 TYPE COLUMN_SEL DEFAULT EMPTY
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # asen is for grouping sentences input and output

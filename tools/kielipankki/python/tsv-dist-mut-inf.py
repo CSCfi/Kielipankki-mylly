@@ -10,6 +10,7 @@
 # PARAMETER con2: "Condition field" TYPE COLUMN_SEL DEFAULT EMPTY ()
 # PARAMETER key1: "Grouping field" TYPE COLUMN_SEL DEFAULT EMPTY ()
 # PARAMETER key2: "Grouping field" TYPE COLUMN_SEL DEFAULT EMPTY ()
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys

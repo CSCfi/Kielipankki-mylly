@@ -3,6 +3,7 @@
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC
 # OUTPUT miss.tsv
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import sys, os

@@ -6,6 +6,7 @@
 # INPUT OPTIONAL two3.tsv TYPE GENERIC
 # INPUT OPTIONAL two4.tsv TYPE GENERIC
 # OUTPUT difference.tsv
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 from glob import glob

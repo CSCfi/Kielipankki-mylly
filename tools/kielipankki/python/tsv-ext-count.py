@@ -8,6 +8,7 @@
 # PARAMETER OPTIONAL attr2: "attribute 2" TYPE COLUMN_SEL
 # PARAMETER OPTIONAL attr3: "attribute 3" TYPE COLUMN_SEL
 # PARAMETER OPTIONAL sfreq: "count (if already counted)" TYPE COLUMN_SEL
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # Cannot be a mere counting projection or a join with one because

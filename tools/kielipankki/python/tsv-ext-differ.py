@@ -15,6 +15,7 @@
 # ] DEFAULT flo
 # PARAMETER dprefix: "difference prefix" TYPE STRING DEFAULT wM
 # PARAMETER rprefix: "ratio prefix" TYPE STRING DEFAULT wM
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import sys, os

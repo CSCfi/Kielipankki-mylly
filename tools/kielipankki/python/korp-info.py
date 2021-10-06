@@ -15,6 +15,7 @@
 #     VNSK: "VNSK",
 #     YLILAUTA: "YLILAUTA"
 # ]
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # Turns out COCA and COHA require authentication so no go. Remove?

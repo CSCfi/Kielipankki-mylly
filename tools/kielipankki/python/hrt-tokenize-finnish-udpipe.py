@@ -1,6 +1,7 @@
 # TOOL hrt-tokenize-finnish-udpipe.py: "Tokenize Finnish HRT /UDPipe TDT" (Tokenize Finnish HRT into VRT with UDPipe.)
 # INPUT input.hrt TYPE GENERIC
 # OUTPUT output.vrt
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys

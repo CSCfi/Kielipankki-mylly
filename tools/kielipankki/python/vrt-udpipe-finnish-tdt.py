@@ -1,6 +1,7 @@
 # TOOL vrt-udpipe-finnish-tdt.py: "Parse Finnish VRT /UDPipe TDT UD2" (Parse Finnish VRT.)
 # INPUT input.vrt TYPE GENERIC
 # OUTPUT output.vrt
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys

@@ -4,6 +4,7 @@
 # OUTPUT OPTIONAL output{...}.txt (Can haz output in pattern?)
 # OUTPUT OPTIONAL error.txt  (Diagnostics if any)
 # PARAMETER code TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # Want to run this in Chipster and see

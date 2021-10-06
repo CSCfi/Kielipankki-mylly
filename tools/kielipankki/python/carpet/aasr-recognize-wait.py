@@ -6,6 +6,7 @@
 # OUTPUT OPTIONAL error.log
 # OUTPUT OPTIONAL stdout.log
 # OUTPUT OPTIONAL stderr.log
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # Made batch stdout and stderr available in Mylly at least for the

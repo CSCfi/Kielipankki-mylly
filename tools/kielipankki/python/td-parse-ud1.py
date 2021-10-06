@@ -1,6 +1,7 @@
 # TOOL td-parse-ud1.py: "Parse Finnish plaintext /TDP UD1" (Segments Finnish plaintext into sentences and tokens. Annotates each sentence with a morpho-syntactic structure using an UD1 version of the Turku Dependency Parser.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys

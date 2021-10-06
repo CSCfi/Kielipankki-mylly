@@ -2,6 +2,7 @@
 # (TSV as Open Document Spreadsheet. Column name prefix cM or kM indicates that cells contain whole numbers, like counts, and wM or vM indicates a numeric weight.)
 # INPUT table.tsv: "TSV file" TYPE GENERIC
 # OUTPUT table.ods
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import odf, os, sys # depends on odf (package odfpy from PyPI)

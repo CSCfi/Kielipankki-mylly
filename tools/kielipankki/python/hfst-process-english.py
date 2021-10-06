@@ -6,6 +6,7 @@
 # PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0", v3110: "3.11.0"] DEFAULT v383 (HFST Version)
 # PARAMETER InputFormat TYPE [raw: "raw"] DEFAULT raw (Input format)
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", apertium: "Apertium format"] DEFAULT xerox (Output format)
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os

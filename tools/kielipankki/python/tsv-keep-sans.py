@@ -18,6 +18,7 @@
 # PARAMETER OPTIONAL keepD TYPE STRING
 # PARAMETER OPTIONAL keepE TYPE STRING
 # PARAMETER OPTIONAL keepF TYPE STRING
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 from collections import Counter

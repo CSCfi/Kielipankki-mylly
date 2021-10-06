@@ -34,6 +34,7 @@
 # ] DEFAULT word (Another attribute of the second token)
 # PARAMETER OPTIONAL val2b: "Value" TYPE STRING
 #    (A value of the attribute)
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 from itertools import chain

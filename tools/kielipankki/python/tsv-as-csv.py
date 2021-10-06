@@ -3,6 +3,7 @@
 # INPUT table.tsv: "TSV file" TYPE GENERIC
 #     (Tab-Separated Values, with mandatory header)
 # OUTPUT table.csv
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import csv, json, os, sys

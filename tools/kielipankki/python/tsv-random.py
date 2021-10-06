@@ -4,6 +4,7 @@
 # OUTPUT sample.tsv
 # PARAMETER size TYPE INTEGER FROM 0 DEFAULT 20
 # PARAMETER tag: "tag field" TYPE STRING DEFAULT "kMobs"
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 # This is not technically an operation of the relation algebra but

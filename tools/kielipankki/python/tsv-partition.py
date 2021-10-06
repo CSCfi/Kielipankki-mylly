@@ -5,6 +5,7 @@
 # OUTPUT part{...}.tsv
 # PARAMETER attr: "attribute name" TYPE COLUMN_SEL
 # PARAMETER many: "maximum number of parts" TYPE INTEGER FROM 2 TO 30 DEFAULT 6
+# IMAGE comp-16.04-mylly
 # RUNTIME python3
 
 import os, sys
