@@ -5,8 +5,6 @@
 # PARAMETER Encoding TYPE [windows_1252: "Windows-1252"] DEFAULT windows_1252 (Input encoding)
 # PARAMETER Handle TYPE [omit: "Omit", replace: "Replace"] DEFAULT omit (Omit or replace invalid data)
 # PARAMETER Quiet TYPE [yes: "yes", no: "no"] DEFAULT no (Be quiet about problems)
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os
 import sys
