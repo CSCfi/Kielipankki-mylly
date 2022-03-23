@@ -8,8 +8,6 @@
 # PARAMETER PrintAll TYPE [yes: "yes", no: "no"] DEFAULT no (Whether to print nonmatching text, whatever that is. Default not.)
 # PARAMETER PrintWeight TYPE [yes: "yes", no: "no"] DEFAULT no (Whether to print weights. Default not.)
 # PARAMETER OutputFormat TYPE [xerox: "Xerox format", cg: "Constraint Grammar format", segment: "Segment (tokenize)", finnpos: "FinnPos output"] DEFAULT segment (Output format)
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os
 import sys

@@ -2,8 +2,6 @@
 # (Get a list of corpora from korp.csc.fi)
 # OUTPUT korp.list.json
 # OUTPUT korp.list.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import json, os, sys
 

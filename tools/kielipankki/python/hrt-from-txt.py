@@ -1,8 +1,6 @@
 # TOOL hrt-from-txt.py: "Segment Finnish plaintext" (Segment Finnish plaintext into text and paragraph elements at empty lines. The output HRT format can then be tokenized into VRT.)
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.hrt
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from subprocess import Popen

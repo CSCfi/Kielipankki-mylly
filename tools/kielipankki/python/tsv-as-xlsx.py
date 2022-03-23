@@ -2,8 +2,6 @@
 # (TSV as Microsoft Excel spreadsheet)
 # INPUT table.tsv: "TSV file" TYPE GENERIC
 # OUTPUT table.xlsx
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from itertools import chain, count

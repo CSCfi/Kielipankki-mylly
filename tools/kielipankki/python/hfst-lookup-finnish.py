@@ -4,8 +4,6 @@
 # OUTPUT OPTIONAL error.log
 # PARAMETER Encoding TYPE [utf8: "UTF-8"] DEFAULT utf8 (Character encoding, UTF-8)
 # PARAMETER Version TYPE [v383: "3.8.3", v390: "3.9.0"] DEFAULT v383 (HFST Version)
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os
 import sys

@@ -5,8 +5,6 @@
 # OUTPUT OPTIONAL sentence-meta.tsv
 # OUTPUT OPTIONAL paragraph-meta.tsv
 # OUTPUT OPTIONAL text-meta.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 

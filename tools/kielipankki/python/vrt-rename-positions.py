@@ -9,8 +9,6 @@
 # PARAMETER new3 TYPE STRING DEFAULT EMPTY
 # PARAMETER old4 TYPE STRING DEFAULT EMPTY
 # PARAMETER new4 TYPE STRING DEFAULT EMPTY
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import html, os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))

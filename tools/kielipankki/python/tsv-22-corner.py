@@ -10,8 +10,6 @@
 # PARAMETER two1 TYPE COLUMN_SEL DEFAULT "EMPTY"
 # PARAMETER two2 TYPE COLUMN_SEL DEFAULT "EMPTY"
 # PARAMETER two3 TYPE COLUMN_SEL DEFAULT "EMPTY"
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 from collections import Counter
 from itertools import chain

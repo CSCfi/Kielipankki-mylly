@@ -25,8 +25,6 @@
 # PARAMETER OPTIONAL attr8 TYPE COLUMN_SEL
 # PARAMETER OPTIONAL kind8 TYPE [ "default", "integer", "float", "string" ] DEFAULT default
 # PARAMETER OPTIONAL sign8 TYPE [ "increasing", "decreasing" ] DEFAULT increasing
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 

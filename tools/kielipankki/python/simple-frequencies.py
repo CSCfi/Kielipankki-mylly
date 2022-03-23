@@ -1,8 +1,6 @@
 # TOOL simple-frequencies.py: "Small Frequency Demo" 
 # INPUT input TYPE GENERIC
 # OUTPUT output
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 # Reads ./input (running UTF-8 text, reads maxlines + 1 lines)
 # Writes ./output (frequencies of maximal "word-character" sequences)

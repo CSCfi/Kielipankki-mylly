@@ -6,8 +6,6 @@
 # INPUT OPTIONAL two3.tsv TYPE GENERIC
 # INPUT OPTIONAL two4.tsv TYPE GENERIC
 # OUTPUT union.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 # considering variants that make use of counts
 from collections import Counter

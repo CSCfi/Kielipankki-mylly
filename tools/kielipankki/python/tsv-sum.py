@@ -18,8 +18,6 @@
 # INPUT OPTIONAL inputF.tsv TYPE GENERIC
 # OUTPUT sum.tsv
 # PARAMETER tag: "tag field" TYPE STRING DEFAULT "kMtag"
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 from collections import defaultdict
 from itertools import count

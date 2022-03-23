@@ -1,8 +1,6 @@
 # TOOL tsv-requot.py: "Replace ASCII quotes" (Replace all ASCII quotes with right quotes. Preserves relationality if possible.)
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT result.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from itertools import groupby

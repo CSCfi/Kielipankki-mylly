@@ -1,8 +1,6 @@
 # TOOL decode-1252.py: "Decode Windows-1252" (Convert Windows-1252 encoding to UTF-8)
 # INPUT data.txt TYPE GENERIC
 # OUTPUT text.txt
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from subprocess import Popen, DEVNULL

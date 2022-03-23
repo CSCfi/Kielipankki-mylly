@@ -18,8 +18,6 @@
 # PARAMETER OPTIONAL dropD TYPE COLUMN_SEL
 # PARAMETER OPTIONAL dropE TYPE COLUMN_SEL
 # PARAMETER OPTIONAL dropF TYPE COLUMN_SEL
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 from collections import Counter
 import os

@@ -13,8 +13,6 @@
 # PARAMETER pos10 TYPE STRING DEFAULT EMPTY
 # PARAMETER pos11 TYPE STRING DEFAULT EMPTY
 # PARAMETER pos12 TYPE STRING DEFAULT EMPTY
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))

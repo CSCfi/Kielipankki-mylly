@@ -188,8 +188,6 @@
 #     (Use the same seed to repeat the same ordering of the results.)
 # PARAMETER page: "Concordance page" TYPE INTEGER FROM 0 TO 9 DEFAULT 0
 #     (Extract the specified page, 0-9, of up to 1000 results each, from the concordance.)
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 # This tool specifies attributes for a particular corpus.
 # Omitted KLK_FI_2011 having different set of attributes.

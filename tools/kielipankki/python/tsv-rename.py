@@ -10,8 +10,6 @@
 # PARAMETER OPTIONAL new2: "new name" TYPE STRING
 # PARAMETER OPTIONAL old3: "old name" TYPE COLUMN_SEL DEFAULT "EMPTY"
 # PARAMETER OPTIONAL new3: "new name" TYPE STRING
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 

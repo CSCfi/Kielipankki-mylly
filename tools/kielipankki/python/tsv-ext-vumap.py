@@ -19,8 +19,6 @@
 # PARAMETER OPTIONAL keyD TYPE STRING
 # PARAMETER OPTIONAL keyE TYPE STRING
 # PARAMETER OPTIONAL keyF TYPE STRING
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 # The "vu" refers to the "key_value|..." format:
 # v for the vertical bar,

@@ -3,8 +3,6 @@
 # INPUT one.tsv TYPE GENERIC
 # INPUT two.tsv TYPE GENERIC
 # OUTPUT result.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from collections import defaultdict

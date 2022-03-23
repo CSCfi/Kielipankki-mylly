@@ -14,8 +14,6 @@
 # PARAMETER group1 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER group2 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER group3 TYPE COLUMN_SEL DEFAULT EMPTY
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, re, sys
 from itertools import chain, groupby

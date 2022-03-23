@@ -1,8 +1,6 @@
 # TOOL hrt-tokenize-finnish-hfst.py: "Tokenize Finnish HRT /HFST" (Tokenize Finnish HRT into VRT with HFST.)
 # INPUT input.hrt TYPE GENERIC
 # OUTPUT output.vrt
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from subprocess import Popen

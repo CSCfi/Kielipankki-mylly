@@ -2,8 +2,6 @@
 # INPUT input.txt TYPE GENERIC
 # OUTPUT output.txt
 # OUTPUT output.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from itertools import groupby

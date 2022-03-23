@@ -11,8 +11,6 @@
 # PARAMETER attr6 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER attr7 TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER attr8 TYPE COLUMN_SEL DEFAULT EMPTY
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import sys, os
 from operator import itemgetter

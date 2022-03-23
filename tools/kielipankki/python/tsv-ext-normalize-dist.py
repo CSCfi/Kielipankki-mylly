@@ -3,8 +3,6 @@
 # OUTPUT result.tsv
 # PARAMETER dist: "Input distribution attribute" TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER norm: "Output distribution attribute" TYPE STRING
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from math import fsum, isfinite

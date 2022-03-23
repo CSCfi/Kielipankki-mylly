@@ -5,8 +5,6 @@
 # OUTPUT countsummary.txt (Summary information on token counts)
 # OUTPUT OPTIONAL error.txt
 # PARAMETER encoding TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 # Since Kielipankki Chipster failed to show a tokens.tsv as
 # spreadsheet, with an exception instead, it's better to duplicate the

@@ -2,8 +2,6 @@
 # INPUT input.txt TYPE GENERIC
 # OUTPUT ud2.txt
 # OUTPUT ud2.tsv
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 

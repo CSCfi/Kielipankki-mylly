@@ -3,8 +3,6 @@
 # OUTPUT report.tsv
 # PARAMETER level TYPE ["error", "warning", "info"] DEFAULT warning
 # PARAMETER verbosity TYPE ["verbose", "summary"] DEFAULT verbose
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))

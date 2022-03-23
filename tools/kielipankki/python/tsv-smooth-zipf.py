@@ -5,8 +5,6 @@
 # PARAMETER observations TYPE STRING DEFAULT "observations"
 # PARAMETER species TYPE STRING DEFAULT "species"
 # PARAMETER smooth TYPE STRING DEFAULT "species1"
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 from itertools import chain

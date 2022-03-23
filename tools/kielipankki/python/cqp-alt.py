@@ -28,8 +28,6 @@
 #     (A value of the attribute (letters, digits, hyphen, comma, period\))
 # PARAMETER OPTIONAL val9: "A value of the attribute" TYPE STRING
 #     (A value of the attribute (letters, digits, hyphen, comma, period\))
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 from itertools import chain
 import os, sys

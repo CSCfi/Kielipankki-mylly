@@ -4,8 +4,6 @@
 # OUTPUT tokens.tsv (Token per line, with line and token number)
 # OUTPUT OPTIONAL error.txt
 # PARAMETER encoding TYPE [utf8: "UTF-8", latin1: "ISO-8859-1"] DEFAULT utf8
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 # Kielipankki Chipster offered to show a tokens.tsv result as
 # spreadsheet but got an exception instead. Better to name the result

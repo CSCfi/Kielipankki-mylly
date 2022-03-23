@@ -4,8 +4,6 @@
 # OUTPUT part.tsv
 # PARAMETER attr: "attribute name" TYPE COLUMN_SEL DEFAULT EMPTY
 # PARAMETER val: "attribute value" TYPE STRING
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 

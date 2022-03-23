@@ -2,8 +2,6 @@
 # INPUT data.tsv TYPE GENERIC
 # OUTPUT result.tsv
 # PARAMETER number: "Number field name" TYPE STRING DEFAULT "kMid"
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os, sys
 sys.path.append(os.path.join(chipster_module_path, "python"))

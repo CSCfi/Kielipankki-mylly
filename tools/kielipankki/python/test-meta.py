@@ -4,8 +4,6 @@
 # OUTPUT out.txt
 # PARAMETER name1: "first name" TYPE COLUMN_SEL
 # PARAMETER name2: "second name" TYPE COLUMN_SEL
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 with open('out.txt', 'w', encoding = 'UTF-8') as out:
     print('name1 ==', name1, file = out)

@@ -19,8 +19,6 @@
 # PARAMETER OPTIONAL dropD TYPE STRING
 # PARAMETER OPTIONAL dropE TYPE STRING
 # PARAMETER OPTIONAL dropF TYPE STRING
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 from collections import Counter
 import os

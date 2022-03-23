@@ -2,8 +2,6 @@
 # INPUT text.txt TYPE GENERIC
 # OUTPUT generic.job
 # OUTPUT OPTIONAL error.log
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 import os
 import sys

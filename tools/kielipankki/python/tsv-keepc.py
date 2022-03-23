@@ -19,8 +19,6 @@
 # PARAMETER OPTIONAL keepD TYPE COLUMN_SEL
 # PARAMETER OPTIONAL keepE TYPE COLUMN_SEL
 # PARAMETER OPTIONAL keepF TYPE COLUMN_SEL
-# IMAGE comp-16.04-mylly
-# RUNTIME python3
 
 from collections import Counter
 import os, sys
